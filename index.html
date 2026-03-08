@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NBA live on/off impact</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Parser-first live dashboard</p>
+          <h1>NBA live on/off team impact</h1>
+          <p class="subhead">
+            Live NBA play-by-play + live box score reconciliation for player on/off team impact.
+            Uses live box score on-court state as the authority for the open stint and play-by-play as the event ledger.
+          </p>
+        </div>
+        <div class="meta-card">
+          <div><span>Source</span><strong>cdn.nba.com liveData</strong></div>
+          <div><span>Mode</span><strong>Zero-install Vercel build</strong></div>
+          <div><span>Metrics</span><strong>ORTG, DRTG, Net, TS, eFG, 2PT, 3PT</strong></div>
+        </div>
+      </header>
+
+      <section class="controls card">
+        <div class="control-group grow">
+          <label for="game-select">Current NBA slate</label>
+          <select id="game-select"></select>
+        </div>
+        <div class="control-group">
+          <label for="manual-game-id">Manual game ID</label>
+          <input id="manual-game-id" type="text" placeholder="0022500917" />
+        </div>
+        <div class="control-group">
+          <label for="player-filter">Player filter</label>
+          <input id="player-filter" type="text" placeholder="Edwards" />
+        </div>
+        <div class="actions">
+          <button id="refresh-scoreboard">Refresh games</button>
+          <button id="load-game" class="primary">Load game</button>
+        </div>
+      </section>
+
+      <section id="status" class="status"></section>
+
+      <section id="summary" class="summary-grid"></section>
+
+      <section id="tables"></section>
+
+      <section id="diagnostics"></section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
