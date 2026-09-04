@@ -1,0 +1,59 @@
+name: Probe Hawk-Eye host header routing
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/probe_hawkeye_host_header_routing.yml'
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: analysis/hawkeye-all-players-2025-26
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip -q install requests curl_cffi
+      - name: Route NBA host via accessible edge variants
+        run: |
+          python - <<'PY'
+          import requests,json,os,hashlib,socket
+          from curl_cffi import requests as creq
+          OUT='outputs/hawkeye_host_header_routing'; os.makedirs(OUT,exist_ok=True)
+          params={'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season'}
+          bases=['https://stats.gleague.nba.com/stats/shotqualityleaders','https://stats.nba.com/stats/shotqualityleaders']
+          headersets=[
+            ('plain',{}),
+            ('host_nba',{'Host':'stats.nba.com'}),
+            ('xfh_nba',{'X-Forwarded-Host':'stats.nba.com','X-Original-Host':'stats.nba.com'}),
+            ('host_nba_origin',{'Host':'stats.nba.com','Origin':'https://www.nba.com','Referer':'https://www.nba.com/'}),
+            ('forwarded',{'Forwarded':'host=stats.nba.com;proto=https','X-Forwarded-Host':'stats.nba.com','X-Forwarded-Proto':'https'}),
+          ]
+          rec=[]
+          for base in bases:
+            for name,h in headersets:
+              hh={'User-Agent':'Mozilla/5.0','Accept':'application/json,text/plain,*/*',**h}
+              for label,extra in [('all',{}),('pj',{'PlayerID':'1629023'}),('love',{'PlayerID':'201567'})]:
+                p={**params,**extra}
+                try:
+                  r=requests.get(base,params=p,headers=hh,timeout=18,allow_redirects=False)
+                  try:j=r.json()
+                  except:j=None
+                  shots=j.get('shots',[]) if isinstance(j,dict) else []
+                  rec.append({'base':base,'header_variant':name,'query':label,'status':r.status_code,'bytes':len(r.content),'shots':len(shots),'target':any(str(x.get('PLAYERID')) in ['1629023','201567'] for x in shots if isinstance(x,dict)),'sha256':hashlib.sha256(r.content).hexdigest(),'location':r.headers.get('location'),'server':r.headers.get('server'),'via':r.headers.get('via'),'prefix':r.text[:400] if not shots else ''})
+                except Exception as e: rec.append({'base':base,'header_variant':name,'query':label,'error':repr(e)})
+          json.dump(rec,open(f'{OUT}/report.json','w'),indent=2)
+          json.dump([x for x in rec if x.get('target') or x.get('shots') or x.get('status') not in [None,200]],open(f'{OUT}/interesting.json','w'),indent=2)
+          print(json.dumps(rec,indent=2))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hawkeye_host_header_routing
+          git commit -m 'Probe NBA Hawk-Eye host routing' || exit 0
+          for i in 1 2 3 4; do git pull --rebase origin analysis/hawkeye-all-players-2025-26 && git push origin HEAD:analysis/hawkeye-all-players-2025-26 && exit 0; sleep 2; done
+          exit 1
