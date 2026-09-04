@@ -1,0 +1,105 @@
+name: Probe current NBA and WNBA shot difficulty routes
+
+on:
+  push:
+    branches: [analysis/hawkeye-season-complete-v2]
+    paths: ['.github/workflows/probe_current_nba_wnba_shotdifficulty_routes.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-season-complete-v2}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests beautifulsoup4
+      - name: Probe current clients and API routes
+        run: |
+          python - <<'PY'
+          import requests,re,json,pathlib,urllib.parse,hashlib,time
+          from bs4 import BeautifulSoup
+          H={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/137.0 Safari/537.36','Accept':'*/*'}
+          s=requests.Session();s.headers.update(H)
+          pages=[
+            'https://www.nba.com/inside-the-game/player/shot-difficulty',
+            'https://www.nba.com/inside-the-game',
+            'https://www.wnba.com/stats/inside-the-game/shot-difficulty',
+            'https://www.wnba.com/stats/inside-the-game',
+          ]
+          script_text={}; page_rows=[]
+          for u in pages:
+            try:
+              r=s.get(u,timeout=45); page_rows.append({'url':u,'status':r.status_code,'bytes':len(r.content),'final_url':r.url})
+              soup=BeautifulSoup(r.text,'html.parser')
+              for tag in soup.find_all('script',src=True):
+                src=urllib.parse.urljoin(u,tag['src'])
+                if src not in script_text:
+                  try:
+                    rr=s.get(src,timeout=45)
+                    script_text[src]=rr.text if rr.status_code==200 else ''
+                  except: script_text[src]=''
+            except Exception as e: page_rows.append({'url':u,'error':repr(e)})
+          needles=['/api/stats/','shot-difficulty','shotqualityleaders','shotqualitytopperformersseason','topShootingPerformances','FGPCTABOVEEXPECTED','AVGROTATIONDEGREES','AVGDEFENSIVEHANDHEIGHT','AVGSHOOTERSPEED','AVGDEFENDERPRESSURESCORE']
+          contexts=[]
+          for u,txt in script_text.items():
+            low=txt.lower()
+            for needle in needles:
+              nl=needle.lower(); start=0; count=0
+              while True:
+                i=low.find(nl,start)
+                if i<0:break
+                contexts.append({'url':u,'needle':needle,'index':i,'context':txt[max(0,i-5000):min(len(txt),i+9000)]})
+                start=i+len(nl);count+=1
+                if count>=12: break
+          # Direct Next API route probes, with controls/likely undocumented args.
+          route_tests=[]
+          api_bases=[
+            ('nba','https://www.nba.com/api/stats/shot-difficulty',{'season':'2025-26','seasonType':'Regular Season'}),
+            ('wnba','https://www.wnba.com/api/stats/shot-difficulty',{'season':'2026','seasonType':'Regular Season'}),
+          ]
+          extras=[
+            ('base',{}),
+            ('allPlayers',{'allPlayers':'true'}),('includeUnqualified',{'includeUnqualified':'true'}),('qualifiedFalse',{'qualified':'false'}),
+            ('playerId-love',{'playerId':'201567'}),('PlayerID-love',{'PlayerID':'201567'}),
+            ('limit1000',{'limit':'1000'}),('pageSize1000',{'pageSize':'1000'}),('minimumFga0',{'minimumFga':'0'}),('minFga0',{'minFga':'0'}),
+          ]
+          for league,base,params0 in api_bases:
+            for label,extra in extras:
+              p={**params0,**extra}; rec={'league':league,'label':label,'url':base,'params':p}
+              try:
+                r=s.get(base,params=p,timeout=45,allow_redirects=True)
+                rec.update(status=r.status_code,bytes=len(r.content),content_type=r.headers.get('content-type'),final_url=r.url,sha256=hashlib.sha256(r.content).hexdigest())
+                if r.status_code==200 and 'json' in (r.headers.get('content-type') or '').lower():
+                  j=r.json(); rec['top_keys']=list(j) if isinstance(j,dict) else None
+                  shots=j.get('shots',[]) if isinstance(j,dict) else []
+                  rec['shot_count']=len(shots) if isinstance(shots,list) else None
+                  rec['params_echo']=j.get('params') if isinstance(j,dict) else None
+                  if isinstance(shots,list) and shots:
+                    rec['first_keys']=list(shots[0])
+                    rec['first_row']={k:shots[0].get(k) for k in ['PLAYERID','PLAYERNAME','FGA','FGM','AVGSHOTQUALITY','AVGDEFENSIVEHANDHEIGHT','AVGSHOOTERSPEED','AVGROTATIONDEGREES','AVGDEFENDERPRESSURESCORE']}
+                    love=[x for x in shots if str(x.get('PLAYERID'))=='201567']
+                    rec['love_rows']=love[:2]
+                elif len(r.content)<10000: rec['text']=r.text[:5000]
+              except Exception as e: rec['error']=repr(e)
+              route_tests.append(rec); print(league,label,rec.get('status'),rec.get('bytes'),rec.get('shot_count'),flush=True)
+              time.sleep(.1)
+          d=pathlib.Path('outputs/current_nba_wnba_shotdifficulty_routes'); d.mkdir(parents=True,exist_ok=True)
+          (d/'pages_and_scripts.json').write_text(json.dumps({'pages':page_rows,'script_count':len(script_text),'scripts':[{'url':u,'bytes':len(t)} for u,t in script_text.items()]},indent=2),encoding='utf-8')
+          (d/'contexts.json').write_text(json.dumps(contexts,indent=2,ensure_ascii=False),encoding='utf-8')
+          (d/'route_tests.json').write_text(json.dumps(route_tests,indent=2,ensure_ascii=False),encoding='utf-8')
+          (d/'summary.json').write_text(json.dumps({'pages':page_rows,'script_count':len(script_text),'context_hits':len(contexts),'api_tests':[{k:x.get(k) for k in ['league','label','status','bytes','shot_count','top_keys','params_echo','first_row','error']} for x in route_tests]},indent=2,ensure_ascii=False),encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/current_nba_wnba_shotdifficulty_routes
+          git commit -m 'Preserve current NBA/WNBA shot difficulty route probe' || exit 0
+          git pull --rebase origin analysis/hawkeye-season-complete-v2
+          git push origin HEAD:analysis/hawkeye-season-complete-v2
