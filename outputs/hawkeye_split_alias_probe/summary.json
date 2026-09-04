@@ -1,0 +1,628 @@
+[
+  {
+    "label": "PlayerID-qualified",
+    "status": 200,
+    "row_count": 1,
+    "same_sha_as_base": false,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "playerId-qualified",
+    "status": 200,
+    "row_count": 1,
+    "same_sha_as_base": false,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "PlayerID-unqualified",
+    "status": 200,
+    "row_count": 0,
+    "same_sha_as_base": false,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": null
+  },
+  {
+    "label": "playerId-unqualified",
+    "status": 200,
+    "row_count": 0,
+    "same_sha_as_base": false,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": null
+  },
+  {
+    "label": "TeamID-HOU",
+    "status": 200,
+    "row_count": 5,
+    "same_sha_as_base": false,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": null
+  },
+  {
+    "label": "teamId-HOU",
+    "status": 200,
+    "row_count": 5,
+    "same_sha_as_base": false,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": null
+  },
+  {
+    "label": "LastNGames-5",
+    "status": 200,
+    "row_count": 125,
+    "same_sha_as_base": true,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "lastNGames-5",
+    "status": 200,
+    "row_count": 125,
+    "same_sha_as_base": true,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "lastN-5",
+    "status": 200,
+    "row_count": 125,
+    "same_sha_as_base": true,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "Month-4",
+    "status": 200,
+    "row_count": 125,
+    "same_sha_as_base": true,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "month-4",
+    "status": 200,
+    "row_count": 125,
+    "same_sha_as_base": true,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "SeasonSegment-PostAllStar",
+    "status": 200,
+    "row_count": 125,
+    "same_sha_as_base": true,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "seasonSegment-PostAllStar",
+    "status": 200,
+    "row_count": 125,
+    "same_sha_as_base": true,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "DateFrom-Jan",
+    "status": 200,
+    "row_count": 125,
+    "same_sha_as_base": true,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "dateFrom-Jan",
+    "status": 200,
+    "row_count": 125,
+    "same_sha_as_base": true,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "DateTo-Jan31",
+    "status": 200,
+    "row_count": 125,
+    "same_sha_as_base": true,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "dateTo-Jan31",
+    "status": 200,
+    "row_count": 125,
+    "same_sha_as_base": true,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "DateRange-upper",
+    "status": 200,
+    "row_count": 125,
+    "same_sha_as_base": true,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "DateRange-lower",
+    "status": 200,
+    "row_count": 125,
+    "same_sha_as_base": true,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "StartEndDate-lower",
+    "status": 200,
+    "row_count": 125,
+    "same_sha_as_base": true,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "StartEndDate-upper",
+    "status": 200,
+    "row_count": 125,
+    "same_sha_as_base": true,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "qualified-last5-upper",
+    "status": 200,
+    "row_count": 1,
+    "same_sha_as_base": false,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "qualified-last5-lower",
+    "status": 200,
+    "row_count": 1,
+    "same_sha_as_base": false,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "qualified-month-upper",
+    "status": 200,
+    "row_count": 1,
+    "same_sha_as_base": false,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "qualified-month-lower",
+    "status": 200,
+    "row_count": 1,
+    "same_sha_as_base": false,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "qualified-dates-upper",
+    "status": 200,
+    "row_count": 1,
+    "same_sha_as_base": false,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "qualified-dates-lower",
+    "status": 200,
+    "row_count": 1,
+    "same_sha_as_base": false,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "unqualified-last5-upper",
+    "status": 200,
+    "row_count": 0,
+    "same_sha_as_base": false,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": null
+  },
+  {
+    "label": "unqualified-last5-lower",
+    "status": 200,
+    "row_count": 0,
+    "same_sha_as_base": false,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": null
+  },
+  {
+    "label": "unqualified-month-upper",
+    "status": 200,
+    "row_count": 0,
+    "same_sha_as_base": false,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": null
+  },
+  {
+    "label": "unqualified-month-lower",
+    "status": 200,
+    "row_count": 0,
+    "same_sha_as_base": false,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": null
+  },
+  {
+    "label": "unqualified-dates-upper",
+    "status": 200,
+    "row_count": 0,
+    "same_sha_as_base": false,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": null
+  },
+  {
+    "label": "unqualified-dates-lower",
+    "status": 200,
+    "row_count": 0,
+    "same_sha_as_base": false,
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_row": null
+  }
+]

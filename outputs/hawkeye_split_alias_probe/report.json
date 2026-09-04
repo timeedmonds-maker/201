@@ -1,0 +1,1455 @@
+[
+  {
+    "label": "base",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 125,
+    "player_ids": [
+      201942,
+      1629627,
+      1630578,
+      201142,
+      1627742,
+      203999,
+      1629008,
+      1627759,
+      1629651,
+      1626164
+    ],
+    "first_row": {
+      "PLAYERID": 201942,
+      "PLAYERNAME": "DeMar DeRozan",
+      "TEAMABBREVIATION": "SAC",
+      "FGA": 1005,
+      "AVGSHOTQUALITY": 0.438,
+      "AVGDEFENSIVEHANDHEIGHT": 90.617,
+      "AVGSHOOTERSPEED": 3.582,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.879
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "PlayerID-qualified",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "1628983"
+    },
+    "status": 200,
+    "bytes": 1393,
+    "sha256": "3a1cb22787fc2bd596a9e46ce3fd451661f575690c31959f296884a2c644f1a2",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=1628983",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 1,
+    "player_ids": [
+      1628983
+    ],
+    "first_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "playerId-qualified",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "playerId": "1628983"
+    },
+    "status": 200,
+    "bytes": 1393,
+    "sha256": "3a1cb22787fc2bd596a9e46ce3fd451661f575690c31959f296884a2c644f1a2",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&playerId=1628983",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 1,
+    "player_ids": [
+      1628983
+    ],
+    "first_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "PlayerID-unqualified",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "201567"
+    },
+    "status": 200,
+    "bytes": 92,
+    "sha256": "dfeef8a59bda8a3037671ff420c27b21f628b5015f776d5d1c1f2c0600045101",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=201567",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 0,
+    "player_ids": []
+  },
+  {
+    "label": "playerId-unqualified",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "playerId": "201567"
+    },
+    "status": 200,
+    "bytes": 92,
+    "sha256": "dfeef8a59bda8a3037671ff420c27b21f628b5015f776d5d1c1f2c0600045101",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&playerId=201567",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 0,
+    "player_ids": []
+  },
+  {
+    "label": "TeamID-HOU",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "TeamID": "1610612745"
+    },
+    "status": 200,
+    "bytes": 6486,
+    "sha256": "b23e1079c7e417612fe8f1ddee4b192abbefcb652df2840ed83654230e78eeb2",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&TeamID=1610612745",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 5,
+    "player_ids": [
+      1630578,
+      201142,
+      1631095,
+      1641708,
+      1642263
+    ],
+    "first_row": {
+      "PLAYERID": 1630578,
+      "PLAYERNAME": "Alperen Sengun",
+      "TEAMABBREVIATION": "HOU",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.517,
+      "AVGDEFENSIVEHANDHEIGHT": 88.331,
+      "AVGSHOOTERSPEED": 4.717,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.865
+    }
+  },
+  {
+    "label": "teamId-HOU",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "teamId": "1610612745"
+    },
+    "status": 200,
+    "bytes": 6486,
+    "sha256": "b23e1079c7e417612fe8f1ddee4b192abbefcb652df2840ed83654230e78eeb2",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&teamId=1610612745",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 5,
+    "player_ids": [
+      1630578,
+      201142,
+      1631095,
+      1641708,
+      1642263
+    ],
+    "first_row": {
+      "PLAYERID": 1630578,
+      "PLAYERNAME": "Alperen Sengun",
+      "TEAMABBREVIATION": "HOU",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.517,
+      "AVGDEFENSIVEHANDHEIGHT": 88.331,
+      "AVGSHOOTERSPEED": 4.717,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.865
+    }
+  },
+  {
+    "label": "LastNGames-5",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "LastNGames": "5"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&LastNGames=5",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 125,
+    "player_ids": [
+      201942,
+      1629627,
+      1630578,
+      201142,
+      1627742,
+      203999,
+      1629008,
+      1627759,
+      1629651,
+      1626164
+    ],
+    "first_row": {
+      "PLAYERID": 201942,
+      "PLAYERNAME": "DeMar DeRozan",
+      "TEAMABBREVIATION": "SAC",
+      "FGA": 1005,
+      "AVGSHOTQUALITY": 0.438,
+      "AVGDEFENSIVEHANDHEIGHT": 90.617,
+      "AVGSHOOTERSPEED": 3.582,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.879
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "lastNGames-5",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "lastNGames": "5"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&lastNGames=5",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 125,
+    "player_ids": [
+      201942,
+      1629627,
+      1630578,
+      201142,
+      1627742,
+      203999,
+      1629008,
+      1627759,
+      1629651,
+      1626164
+    ],
+    "first_row": {
+      "PLAYERID": 201942,
+      "PLAYERNAME": "DeMar DeRozan",
+      "TEAMABBREVIATION": "SAC",
+      "FGA": 1005,
+      "AVGSHOTQUALITY": 0.438,
+      "AVGDEFENSIVEHANDHEIGHT": 90.617,
+      "AVGSHOOTERSPEED": 3.582,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.879
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "lastN-5",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "lastN": "5"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&lastN=5",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 125,
+    "player_ids": [
+      201942,
+      1629627,
+      1630578,
+      201142,
+      1627742,
+      203999,
+      1629008,
+      1627759,
+      1629651,
+      1626164
+    ],
+    "first_row": {
+      "PLAYERID": 201942,
+      "PLAYERNAME": "DeMar DeRozan",
+      "TEAMABBREVIATION": "SAC",
+      "FGA": 1005,
+      "AVGSHOTQUALITY": 0.438,
+      "AVGDEFENSIVEHANDHEIGHT": 90.617,
+      "AVGSHOOTERSPEED": 3.582,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.879
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "Month-4",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "Month": "4"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&Month=4",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 125,
+    "player_ids": [
+      201942,
+      1629627,
+      1630578,
+      201142,
+      1627742,
+      203999,
+      1629008,
+      1627759,
+      1629651,
+      1626164
+    ],
+    "first_row": {
+      "PLAYERID": 201942,
+      "PLAYERNAME": "DeMar DeRozan",
+      "TEAMABBREVIATION": "SAC",
+      "FGA": 1005,
+      "AVGSHOTQUALITY": 0.438,
+      "AVGDEFENSIVEHANDHEIGHT": 90.617,
+      "AVGSHOOTERSPEED": 3.582,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.879
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "month-4",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "month": "4"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&month=4",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 125,
+    "player_ids": [
+      201942,
+      1629627,
+      1630578,
+      201142,
+      1627742,
+      203999,
+      1629008,
+      1627759,
+      1629651,
+      1626164
+    ],
+    "first_row": {
+      "PLAYERID": 201942,
+      "PLAYERNAME": "DeMar DeRozan",
+      "TEAMABBREVIATION": "SAC",
+      "FGA": 1005,
+      "AVGSHOTQUALITY": 0.438,
+      "AVGDEFENSIVEHANDHEIGHT": 90.617,
+      "AVGSHOOTERSPEED": 3.582,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.879
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "SeasonSegment-PostAllStar",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "SeasonSegment": "Post All-Star"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&SeasonSegment=Post+All-Star",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 125,
+    "player_ids": [
+      201942,
+      1629627,
+      1630578,
+      201142,
+      1627742,
+      203999,
+      1629008,
+      1627759,
+      1629651,
+      1626164
+    ],
+    "first_row": {
+      "PLAYERID": 201942,
+      "PLAYERNAME": "DeMar DeRozan",
+      "TEAMABBREVIATION": "SAC",
+      "FGA": 1005,
+      "AVGSHOTQUALITY": 0.438,
+      "AVGDEFENSIVEHANDHEIGHT": 90.617,
+      "AVGSHOOTERSPEED": 3.582,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.879
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "seasonSegment-PostAllStar",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "seasonSegment": "Post All-Star"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&seasonSegment=Post+All-Star",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 125,
+    "player_ids": [
+      201942,
+      1629627,
+      1630578,
+      201142,
+      1627742,
+      203999,
+      1629008,
+      1627759,
+      1629651,
+      1626164
+    ],
+    "first_row": {
+      "PLAYERID": 201942,
+      "PLAYERNAME": "DeMar DeRozan",
+      "TEAMABBREVIATION": "SAC",
+      "FGA": 1005,
+      "AVGSHOTQUALITY": 0.438,
+      "AVGDEFENSIVEHANDHEIGHT": 90.617,
+      "AVGSHOOTERSPEED": 3.582,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.879
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "DateFrom-Jan",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "DateFrom": "01/01/2026"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&DateFrom=01%2F01%2F2026",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 125,
+    "player_ids": [
+      201942,
+      1629627,
+      1630578,
+      201142,
+      1627742,
+      203999,
+      1629008,
+      1627759,
+      1629651,
+      1626164
+    ],
+    "first_row": {
+      "PLAYERID": 201942,
+      "PLAYERNAME": "DeMar DeRozan",
+      "TEAMABBREVIATION": "SAC",
+      "FGA": 1005,
+      "AVGSHOTQUALITY": 0.438,
+      "AVGDEFENSIVEHANDHEIGHT": 90.617,
+      "AVGSHOOTERSPEED": 3.582,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.879
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "dateFrom-Jan",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "dateFrom": "01/01/2026"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&dateFrom=01%2F01%2F2026",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 125,
+    "player_ids": [
+      201942,
+      1629627,
+      1630578,
+      201142,
+      1627742,
+      203999,
+      1629008,
+      1627759,
+      1629651,
+      1626164
+    ],
+    "first_row": {
+      "PLAYERID": 201942,
+      "PLAYERNAME": "DeMar DeRozan",
+      "TEAMABBREVIATION": "SAC",
+      "FGA": 1005,
+      "AVGSHOTQUALITY": 0.438,
+      "AVGDEFENSIVEHANDHEIGHT": 90.617,
+      "AVGSHOOTERSPEED": 3.582,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.879
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "DateTo-Jan31",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "DateTo": "01/31/2026"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&DateTo=01%2F31%2F2026",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 125,
+    "player_ids": [
+      201942,
+      1629627,
+      1630578,
+      201142,
+      1627742,
+      203999,
+      1629008,
+      1627759,
+      1629651,
+      1626164
+    ],
+    "first_row": {
+      "PLAYERID": 201942,
+      "PLAYERNAME": "DeMar DeRozan",
+      "TEAMABBREVIATION": "SAC",
+      "FGA": 1005,
+      "AVGSHOTQUALITY": 0.438,
+      "AVGDEFENSIVEHANDHEIGHT": 90.617,
+      "AVGSHOOTERSPEED": 3.582,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.879
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "dateTo-Jan31",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "dateTo": "01/31/2026"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&dateTo=01%2F31%2F2026",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 125,
+    "player_ids": [
+      201942,
+      1629627,
+      1630578,
+      201142,
+      1627742,
+      203999,
+      1629008,
+      1627759,
+      1629651,
+      1626164
+    ],
+    "first_row": {
+      "PLAYERID": 201942,
+      "PLAYERNAME": "DeMar DeRozan",
+      "TEAMABBREVIATION": "SAC",
+      "FGA": 1005,
+      "AVGSHOTQUALITY": 0.438,
+      "AVGDEFENSIVEHANDHEIGHT": 90.617,
+      "AVGSHOOTERSPEED": 3.582,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.879
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "DateRange-upper",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "DateFrom": "01/01/2026",
+      "DateTo": "01/31/2026"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&DateFrom=01%2F01%2F2026&DateTo=01%2F31%2F2026",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 125,
+    "player_ids": [
+      201942,
+      1629627,
+      1630578,
+      201142,
+      1627742,
+      203999,
+      1629008,
+      1627759,
+      1629651,
+      1626164
+    ],
+    "first_row": {
+      "PLAYERID": 201942,
+      "PLAYERNAME": "DeMar DeRozan",
+      "TEAMABBREVIATION": "SAC",
+      "FGA": 1005,
+      "AVGSHOTQUALITY": 0.438,
+      "AVGDEFENSIVEHANDHEIGHT": 90.617,
+      "AVGSHOOTERSPEED": 3.582,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.879
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "DateRange-lower",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "dateFrom": "01/01/2026",
+      "dateTo": "01/31/2026"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&dateFrom=01%2F01%2F2026&dateTo=01%2F31%2F2026",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 125,
+    "player_ids": [
+      201942,
+      1629627,
+      1630578,
+      201142,
+      1627742,
+      203999,
+      1629008,
+      1627759,
+      1629651,
+      1626164
+    ],
+    "first_row": {
+      "PLAYERID": 201942,
+      "PLAYERNAME": "DeMar DeRozan",
+      "TEAMABBREVIATION": "SAC",
+      "FGA": 1005,
+      "AVGSHOTQUALITY": 0.438,
+      "AVGDEFENSIVEHANDHEIGHT": 90.617,
+      "AVGSHOOTERSPEED": 3.582,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.879
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "StartEndDate-lower",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "startDate": "2026-01-01",
+      "endDate": "2026-01-31"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&startDate=2026-01-01&endDate=2026-01-31",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 125,
+    "player_ids": [
+      201942,
+      1629627,
+      1630578,
+      201142,
+      1627742,
+      203999,
+      1629008,
+      1627759,
+      1629651,
+      1626164
+    ],
+    "first_row": {
+      "PLAYERID": 201942,
+      "PLAYERNAME": "DeMar DeRozan",
+      "TEAMABBREVIATION": "SAC",
+      "FGA": 1005,
+      "AVGSHOTQUALITY": 0.438,
+      "AVGDEFENSIVEHANDHEIGHT": 90.617,
+      "AVGSHOOTERSPEED": 3.582,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.879
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "StartEndDate-upper",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "StartDate": "2026-01-01",
+      "EndDate": "2026-01-31"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&StartDate=2026-01-01&EndDate=2026-01-31",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 125,
+    "player_ids": [
+      201942,
+      1629627,
+      1630578,
+      201142,
+      1627742,
+      203999,
+      1629008,
+      1627759,
+      1629651,
+      1626164
+    ],
+    "first_row": {
+      "PLAYERID": 201942,
+      "PLAYERNAME": "DeMar DeRozan",
+      "TEAMABBREVIATION": "SAC",
+      "FGA": 1005,
+      "AVGSHOTQUALITY": 0.438,
+      "AVGDEFENSIVEHANDHEIGHT": 90.617,
+      "AVGSHOOTERSPEED": 3.582,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.879
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": 1321,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "qualified-last5-upper",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "1628983",
+      "LastNGames": "5"
+    },
+    "status": 200,
+    "bytes": 1393,
+    "sha256": "3a1cb22787fc2bd596a9e46ce3fd451661f575690c31959f296884a2c644f1a2",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=1628983&LastNGames=5",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 1,
+    "player_ids": [
+      1628983
+    ],
+    "first_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "qualified-last5-lower",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "1628983",
+      "lastNGames": "5"
+    },
+    "status": 200,
+    "bytes": 1393,
+    "sha256": "3a1cb22787fc2bd596a9e46ce3fd451661f575690c31959f296884a2c644f1a2",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=1628983&lastNGames=5",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 1,
+    "player_ids": [
+      1628983
+    ],
+    "first_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "qualified-month-upper",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "1628983",
+      "Month": "4"
+    },
+    "status": 200,
+    "bytes": 1393,
+    "sha256": "3a1cb22787fc2bd596a9e46ce3fd451661f575690c31959f296884a2c644f1a2",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=1628983&Month=4",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 1,
+    "player_ids": [
+      1628983
+    ],
+    "first_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "qualified-month-lower",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "1628983",
+      "month": "4"
+    },
+    "status": 200,
+    "bytes": 1393,
+    "sha256": "3a1cb22787fc2bd596a9e46ce3fd451661f575690c31959f296884a2c644f1a2",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=1628983&month=4",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 1,
+    "player_ids": [
+      1628983
+    ],
+    "first_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "qualified-dates-upper",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "1628983",
+      "DateFrom": "01/01/2026",
+      "DateTo": "01/31/2026"
+    },
+    "status": 200,
+    "bytes": 1393,
+    "sha256": "3a1cb22787fc2bd596a9e46ce3fd451661f575690c31959f296884a2c644f1a2",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=1628983&DateFrom=01%2F01%2F2026&DateTo=01%2F31%2F2026",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 1,
+    "player_ids": [
+      1628983
+    ],
+    "first_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "qualified-dates-lower",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "1628983",
+      "dateFrom": "01/01/2026",
+      "dateTo": "01/31/2026"
+    },
+    "status": 200,
+    "bytes": 1393,
+    "sha256": "3a1cb22787fc2bd596a9e46ce3fd451661f575690c31959f296884a2c644f1a2",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=1628983&dateFrom=01%2F01%2F2026&dateTo=01%2F31%2F2026",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 1,
+    "player_ids": [
+      1628983
+    ],
+    "first_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    },
+    "control_row": {
+      "PLAYERID": 1628983,
+      "PLAYERNAME": "Shai Gilgeous-Alexander",
+      "TEAMABBREVIATION": "OKC",
+      "FGA": null,
+      "AVGSHOTQUALITY": 0.477,
+      "AVGDEFENSIVEHANDHEIGHT": 87.303,
+      "AVGSHOOTERSPEED": 5.296,
+      "AVGROTATIONDEGREES": 0.0,
+      "AVGDEFENDERPRESSURESCORE": 0.843
+    }
+  },
+  {
+    "label": "unqualified-last5-upper",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "201567",
+      "LastNGames": "5"
+    },
+    "status": 200,
+    "bytes": 92,
+    "sha256": "dfeef8a59bda8a3037671ff420c27b21f628b5015f776d5d1c1f2c0600045101",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=201567&LastNGames=5",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 0,
+    "player_ids": []
+  },
+  {
+    "label": "unqualified-last5-lower",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "201567",
+      "lastNGames": "5"
+    },
+    "status": 200,
+    "bytes": 92,
+    "sha256": "dfeef8a59bda8a3037671ff420c27b21f628b5015f776d5d1c1f2c0600045101",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=201567&lastNGames=5",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 0,
+    "player_ids": []
+  },
+  {
+    "label": "unqualified-month-upper",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "201567",
+      "Month": "4"
+    },
+    "status": 200,
+    "bytes": 92,
+    "sha256": "dfeef8a59bda8a3037671ff420c27b21f628b5015f776d5d1c1f2c0600045101",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=201567&Month=4",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 0,
+    "player_ids": []
+  },
+  {
+    "label": "unqualified-month-lower",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "201567",
+      "month": "4"
+    },
+    "status": 200,
+    "bytes": 92,
+    "sha256": "dfeef8a59bda8a3037671ff420c27b21f628b5015f776d5d1c1f2c0600045101",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=201567&month=4",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 0,
+    "player_ids": []
+  },
+  {
+    "label": "unqualified-dates-upper",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "201567",
+      "DateFrom": "01/01/2026",
+      "DateTo": "01/31/2026"
+    },
+    "status": 200,
+    "bytes": 92,
+    "sha256": "dfeef8a59bda8a3037671ff420c27b21f628b5015f776d5d1c1f2c0600045101",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=201567&DateFrom=01%2F01%2F2026&DateTo=01%2F31%2F2026",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 0,
+    "player_ids": []
+  },
+  {
+    "label": "unqualified-dates-lower",
+    "request_params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "201567",
+      "dateFrom": "01/01/2026",
+      "dateTo": "01/31/2026"
+    },
+    "status": 200,
+    "bytes": 92,
+    "sha256": "dfeef8a59bda8a3037671ff420c27b21f628b5015f776d5d1c1f2c0600045101",
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=201567&dateFrom=01%2F01%2F2026&dateTo=01%2F31%2F2026",
+    "response_params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "row_count": 0,
+    "player_ids": []
+  }
+]
