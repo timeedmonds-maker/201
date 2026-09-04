@@ -1,0 +1,59 @@
+name: Probe API Hub dev Hawk-Eye routes
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/probe_api_hub_dev_hawkeye.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-all-players-2025-26}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Probe dev routes
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,hashlib
+          H={'User-Agent':'Mozilla/5.0','Accept':'application/json,text/plain,*/*','Origin':'https://api-hub-dev.nba.com','Referer':'https://api-hub-dev.nba.com/inside-the-game/player/shot-difficulty'}
+          p={'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season'}
+          urls=[
+            'https://api-hub-dev.nba.com/api/stats/shot-difficulty',
+            'https://api-hub-dev.nba.com/api/stats/shotqualityleaders',
+            'https://api-hub-dev.nba.com/stats/shotqualityleaders',
+            'https://api-hub-dev.nba.com/stats/api/shotqualityleaders',
+            'https://api-hub-dev.nba.com/stats/api/stats/shotqualityleaders',
+            'https://api-hub-dev.nba.com/inside-the-game/api/stats/shot-difficulty',
+          ]
+          out=[]
+          for u in urls:
+            for extra in [{},{'PlayerID':'1629023'},{'PlayerID':'201567'}]:
+              rec={'url':u,'extra':extra}
+              try:
+                r=requests.get(u,params={**p,**extra},headers=H,timeout=30,allow_redirects=False);rec.update(status=r.status_code,bytes=len(r.content),ct=r.headers.get('content-type'),location=r.headers.get('location'),sha256=hashlib.sha256(r.content).hexdigest(),headers={k:v for k,v in r.headers.items() if k.lower() in ('x-status','server','via','x-cache','x-envoy-upstream-service-time')})
+                if r.status_code==200:
+                  try:
+                    j=r.json();rec['top_keys']=list(j) if isinstance(j,dict) else None;shots=j.get('shots',[]) if isinstance(j,dict) else [];rec['count']=len(shots);rec['params']=j.get('params') if isinstance(j,dict) else None;rec['rows']=shots[:3]
+                  except Exception as e:rec['json_error']=repr(e);rec['prefix']=r.text[:600]
+                else:rec['prefix']=r.text[:600]
+              except Exception as e:rec['error']=repr(e)
+              out.append(rec)
+          d=pathlib.Path('outputs/api_hub_dev_hawkeye_probe');d.mkdir(parents=True,exist_ok=True)
+          (d/'report.json').write_text(json.dumps(out,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps([{k:v for k,v in x.items() if k!='rows'} for x in out],indent=2,ensure_ascii=False))
+          PY
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/api_hub_dev_hawkeye_probe || true
+          git diff --cached --quiet && exit 0
+          git commit -m 'Preserve API Hub dev Hawk-Eye route probe'
+          for i in 1 2 3; do git pull --rebase origin analysis/hawkeye-all-players-2025-26 && git push origin HEAD:analysis/hawkeye-all-players-2025-26 && exit 0; sleep $((i*2)); done
+          exit 1
