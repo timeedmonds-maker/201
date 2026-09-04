@@ -1,0 +1,108 @@
+{
+  "season": "2025-26",
+  "season_type": "Regular Season",
+  "retrieved_at_utc": "2026-09-04T09:57:12.345476+00:00",
+  "controls": [
+    {
+      "player_id": "201567",
+      "player_name": "Kevin Love",
+      "fga": 199,
+      "games": 37
+    },
+    {
+      "player_id": "2544",
+      "player_name": "LeBron James",
+      "fga": 919,
+      "games": 60
+    },
+    {
+      "player_id": "1641787",
+      "player_name": "Tosan Evbuomwan",
+      "fga": 1,
+      "games": 5
+    },
+    {
+      "player_id": "1631246",
+      "player_name": "Vince Williams Jr.",
+      "fga": 292,
+      "games": 40
+    },
+    {
+      "player_id": "1627759",
+      "player_name": "Jaylen Brown",
+      "fga": 1543,
+      "games": 71
+    }
+  ],
+  "requests": 1170,
+  "interesting": 53,
+  "resources_with_200": [
+    "shotqualityleaders",
+    "shotqualityvideologs"
+  ],
+  "resources_with_target_hits": [
+    "shotqualityleaders",
+    "shotqualityvideologs"
+  ],
+  "target_hit_paths": [
+    "/avgDefenderBallDistance",
+    "/avgMadeShotQuality",
+    "/avgMissShotQuality",
+    "/avgShotQuality",
+    "/shotList/0/shotQuality",
+    "/shotList/1/shotQuality",
+    "/shotList/10/shotQuality",
+    "/shotList/11/shotQuality",
+    "/shotList/12/shotQuality",
+    "/shotList/13/shotQuality",
+    "/shotList/14/shotQuality",
+    "/shotList/15/shotQuality",
+    "/shotList/16/shotQuality",
+    "/shotList/17/shotQuality",
+    "/shotList/18/shotQuality",
+    "/shotList/19/shotQuality",
+    "/shotList/2/shotQuality",
+    "/shotList/20/shotQuality",
+    "/shotList/21/shotQuality",
+    "/shotList/22/shotQuality",
+    "/shotList/23/shotQuality",
+    "/shotList/24/shotQuality",
+    "/shotList/3/shotQuality",
+    "/shotList/4/shotQuality",
+    "/shotList/5/shotQuality",
+    "/shotList/6/shotQuality",
+    "/shotList/7/shotQuality",
+    "/shotList/8/shotQuality",
+    "/shotList/9/shotQuality",
+    "/shots/0/AVGDEFENDERBALLDISTANCE",
+    "/shots/0/AVGDEFENDERBALLDISTANCE_RANK",
+    "/shots/0/AVGDEFENDERPRESSURESCORE",
+    "/shots/0/AVGDEFENDERPRESSURESCORE_RANK",
+    "/shots/0/AVGDEFENSIVEHANDHEIGHT",
+    "/shots/0/AVGDEFENSIVEHANDHEIGHT_RANK",
+    "/shots/0/AVGMADESHOTQUALITY",
+    "/shots/0/AVGMADESHOTQUALITY2PT",
+    "/shots/0/AVGMADESHOTQUALITY2PT_RANK",
+    "/shots/0/AVGMADESHOTQUALITY3PT",
+    "/shots/0/AVGMADESHOTQUALITY3PT_RANK",
+    "/shots/0/AVGMADESHOTQUALITY_RANK",
+    "/shots/0/AVGMISSEDSHOTQUALITY",
+    "/shots/0/AVGMISSEDSHOTQUALITY2PT",
+    "/shots/0/AVGMISSEDSHOTQUALITY2PT_RANK",
+    "/shots/0/AVGMISSEDSHOTQUALITY3PT",
+    "/shots/0/AVGMISSEDSHOTQUALITY3PT_RANK",
+    "/shots/0/AVGMISSEDSHOTQUALITY_RANK",
+    "/shots/0/AVGROTATIONDEGREES",
+    "/shots/0/AVGROTATIONDEGREES_RANK",
+    "/shots/0/AVGSHOOTERSPEED",
+    "/shots/0/AVGSHOOTERSPEED_RANK",
+    "/shots/0/AVGSHOTQUALITY",
+    "/shots/0/AVGSHOTQUALITY2PT",
+    "/shots/0/AVGSHOTQUALITY2PT_RANK",
+    "/shots/0/AVGSHOTQUALITY3PT",
+    "/shots/0/AVGSHOTQUALITY3PT_RANK",
+    "/shots/0/AVGSHOTQUALITY_RANK",
+    "/shots/0/MINSHOTQUALITYONMAKE",
+    "/shots/0/MINSHOTQUALITYONMAKE_RANK"
+  ]
+}
