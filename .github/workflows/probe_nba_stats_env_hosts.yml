@@ -1,0 +1,60 @@
+name: Probe NBA stats environment hosts
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/probe_nba_stats_env_hosts.yml'
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: analysis/hawkeye-all-players-2025-26
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip -q install requests curl_cffi
+      - name: Probe prod/dev/trafficcop host variants
+        run: |
+          python - <<'PY'
+          import requests,json,os,hashlib,socket
+          from curl_cffi import requests as creq
+          OUT='outputs/nba_stats_env_hosts'; os.makedirs(OUT,exist_ok=True)
+          hosts=[
+            'https://dev.stats.nba.com/stats/shotqualityleaders',
+            'https://stats.nba.com/stats/shotqualityleaders',
+            'https://stats.gleague.nba.com/stats/shotqualityleaders',
+            'https://origin-stats-trafficcop-prod.internal.nba.com/stats/shotqualityleaders',
+            'https://origin-stats-trafficcop-dev.internal.nba.com/stats/shotqualityleaders',
+            'https://origin-stats-trafficcop-qa.internal.nba.com/stats/shotqualityleaders',
+            'https://origin-stats-trafficcop-prod.nba.com/stats/shotqualityleaders',
+            'https://origin-stats-trafficcop.nba.com/stats/shotqualityleaders'
+          ]
+          variants=[('all',{}),('pj',{'PlayerID':'1629023'}),('love',{'PlayerID':'201567'})]
+          base={'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season'}
+          hdr={'User-Agent':'Mozilla/5.0','Accept':'application/json, text/plain, */*','Origin':'https://www.nba.com','Referer':'https://www.nba.com/'}
+          rec=[]
+          for u in hosts:
+            for label,extra in variants:
+              p={**base,**extra}
+              try:
+                r=requests.get(u,params=p,headers=hdr,timeout=12,allow_redirects=False)
+                try:j=r.json()
+                except:j=None
+                shots=j.get('shots',[]) if isinstance(j,dict) else []
+                rec.append({'url':u,'variant':label,'transport':'requests','status':r.status_code,'bytes':len(r.content),'shots':len(shots),'target':any(str(x.get('PLAYERID')) in ['1629023','201567'] for x in shots if isinstance(x,dict)),'sha256':hashlib.sha256(r.content).hexdigest(),'location':r.headers.get('location'),'prefix':r.text[:450] if not shots else ''})
+              except Exception as e: rec.append({'url':u,'variant':label,'transport':'requests','error':repr(e)})
+          json.dump(rec,open(f'{OUT}/report.json','w'),indent=2)
+          print(json.dumps(rec,indent=2))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/nba_stats_env_hosts
+          git commit -m 'Probe NBA stats environment hosts' || exit 0
+          for i in 1 2 3 4; do git pull --rebase origin analysis/hawkeye-all-players-2025-26 && git push origin HEAD:analysis/hawkeye-all-players-2025-26 && exit 0; sleep 2; done
+          exit 1
