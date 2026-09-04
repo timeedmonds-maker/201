@@ -1,0 +1,57 @@
+name: Summarize Hawk-Eye bundle contexts
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/summarize_hawkeye_bundle_contexts.yml'
+permissions:
+  contents: write
+jobs:
+  summarize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: analysis/hawkeye-all-players-2025-26
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Extract compact resource contexts
+        run: |
+          python - <<'PY'
+          import json,os,re
+          src='outputs/hawkeye_bundle_full_scan/report.json'
+          out='outputs/hawkeye_bundle_context_summary'; os.makedirs(out,exist_ok=True)
+          data=json.load(open(src))
+          needles=['shotqualityleaders','shotqualityshotlog','shotqualityvideologs','gravityleaders','timeframe','AVGDEFENSIVEHANDHEIGHT','AVGSHOOTERSPEED','AVGROTATIONDEGREES','AVGDEFENDERPRESSURESCORE','hanaService','36843']
+          res=[]
+          for site in data:
+            for h in site.get('hits',[]):
+              for c in h.get('contexts',[]):
+                text=c.get('context','')
+                if any(n.lower() in text.lower() for n in needles):
+                  res.append({'root':site.get('root'),'script':h.get('url'),'needle':c.get('needle'),'context':text})
+          # dedupe exact contexts
+          seen=set(); uniq=[]
+          for x in res:
+            key=(x['script'],x['context'])
+            if key not in seen: seen.add(key); uniq.append(x)
+          # derive resource wrappers: context around each literal and function argument names
+          resources={}
+          for x in uniq:
+            for n in ['shotqualityleaders','shotqualityshotlog','shotqualityvideologs','gravityleaders']:
+              if n in x['context']:
+                resources.setdefault(n,[]).append(x)
+          summary={'contexts':len(uniq),'by_resource':{k:len(v) for k,v in resources.items()},'scripts':sorted(set(x['script'] for x in uniq))}
+          json.dump(summary,open(f'{out}/summary.json','w'),indent=2)
+          json.dump(resources,open(f'{out}/resources.json','w'),indent=2)
+          print(json.dumps(summary,indent=2))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hawkeye_bundle_context_summary
+          git commit -m 'Summarize Hawk-Eye resource client contexts' || exit 0
+          git pull --rebase origin analysis/hawkeye-all-players-2025-26
+          git push origin HEAD:analysis/hawkeye-all-players-2025-26
