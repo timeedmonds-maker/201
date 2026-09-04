@@ -1,0 +1,170 @@
+[
+  {
+    "host": "https://stats.nba.com/stats/",
+    "label": "all",
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=35)\"))"
+  },
+  {
+    "host": "https://stats.nba.com/stats/",
+    "label": "limit",
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=35)\"))"
+  },
+  {
+    "host": "https://stats.nba.com/stats/",
+    "label": "qualified_false",
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=35)\"))"
+  },
+  {
+    "host": "https://stats.nba.com/stats/",
+    "label": "minfgm0",
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=35)\"))"
+  },
+  {
+    "host": "https://stats.nba.com/stats/",
+    "label": "player",
+    "player": "LeBron",
+    "pid": "2544",
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=35)\"))"
+  },
+  {
+    "host": "https://stats.nba.com/stats/",
+    "label": "player",
+    "player": "PJWashington",
+    "pid": "1629023",
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=35)\"))"
+  },
+  {
+    "host": "https://stats.nba.com/stats/",
+    "label": "player",
+    "player": "KevinLove",
+    "pid": "201567",
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=35)\"))"
+  },
+  {
+    "host": "https://stats.nba.com/stats/",
+    "label": "player",
+    "player": "Tosan",
+    "pid": "1641787",
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=35)\"))"
+  },
+  {
+    "host": "https://stats.gleague.nba.com/stats/",
+    "label": "all",
+    "status": 200,
+    "bytes": 174916,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "location": null,
+    "count": 125,
+    "params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    }
+  },
+  {
+    "host": "https://stats.gleague.nba.com/stats/",
+    "label": "limit",
+    "status": 200,
+    "bytes": 174916,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "location": null,
+    "count": 125,
+    "params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    }
+  },
+  {
+    "host": "https://stats.gleague.nba.com/stats/",
+    "label": "qualified_false",
+    "status": 200,
+    "bytes": 174916,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "location": null,
+    "count": 125,
+    "params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    }
+  },
+  {
+    "host": "https://stats.gleague.nba.com/stats/",
+    "label": "minfgm0",
+    "status": 200,
+    "bytes": 174916,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "location": null,
+    "count": 125,
+    "params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    }
+  },
+  {
+    "host": "https://stats.gleague.nba.com/stats/",
+    "label": "player",
+    "player": "LeBron",
+    "pid": "2544",
+    "status": 200,
+    "bytes": 1366,
+    "sha256": "c32e6da80da3104c3c5ed6da2999857646d7b14a23a0e9165946252ea8a8fc69",
+    "location": null,
+    "count": 1,
+    "params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    }
+  },
+  {
+    "host": "https://stats.gleague.nba.com/stats/",
+    "label": "player",
+    "player": "PJWashington",
+    "pid": "1629023",
+    "status": 200,
+    "bytes": 92,
+    "sha256": "dfeef8a59bda8a3037671ff420c27b21f628b5015f776d5d1c1f2c0600045101",
+    "location": null,
+    "count": 0,
+    "params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    }
+  },
+  {
+    "host": "https://stats.gleague.nba.com/stats/",
+    "label": "player",
+    "player": "KevinLove",
+    "pid": "201567",
+    "status": 200,
+    "bytes": 92,
+    "sha256": "dfeef8a59bda8a3037671ff420c27b21f628b5015f776d5d1c1f2c0600045101",
+    "location": null,
+    "count": 0,
+    "params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    }
+  },
+  {
+    "host": "https://stats.gleague.nba.com/stats/",
+    "label": "player",
+    "player": "Tosan",
+    "pid": "1641787",
+    "status": 200,
+    "bytes": 92,
+    "sha256": "dfeef8a59bda8a3037671ff420c27b21f628b5015f776d5d1c1f2c0600045101",
+    "location": null,
+    "count": 0,
+    "params": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    }
+  }
+]
