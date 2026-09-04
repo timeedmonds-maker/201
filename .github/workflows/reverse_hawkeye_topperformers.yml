@@ -1,0 +1,107 @@
+name: Reverse Hawk-Eye top performer client
+
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/reverse_hawkeye_topperformers.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-all-players-2025-26}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Crawl NBA/WNBA clients and probe discovered resources
+        run: |
+          python - <<'PY'
+          import requests,re,json,pathlib,urllib.parse,hashlib,datetime,time
+          H={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/137.0 Safari/537.36','Accept':'text/html,application/xhtml+xml,application/json,text/plain,*/*'}
+          s=requests.Session();s.headers.update(H)
+          pages=['https://www.wnba.com/','https://www.wnba.com/stats','https://www.nba.com/stats','https://www.nba.com/stats/inside-the-game/shot-difficulty']
+          assets=set();page_report=[]
+          for page in pages:
+            try:
+              r=s.get(page,timeout=30);page_report.append({'url':page,'status':r.status_code,'bytes':len(r.content),'final':r.url})
+              for src in re.findall(r'<script[^>]+src=["\']([^"\']+)["\']',r.text,re.I):
+                assets.add(urllib.parse.urljoin(r.url,src))
+            except Exception as e:page_report.append({'url':page,'error':repr(e)})
+          # Known production assets found in earlier reverse engineering, retained as fallbacks.
+          assets.update([
+            'https://www.wnba.com/_next/static/chunks/pages/_app-a02772bdeee21ecb.js',
+            'https://www.nba.com/_next/static/chunks/3245-01f19ec519c167ff.js',
+            'https://www.nba.com/_next/static/chunks/15964-836461f8faac1d2a.js',
+          ])
+          needles=['shotqualitytopperformersseason','shotqualityleaders','shotqualityvideologs','shotqualityshotlog','AVGDEFENSIVEHANDHEIGHT','AVGSHOOTERSPEED','AVGROTATIONDEGREES','AVGDEFENDERPRESSURESCORE']
+          literal_rx=re.compile(r'["\'](shotquality[a-z0-9_-]{2,80})["\']',re.I)
+          contexts=[]; literals=set(); asset_report=[]
+          for url in sorted(assets):
+            try:
+              r=s.get(url,timeout=30);txt=r.text
+              asset_report.append({'url':url,'status':r.status_code,'bytes':len(r.content),'ct':r.headers.get('content-type'),'sha256':hashlib.sha256(r.content).hexdigest()})
+              if r.status_code!=200 or len(txt)<10:continue
+              for m in literal_rx.finditer(txt):literals.add(m.group(1))
+              for needle in needles:
+                pos=0
+                while True:
+                  i=txt.find(needle,pos)
+                  if i<0:break
+                  contexts.append({'url':url,'needle':needle,'offset':i,'context':txt[max(0,i-12000):min(len(txt),i+18000)]})
+                  pos=i+len(needle)
+                  if sum(1 for x in contexts if x['url']==url and x['needle']==needle)>=5:break
+            except Exception as e:asset_report.append({'url':url,'error':repr(e)})
+          # Probe every discovered shotquality resource with a matrix of plausible exact params.
+          BASES=['https://stats.gleague.nba.com/stats/','https://stats.nba.com/stats/']
+          ph={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/137.0 Safari/537.36','Origin':'https://www.nba.com','Referer':'https://www.nba.com/','Accept':'application/json,text/plain,*/*','x-nba-stats-origin':'stats','x-nba-stats-token':'true'}
+          ps=requests.Session();ps.headers.update(ph)
+          paramsets=[
+            {'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season'},
+            {'LeagueID':'00','SeasonYear':'2025-26','SeasonType':'Regular Season'},
+            {'leagueId':'00','seasonYear':'2025-26','seasonType':'Regular Season'},
+            {'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season','PlayerID':'201567'},
+            {'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season','PlayerID':'2544'},
+            {'leagueId':'00','seasonYear':'2025-26','seasonType':'Regular Season','playerId':'201567'},
+            {'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season','GameID':'0022500001'},
+          ]
+          probes=[]
+          for resource in sorted(literals):
+            for base in BASES:
+              for p in paramsets:
+                rec={'base':base,'resource':resource,'params':p}
+                try:
+                  r=ps.get(base+resource,params=p,timeout=15,allow_redirects=False)
+                  rec.update(status=r.status_code,bytes=len(r.content),location=r.headers.get('location'),ct=r.headers.get('content-type'),sha256=hashlib.sha256(r.content).hexdigest())
+                  if r.status_code==200 and len(r.content)<100000:
+                    try:rec['json']=r.json()
+                    except:rec['prefix']=r.text[:2000]
+                  else:rec['prefix']=r.text[:500]
+                except Exception as e:rec['error']=repr(e)
+                probes.append(rec);time.sleep(.02)
+          out=pathlib.Path('outputs/hawkeye_client_reverse');out.mkdir(parents=True,exist_ok=True)
+          summary={'retrieved_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pages':page_report,'asset_count':len(assets),'context_hits':len(contexts),'shotquality_literals':sorted(literals),'probe_count':len(probes),'probe_200_nonempty':[(x['base'],x['resource'],x['params'],x.get('bytes')) for x in probes if x.get('status')==200 and x.get('bytes',0)>2]}
+          (out/'summary.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False),encoding='utf-8')
+          (out/'contexts.json').write_text(json.dumps(contexts,indent=2,ensure_ascii=False),encoding='utf-8')
+          (out/'asset_report.json').write_text(json.dumps(asset_report,indent=2,ensure_ascii=False),encoding='utf-8')
+          (out/'probes.json').write_text(json.dumps(probes,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps(summary,indent=2,ensure_ascii=False))
+          PY
+      - name: Commit outputs
+        if: always()
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hawkeye_client_reverse || true
+          git diff --cached --quiet && exit 0
+          git commit -m 'Preserve Hawk-Eye client reverse engineering'
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin analysis/hawkeye-all-players-2025-26 && git push origin HEAD:analysis/hawkeye-all-players-2025-26 && exit 0
+            sleep $((i*2))
+          done
+          exit 1
