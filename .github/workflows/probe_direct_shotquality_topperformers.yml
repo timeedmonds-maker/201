@@ -1,0 +1,85 @@
+name: Reverse engineer direct shotquality top performers endpoint
+
+on:
+  push:
+    branches: [analysis/hawkeye-season-complete-v2]
+    paths: ['.github/workflows/probe_direct_shotquality_topperformers.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-season-complete-v2}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Probe direct endpoint
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,hashlib,time,itertools
+          H={'User-Agent':'Mozilla/5.0 Chrome/137.0 Safari/537.36','Origin':'https://www.nba.com','Referer':'https://www.nba.com/','Accept':'application/json,text/plain,*/*','x-nba-stats-origin':'stats','x-nba-stats-token':'true'}
+          hosts=['https://stats.gleague.nba.com/stats/','https://stats.nba.com/stats/']
+          resources=['shotqualitytopperformersseason','shotqualityshotlog']
+          paramsets=[]
+          # WNBA aliases; a successful one can then be translated to NBA.
+          for p in [
+            {'LeagueID':'10','Season':'2026','SeasonType':'Regular Season'},
+            {'LeagueID':'10','SeasonYear':'2026','SeasonType':'Regular Season'},
+            {'leagueId':'10','season':'2026','seasonType':'Regular Season'},
+            {'leagueId':'10','seasonYear':'2026','seasonType':'Regular Season'},
+            {'LeagueId':'10','SeasonYear':'2026','SeasonType':'Regular Season'},
+            {'LeagueID':'10','Season':'2026','SeasonType':'Regular Season','TopN':'200'},
+            {'LeagueID':'10','SeasonYear':'2026','SeasonType':'Regular Season','TopN':'200'},
+          ]: paramsets.append(('wnba',p))
+          for p in [
+            {'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season'},
+            {'LeagueID':'00','SeasonYear':'2025-26','SeasonType':'Regular Season'},
+            {'leagueId':'00','season':'2025-26','seasonType':'Regular Season'},
+            {'leagueId':'00','seasonYear':'2025-26','seasonType':'Regular Season'},
+            {'LeagueId':'00','SeasonYear':'2025-26','SeasonType':'Regular Season'},
+            {'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season','TopN':'1000'},
+          ]: paramsets.append(('nba',p))
+          out=[]
+          def walk_arrays(j,p=''):
+            z=[]
+            if isinstance(j,dict):
+              for k,v in j.items():
+                if isinstance(v,list):
+                  z.append({'path':p+'/'+k,'count':len(v),'first_keys':list(v[0]) if v and isinstance(v[0],dict) else None,'first':v[0] if v and isinstance(v[0],dict) else None})
+                elif isinstance(v,dict): z+=walk_arrays(v,p+'/'+k)
+            return z
+          for host,res,(league,p) in itertools.product(hosts,resources,paramsets):
+            # shot log not meaningful without date/game; still useful to inspect whether season params return all events.
+            rec={'host':host,'resource':res,'league':league,'params':p}
+            try:
+              r=requests.get(host+res,params=p,headers=H,timeout=25,allow_redirects=False);rec.update(status=r.status_code,bytes=len(r.content),location=r.headers.get('location'),ct=r.headers.get('content-type'),sha256=hashlib.sha256(r.content).hexdigest())
+              if r.status_code==200 and r.content:
+                try:
+                  j=r.json();rec['top_keys']=list(j) if isinstance(j,dict) else None;rec['arrays']=walk_arrays(j)
+                  if len(r.content)<120000:rec['json']=j
+                except Exception as e:rec['json_error']=repr(e);rec['text']=r.text[:1000]
+              else:rec['text']=r.text[:500]
+            except Exception as e:rec['error']=repr(e)
+            out.append(rec)
+            if rec.get('status')==200:print(host,res,league,p,'bytes',rec.get('bytes'),'keys',rec.get('top_keys'),'arrays',rec.get('arrays'),flush=True)
+            time.sleep(.08)
+          d=pathlib.Path('outputs/direct_shotquality_topperformers_probe');d.mkdir(parents=True,exist_ok=True)
+          (d/'report.json').write_text(json.dumps(out,indent=2,ensure_ascii=False),encoding='utf-8')
+          interesting=[x for x in out if x.get('status')==200 and x.get('bytes',0)>2]
+          (d/'interesting.json').write_text(json.dumps(interesting,indent=2,ensure_ascii=False),encoding='utf-8')
+          print('interesting',len(interesting))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/direct_shotquality_topperformers_probe
+          git commit -m 'Preserve direct shotquality top performers probe' || exit 0
+          git pull --rebase origin analysis/hawkeye-season-complete-v2
+          git push origin HEAD:analysis/hawkeye-season-complete-v2
