@@ -1,0 +1,76 @@
+name: Probe shotqualityleaders filter sensitivity
+
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/probe_shotquality_filter_sensitivity.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-all-players-2025-26}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Fingerprint all common NBA filters
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,hashlib,time
+          U='https://stats.gleague.nba.com/stats/shotqualityleaders'
+          H={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/137.0 Safari/537.36','Origin':'https://www.nba.com','Referer':'https://www.nba.com/','Accept':'application/json,text/plain,*/*','x-nba-stats-origin':'stats','x-nba-stats-token':'true'}
+          s=requests.Session();s.headers.update(H)
+          base={'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season'}
+          variants=[
+            ('control',{}),
+            ('SeasonSegment_PreAllStar',{'SeasonSegment':'Pre All-Star'}),('SeasonSegment_PostAllStar',{'SeasonSegment':'Post All-Star'}),
+            ('LastNGames_1',{'LastNGames':'1'}),('LastNGames_5',{'LastNGames':'5'}),('LastNGames_10',{'LastNGames':'10'}),
+            ('Month_1',{'Month':'1'}),('Month_2',{'Month':'2'}),('Month_3',{'Month':'3'}),('Month_4',{'Month':'4'}),('Month_5',{'Month':'5'}),('Month_6',{'Month':'6'}),('Month_7',{'Month':'7'}),
+            ('Date_oct',{'DateFrom':'10/21/2025','DateTo':'10/31/2025'}),('Date_jan',{'DateFrom':'01/01/2026','DateTo':'01/31/2026'}),('Date_apr',{'DateFrom':'04/01/2026','DateTo':'04/12/2026'}),
+            ('OpponentTeamID',{'OpponentTeamID':'1610612747'}),('Location_Home',{'Location':'Home'}),('Location_Road',{'Location':'Road'}),
+            ('Outcome_W',{'Outcome':'W'}),('Outcome_L',{'Outcome':'L'}),('PORound_0',{'PORound':'0'}),
+            ('GameSegment_FirstHalf',{'GameSegment':'First Half'}),('Period_1',{'Period':'1'}),('Period_4',{'Period':'4'}),
+            ('VsConference_East',{'VsConference':'East'}),('VsConference_West',{'VsConference':'West'}),('VsDivision_Atlantic',{'VsDivision':'Atlantic'}),
+            ('PlayerPosition_G',{'PlayerPosition':'G'}),('PlayerPosition_C',{'PlayerPosition':'C'}),
+            ('StarterBench_Starters',{'StarterBench':'Starters'}),('StarterBench_Bench',{'StarterBench':'Bench'}),
+            ('ShotClockRange',{'ShotClockRange':'24-22'}),('GameScope_Yesterday',{'GameScope':'Yesterday'}),
+          ]
+          out=[]
+          for label,extra in variants:
+            rec={'label':label,'extra':extra}
+            try:
+              r=s.get(U,params={**base,**extra},timeout=25,allow_redirects=False);rec.update(status=r.status_code,bytes=len(r.content),sha256=hashlib.sha256(r.content).hexdigest(),location=r.headers.get('location'))
+              if r.status_code==200:
+                try:
+                  j=r.json();shots=j.get('shots',[]) if isinstance(j,dict) else [];rec['count']=len(shots);rec['params_echo']=j.get('params') if isinstance(j,dict) else None
+                  lb=next((x for x in shots if str(x.get('PLAYERID'))=='2544'),None);rec['lebron']=lb
+                  rec['ids']=[str(x.get('PLAYERID')) for x in shots]
+                except Exception as e:rec['json_error']=repr(e);rec['prefix']=r.text[:500]
+              else:rec['prefix']=r.text[:300]
+            except Exception as e:rec['error']=repr(e)
+            out.append(rec);time.sleep(.03)
+          ctl=next(x for x in out if x['label']=='control')
+          for x in out:
+            x['same_sha']=x.get('sha256')==ctl.get('sha256');x['same_ids']=x.get('ids')==ctl.get('ids')
+            if x.get('lebron') and ctl.get('lebron'):
+              x['lebron_same']=x['lebron']==ctl['lebron']
+          interesting=[x for x in out if not x.get('same_sha',False) or x.get('status')!=200]
+          d=pathlib.Path('outputs/shotquality_filter_sensitivity');d.mkdir(parents=True,exist_ok=True)
+          (d/'report.json').write_text(json.dumps(out,indent=2,ensure_ascii=False),encoding='utf-8')
+          (d/'interesting.json').write_text(json.dumps(interesting,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps({'variants':len(out),'changed':[(x['label'],x.get('status'),x.get('count'),x.get('same_ids'),x.get('lebron_same'),x.get('params_echo')) for x in interesting]},indent=2,ensure_ascii=False))
+          PY
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/shotquality_filter_sensitivity || true
+          git diff --cached --quiet && exit 0
+          git commit -m 'Preserve shotqualityleaders filter sensitivity probe'
+          for i in 1 2 3 4 5; do git pull --rebase origin analysis/hawkeye-all-players-2025-26 && git push origin HEAD:analysis/hawkeye-all-players-2025-26 && exit 0; sleep $((i*2)); done
+          exit 1
