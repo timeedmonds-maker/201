@@ -1,0 +1,81 @@
+name: Inspect Hawk-Eye video containers
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/inspect_hawkeye_video_container.yml'
+permissions:
+  contents: write
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: analysis/hawkeye-all-players-2025-26
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          pip -q install requests
+      - name: Download one official shot clip and inspect MP4 boxes and streams
+        run: |
+          python - <<'PY'
+          import requests,json,os,subprocess,re,struct,hashlib
+          OUT='outputs/hawkeye_video_container'; os.makedirs(OUT,exist_ok=True)
+          s=requests.Session(); s.headers.update({'User-Agent':'Mozilla/5.0','Referer':'https://www.nba.com/','Origin':'https://www.nba.com'})
+          # Kevin Love known game with shotqualityvideologs
+          p={'GameID':'0022500430','PlayerID':'201567'}
+          r=s.get('https://stats.gleague.nba.com/stats/shotqualityvideologs',params=p,timeout=30)
+          j=r.json(); shots=j.get('shotList',[])
+          sh=shots[0] if shots else {}
+          url=sh.get('smallUrl') or sh.get('mediumUrl') or sh.get('largeUrl')
+          report={'source_status':r.status_code,'shot_keys':sorted(sh.keys()),'selected_url':url,'shot':{k:sh.get(k) for k in ['gameId','eventNum','guid','actionType','shotType','shotQuality']}}
+          if url:
+            vr=s.get(url,timeout=90); path=f'{OUT}/clip.mp4'; open(path,'wb').write(vr.content)
+            report['video']={'status':vr.status_code,'bytes':len(vr.content),'ct':vr.headers.get('content-type'),'sha256':hashlib.sha256(vr.content).hexdigest()}
+            def run(cmd):
+              q=subprocess.run(cmd,capture_output=True,text=True,timeout=60); return {'rc':q.returncode,'stdout':q.stdout[:200000],'stderr':q.stderr[:50000]}
+            report['ffprobe']=run(['ffprobe','-v','error','-show_format','-show_streams','-show_programs','-show_chapters','-print_format','json',path])
+            report['ffprobe_frames_sample']=run(['ffprobe','-v','error','-read_intervals','%+2','-show_frames','-show_entries','frame=media_type,pkt_pts_time,pkt_size,side_data_list','-print_format','json',path])
+            data=vr.content
+            # Parse top-level ISO BMFF box headers conservatively
+            boxes=[]; off=0
+            while off+8<=len(data) and len(boxes)<1000:
+              size=int.from_bytes(data[off:off+4],'big'); typ=data[off+4:off+8].decode('latin1','replace'); hdr=8
+              if size==1 and off+16<=len(data): size=int.from_bytes(data[off+8:off+16],'big'); hdr=16
+              elif size==0: size=len(data)-off
+              if size<hdr or off+size>len(data): break
+              boxes.append({'offset':off,'size':size,'type':typ})
+              off+=size
+            report['top_boxes']=boxes
+            # Search printable strings for tracking-related tokens
+            text='\n'.join(x.decode('latin1','ignore') for x in re.findall(rb'[ -~]{5,}',data))
+            terms=['hawkeye','tracking','pose','joint','skeleton','keypoint','metadata','emsg','uuid','json','ball','player','xmp','udta']
+            hits=[]; low=text.lower()
+            for term in terms:
+              st=0
+              while True:
+                i=low.find(term,st)
+                if i<0: break
+                hits.append({'term':term,'offset':i,'context':text[max(0,i-500):i+1500]})
+                st=i+len(term)
+                if len(hits)>200: break
+            report['string_hits']=hits[:200]
+          json.dump(report,open(f'{OUT}/report.json','w'),indent=2)
+          # don't commit mp4 binary
+          try: os.remove(f'{OUT}/clip.mp4')
+          except: pass
+          summary={'source_status':report.get('source_status'),'selected_url':url,'video':report.get('video'),'top_boxes':report.get('top_boxes',[]),'string_hit_terms':sorted(set(x['term'] for x in report.get('string_hits',[]))),'ffprobe_rc':report.get('ffprobe',{}).get('rc')}
+          json.dump(summary,open(f'{OUT}/summary.json','w'),indent=2)
+          print(json.dumps(summary,indent=2))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hawkeye_video_container
+          git commit -m 'Inspect Hawk-Eye video container metadata' || exit 0
+          for i in 1 2 3 4; do git pull --rebase origin analysis/hawkeye-all-players-2025-26 && git push origin HEAD:analysis/hawkeye-all-players-2025-26 && exit 0; sleep 2; done
+          exit 1
