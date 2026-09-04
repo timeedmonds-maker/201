@@ -1,0 +1,715 @@
+{
+  "season": "2025-26",
+  "season_type": "Regular Season",
+  "qualified_players": 125,
+  "rankings": {
+    "defender_pressure_score": [
+      {
+        "rank": 1,
+        "official_rank": 1,
+        "player": "DeMar DeRozan",
+        "team": "SAC",
+        "value": 0.879
+      },
+      {
+        "rank": 2,
+        "official_rank": 2,
+        "player": "Zion Williamson",
+        "team": "NOP",
+        "value": 0.873
+      },
+      {
+        "rank": 3,
+        "official_rank": 3,
+        "player": "Alperen Sengun",
+        "team": "HOU",
+        "value": 0.865
+      },
+      {
+        "rank": 4,
+        "official_rank": 4,
+        "player": "Kevin Durant",
+        "team": "HOU",
+        "value": 0.865
+      },
+      {
+        "rank": 5,
+        "official_rank": 5,
+        "player": "Brandon Ingram",
+        "team": "TOR",
+        "value": 0.864
+      },
+      {
+        "rank": 6,
+        "official_rank": 6,
+        "player": "Nikola Jokić",
+        "team": "DEN",
+        "value": 0.864
+      },
+      {
+        "rank": 7,
+        "official_rank": 7,
+        "player": "Michael Porter Jr.",
+        "team": "BKN",
+        "value": 0.86
+      },
+      {
+        "rank": 8,
+        "official_rank": 8,
+        "player": "Jaylen Brown",
+        "team": "BOS",
+        "value": 0.859
+      },
+      {
+        "rank": 9,
+        "official_rank": 9,
+        "player": "Nic Claxton",
+        "team": "BKN",
+        "value": 0.859
+      },
+      {
+        "rank": 10,
+        "official_rank": 10,
+        "player": "Devin Booker",
+        "team": "PHX",
+        "value": 0.858
+      },
+      {
+        "rank": 11,
+        "official_rank": 11,
+        "player": "Luka Dončić",
+        "team": "LAL",
+        "value": 0.856
+      },
+      {
+        "rank": 12,
+        "official_rank": 12,
+        "player": "Cooper Flagg",
+        "team": "DAL",
+        "value": 0.855
+      },
+      {
+        "rank": 13,
+        "official_rank": 13,
+        "player": "Alex Sarr",
+        "team": "WAS",
+        "value": 0.855
+      },
+      {
+        "rank": 14,
+        "official_rank": 14,
+        "player": "Jalen Duren",
+        "team": "DET",
+        "value": 0.855
+      },
+      {
+        "rank": 15,
+        "official_rank": 15,
+        "player": "Derik Queen",
+        "team": "NOP",
+        "value": 0.852
+      },
+      {
+        "rank": 16,
+        "official_rank": 16,
+        "player": "Scottie Barnes",
+        "team": "TOR",
+        "value": 0.851
+      },
+      {
+        "rank": 17,
+        "official_rank": 17,
+        "player": "Kawhi Leonard",
+        "team": "LAC",
+        "value": 0.851
+      },
+      {
+        "rank": 18,
+        "official_rank": 18,
+        "player": "Paolo Banchero",
+        "team": "ORL",
+        "value": 0.851
+      },
+      {
+        "rank": 19,
+        "official_rank": 19,
+        "player": "Victor Wembanyama",
+        "team": "SAS",
+        "value": 0.851
+      },
+      {
+        "rank": 20,
+        "official_rank": 20,
+        "player": "Joel Embiid",
+        "team": "PHI",
+        "value": 0.85
+      },
+      {
+        "rank": 21,
+        "official_rank": 21,
+        "player": "Deandre Ayton",
+        "team": "LAL",
+        "value": 0.85
+      },
+      {
+        "rank": 22,
+        "official_rank": 22,
+        "player": "Evan Mobley",
+        "team": "CLE",
+        "value": 0.848
+      },
+      {
+        "rank": 23,
+        "official_rank": 23,
+        "player": "Giannis Antetokounmpo",
+        "team": "MIL",
+        "value": 0.848
+      },
+      {
+        "rank": 24,
+        "official_rank": 24,
+        "player": "Cade Cunningham",
+        "team": "DET",
+        "value": 0.847
+      },
+      {
+        "rank": 25,
+        "official_rank": 25,
+        "player": "James Harden",
+        "team": "CLE",
+        "value": 0.847
+      }
+    ],
+    "defensive_hand_height": [
+      {
+        "rank": 1,
+        "official_rank": 1,
+        "player": "Kevin Durant",
+        "team": "HOU",
+        "value": 94.534
+      },
+      {
+        "rank": 2,
+        "official_rank": 2,
+        "player": "Brandon Ingram",
+        "team": "TOR",
+        "value": 92.886
+      },
+      {
+        "rank": 3,
+        "official_rank": 3,
+        "player": "Alex Sarr",
+        "team": "WAS",
+        "value": 92.788
+      },
+      {
+        "rank": 4,
+        "official_rank": 4,
+        "player": "Andrew Wiggins",
+        "team": "MIA",
+        "value": 91.761
+      },
+      {
+        "rank": 5,
+        "official_rank": 5,
+        "player": "Jerami Grant",
+        "team": "POR",
+        "value": 91.607
+      },
+      {
+        "rank": 6,
+        "official_rank": 6,
+        "player": "Zion Williamson",
+        "team": "NOP",
+        "value": 91.098
+      },
+      {
+        "rank": 7,
+        "official_rank": 7,
+        "player": "Paolo Banchero",
+        "team": "ORL",
+        "value": 90.628
+      },
+      {
+        "rank": 8,
+        "official_rank": 8,
+        "player": "DeMar DeRozan",
+        "team": "SAC",
+        "value": 90.617
+      },
+      {
+        "rank": 9,
+        "official_rank": 9,
+        "player": "Evan Mobley",
+        "team": "CLE",
+        "value": 90.46
+      },
+      {
+        "rank": 10,
+        "official_rank": 10,
+        "player": "Max Christie",
+        "team": "DAL",
+        "value": 90.417
+      },
+      {
+        "rank": 11,
+        "official_rank": 11,
+        "player": "Devin Vassell",
+        "team": "SAS",
+        "value": 90.266
+      },
+      {
+        "rank": 12,
+        "official_rank": 12,
+        "player": "Devin Booker",
+        "team": "PHX",
+        "value": 90.235
+      },
+      {
+        "rank": 13,
+        "official_rank": 13,
+        "player": "Nikola Jokić",
+        "team": "DEN",
+        "value": 90.151
+      },
+      {
+        "rank": 14,
+        "official_rank": 14,
+        "player": "Jaylen Brown",
+        "team": "BOS",
+        "value": 90.068
+      },
+      {
+        "rank": 15,
+        "official_rank": 15,
+        "player": "Cooper Flagg",
+        "team": "DAL",
+        "value": 89.914
+      },
+      {
+        "rank": 16,
+        "official_rank": 16,
+        "player": "Cade Cunningham",
+        "team": "DET",
+        "value": 89.734
+      },
+      {
+        "rank": 17,
+        "official_rank": 17,
+        "player": "Michael Porter Jr.",
+        "team": "BKN",
+        "value": 89.548
+      },
+      {
+        "rank": 18,
+        "official_rank": 18,
+        "player": "Lauri Markkanen",
+        "team": "UTA",
+        "value": 89.494
+      },
+      {
+        "rank": 19,
+        "official_rank": 19,
+        "player": "Kawhi Leonard",
+        "team": "LAC",
+        "value": 89.462
+      },
+      {
+        "rank": 20,
+        "official_rank": 20,
+        "player": "Scottie Barnes",
+        "team": "TOR",
+        "value": 89.419
+      },
+      {
+        "rank": 21,
+        "official_rank": 21,
+        "player": "Jabari Smith Jr.",
+        "team": "HOU",
+        "value": 89.366
+      },
+      {
+        "rank": 22,
+        "official_rank": 22,
+        "player": "Norman Powell",
+        "team": "MIA",
+        "value": 89.202
+      },
+      {
+        "rank": 23,
+        "official_rank": 23,
+        "player": "Keldon Johnson",
+        "team": "SAS",
+        "value": 89.177
+      },
+      {
+        "rank": 24,
+        "official_rank": 24,
+        "player": "Brice Sensabaugh",
+        "team": "UTA",
+        "value": 89.06
+      },
+      {
+        "rank": 25,
+        "official_rank": 25,
+        "player": "Bobby Portis",
+        "team": "MIL",
+        "value": 89.027
+      }
+    ],
+    "shooter_speed": [
+      {
+        "rank": 1,
+        "official_rank": 1,
+        "player": "Tre Jones",
+        "team": "CHI",
+        "value": 9.037
+      },
+      {
+        "rank": 2,
+        "official_rank": 2,
+        "player": "Zion Williamson",
+        "team": "NOP",
+        "value": 8.106
+      },
+      {
+        "rank": 3,
+        "official_rank": 3,
+        "player": "Jeremiah Fears",
+        "team": "NOP",
+        "value": 7.414
+      },
+      {
+        "rank": 4,
+        "official_rank": 4,
+        "player": "Ayo Dosunmu",
+        "team": "MIN",
+        "value": 7.408
+      },
+      {
+        "rank": 5,
+        "official_rank": 5,
+        "player": "Tyrese Maxey",
+        "team": "PHI",
+        "value": 7.192
+      },
+      {
+        "rank": 6,
+        "official_rank": 6,
+        "player": "Dyson Daniels",
+        "team": "ATL",
+        "value": 7.0
+      },
+      {
+        "rank": 7,
+        "official_rank": 7,
+        "player": "LeBron James",
+        "team": "LAL",
+        "value": 6.882
+      },
+      {
+        "rank": 8,
+        "official_rank": 8,
+        "player": "Desmond Bane",
+        "team": "ORL",
+        "value": 6.538
+      },
+      {
+        "rank": 9,
+        "official_rank": 9,
+        "player": "Giannis Antetokounmpo",
+        "team": "MIL",
+        "value": 6.376
+      },
+      {
+        "rank": 10,
+        "official_rank": 10,
+        "player": "Ausar Thompson",
+        "team": "DET",
+        "value": 6.242
+      },
+      {
+        "rank": 11,
+        "official_rank": 11,
+        "player": "Amen Thompson",
+        "team": "HOU",
+        "value": 6.182
+      },
+      {
+        "rank": 12,
+        "official_rank": 12,
+        "player": "Dylan Harper",
+        "team": "SAS",
+        "value": 6.03
+      },
+      {
+        "rank": 13,
+        "official_rank": 13,
+        "player": "Josh Giddey",
+        "team": "CHI",
+        "value": 6.028
+      },
+      {
+        "rank": 14,
+        "official_rank": 14,
+        "player": "Kyle Kuzma",
+        "team": "MIL",
+        "value": 6.004
+      },
+      {
+        "rank": 15,
+        "official_rank": 15,
+        "player": "Austin Reaves",
+        "team": "LAL",
+        "value": 5.959
+      },
+      {
+        "rank": 16,
+        "official_rank": 16,
+        "player": "Norman Powell",
+        "team": "MIA",
+        "value": 5.86
+      },
+      {
+        "rank": 17,
+        "official_rank": 17,
+        "player": "Jaime Jaquez Jr.",
+        "team": "MIA",
+        "value": 5.825
+      },
+      {
+        "rank": 18,
+        "official_rank": 18,
+        "player": "James Harden",
+        "team": "CLE",
+        "value": 5.782
+      },
+      {
+        "rank": 19,
+        "official_rank": 19,
+        "player": "Deni Avdija",
+        "team": "POR",
+        "value": 5.782
+      },
+      {
+        "rank": 20,
+        "official_rank": 20,
+        "player": "Quentin Grimes",
+        "team": "PHI",
+        "value": 5.761
+      },
+      {
+        "rank": 21,
+        "official_rank": 21,
+        "player": "Jalen Duren",
+        "team": "DET",
+        "value": 5.748
+      },
+      {
+        "rank": 22,
+        "official_rank": 22,
+        "player": "Shaedon Sharpe",
+        "team": "POR",
+        "value": 5.718
+      },
+      {
+        "rank": 23,
+        "official_rank": 23,
+        "player": "Collin Sexton",
+        "team": "CHI",
+        "value": 5.656
+      },
+      {
+        "rank": 24,
+        "official_rank": 24,
+        "player": "Darius Garland",
+        "team": "LAC",
+        "value": 5.618
+      },
+      {
+        "rank": 25,
+        "official_rank": 25,
+        "player": "Matas Buzelis",
+        "team": "CHI",
+        "value": 5.602
+      }
+    ],
+    "rotation_degrees": [
+      {
+        "rank": 1,
+        "official_rank": 1,
+        "player": "Ace Bailey",
+        "team": "UTA",
+        "value": 0.0
+      },
+      {
+        "rank": 2,
+        "official_rank": 1,
+        "player": "Alex Sarr",
+        "team": "WAS",
+        "value": 0.0
+      },
+      {
+        "rank": 3,
+        "official_rank": 1,
+        "player": "Alperen Sengun",
+        "team": "HOU",
+        "value": 0.0
+      },
+      {
+        "rank": 4,
+        "official_rank": 1,
+        "player": "Amen Thompson",
+        "team": "HOU",
+        "value": 0.0
+      },
+      {
+        "rank": 5,
+        "official_rank": 1,
+        "player": "Andrew Nembhard",
+        "team": "IND",
+        "value": 0.0
+      },
+      {
+        "rank": 6,
+        "official_rank": 1,
+        "player": "Andrew Wiggins",
+        "team": "MIA",
+        "value": 0.0
+      },
+      {
+        "rank": 7,
+        "official_rank": 1,
+        "player": "Anthony Black",
+        "team": "ORL",
+        "value": 0.0
+      },
+      {
+        "rank": 8,
+        "official_rank": 1,
+        "player": "Anthony Edwards",
+        "team": "MIN",
+        "value": 0.0
+      },
+      {
+        "rank": 9,
+        "official_rank": 1,
+        "player": "Ausar Thompson",
+        "team": "DET",
+        "value": 0.0
+      },
+      {
+        "rank": 10,
+        "official_rank": 1,
+        "player": "Austin Reaves",
+        "team": "LAL",
+        "value": 0.0
+      },
+      {
+        "rank": 11,
+        "official_rank": 1,
+        "player": "Ayo Dosunmu",
+        "team": "MIN",
+        "value": 0.0
+      },
+      {
+        "rank": 12,
+        "official_rank": 1,
+        "player": "Bam Adebayo",
+        "team": "MIA",
+        "value": 0.0
+      },
+      {
+        "rank": 13,
+        "official_rank": 1,
+        "player": "Bobby Portis",
+        "team": "MIL",
+        "value": 0.0
+      },
+      {
+        "rank": 14,
+        "official_rank": 1,
+        "player": "Brandin Podziemski",
+        "team": "GSW",
+        "value": 0.0
+      },
+      {
+        "rank": 15,
+        "official_rank": 1,
+        "player": "Brandon Ingram",
+        "team": "TOR",
+        "value": 0.0
+      },
+      {
+        "rank": 16,
+        "official_rank": 1,
+        "player": "Brandon Miller",
+        "team": "CHA",
+        "value": 0.0
+      },
+      {
+        "rank": 17,
+        "official_rank": 1,
+        "player": "Brice Sensabaugh",
+        "team": "UTA",
+        "value": 0.0
+      },
+      {
+        "rank": 18,
+        "official_rank": 1,
+        "player": "Bub Carrington",
+        "team": "WAS",
+        "value": 0.0
+      },
+      {
+        "rank": 19,
+        "official_rank": 1,
+        "player": "CJ McCollum",
+        "team": "ATL",
+        "value": 0.0
+      },
+      {
+        "rank": 20,
+        "official_rank": 1,
+        "player": "Cade Cunningham",
+        "team": "DET",
+        "value": 0.0
+      },
+      {
+        "rank": 21,
+        "official_rank": 1,
+        "player": "Cedric Coward",
+        "team": "MEM",
+        "value": 0.0
+      },
+      {
+        "rank": 22,
+        "official_rank": 1,
+        "player": "Chet Holmgren",
+        "team": "OKC",
+        "value": 0.0
+      },
+      {
+        "rank": 23,
+        "official_rank": 1,
+        "player": "Collin Gillespie",
+        "team": "PHX",
+        "value": 0.0
+      },
+      {
+        "rank": 24,
+        "official_rank": 1,
+        "player": "Collin Sexton",
+        "team": "CHI",
+        "value": 0.0
+      },
+      {
+        "rank": 25,
+        "official_rank": 1,
+        "player": "Cooper Flagg",
+        "team": "DAL",
+        "value": 0.0
+      }
+    ]
+  }
+}
