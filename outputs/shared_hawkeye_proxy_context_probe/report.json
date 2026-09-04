@@ -1,0 +1,266 @@
+[
+  {
+    "label": "wnba_control",
+    "url": "https://www.wnba.com/api/stats/shot-difficulty",
+    "headers": {},
+    "status": 200,
+    "bytes": 86790,
+    "final_url": "https://www.wnba.com/api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season",
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "e2eaf495abb3695580fa44aa2d4546cef97b35aa0cc99f0d0a6aed67989deaac",
+    "response_headers": {
+      "x-status": "hit",
+      "x-envoy-upstream-service-time": "0",
+      "Access-Control-Allow-Origin": "www.wnba.com"
+    },
+    "params_echo": {
+      "leagueId": "10",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025"
+    },
+    "count": 61,
+    "first_players": [
+      "Shakira Austin",
+      "Tina Charles",
+      "Angel Reese",
+      "Kiki Iriafen",
+      "Brittney Griner"
+    ],
+    "first_ids": [
+      1631022,
+      202250,
+      1642291,
+      1642792,
+      203398
+    ]
+  },
+  {
+    "label": "wnba_origin_nba",
+    "url": "https://www.wnba.com/api/stats/shot-difficulty",
+    "headers": {
+      "Origin": "https://www.nba.com",
+      "Referer": "https://www.nba.com/"
+    },
+    "status": 200,
+    "bytes": 86790,
+    "final_url": "https://www.wnba.com/api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season",
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "e2eaf495abb3695580fa44aa2d4546cef97b35aa0cc99f0d0a6aed67989deaac",
+    "response_headers": {
+      "x-status": "hit",
+      "x-envoy-upstream-service-time": "0",
+      "Access-Control-Allow-Origin": "https://www.nba.com"
+    },
+    "params_echo": {
+      "leagueId": "10",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025"
+    },
+    "count": 61,
+    "first_players": [
+      "Shakira Austin",
+      "Tina Charles",
+      "Angel Reese",
+      "Kiki Iriafen",
+      "Brittney Griner"
+    ],
+    "first_ids": [
+      1631022,
+      202250,
+      1642291,
+      1642792,
+      203398
+    ]
+  },
+  {
+    "label": "wnba_xfh_nba",
+    "url": "https://www.wnba.com/api/stats/shot-difficulty",
+    "headers": {
+      "X-Forwarded-Host": "www.nba.com",
+      "X-Original-Host": "www.nba.com",
+      "Origin": "https://www.nba.com",
+      "Referer": "https://www.nba.com/"
+    },
+    "status": 200,
+    "bytes": 86790,
+    "final_url": "https://www.wnba.com/api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season",
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "e2eaf495abb3695580fa44aa2d4546cef97b35aa0cc99f0d0a6aed67989deaac",
+    "response_headers": {
+      "x-status": "hit",
+      "x-envoy-upstream-service-time": "0",
+      "Access-Control-Allow-Origin": "https://www.nba.com"
+    },
+    "params_echo": {
+      "leagueId": "10",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025"
+    },
+    "count": 61,
+    "first_players": [
+      "Shakira Austin",
+      "Tina Charles",
+      "Angel Reese",
+      "Kiki Iriafen",
+      "Brittney Griner"
+    ],
+    "first_ids": [
+      1631022,
+      202250,
+      1642291,
+      1642792,
+      203398
+    ]
+  },
+  {
+    "label": "wnba_xleague_00",
+    "url": "https://www.wnba.com/api/stats/shot-difficulty",
+    "headers": {
+      "X-League-ID": "00",
+      "X-LeagueID": "00",
+      "X-NBA-League-ID": "00",
+      "Origin": "https://www.nba.com"
+    },
+    "status": 200,
+    "bytes": 86790,
+    "final_url": "https://www.wnba.com/api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season",
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "e2eaf495abb3695580fa44aa2d4546cef97b35aa0cc99f0d0a6aed67989deaac",
+    "response_headers": {
+      "x-status": "hit",
+      "x-envoy-upstream-service-time": "0",
+      "Access-Control-Allow-Origin": "https://www.nba.com"
+    },
+    "params_echo": {
+      "leagueId": "10",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025"
+    },
+    "count": 61,
+    "first_players": [
+      "Shakira Austin",
+      "Tina Charles",
+      "Angel Reese",
+      "Kiki Iriafen",
+      "Brittney Griner"
+    ],
+    "first_ids": [
+      1631022,
+      202250,
+      1642291,
+      1642792,
+      203398
+    ]
+  },
+  {
+    "label": "cdn_wnba",
+    "url": "https://cdn.wnba.com/api/stats/shot-difficulty",
+    "headers": {},
+    "status": 200,
+    "bytes": 86790,
+    "final_url": "https://cdn.wnba.com/api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season",
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "e2eaf495abb3695580fa44aa2d4546cef97b35aa0cc99f0d0a6aed67989deaac",
+    "response_headers": {
+      "x-status": "miss",
+      "x-envoy-upstream-service-time": "236",
+      "Access-Control-Allow-Origin": "www.wnba.com"
+    },
+    "params_echo": {
+      "leagueId": "10",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025"
+    },
+    "count": 61,
+    "first_players": [
+      "Shakira Austin",
+      "Tina Charles",
+      "Angel Reese",
+      "Kiki Iriafen",
+      "Brittney Griner"
+    ],
+    "first_ids": [
+      1631022,
+      202250,
+      1642291,
+      1642792,
+      203398
+    ]
+  },
+  {
+    "label": "cdn_nba",
+    "url": "https://cdn.nba.com/api/stats/shot-difficulty",
+    "headers": {},
+    "status": 403,
+    "bytes": 243,
+    "final_url": "https://cdn.nba.com/api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season",
+    "location": null,
+    "ct": "application/xml",
+    "sha256": "b25063cdcf9f7c13146cd870c891260f03156771db2e127def477db377735cdd",
+    "response_headers": {},
+    "prefix": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>EVDX3P9SJCB07AW1</RequestId><HostId>ZG0YpwnrDIprVWKstVpVbpSkgtypJAEGmB1AFEDm+fAxRaBoGbPHDmaEicVk7JXCgNBhv5gYd7o=</HostId></Error>"
+  },
+  {
+    "label": "stats_wnba",
+    "url": "https://stats.wnba.com/api/stats/shot-difficulty",
+    "headers": {},
+    "status": 302,
+    "bytes": 0,
+    "final_url": "https://stats.wnba.com/api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season",
+    "location": "https://stats.wnba.com/error/?season=2025-26&seasonType=Regular+Season",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "response_headers": {
+      "Server": "AkamaiGHost"
+    },
+    "prefix": ""
+  },
+  {
+    "label": "nba_www",
+    "url": "https://www.nba.com/api/stats/shot-difficulty",
+    "headers": {},
+    "status": 404,
+    "bytes": 4762,
+    "final_url": "https://www.nba.com/api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season",
+    "location": null,
+    "ct": "text/html; charset=utf-8",
+    "sha256": "5301a15af24816ed9cf596c9dcb138afc040e78e416a2389ff02ad9ceb8b7a1a",
+    "response_headers": {
+      "x-envoy-upstream-service-time": "1"
+    },
+    "prefix": "<!DOCTYPE html>\n                <html lang=\"en\">\n                <head>\n                    <meta charset=\"UTF-8\">\n                    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n                    <title>Content Unavailable</title>\n                    <link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\n                </head>\n                <body>\n                    <div class=\"header\">\n                        <svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <g fill=\"none\" fill-rule=\"evenodd\">\n                                <path\n                                    d=\"m20.09 29.196h-3.35v-28.466h5.184l3.468 23.482c-.518-5.581-1.196-14.592-1.196-19.336v-4.146h3.349v28.466h-4.745l-3.19-22.806c.28 5.103.479 11.203.479 14.632v8.173m9.37.001v-28.466h4.744c3.15 0 5.103 1.714 5.103 5.701v4.186c0 2.592-.798 3.907-1.914 4.585 1.116.718 1.914 1.993 1.914 4.186v4"
+  },
+  {
+    "label": "nba_stats_path",
+    "url": "https://www.nba.com/stats/api/stats/shot-difficulty",
+    "headers": {},
+    "status": 404,
+    "bytes": 4652,
+    "final_url": "https://www.nba.com/stats/api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season",
+    "location": null,
+    "ct": "text/html; charset=utf-8",
+    "sha256": "8f0671aaddd4f481b76443f5ce93e576c3d915e44ed98e6d0dd2175a8fa6ee97",
+    "response_headers": {
+      "x-envoy-upstream-service-time": "114"
+    },
+    "prefix": "<!DOCTYPE html>\n                <html lang=\"en\">\n                <head>\n                    <meta charset=\"UTF-8\">\n                    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n                    <title>Content Unavailable</title>\n                    <link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\n                </head>\n                <body>\n                    <div class=\"header\">\n                        <svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <g fill=\"none\" fill-rule=\"evenodd\">\n                                <path\n                                    d=\"m20.09 29.196h-3.35v-28.466h5.184l3.468 23.482c-.518-5.581-1.196-14.592-1.196-19.336v-4.146h3.349v28.466h-4.745l-3.19-22.806c.28 5.103.479 11.203.479 14.632v8.173m9.37.001v-28.466h4.744c3.15 0 5.103 1.714 5.103 5.701v4.186c0 2.592-.798 3.907-1.914 4.585 1.116.718 1.914 1.993 1.914 4.186v4"
+  },
+  {
+    "label": "nba_cdn_stats",
+    "url": "https://cdn.nba.com/stats/api/stats/shot-difficulty",
+    "headers": {},
+    "status": 403,
+    "bytes": 243,
+    "final_url": "https://cdn.nba.com/stats/api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season",
+    "location": null,
+    "ct": "application/xml",
+    "sha256": "4066c68dd5d1a96c5d03940d035a43ca0d44d0894368f17b2d24de7cd915ef44",
+    "response_headers": {},
+    "prefix": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>1Q022XAPJY6T0VD8</RequestId><HostId>i60ACHCdXol4Q/jCgfJAdI8UeZI+nETE6aRYWSO341tyKbg1rU4kvuJ64vTVx9EXsbxlB0NZAeM=</HostId></Error>"
+  }
+]
