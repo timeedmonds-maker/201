@@ -1,0 +1,66 @@
+name: Extract WNBA shot-quality API call signatures
+
+on:
+  push:
+    branches: [analysis/hawkeye-season-complete-v2]
+    paths: ['.github/workflows/extract_wnba_shotquality_calls.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-season-complete-v2}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests beautifulsoup4
+      - name: Extract current JS call contexts
+        run: |
+          python - <<'PY'
+          import requests,re,json,pathlib,urllib.parse
+          from bs4 import BeautifulSoup
+          H={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/137.0 Safari/537.36'}
+          s=requests.Session();s.headers.update(H)
+          pages=['https://www.wnba.com/stats/inside-the-game','https://www.wnba.com/stats/inside-the-game/shot-difficulty']
+          scripts=set(); page_meta=[]
+          for u in pages:
+            r=s.get(u,timeout=45); page_meta.append({'url':u,'status':r.status_code,'bytes':len(r.content)})
+            soup=BeautifulSoup(r.text,'html.parser')
+            for tag in soup.find_all('script',src=True):
+              src=urllib.parse.urljoin(u,tag['src']); scripts.add(src)
+          # Add chunks referenced by build manifests if present in HTML-discovered scripts.
+          hits=[]; downloaded=[]
+          needles=['shotqualitytopperformersseason','shotqualityleaders','shotquality','topperformersseason']
+          for u in sorted(scripts):
+            try:
+              r=s.get(u,timeout=45); txt=r.text; downloaded.append({'url':u,'status':r.status_code,'bytes':len(r.content)})
+              if r.status_code!=200: continue
+              low=txt.lower()
+              for needle in needles:
+                start=0
+                while True:
+                  i=low.find(needle,start)
+                  if i<0:break
+                  hits.append({'url':u,'needle':needle,'index':i,'context':txt[max(0,i-6500):min(len(txt),i+12000)]})
+                  start=i+len(needle)
+            except Exception as e: downloaded.append({'url':u,'error':repr(e)})
+          d=pathlib.Path('outputs/wnba_shotquality_call_extract');d.mkdir(parents=True,exist_ok=True)
+          (d/'hits.json').write_text(json.dumps(hits,indent=2,ensure_ascii=False),encoding='utf-8')
+          (d/'meta.json').write_text(json.dumps({'pages':page_meta,'script_count':len(scripts),'scripts':downloaded,'hit_count':len(hits)},indent=2),encoding='utf-8')
+          print('scripts',len(scripts),'hits',len(hits))
+          for h in hits:
+            print(h['needle'],h['url'],h['index'])
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/wnba_shotquality_call_extract
+          git commit -m 'Preserve WNBA shot-quality client signatures' || exit 0
+          git pull --rebase origin analysis/hawkeye-season-complete-v2
+          git push origin HEAD:analysis/hawkeye-season-complete-v2
