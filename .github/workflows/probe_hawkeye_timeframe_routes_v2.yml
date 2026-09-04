@@ -1,0 +1,98 @@
+name: Probe Hawk-Eye timeframe routes v2
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/probe_hawkeye_timeframe_routes_v2.yml'
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: analysis/hawkeye-all-players-2025-26
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip -q install requests
+      - name: Probe known gravity timeframe then shot-quality analogues
+        run: |
+          python - <<'PY'
+          import requests,itertools,json,os,hashlib,time
+          OUT='outputs/hawkeye_timeframe_v2'; os.makedirs(OUT,exist_ok=True)
+          s=requests.Session(); s.headers.update({'User-Agent':'Mozilla/5.0','Referer':'https://www.nba.com/','Origin':'https://www.nba.com','Accept':'application/json,text/plain,*/*'})
+          base='https://stats.gleague.nba.com/stats/'
+          endpoints=['gravityleaderstimeframe','shotqualityleaderstimeframe','shotqualitytopperformerstimeframe','shotqualitytopperformersseason']
+          basep={'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season'}
+          variants=[
+            ('base',{}),
+            ('datefrom_one_day',{'DateFrom':'12/26/2025','DateTo':'12/26/2025'}),
+            ('datefrom_iso',{'DateFrom':'2025-12-26','DateTo':'2025-12-26'}),
+            ('startend',{'StartDate':'12/26/2025','EndDate':'12/26/2025'}),
+            ('fromto',{'FromDate':'12/26/2025','ToDate':'12/26/2025'}),
+            ('starttimeendtime',{'StartTime':'2025-12-26T00:00:00','EndTime':'2025-12-27T00:00:00'}),
+            ('game',{'GameID':'0022500430'}),
+            ('player_unqual',{'PlayerID':'201567'}),
+            ('player_qual',{'PlayerID':'2544'}),
+            ('game_player_unqual',{'GameID':'0022500430','PlayerID':'201567'}),
+            ('date_player_unqual',{'DateFrom':'12/26/2025','DateTo':'12/26/2025','PlayerID':'201567'}),
+            ('startend_player_unqual',{'StartDate':'12/26/2025','EndDate':'12/26/2025','PlayerID':'201567'}),
+            ('lastngames1',{'LastNGames':'1'}),
+            ('month3',{'Month':'3'}),
+            ('seasonsegment',{'SeasonSegment':'Post All-Star'}),
+            ('team',{'TeamID':'1610612762'}),
+          ]
+          rec=[]
+          for ep in endpoints:
+            for label,extra in variants:
+              p={**basep,**extra}
+              try:
+                r=s.get(base+ep,params=p,timeout=25,allow_redirects=False)
+                txt=r.text
+                try:j=r.json()
+                except:j=None
+                def count_rows(x):
+                  if isinstance(x,dict):
+                    for k in ['shots','players','data','results','gravityLeaders','leaders']:
+                      if isinstance(x.get(k),list): return len(x[k])
+                  return None
+                keys=list(j.keys()) if isinstance(j,dict) else None
+                paths=[]
+                target=False
+                def walk(x,path=''):
+                  nonlocal target
+                  if isinstance(x,dict):
+                    for k,v in x.items():
+                      np=f'{path}/{k}'
+                      if k.upper() in ['AVGDEFENSIVEHANDHEIGHT','AVGSHOOTERSPEED','AVGROTATIONDEGREES','AVGDEFENDERPRESSURESCORE']: target=True; paths.append(np)
+                      walk(v,np)
+                  elif isinstance(x,list):
+                    for i,v in enumerate(x[:3]): walk(v,f'{path}/{i}')
+                if j is not None: walk(j)
+                rec.append({'endpoint':ep,'variant':label,'params':p,'status':r.status_code,'bytes':len(r.content),'location':r.headers.get('location'),'ct':r.headers.get('content-type'),'sha256':hashlib.sha256(r.content).hexdigest(),'keys':keys,'row_count':count_rows(j),'target':target,'target_paths':paths[:20],'prefix':txt[:900] if r.status_code!=200 or len(r.content)<1000 else ''})
+              except Exception as e: rec.append({'endpoint':ep,'variant':label,'params':p,'error':repr(e)})
+              time.sleep(.08)
+          json.dump(rec,open(f'{OUT}/report.json','w'),indent=2)
+          # keep anything that differs from endpoint baseline or is 200/target
+          interesting=[]
+          for ep in endpoints:
+            rr=[x for x in rec if x.get('endpoint')==ep]
+            base_rec=next((x for x in rr if x.get('variant')=='base'),{})
+            for x in rr:
+              if x.get('target') or x.get('status')==200 or x.get('sha256')!=base_rec.get('sha256') or x.get('status')!=base_rec.get('status'):
+                interesting.append(x)
+          json.dump(interesting,open(f'{OUT}/interesting.json','w'),indent=2)
+          summary={ep:[{'variant':x.get('variant'),'status':x.get('status'),'bytes':x.get('bytes'),'rows':x.get('row_count'),'target':x.get('target'),'location':x.get('location')} for x in rec if x.get('endpoint')==ep] for ep in endpoints}
+          json.dump(summary,open(f'{OUT}/summary.json','w'),indent=2)
+          print(json.dumps(summary,indent=2))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hawkeye_timeframe_v2
+          git commit -m 'Probe Hawk-Eye timeframe route parameter shapes' || exit 0
+          git pull --rebase origin analysis/hawkeye-all-players-2025-26
+          git push origin HEAD:analysis/hawkeye-all-players-2025-26
