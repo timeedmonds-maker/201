@@ -1,0 +1,137 @@
+name: Probe Hawk-Eye shot video assets for tracking sidecars
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/probe_shot_video_sidecars.yml'
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: analysis/hawkeye-all-players-2025-26
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null && pip -q install requests beautifulsoup4
+      - name: Inspect shot videos and adjacent metadata
+        run: |
+          python - <<'PY'
+          import requests,json,os,re,urllib.parse,hashlib,subprocess,tempfile
+          from bs4 import BeautifulSoup
+          OUT='outputs/hawkeye_shot_video_sidecars'; os.makedirs(OUT,exist_ok=True)
+          s=requests.Session(); s.headers.update({'User-Agent':'Mozilla/5.0','Referer':'https://www.nba.com/','Origin':'https://www.nba.com','Accept':'application/json,text/plain,*/*'})
+          base='https://stats.gleague.nba.com/stats/'
+          players=[('Kevin Love','201567'),('LeBron James','2544'),('P.J. Washington','1629023')]
+          metric_needles=['AVGDEFENSIVEHANDHEIGHT','AVGSHOOTERSPEED','AVGROTATIONDEGREES','AVGDEFENDERPRESSURESCORE']
+          word_needles=['pose','keypoint','skeleton','joint','tracking','courtvision','hawkeye','metadata','frameData','ballLocation','playerLocation','largeUrl','guid']
+          report=[]
+          def getj(url,params=None,timeout=25):
+            try:
+              r=s.get(url,params=params,timeout=timeout)
+              try:j=r.json()
+              except: j=None
+              return r,j
+            except Exception as e:return None,{'_error':repr(e)}
+          for name,pid in players:
+            # playergamelog to find regular-season games; try several standard parameter sets
+            games=[]; pg_attempts=[]
+            for endpoint,params in [
+              ('playergamelog',{'PlayerID':pid,'Season':'2025-26','SeasonType':'Regular Season'}),
+              ('leaguegamelog',{'PlayerOrTeam':'P','PlayerID':pid,'Season':'2025-26','SeasonType':'Regular Season','LeagueID':'00','Counter':'0','DateFrom':'','DateTo':'','Direction':'DESC','Sorter':'DATE'})]:
+              r,j=getj(base+endpoint,params)
+              pg_attempts.append({'endpoint':endpoint,'status':getattr(r,'status_code',None),'bytes':len(r.content) if r else None,'keys':list(j.keys()) if isinstance(j,dict) else None})
+              if isinstance(j,dict):
+                # standard resultSets
+                for key in ['resultSets','resultSet']:
+                  rs=j.get(key)
+                  if isinstance(rs,list): sets=rs
+                  elif isinstance(rs,dict): sets=[rs]
+                  else: sets=[]
+                  for st in sets:
+                    hdr=st.get('headers',[]); rows=st.get('rowSet',[])
+                    if 'Game_ID' in hdr or 'GAME_ID' in hdr:
+                      gi=hdr.index('Game_ID') if 'Game_ID' in hdr else hdr.index('GAME_ID')
+                      games += [str(x[gi]) for x in rows if len(x)>gi]
+            # fall back to known game used in prior verified probe
+            games=list(dict.fromkeys(games))[:20] or ['0022500928']
+            player_rec={'player':name,'player_id':pid,'gamelog_attempts':pg_attempts,'games_checked':[]}
+            got_shots=False
+            for gid in games:
+              r,j=getj(base+'shotqualityvideologs',{'GameID':gid,'PlayerID':pid})
+              rec={'game_id':gid,'status':getattr(r,'status_code',None),'bytes':len(r.content) if r else None,'top_keys':list(j.keys()) if isinstance(j,dict) else None}
+              shots=[]
+              if isinstance(j,dict): shots=j.get('shotList') or j.get('shots') or []
+              rec['shot_count']=len(shots) if isinstance(shots,list) else 0
+              if isinstance(shots,list) and shots:
+                got_shots=True
+                rec['shot_keys']=sorted(set().union(*(x.keys() for x in shots if isinstance(x,dict))))
+                rec['target_fields_present']=[k for k in metric_needles if any(k in x for x in shots if isinstance(x,dict))]
+                rec['shots']=[]
+                for sh in shots[:2]:
+                  one={'eventNum':sh.get('eventNum'),'guid':sh.get('guid'),'urls':{},'candidate_sidecars':[]}
+                  urls=[]
+                  for k,v in sh.items():
+                    if isinstance(v,str) and v.startswith('http'):
+                      urls.append((k,v))
+                  for k,u in urls:
+                    urec={'url':u}
+                    try:
+                      hr=s.head(u,allow_redirects=True,timeout=20)
+                      urec.update({'head_status':hr.status_code,'final_url':hr.url,'content_type':hr.headers.get('content-type'),'content_length':hr.headers.get('content-length'),'etag':hr.headers.get('etag'),'server':hr.headers.get('server'),'x_cache':hr.headers.get('x-cache')})
+                    except Exception as e: urec['head_error']=repr(e)
+                    one['urls'][k]=urec
+                    p=urllib.parse.urlparse(u); path=p.path; root,ext=os.path.splitext(path)
+                    cand=[]
+                    for newext in ['.json','.m3u8','.vtt','.xml','.txt','.csv','.ndjson']:
+                      cand.append(urllib.parse.urlunparse(p._replace(path=root+newext,query='')))
+                    for suffix in ['/metadata.json','/tracking.json','/pose.json','/frames.json','/manifest.json']:
+                      cand.append(urllib.parse.urlunparse(p._replace(path=root+suffix,query='')))
+                    for cu in dict.fromkeys(cand):
+                      try:
+                        cr=s.get(cu,timeout=12,allow_redirects=True)
+                        if cr.status_code not in (403,404,405) or ('json' in (cr.headers.get('content-type') or '').lower()):
+                          txt=cr.text[:1200] if 'text' in (cr.headers.get('content-type') or '').lower() or 'json' in (cr.headers.get('content-type') or '').lower() else ''
+                          one['candidate_sidecars'].append({'url':cu,'status':cr.status_code,'bytes':len(cr.content),'ct':cr.headers.get('content-type'),'prefix':txt})
+                      except Exception: pass
+                  rec['shots'].append(one)
+                # page bundle scan using selected shot URL pattern
+                ev=shots[0].get('eventNum')
+                detail=f'https://www.nba.com/stats/events?CFID=&CFPARAMS=&GameEventID={ev}&GameID={gid}&Season=2025-26&flag=1&title={urllib.parse.quote(name)}'
+                try:
+                  rr=s.get(detail,timeout=25); html=rr.text
+                  scripts=[urllib.parse.urljoin(detail,x.get('src')) for x in BeautifulSoup(html,'html.parser').find_all('script',src=True)]
+                  contexts=[]
+                  for su in scripts:
+                    try: t=s.get(su,timeout=20).text
+                    except: continue
+                    lo=t.lower()
+                    for needle in word_needles:
+                      i=lo.find(needle.lower())
+                      if i>=0: contexts.append({'script':su,'needle':needle,'context':t[max(0,i-450):i+900]})
+                  rec['bundle_contexts']=contexts[:80]
+                except Exception as e: rec['bundle_error']=repr(e)
+                player_rec['games_checked'].append(rec)
+                break
+              player_rec['games_checked'].append(rec)
+            player_rec['got_shots']=got_shots
+            report.append(player_rec)
+          json.dump(report,open(f'{OUT}/report.json','w'),indent=2)
+          summary=[]
+          for p in report:
+            g=next((x for x in p['games_checked'] if x.get('shot_count',0)>0),{})
+            summary.append({'player':p['player'],'player_id':p['player_id'],'got_shots':p['got_shots'],'game_id':g.get('game_id'),'shot_count':g.get('shot_count'),'shot_keys':g.get('shot_keys',[]),'target_fields_present':g.get('target_fields_present',[]),'sidecar_hits':sum(len(x.get('candidate_sidecars',[])) for x in g.get('shots',[])),'bundle_context_hits':len(g.get('bundle_contexts',[]))})
+          json.dump(summary,open(f'{OUT}/summary.json','w'),indent=2)
+          print(json.dumps(summary,indent=2))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hawkeye_shot_video_sidecars
+          git commit -m 'Probe Hawk-Eye shot video sidecars' || exit 0
+          git pull --rebase origin analysis/hawkeye-all-players-2025-26
+          git push origin HEAD:analysis/hawkeye-all-players-2025-26
