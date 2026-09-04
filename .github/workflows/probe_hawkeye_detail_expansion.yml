@@ -1,0 +1,93 @@
+name: Probe Hawk-Eye detail expansion
+
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/probe_hawkeye_detail_expansion.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-all-players-2025-26}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Test benign detail/feature expansion flags
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,hashlib,time
+          H={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/137.0 Safari/537.36','Origin':'https://www.nba.com','Referer':'https://www.nba.com/','Accept':'application/json,text/plain,*/*','x-nba-stats-origin':'stats','x-nba-stats-token':'true'}
+          s=requests.Session();s.headers.update(H)
+          base='https://stats.gleague.nba.com/stats/'
+          controls=[('Tosan','1641787','0022500285'),('KevinLove','201567','0022501004'),('LeBron','2544','0022501198')]
+          flags=[
+            ('control',{}),
+            ('Detail=1',{'Detail':'1'}),('Detail=true',{'Detail':'true'}),('Details=true',{'Details':'true'}),('Verbose=true',{'Verbose':'true'}),
+            ('IncludeDetails=true',{'IncludeDetails':'true'}),('IncludeTracking=true',{'IncludeTracking':'true'}),('IncludeTrackingData=true',{'IncludeTrackingData':'true'}),
+            ('IncludeFeatures=true',{'IncludeFeatures':'true'}),('IncludeShotFeatures=true',{'IncludeShotFeatures':'true'}),('IncludeMetrics=true',{'IncludeMetrics':'true'}),
+            ('ReturnTracking=true',{'ReturnTracking':'true'}),('ReturnFeatures=true',{'ReturnFeatures':'true'}),('Expanded=true',{'Expanded':'true'}),('Expand=true',{'Expand':'true'}),
+            ('Fields=*',{'Fields':'*'}),('FieldSet=All',{'FieldSet':'All'}),('Mode=Full',{'Mode':'Full'}),('View=Full',{'View':'Full'}),('Type=Full',{'Type':'Full'}),
+            ('Stats=All',{'Stats':'All'}),('MeasureType=All',{'MeasureType':'All'}),('DataType=All',{'DataType':'All'}),('Scope=All',{'Scope':'All'}),
+            ('Raw=true',{'Raw':'true'}),('IncludeRaw=true',{'IncludeRaw':'true'}),('Tracking=true',{'Tracking':'true'}),('Features=true',{'Features':'true'}),
+          ]
+          targets=['defensivehandheight','shooterspeed','rotationdegrees','defenderpressurescore']
+          def hits(j,p=''):
+            out=[]
+            if isinstance(j,dict):
+              for k,v in j.items():
+                kk=k.lower().replace('_','')
+                if any(t in kk for t in targets):out.append({'path':p+'/'+k,'value':v if not isinstance(v,(dict,list)) else type(v).__name__})
+                if isinstance(v,(dict,list)):out.extend(hits(v,p+'/'+k))
+            elif isinstance(j,list):
+              for i,v in enumerate(j[:100]):
+                if isinstance(v,(dict,list)):out.extend(hits(v,f'{p}/{i}'))
+            return out
+          out=[]
+          for resource in ['shotqualityvideologs','shotqualityshotlog']:
+            for name,pid,gid in controls:
+              for label,extra in flags:
+                params={'GameID':gid,'PlayerID':pid,**extra}
+                rec={'resource':resource,'player':name,'pid':pid,'gid':gid,'label':label,'extra':extra}
+                try:
+                  r=s.get(base+resource,params=params,timeout=25,allow_redirects=False);rec.update(status=r.status_code,bytes=len(r.content),sha256=hashlib.sha256(r.content).hexdigest(),location=r.headers.get('location'))
+                  if r.status_code==200 and r.content:
+                    try:
+                      j=r.json();rec['top_keys']=list(j) if isinstance(j,dict) else None;rec['hits']=hits(j)
+                      if isinstance(j,dict):
+                        sl=j.get('shotList');
+                        if isinstance(sl,list) and sl:rec['shot_keys']=list(sl[0])
+                        # generic nested array keys
+                        for k,v in j.items():
+                          if isinstance(v,list) and v and isinstance(v[0],dict):rec[f'{k}_keys']=list(v[0])
+                    except Exception as e:rec['json_error']=repr(e);rec['prefix']=r.text[:500]
+                  else:rec['prefix']=r.text[:300]
+                except Exception as e:rec['error']=repr(e)
+                out.append(rec);time.sleep(.02)
+          # Compare each variant to control for each resource/player.
+          controls_sha={(x['resource'],x['player']):x.get('sha256') for x in out if x['label']=='control'}
+          for x in out:x['same_as_control']=x.get('sha256')==controls_sha.get((x['resource'],x['player']))
+          interesting=[x for x in out if x.get('hits') or not x.get('same_as_control',True) or x.get('status')!=200]
+          d=pathlib.Path('outputs/hawkeye_detail_expansion_probe');d.mkdir(parents=True,exist_ok=True)
+          (d/'report.json').write_text(json.dumps(out,indent=2,ensure_ascii=False),encoding='utf-8')
+          (d/'interesting.json').write_text(json.dumps(interesting,indent=2,ensure_ascii=False),encoding='utf-8')
+          summary={'requests':len(out),'target_hit_count':sum(bool(x.get('hits')) for x in out),'target_hit_variants':[{'resource':x['resource'],'player':x['player'],'label':x['label'],'hits':x['hits']} for x in out if x.get('hits')],'changed_variants':sum(not x.get('same_as_control',True) for x in out),'non200':sum(x.get('status')!=200 for x in out)}
+          (d/'summary.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps(summary,indent=2,ensure_ascii=False))
+          PY
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hawkeye_detail_expansion_probe || true
+          git diff --cached --quiet && exit 0
+          git commit -m 'Preserve Hawk-Eye detail expansion probe'
+          for i in 1 2 3 4 5; do git pull --rebase origin analysis/hawkeye-all-players-2025-26 && git push origin HEAD:analysis/hawkeye-all-players-2025-26 && exit 0; sleep $((i*2)); done
+          exit 1
