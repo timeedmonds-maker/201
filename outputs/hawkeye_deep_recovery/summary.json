@@ -1,0 +1,47 @@
+{
+  "retrieved_at_utc": "2026-09-04T10:16:27.114948+00:00",
+  "endpoint_requests": 392,
+  "resources_with_meaningful_200": [
+    "gravityleaders",
+    "shotqualityleaders"
+  ],
+  "resources_with_target_fields": [
+    "shotqualityleaders"
+  ],
+  "snapshot_sources_parsed": 3,
+  "snapshot_union_unique_players": 177,
+  "archive_queries": [
+    {
+      "host": "stats.nba.com",
+      "status": 200,
+      "bytes": 3,
+      "error": null,
+      "rows": 0
+    },
+    {
+      "host": "stats.gleague.nba.com",
+      "status": 200,
+      "bytes": 3,
+      "error": null,
+      "rows": 0
+    }
+  ],
+  "archive_snapshots_fetched": 0,
+  "github_code_hits": 8,
+  "github_snapshot_files": [
+    {
+      "repo": "gabriel1200/site_Data",
+      "path": "efg.csv",
+      "html_url": "https://github.com/gabriel1200/site_Data/blob/782ec8b4c09fdfb023f06dbcd3e601123cf6d698/efg.csv",
+      "sha": "05dfee1bd5c5ae1857d1163c1064139d3a00365a",
+      "target_rows": 148
+    }
+  ],
+  "frontend_context_hits": 44,
+  "frontend_needles_found": [
+    "36843:function",
+    "hanaService",
+    "shotqualityleaders",
+    "stats.nba.com/stats"
+  ]
+}

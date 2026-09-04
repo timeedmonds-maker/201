@@ -1,0 +1,50 @@
+[
+  {
+    "repo": "reidhoch/fastbreak",
+    "path": "src/fastbreak/models/shot_quality_leaders.py",
+    "html_url": "https://github.com/reidhoch/fastbreak/blob/273b17ce68d753cbc64578b8768d8888f110e858/src/fastbreak/models/shot_quality_leaders.py",
+    "sha": "b00ce484c21476bef3e8f8c0e7e1536387312c03"
+  },
+  {
+    "repo": "gabriel1200/site_Data",
+    "path": "efg.csv",
+    "html_url": "https://github.com/gabriel1200/site_Data/blob/782ec8b4c09fdfb023f06dbcd3e601123cf6d698/efg.csv",
+    "sha": "05dfee1bd5c5ae1857d1163c1064139d3a00365a"
+  },
+  {
+    "repo": "reidhoch/fastbreak",
+    "path": "tests/models/test_shot_quality_leaders.py",
+    "html_url": "https://github.com/reidhoch/fastbreak/blob/273b17ce68d753cbc64578b8768d8888f110e858/tests/models/test_shot_quality_leaders.py",
+    "sha": "aac7c28497e2dd04086661f3bb055a8b3459fa94"
+  },
+  {
+    "repo": "FRCTeam1506/2026-Rebuild",
+    "path": "src/main/java/frc/robot/subsystems/Shooter.java",
+    "html_url": "https://github.com/FRCTeam1506/2026-Rebuild/blob/80f3338caa3f9317b4d134b515dc38e78cc890b0/src/main/java/frc/robot/subsystems/Shooter.java",
+    "sha": "6ca196f81de6255198aa87aff4c300ac1f8bbead"
+  },
+  {
+    "repo": "FRCTeam1506/2024-Terminator",
+    "path": "src/main/java/frc/robot/subsystems/ShooterSubsystem.java",
+    "html_url": "https://github.com/FRCTeam1506/2024-Terminator/blob/3e5ac7988fa273b8d1d66388f1810c22c75ff8d2/src/main/java/frc/robot/subsystems/ShooterSubsystem.java",
+    "sha": "64fda52143463e6c2fbe87a60d3467c61abf09e6"
+  },
+  {
+    "repo": "FRCTeam1506/2024-Terminator",
+    "path": "src/main/java/frc/robot/commands/shooter/runWheelConditional.java",
+    "html_url": "https://github.com/FRCTeam1506/2024-Terminator/blob/3e5ac7988fa273b8d1d66388f1810c22c75ff8d2/src/main/java/frc/robot/commands/shooter/runWheelConditional.java",
+    "sha": "f77c0cb12ce3f7bbbc7a36eb362259e22ea57250"
+  },
+  {
+    "repo": "SaintsRobotics/Rebuilt2026",
+    "path": "src/main/java/frc/robot/RobotContainer.java",
+    "html_url": "https://github.com/SaintsRobotics/Rebuilt2026/blob/6848487d409eb0f95cabbba02e255703a2b688da/src/main/java/frc/robot/RobotContainer.java",
+    "sha": "c9af7164e6dbe15f2f19ad6827314be1c63b5404"
+  },
+  {
+    "repo": "SaintsRobotics/Rebuilt2026",
+    "path": "src/main/java/frc/robot/subsystems/ShooterSubsystem.java",
+    "html_url": "https://github.com/SaintsRobotics/Rebuilt2026/blob/6848487d409eb0f95cabbba02e255703a2b688da/src/main/java/frc/robot/subsystems/ShooterSubsystem.java",
+    "sha": "eec501aadb43c5f30bdd0c921edf55a872083fe6"
+  }
+]

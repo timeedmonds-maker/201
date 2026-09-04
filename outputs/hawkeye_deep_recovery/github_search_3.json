@@ -1,0 +1,7 @@
+{
+  "query": "AVGDEFENDERPRESSURESCORE in:file",
+  "status": 200,
+  "bytes": 14073,
+  "total_count": 3,
+  "hits_seen": 3
+}

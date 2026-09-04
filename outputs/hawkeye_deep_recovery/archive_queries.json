@@ -1,0 +1,16 @@
+[
+  {
+    "host": "stats.nba.com",
+    "status": 200,
+    "bytes": 3,
+    "error": null,
+    "rows": 0
+  },
+  {
+    "host": "stats.gleague.nba.com",
+    "status": 200,
+    "bytes": 3,
+    "error": null,
+    "rows": 0
+  }
+]
