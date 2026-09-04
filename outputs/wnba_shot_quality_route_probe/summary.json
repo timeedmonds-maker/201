@@ -1,0 +1,395 @@
+[
+  {
+    "label": "season_base",
+    "url": "https://www.wnba.com/api/stats/shot-quality",
+    "params": {
+      "season": "2026"
+    },
+    "status": 400,
+    "bytes": 40,
+    "ct": "application/json; charset=utf-8",
+    "top_keys": null,
+    "array_count": null,
+    "first_keys": null,
+    "arrays": null,
+    "dict_keys": null,
+    "error": null
+  },
+  {
+    "label": "season_type",
+    "url": "https://www.wnba.com/api/stats/shot-quality",
+    "params": {
+      "season": "2026",
+      "seasonType": "Regular Season"
+    },
+    "status": 200,
+    "bytes": 59151,
+    "ct": "application/json; charset=utf-8",
+    "top_keys": [
+      "performers"
+    ],
+    "array_count": null,
+    "first_keys": null,
+    "arrays": [
+      {
+        "key": "performers",
+        "count": 118,
+        "first_keys": [
+          "gameId",
+          "gameDate",
+          "matchup",
+          "playerId",
+          "firstName",
+          "lastName",
+          "playerName",
+          "jerseyNum",
+          "position",
+          "teamId",
+          "teamCity",
+          "teamName",
+          "teamAbbreviation",
+          "shots",
+          "avgShotQuality",
+          "fgPct",
+          "fgPctAboveExpected",
+          "thumbnail",
+          "totalDuration"
+        ],
+        "first": {
+          "gameId": "1022600019",
+          "gameDate": "05/14/2026",
+          "matchup": "MIN @ DAL",
+          "playerId": 1627675,
+          "firstName": "Courtney",
+          "lastName": "Williams",
+          "playerName": "Courtney Williams",
+          "jerseyNum": "10",
+          "position": "G",
+          "teamId": 1611661324,
+          "teamCity": "Minnesota",
+          "teamName": "Lynx",
+          "teamAbbreviation": "MIN",
+          "shots": 10,
+          "avgShotQuality": 0.353,
+          "fgPct": 0.9,
+          "fgPctAboveExpected": 0.547,
+          "thumbnail": "https://videos.nba.com/wnba/pbp/media/2026/05/14/1022600019/19/7e09f3ee-b6df-c130-6c12-d4851abe242b_320x180.jpg",
+          "totalDuration": 89382
+        }
+      }
+    ],
+    "dict_keys": null,
+    "error": null
+  },
+  {
+    "label": "season_player",
+    "url": "https://www.wnba.com/api/stats/shot-quality",
+    "params": {
+      "season": "2026",
+      "playerId": "1642289"
+    },
+    "status": 400,
+    "bytes": 40,
+    "ct": "application/json; charset=utf-8",
+    "top_keys": null,
+    "array_count": null,
+    "first_keys": null,
+    "arrays": null,
+    "dict_keys": null,
+    "error": null
+  },
+  {
+    "label": "season_limit1000",
+    "url": "https://www.wnba.com/api/stats/shot-quality",
+    "params": {
+      "season": "2026",
+      "limit": "1000"
+    },
+    "status": 400,
+    "bytes": 40,
+    "ct": "application/json; charset=utf-8",
+    "top_keys": null,
+    "array_count": null,
+    "first_keys": null,
+    "arrays": null,
+    "dict_keys": null,
+    "error": null
+  },
+  {
+    "label": "season_all",
+    "url": "https://www.wnba.com/api/stats/shot-quality",
+    "params": {
+      "season": "2026",
+      "allPlayers": "true"
+    },
+    "status": 400,
+    "bytes": 40,
+    "ct": "application/json; charset=utf-8",
+    "top_keys": null,
+    "array_count": null,
+    "first_keys": null,
+    "arrays": null,
+    "dict_keys": null,
+    "error": null
+  },
+  {
+    "label": "season_unqualified",
+    "url": "https://www.wnba.com/api/stats/shot-quality",
+    "params": {
+      "season": "2026",
+      "includeUnqualified": "true"
+    },
+    "status": 400,
+    "bytes": 40,
+    "ct": "application/json; charset=utf-8",
+    "top_keys": null,
+    "array_count": null,
+    "first_keys": null,
+    "arrays": null,
+    "dict_keys": null,
+    "error": null
+  },
+  {
+    "label": "day_2026-07-01",
+    "url": "https://www.wnba.com/api/stats/shot-quality-shooting",
+    "params": {
+      "gameDate": "2026-07-01"
+    },
+    "status": 502,
+    "bytes": 46,
+    "ct": "application/json; charset=utf-8",
+    "top_keys": null,
+    "array_count": null,
+    "first_keys": null,
+    "arrays": null,
+    "dict_keys": null,
+    "error": null
+  },
+  {
+    "label": "day_07/01/2026",
+    "url": "https://www.wnba.com/api/stats/shot-quality-shooting",
+    "params": {
+      "gameDate": "07/01/2026"
+    },
+    "status": 502,
+    "bytes": 46,
+    "ct": "application/json; charset=utf-8",
+    "top_keys": null,
+    "array_count": null,
+    "first_keys": null,
+    "arrays": null,
+    "dict_keys": null,
+    "error": null
+  },
+  {
+    "label": "day_2026-06-30",
+    "url": "https://www.wnba.com/api/stats/shot-quality-shooting",
+    "params": {
+      "gameDate": "2026-06-30"
+    },
+    "status": 502,
+    "bytes": 46,
+    "ct": "application/json; charset=utf-8",
+    "top_keys": null,
+    "array_count": null,
+    "first_keys": null,
+    "arrays": null,
+    "dict_keys": null,
+    "error": null
+  },
+  {
+    "label": "day_2026-08-01",
+    "url": "https://www.wnba.com/api/stats/shot-quality-shooting",
+    "params": {
+      "gameDate": "2026-08-01"
+    },
+    "status": 200,
+    "bytes": 460305,
+    "ct": "application/json; charset=utf-8",
+    "top_keys": [
+      "parameters",
+      "shots",
+      "teams"
+    ],
+    "array_count": null,
+    "first_keys": null,
+    "arrays": [
+      {
+        "key": "shots",
+        "count": 288,
+        "first_keys": [
+          "gameId",
+          "gameDate",
+          "matchup",
+          "homeTeamid",
+          "homeTeamCity",
+          "homeTeamName",
+          "homeTeamAbbreviation",
+          "awayTeamid",
+          "awayTeamCity",
+          "awayTeamName",
+          "awayTeamAbbreviation",
+          "playerId",
+          "playerName",
+          "teamId",
+          "teamCity",
+          "teamName",
+          "teamAbbreviation",
+          "shotUtcTime",
+          "period",
+          "gameClock",
+          "shotQuality",
+          "success",
+          "eventType",
+          "eventNum",
+          "guid",
+          "largeDuration",
+          "largeHls",
+          "largeThumbnail",
+          "largeUrl",
+          "mediumDuration",
+          "mediumHls",
+          "mediumThumbnail",
+          "mediumUrl",
+          "smallDuration",
+          "smallHls",
+          "smallThumbnail",
+          "smallUrl"
+        ],
+        "first": {
+          "gameId": "1022600216",
+          "gameDate": "2026-08-01",
+          "matchup": "LVA @ CHI",
+          "homeTeamid": 1611661329,
+          "homeTeamCity": "Chicago",
+          "homeTeamName": "Sky",
+          "homeTeamAbbreviation": "CHI",
+          "awayTeamid": 1611661319,
+          "awayTeamCity": "Las Vegas",
+          "awayTeamName": "Aces",
+          "awayTeamAbbreviation": "LVA",
+          "playerId": 1642289,
+          "playerName": "Kamilla Cardoso",
+          "teamId": 1611661329,
+          "teamCity": "Chicago",
+          "teamName": "Sky",
+          "teamAbbreviation": "CHI",
+          "shotUtcTime": "2026-08-01T17:03:49",
+          "period": 1,
+          "gameClock": "9:43",
+          "shotQuality": 0.257,
+          "success": 0,
+          "eventType": "2pt",
+          "eventNum": 7,
+          "guid": "5c0fbc36-9ef2-16da-225b-21438195f9ba",
+          "largeDuration": 11083,
+          "largeHls": "https://videos.nba.com/wnba/pbp/media/2026/08/01/1022600216/7/5c0fbc36-9ef2-16da-225b-21438195f9ba_hls_3500kbps_1280x720.m3u8",
+          "largeThumbnail": "https://videos.nba.com/wnba/pbp/media/2026/08/01/1022600216/7/5c0fbc36-9ef2-16da-225b-21438195f9ba_1280x720.jpg",
+          "largeUrl": "https://videos.nba.com/wnba/pbp/media/2026/08/01/1022600216/7/5c0fbc36-9ef2-16da-225b-21438195f9ba_1280x720.mp4",
+          "mediumDuration": 11083,
+          "mediumHls": "",
+          "mediumThumbnail": "https://videos.nba.com/wnba/pbp/media/2026/08/01/1022600216/7/5c0fbc36-9ef2-16da-225b-21438195f9ba_960x540.jpg",
+          "mediumUrl": "https://videos.nba.com/wnba/pbp/media/2026/08/01/1022600216/7/5c0fbc36-9ef2-16da-225b-21438195f9ba_960x540.mp4",
+          "smallDuration": 11083,
+          "smallHls": "",
+          "smallThumbnail": "https://videos.nba.com/wnba/pbp/media/2026/08/01/1022600216/7/5c0fbc36-9ef2-16da-225b-21438195f9ba_320x180.jpg",
+          "smallUrl": "https://videos.nba.com/wnba/pbp/media/2026/08/01/1022600216/7/5c0fbc36-9ef2-16da-225b-21438195f9ba_320x180.mp4"
+        }
+      },
+      {
+        "key": "teams",
+        "count": 4,
+        "first_keys": [
+          "teamId",
+          "teamCity",
+          "teamName",
+          "teamAbbreviation",
+          "shotQuality",
+          "fgm",
+          "fga"
+        ],
+        "first": {
+          "teamId": 1611661313,
+          "teamCity": "New York",
+          "teamName": "Liberty",
+          "teamAbbreviation": "NYL",
+          "shotQuality": 0.43897,
+          "fgm": 33,
+          "fga": 67
+        }
+      }
+    ],
+    "dict_keys": {
+      "parameters": [
+        "leagueId",
+        "gameDate",
+        "gameId"
+      ]
+    },
+    "error": null
+  },
+  {
+    "label": "www.nba.com_shot-quality",
+    "url": "https://www.nba.com/api/stats/shot-quality",
+    "params": {
+      "season": "2025-26"
+    },
+    "status": 404,
+    "bytes": 4762,
+    "ct": "text/html; charset=utf-8",
+    "top_keys": null,
+    "array_count": null,
+    "first_keys": null,
+    "arrays": null,
+    "dict_keys": null,
+    "error": null
+  },
+  {
+    "label": "www.nba.com_shot-quality-shooting",
+    "url": "https://www.nba.com/api/stats/shot-quality-shooting",
+    "params": {
+      "gameDate": "2026-01-15"
+    },
+    "status": 404,
+    "bytes": 4762,
+    "ct": "text/html; charset=utf-8",
+    "top_keys": null,
+    "array_count": null,
+    "first_keys": null,
+    "arrays": null,
+    "dict_keys": null,
+    "error": null
+  },
+  {
+    "label": "www.wnba.com_shot-quality",
+    "url": "https://www.wnba.com/api/stats/shot-quality",
+    "params": {
+      "season": "2025-26"
+    },
+    "status": 400,
+    "bytes": 40,
+    "ct": "application/json; charset=utf-8",
+    "top_keys": null,
+    "array_count": null,
+    "first_keys": null,
+    "arrays": null,
+    "dict_keys": null,
+    "error": null
+  },
+  {
+    "label": "www.wnba.com_shot-quality-shooting",
+    "url": "https://www.wnba.com/api/stats/shot-quality-shooting",
+    "params": {
+      "gameDate": "2026-01-15"
+    },
+    "status": 502,
+    "bytes": 46,
+    "ct": "application/json; charset=utf-8",
+    "top_keys": null,
+    "array_count": null,
+    "first_keys": null,
+    "arrays": null,
+    "dict_keys": null,
+    "error": null
+  }
+]
