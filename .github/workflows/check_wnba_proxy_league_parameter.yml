@@ -1,0 +1,63 @@
+name: Check WNBA shot-difficulty proxy league parameter behavior
+
+on:
+  push:
+    branches: [analysis/hawkeye-wnba-proxy-compat]
+    paths: ['.github/workflows/check_wnba_proxy_league_parameter.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-wnba-proxy-compat}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Compare query behavior
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,hashlib
+          H={'User-Agent':'Mozilla/5.0 Chrome/137.0 Safari/537.36','Accept':'application/json,text/plain,*/*'}
+          s=requests.Session();s.headers.update(H)
+          tests=[]
+          for route in ['shot-difficulty','shot-quality']:
+            u='https://www.wnba.com/api/stats/'+route
+            for extra in [{},{'leagueId':'00'},{'LeagueID':'00'}]:
+              tests.append((route,u,{'season':'2025-26','seasonType':'Regular Season',**extra}))
+          u='https://www.wnba.com/api/stats/shot-quality-shooting'
+          for extra in [{},{'leagueId':'00'},{'LeagueID':'00'}]:
+            tests.append(('shooting',u,{'gameDate':'2026-01-15',**extra}))
+          out=[]
+          for label,u,p in tests:
+            rec={'label':label,'url':u,'params':p}
+            try:
+              r=s.get(u,params=p,timeout=35);rec.update(status=r.status_code,bytes=len(r.content),sha256=hashlib.sha256(r.content).hexdigest(),ct=r.headers.get('content-type'))
+              if r.status_code==200:
+                j=r.json();rec['top_keys']=list(j) if isinstance(j,dict) else None
+                rec['parameters']=j.get('parameters') or j.get('params') if isinstance(j,dict) else None
+                arr=[]
+                if isinstance(j,dict):
+                  for k,v in j.items():
+                    if isinstance(v,list):
+                      arr.append({'key':k,'count':len(v),'first':v[0] if v and isinstance(v[0],dict) else None})
+                rec['arrays']=arr
+              else:rec['text']=r.text[:500]
+            except Exception as e:rec['error']=repr(e)
+            out.append(rec);print(label,p,rec.get('status'),rec.get('bytes'),rec.get('parameters'),[(a['key'],a['count']) for a in rec.get('arrays',[])])
+          d=pathlib.Path('outputs/wnba_proxy_league_parameter');d.mkdir(parents=True,exist_ok=True)
+          (d/'report.json').write_text(json.dumps(out,indent=2,ensure_ascii=False),encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/wnba_proxy_league_parameter
+          git commit -m 'Preserve WNBA proxy league parameter check' || exit 0
+          git pull --rebase origin analysis/hawkeye-wnba-proxy-compat
+          git push origin HEAD:analysis/hawkeye-wnba-proxy-compat
