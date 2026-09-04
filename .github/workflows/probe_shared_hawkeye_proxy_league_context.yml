@@ -1,0 +1,62 @@
+name: Probe shared Hawk-Eye proxy league context
+
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/probe_shared_hawkeye_proxy_league_context.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-all-players-2025-26}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Test host and forwarded league context
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,hashlib,datetime
+          params={'season':'2025-26','seasonType':'Regular Season'}
+          tests=[
+            ('wnba_control','https://www.wnba.com/api/stats/shot-difficulty',{}),
+            ('wnba_origin_nba','https://www.wnba.com/api/stats/shot-difficulty',{'Origin':'https://www.nba.com','Referer':'https://www.nba.com/'}),
+            ('wnba_xfh_nba','https://www.wnba.com/api/stats/shot-difficulty',{'X-Forwarded-Host':'www.nba.com','X-Original-Host':'www.nba.com','Origin':'https://www.nba.com','Referer':'https://www.nba.com/'}),
+            ('wnba_xleague_00','https://www.wnba.com/api/stats/shot-difficulty',{'X-League-ID':'00','X-LeagueID':'00','X-NBA-League-ID':'00','Origin':'https://www.nba.com'}),
+            ('cdn_wnba','https://cdn.wnba.com/api/stats/shot-difficulty',{}),
+            ('cdn_nba','https://cdn.nba.com/api/stats/shot-difficulty',{}),
+            ('stats_wnba','https://stats.wnba.com/api/stats/shot-difficulty',{}),
+            ('nba_www','https://www.nba.com/api/stats/shot-difficulty',{}),
+            ('nba_stats_path','https://www.nba.com/stats/api/stats/shot-difficulty',{}),
+            ('nba_cdn_stats','https://cdn.nba.com/stats/api/stats/shot-difficulty',{}),
+          ]
+          out=[]
+          for label,url,extra in tests:
+            h={'User-Agent':'Mozilla/5.0','Accept':'application/json,text/plain,*/*','Referer':'https://www.wnba.com/'};h.update(extra)
+            rec={'label':label,'url':url,'headers':extra}
+            try:
+              r=requests.get(url,params=params,headers=h,timeout=30,allow_redirects=False);rec.update(status=r.status_code,bytes=len(r.content),final_url=r.url,location=r.headers.get('location'),ct=r.headers.get('content-type'),sha256=hashlib.sha256(r.content).hexdigest(),response_headers={k:v for k,v in r.headers.items() if k.lower() in ('server','access-control-allow-origin','x-status','x-envoy-upstream-service-time','via')})
+              if r.status_code==200:
+                try:
+                  j=r.json();rec['params_echo']=j.get('params') if isinstance(j,dict) else None;shots=j.get('shots',[]) if isinstance(j,dict) else [];rec['count']=len(shots);rec['first_players']=[x.get('PLAYERNAME') for x in shots[:5] if isinstance(x,dict)];rec['first_ids']=[x.get('PLAYERID') for x in shots[:5] if isinstance(x,dict)]
+                except Exception as e:rec['json_error']=repr(e);rec['prefix']=r.text[:1000]
+              else:rec['prefix']=r.text[:1000]
+            except Exception as e:rec['error']=repr(e)
+            out.append(rec)
+          d=pathlib.Path('outputs/shared_hawkeye_proxy_context_probe');d.mkdir(parents=True,exist_ok=True)
+          (d/'report.json').write_text(json.dumps(out,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps(out,indent=2,ensure_ascii=False))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/shared_hawkeye_proxy_context_probe
+          git diff --cached --quiet && exit 0
+          git commit -m 'Probe shared Hawk-Eye proxy league context'
+          for i in 1 2 3 4 5; do git pull --rebase origin analysis/hawkeye-all-players-2025-26 && git push origin HEAD:analysis/hawkeye-all-players-2025-26 && exit 0; sleep $((i*2)); done
+          exit 1
