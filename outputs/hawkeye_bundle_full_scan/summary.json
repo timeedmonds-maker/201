@@ -1,0 +1,19 @@
+[
+  {
+    "root": "https://www.nba.com/inside-the-game/shot-difficulty",
+    "scripts_fetched": 635,
+    "hit_files": 76,
+    "resources": [
+      "gravityleaders",
+      "shotqualityleaders",
+      "shotqualityshotlog",
+      "shotqualityvideologs"
+    ]
+  },
+  {
+    "root": "https://www.wnba.com/stats/inside-the-game/shot-difficulty",
+    "scripts_fetched": 167,
+    "hit_files": 99,
+    "resources": []
+  }
+]
