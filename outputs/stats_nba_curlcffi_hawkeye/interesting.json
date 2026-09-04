@@ -1,0 +1,108 @@
+[
+  {
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders",
+    "variant": "all",
+    "transport": "curl_chrome",
+    "status": 200,
+    "bytes": 174916,
+    "location": null,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "shots": 125,
+    "target_found": false,
+    "first_ids": [
+      201942,
+      1629627,
+      1630578,
+      201142,
+      1627742
+    ],
+    "prefix": ""
+  },
+  {
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders",
+    "variant": "all",
+    "transport": "curl_safari",
+    "status": 200,
+    "bytes": 174916,
+    "location": null,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "shots": 125,
+    "target_found": false,
+    "first_ids": [
+      201942,
+      1629627,
+      1630578,
+      201142,
+      1627742
+    ],
+    "prefix": ""
+  },
+  {
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders",
+    "variant": "lebron",
+    "transport": "curl_chrome",
+    "status": 200,
+    "bytes": 1366,
+    "location": null,
+    "sha256": "c32e6da80da3104c3c5ed6da2999857646d7b14a23a0e9165946252ea8a8fc69",
+    "shots": 1,
+    "target_found": false,
+    "first_ids": [
+      2544
+    ],
+    "prefix": ""
+  },
+  {
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders",
+    "variant": "lebron",
+    "transport": "curl_safari",
+    "status": 200,
+    "bytes": 1366,
+    "location": null,
+    "sha256": "c32e6da80da3104c3c5ed6da2999857646d7b14a23a0e9165946252ea8a8fc69",
+    "shots": 1,
+    "target_found": false,
+    "first_ids": [
+      2544
+    ],
+    "prefix": ""
+  },
+  {
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders",
+    "variant": "all_minfgm0",
+    "transport": "curl_chrome",
+    "status": 200,
+    "bytes": 174916,
+    "location": null,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "shots": 125,
+    "target_found": false,
+    "first_ids": [
+      201942,
+      1629627,
+      1630578,
+      201142,
+      1627742
+    ],
+    "prefix": ""
+  },
+  {
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders",
+    "variant": "all_minfgm0",
+    "transport": "curl_safari",
+    "status": 200,
+    "bytes": 174916,
+    "location": null,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "shots": 125,
+    "target_found": false,
+    "first_ids": [
+      201942,
+      1629627,
+      1630578,
+      201142,
+      1627742
+    ],
+    "prefix": ""
+  }
+]
