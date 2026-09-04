@@ -1,0 +1,1340 @@
+[
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "control",
+    "extra": {},
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "Detail=1",
+    "extra": {
+      "Detail": "1"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "Detail=true",
+    "extra": {
+      "Detail": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "Details=true",
+    "extra": {
+      "Details": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "Verbose=true",
+    "extra": {
+      "Verbose": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "IncludeDetails=true",
+    "extra": {
+      "IncludeDetails": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "IncludeTracking=true",
+    "extra": {
+      "IncludeTracking": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "IncludeTrackingData=true",
+    "extra": {
+      "IncludeTrackingData": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "IncludeFeatures=true",
+    "extra": {
+      "IncludeFeatures": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "IncludeShotFeatures=true",
+    "extra": {
+      "IncludeShotFeatures": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "IncludeMetrics=true",
+    "extra": {
+      "IncludeMetrics": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "ReturnTracking=true",
+    "extra": {
+      "ReturnTracking": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "ReturnFeatures=true",
+    "extra": {
+      "ReturnFeatures": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "Expanded=true",
+    "extra": {
+      "Expanded": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "Expand=true",
+    "extra": {
+      "Expand": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "Fields=*",
+    "extra": {
+      "Fields": "*"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "FieldSet=All",
+    "extra": {
+      "FieldSet": "All"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "Mode=Full",
+    "extra": {
+      "Mode": "Full"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "View=Full",
+    "extra": {
+      "View": "Full"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "Type=Full",
+    "extra": {
+      "Type": "Full"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "Stats=All",
+    "extra": {
+      "Stats": "All"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "MeasureType=All",
+    "extra": {
+      "MeasureType": "All"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "DataType=All",
+    "extra": {
+      "DataType": "All"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "Scope=All",
+    "extra": {
+      "Scope": "All"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "Raw=true",
+    "extra": {
+      "Raw": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "IncludeRaw=true",
+    "extra": {
+      "IncludeRaw": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "Tracking=true",
+    "extra": {
+      "Tracking": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "Tosan",
+    "pid": "1641787",
+    "gid": "0022500285",
+    "label": "Features=true",
+    "extra": {
+      "Features": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "control",
+    "extra": {},
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "Detail=1",
+    "extra": {
+      "Detail": "1"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "Detail=true",
+    "extra": {
+      "Detail": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "Details=true",
+    "extra": {
+      "Details": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "Verbose=true",
+    "extra": {
+      "Verbose": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "IncludeDetails=true",
+    "extra": {
+      "IncludeDetails": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "IncludeTracking=true",
+    "extra": {
+      "IncludeTracking": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "IncludeTrackingData=true",
+    "extra": {
+      "IncludeTrackingData": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "IncludeFeatures=true",
+    "extra": {
+      "IncludeFeatures": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "IncludeShotFeatures=true",
+    "extra": {
+      "IncludeShotFeatures": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "IncludeMetrics=true",
+    "extra": {
+      "IncludeMetrics": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "ReturnTracking=true",
+    "extra": {
+      "ReturnTracking": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "ReturnFeatures=true",
+    "extra": {
+      "ReturnFeatures": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "Expanded=true",
+    "extra": {
+      "Expanded": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "Expand=true",
+    "extra": {
+      "Expand": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "Fields=*",
+    "extra": {
+      "Fields": "*"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "FieldSet=All",
+    "extra": {
+      "FieldSet": "All"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "Mode=Full",
+    "extra": {
+      "Mode": "Full"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "View=Full",
+    "extra": {
+      "View": "Full"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "Type=Full",
+    "extra": {
+      "Type": "Full"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "Stats=All",
+    "extra": {
+      "Stats": "All"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "MeasureType=All",
+    "extra": {
+      "MeasureType": "All"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "DataType=All",
+    "extra": {
+      "DataType": "All"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "Scope=All",
+    "extra": {
+      "Scope": "All"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "Raw=true",
+    "extra": {
+      "Raw": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "IncludeRaw=true",
+    "extra": {
+      "IncludeRaw": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "Tracking=true",
+    "extra": {
+      "Tracking": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "KevinLove",
+    "pid": "201567",
+    "gid": "0022501004",
+    "label": "Features=true",
+    "extra": {
+      "Features": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "control",
+    "extra": {},
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "Detail=1",
+    "extra": {
+      "Detail": "1"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "Detail=true",
+    "extra": {
+      "Detail": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "Details=true",
+    "extra": {
+      "Details": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "Verbose=true",
+    "extra": {
+      "Verbose": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "IncludeDetails=true",
+    "extra": {
+      "IncludeDetails": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "IncludeTracking=true",
+    "extra": {
+      "IncludeTracking": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "IncludeTrackingData=true",
+    "extra": {
+      "IncludeTrackingData": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "IncludeFeatures=true",
+    "extra": {
+      "IncludeFeatures": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "IncludeShotFeatures=true",
+    "extra": {
+      "IncludeShotFeatures": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "IncludeMetrics=true",
+    "extra": {
+      "IncludeMetrics": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "ReturnTracking=true",
+    "extra": {
+      "ReturnTracking": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "ReturnFeatures=true",
+    "extra": {
+      "ReturnFeatures": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "Expanded=true",
+    "extra": {
+      "Expanded": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "Expand=true",
+    "extra": {
+      "Expand": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "Fields=*",
+    "extra": {
+      "Fields": "*"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "FieldSet=All",
+    "extra": {
+      "FieldSet": "All"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "Mode=Full",
+    "extra": {
+      "Mode": "Full"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "View=Full",
+    "extra": {
+      "View": "Full"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "Type=Full",
+    "extra": {
+      "Type": "Full"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "Stats=All",
+    "extra": {
+      "Stats": "All"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "MeasureType=All",
+    "extra": {
+      "MeasureType": "All"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "DataType=All",
+    "extra": {
+      "DataType": "All"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "Scope=All",
+    "extra": {
+      "Scope": "All"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "Raw=true",
+    "extra": {
+      "Raw": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "IncludeRaw=true",
+    "extra": {
+      "IncludeRaw": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "Tracking=true",
+    "extra": {
+      "Tracking": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  },
+  {
+    "resource": "shotqualityshotlog",
+    "player": "LeBron",
+    "pid": "2544",
+    "gid": "0022501198",
+    "label": "Features=true",
+    "extra": {
+      "Features": "true"
+    },
+    "status": 500,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "location": null,
+    "prefix": "",
+    "same_as_control": true
+  }
+]
