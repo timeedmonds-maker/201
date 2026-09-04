@@ -1,0 +1,94 @@
+name: Probe Hawk-Eye split parameter aliases
+
+on:
+  push:
+    branches: [analysis/hawkeye-season-complete-v2]
+    paths: ['.github/workflows/probe_hawkeye_split_aliases.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: analysis/hawkeye-season-complete-v2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip -q install requests
+      - name: Probe parameter aliases
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,hashlib,time
+          BASE='https://stats.gleague.nba.com/stats/shotqualityleaders'
+          H={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/137.0 Safari/537.36','Origin':'https://www.nba.com','Referer':'https://www.nba.com/','Accept':'application/json,text/plain,*/*','x-nba-stats-origin':'stats','x-nba-stats-token':'true'}
+          s=requests.Session();s.headers.update(H)
+          base={'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season'}
+          # high-volume qualified control + known unqualified control
+          qpid='1628983'  # SGA
+          upid='201567'   # Kevin Love
+          tests=[('base',{}),
+            ('PlayerID-qualified',{'PlayerID':qpid}),('playerId-qualified',{'playerId':qpid}),
+            ('PlayerID-unqualified',{'PlayerID':upid}),('playerId-unqualified',{'playerId':upid}),
+            ('TeamID-HOU',{'TeamID':'1610612745'}),('teamId-HOU',{'teamId':'1610612745'}),
+            ('LastNGames-5',{'LastNGames':'5'}),('lastNGames-5',{'lastNGames':'5'}),('lastN-5',{'lastN':'5'}),
+            ('Month-4',{'Month':'4'}),('month-4',{'month':'4'}),
+            ('SeasonSegment-PostAllStar',{'SeasonSegment':'Post All-Star'}),('seasonSegment-PostAllStar',{'seasonSegment':'Post All-Star'}),
+            ('DateFrom-Jan',{'DateFrom':'01/01/2026'}),('dateFrom-Jan',{'dateFrom':'01/01/2026'}),
+            ('DateTo-Jan31',{'DateTo':'01/31/2026'}),('dateTo-Jan31',{'dateTo':'01/31/2026'}),
+            ('DateRange-upper',{'DateFrom':'01/01/2026','DateTo':'01/31/2026'}),('DateRange-lower',{'dateFrom':'01/01/2026','dateTo':'01/31/2026'}),
+            ('StartEndDate-lower',{'startDate':'2026-01-01','endDate':'2026-01-31'}),
+            ('StartEndDate-upper',{'StartDate':'2026-01-01','EndDate':'2026-01-31'}),
+            ('qualified-last5-upper',{'PlayerID':qpid,'LastNGames':'5'}),('qualified-last5-lower',{'PlayerID':qpid,'lastNGames':'5'}),
+            ('qualified-month-upper',{'PlayerID':qpid,'Month':'4'}),('qualified-month-lower',{'PlayerID':qpid,'month':'4'}),
+            ('qualified-dates-upper',{'PlayerID':qpid,'DateFrom':'01/01/2026','DateTo':'01/31/2026'}),
+            ('qualified-dates-lower',{'PlayerID':qpid,'dateFrom':'01/01/2026','dateTo':'01/31/2026'}),
+            ('unqualified-last5-upper',{'PlayerID':upid,'LastNGames':'5'}),('unqualified-last5-lower',{'PlayerID':upid,'lastNGames':'5'}),
+            ('unqualified-month-upper',{'PlayerID':upid,'Month':'4'}),('unqualified-month-lower',{'PlayerID':upid,'month':'4'}),
+            ('unqualified-dates-upper',{'PlayerID':upid,'DateFrom':'01/01/2026','DateTo':'01/31/2026'}),
+            ('unqualified-dates-lower',{'PlayerID':upid,'dateFrom':'01/01/2026','dateTo':'01/31/2026'}),
+          ]
+          out=[]
+          for label,extra in tests:
+            p={**base,**extra}
+            rec={'label':label,'request_params':p}
+            try:
+              r=s.get(BASE,params=p,timeout=30,allow_redirects=False)
+              rec.update(status=r.status_code,bytes=len(r.content),sha256=hashlib.sha256(r.content).hexdigest(),url=r.url)
+              if r.status_code==200:
+                j=r.json(); rows=j.get('shots',[]) if isinstance(j,dict) else []
+                rec['response_params']=j.get('params') if isinstance(j,dict) else None
+                rec['row_count']=len(rows)
+                rec['player_ids']=[x.get('PLAYERID') for x in rows[:10]]
+                if rows:
+                  x=rows[0]
+                  rec['first_row']={k:x.get(k) for k in ['PLAYERID','PLAYERNAME','TEAMABBREVIATION','FGA','AVGSHOTQUALITY','AVGDEFENSIVEHANDHEIGHT','AVGSHOOTERSPEED','AVGROTATIONDEGREES','AVGDEFENDERPRESSURESCORE']}
+                  mm=[x for x in rows if str(x.get('PLAYERID')) in (qpid,upid)]
+                  if mm:
+                    x=mm[0];rec['control_row']={k:x.get(k) for k in ['PLAYERID','PLAYERNAME','TEAMABBREVIATION','FGA','AVGSHOTQUALITY','AVGDEFENSIVEHANDHEIGHT','AVGSHOOTERSPEED','AVGROTATIONDEGREES','AVGDEFENDERPRESSURESCORE']}
+              else: rec['prefix']=r.text[:300]
+            except Exception as e: rec['error']=repr(e)
+            out.append(rec);print(label,rec.get('status'),rec.get('row_count'),rec.get('response_params'),rec.get('control_row'),flush=True)
+            time.sleep(.15)
+          d=pathlib.Path('outputs/hawkeye_split_alias_probe');d.mkdir(parents=True,exist_ok=True)
+          (d/'report.json').write_text(json.dumps(out,indent=2,ensure_ascii=False),encoding='utf-8')
+          # Summarize which tests differ from base body/row count and which response params changed.
+          b=out[0]
+          summary=[]
+          for x in out[1:]:
+            summary.append({'label':x['label'],'status':x.get('status'),'row_count':x.get('row_count'),'same_sha_as_base':x.get('sha256')==b.get('sha256'),'response_params':x.get('response_params'),'control_row':x.get('control_row')})
+          (d/'summary.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False),encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hawkeye_split_alias_probe
+          git commit -m 'Preserve Hawk-Eye split alias probe' || exit 0
+          git pull --rebase origin analysis/hawkeye-season-complete-v2
+          git push origin HEAD:analysis/hawkeye-season-complete-v2
