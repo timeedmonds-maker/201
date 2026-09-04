@@ -1,0 +1,522 @@
+{
+  "gravityleaderstimeframe": [
+    {
+      "variant": "base",
+      "status": 500,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "datefrom_one_day",
+      "status": 500,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "datefrom_iso",
+      "status": 500,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "startend",
+      "status": 500,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "fromto",
+      "status": 500,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "starttimeendtime",
+      "status": 500,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "game",
+      "status": 500,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "player_unqual",
+      "status": 500,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "player_qual",
+      "status": 500,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "game_player_unqual",
+      "status": 500,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "date_player_unqual",
+      "status": 500,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "startend_player_unqual",
+      "status": 500,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "lastngames1",
+      "status": 500,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "month3",
+      "status": 500,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "seasonsegment",
+      "status": 500,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "team",
+      "status": 500,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": null
+    }
+  ],
+  "shotqualityleaderstimeframe": [
+    {
+      "variant": "base",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season"
+    },
+    {
+      "variant": "datefrom_one_day",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&DateFrom=12%2F26%2F2025&DateTo=12%2F26%2F2025"
+    },
+    {
+      "variant": "datefrom_iso",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&DateFrom=2025-12-26&DateTo=2025-12-26"
+    },
+    {
+      "variant": "startend",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&StartDate=12%2F26%2F2025&EndDate=12%2F26%2F2025"
+    },
+    {
+      "variant": "fromto",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&FromDate=12%2F26%2F2025&ToDate=12%2F26%2F2025"
+    },
+    {
+      "variant": "starttimeendtime",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&StartTime=2025-12-26T00%3A00%3A00&EndTime=2025-12-27T00%3A00%3A00"
+    },
+    {
+      "variant": "game",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&GameID=0022500430"
+    },
+    {
+      "variant": "player_unqual",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=201567"
+    },
+    {
+      "variant": "player_qual",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=2544"
+    },
+    {
+      "variant": "game_player_unqual",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&GameID=0022500430&PlayerID=201567"
+    },
+    {
+      "variant": "date_player_unqual",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&DateFrom=12%2F26%2F2025&DateTo=12%2F26%2F2025&PlayerID=201567"
+    },
+    {
+      "variant": "startend_player_unqual",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&StartDate=12%2F26%2F2025&EndDate=12%2F26%2F2025&PlayerID=201567"
+    },
+    {
+      "variant": "lastngames1",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&LastNGames=1"
+    },
+    {
+      "variant": "month3",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&Month=3"
+    },
+    {
+      "variant": "seasonsegment",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&SeasonSegment=Post+All-Star"
+    },
+    {
+      "variant": "team",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&TeamID=1610612762"
+    }
+  ],
+  "shotqualitytopperformerstimeframe": [
+    {
+      "variant": "base",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season"
+    },
+    {
+      "variant": "datefrom_one_day",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&DateFrom=12%2F26%2F2025&DateTo=12%2F26%2F2025"
+    },
+    {
+      "variant": "datefrom_iso",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&DateFrom=2025-12-26&DateTo=2025-12-26"
+    },
+    {
+      "variant": "startend",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&StartDate=12%2F26%2F2025&EndDate=12%2F26%2F2025"
+    },
+    {
+      "variant": "fromto",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&FromDate=12%2F26%2F2025&ToDate=12%2F26%2F2025"
+    },
+    {
+      "variant": "starttimeendtime",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&StartTime=2025-12-26T00%3A00%3A00&EndTime=2025-12-27T00%3A00%3A00"
+    },
+    {
+      "variant": "game",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&GameID=0022500430"
+    },
+    {
+      "variant": "player_unqual",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=201567"
+    },
+    {
+      "variant": "player_qual",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=2544"
+    },
+    {
+      "variant": "game_player_unqual",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&GameID=0022500430&PlayerID=201567"
+    },
+    {
+      "variant": "date_player_unqual",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&DateFrom=12%2F26%2F2025&DateTo=12%2F26%2F2025&PlayerID=201567"
+    },
+    {
+      "variant": "startend_player_unqual",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&StartDate=12%2F26%2F2025&EndDate=12%2F26%2F2025&PlayerID=201567"
+    },
+    {
+      "variant": "lastngames1",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&LastNGames=1"
+    },
+    {
+      "variant": "month3",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&Month=3"
+    },
+    {
+      "variant": "seasonsegment",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&SeasonSegment=Post+All-Star"
+    },
+    {
+      "variant": "team",
+      "status": 302,
+      "bytes": 0,
+      "rows": null,
+      "target": false,
+      "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&TeamID=1610612762"
+    }
+  ],
+  "shotqualitytopperformersseason": [
+    {
+      "variant": "base",
+      "status": 200,
+      "bytes": 2,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "datefrom_one_day",
+      "status": 200,
+      "bytes": 2,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "datefrom_iso",
+      "status": 200,
+      "bytes": 2,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "startend",
+      "status": 200,
+      "bytes": 2,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "fromto",
+      "status": 200,
+      "bytes": 2,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "starttimeendtime",
+      "status": 200,
+      "bytes": 2,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "game",
+      "status": 200,
+      "bytes": 2,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "player_unqual",
+      "status": 200,
+      "bytes": 2,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "player_qual",
+      "status": 200,
+      "bytes": 2,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "game_player_unqual",
+      "status": 200,
+      "bytes": 2,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "date_player_unqual",
+      "status": 200,
+      "bytes": 2,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "startend_player_unqual",
+      "status": 200,
+      "bytes": 2,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "lastngames1",
+      "status": 200,
+      "bytes": 2,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "month3",
+      "status": 200,
+      "bytes": 2,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "seasonsegment",
+      "status": 200,
+      "bytes": 2,
+      "rows": null,
+      "target": false,
+      "location": null
+    },
+    {
+      "variant": "team",
+      "status": 200,
+      "bytes": 2,
+      "rows": null,
+      "target": false,
+      "location": null
+    }
+  ]
+}

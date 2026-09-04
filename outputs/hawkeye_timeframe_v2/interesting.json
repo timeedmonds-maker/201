@@ -1,0 +1,331 @@
+[
+  {
+    "endpoint": "shotqualitytopperformersseason",
+    "variant": "base",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "status": 200,
+    "bytes": 2,
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "keys": [],
+    "row_count": null,
+    "target": false,
+    "target_paths": [],
+    "prefix": "{}"
+  },
+  {
+    "endpoint": "shotqualitytopperformersseason",
+    "variant": "datefrom_one_day",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "DateFrom": "12/26/2025",
+      "DateTo": "12/26/2025"
+    },
+    "status": 200,
+    "bytes": 2,
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "keys": [],
+    "row_count": null,
+    "target": false,
+    "target_paths": [],
+    "prefix": "{}"
+  },
+  {
+    "endpoint": "shotqualitytopperformersseason",
+    "variant": "datefrom_iso",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "DateFrom": "2025-12-26",
+      "DateTo": "2025-12-26"
+    },
+    "status": 200,
+    "bytes": 2,
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "keys": [],
+    "row_count": null,
+    "target": false,
+    "target_paths": [],
+    "prefix": "{}"
+  },
+  {
+    "endpoint": "shotqualitytopperformersseason",
+    "variant": "startend",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "StartDate": "12/26/2025",
+      "EndDate": "12/26/2025"
+    },
+    "status": 200,
+    "bytes": 2,
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "keys": [],
+    "row_count": null,
+    "target": false,
+    "target_paths": [],
+    "prefix": "{}"
+  },
+  {
+    "endpoint": "shotqualitytopperformersseason",
+    "variant": "fromto",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "FromDate": "12/26/2025",
+      "ToDate": "12/26/2025"
+    },
+    "status": 200,
+    "bytes": 2,
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "keys": [],
+    "row_count": null,
+    "target": false,
+    "target_paths": [],
+    "prefix": "{}"
+  },
+  {
+    "endpoint": "shotqualitytopperformersseason",
+    "variant": "starttimeendtime",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "StartTime": "2025-12-26T00:00:00",
+      "EndTime": "2025-12-27T00:00:00"
+    },
+    "status": 200,
+    "bytes": 2,
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "keys": [],
+    "row_count": null,
+    "target": false,
+    "target_paths": [],
+    "prefix": "{}"
+  },
+  {
+    "endpoint": "shotqualitytopperformersseason",
+    "variant": "game",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "GameID": "0022500430"
+    },
+    "status": 200,
+    "bytes": 2,
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "keys": [],
+    "row_count": null,
+    "target": false,
+    "target_paths": [],
+    "prefix": "{}"
+  },
+  {
+    "endpoint": "shotqualitytopperformersseason",
+    "variant": "player_unqual",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "201567"
+    },
+    "status": 200,
+    "bytes": 2,
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "keys": [],
+    "row_count": null,
+    "target": false,
+    "target_paths": [],
+    "prefix": "{}"
+  },
+  {
+    "endpoint": "shotqualitytopperformersseason",
+    "variant": "player_qual",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "2544"
+    },
+    "status": 200,
+    "bytes": 2,
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "keys": [],
+    "row_count": null,
+    "target": false,
+    "target_paths": [],
+    "prefix": "{}"
+  },
+  {
+    "endpoint": "shotqualitytopperformersseason",
+    "variant": "game_player_unqual",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "GameID": "0022500430",
+      "PlayerID": "201567"
+    },
+    "status": 200,
+    "bytes": 2,
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "keys": [],
+    "row_count": null,
+    "target": false,
+    "target_paths": [],
+    "prefix": "{}"
+  },
+  {
+    "endpoint": "shotqualitytopperformersseason",
+    "variant": "date_player_unqual",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "DateFrom": "12/26/2025",
+      "DateTo": "12/26/2025",
+      "PlayerID": "201567"
+    },
+    "status": 200,
+    "bytes": 2,
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "keys": [],
+    "row_count": null,
+    "target": false,
+    "target_paths": [],
+    "prefix": "{}"
+  },
+  {
+    "endpoint": "shotqualitytopperformersseason",
+    "variant": "startend_player_unqual",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "StartDate": "12/26/2025",
+      "EndDate": "12/26/2025",
+      "PlayerID": "201567"
+    },
+    "status": 200,
+    "bytes": 2,
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "keys": [],
+    "row_count": null,
+    "target": false,
+    "target_paths": [],
+    "prefix": "{}"
+  },
+  {
+    "endpoint": "shotqualitytopperformersseason",
+    "variant": "lastngames1",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "LastNGames": "1"
+    },
+    "status": 200,
+    "bytes": 2,
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "keys": [],
+    "row_count": null,
+    "target": false,
+    "target_paths": [],
+    "prefix": "{}"
+  },
+  {
+    "endpoint": "shotqualitytopperformersseason",
+    "variant": "month3",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "Month": "3"
+    },
+    "status": 200,
+    "bytes": 2,
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "keys": [],
+    "row_count": null,
+    "target": false,
+    "target_paths": [],
+    "prefix": "{}"
+  },
+  {
+    "endpoint": "shotqualitytopperformersseason",
+    "variant": "seasonsegment",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "SeasonSegment": "Post All-Star"
+    },
+    "status": 200,
+    "bytes": 2,
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "keys": [],
+    "row_count": null,
+    "target": false,
+    "target_paths": [],
+    "prefix": "{}"
+  },
+  {
+    "endpoint": "shotqualitytopperformersseason",
+    "variant": "team",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "TeamID": "1610612762"
+    },
+    "status": 200,
+    "bytes": 2,
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "keys": [],
+    "row_count": null,
+    "target": false,
+    "target_paths": [],
+    "prefix": "{}"
+  }
+]
