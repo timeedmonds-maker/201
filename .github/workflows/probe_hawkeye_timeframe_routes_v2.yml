@@ -20,7 +20,7 @@ jobs:
       - name: Probe known gravity timeframe then shot-quality analogues
         run: |
           python - <<'PY'
-          import requests,itertools,json,os,hashlib,time
+          import requests,json,os,hashlib,time
           OUT='outputs/hawkeye_timeframe_v2'; os.makedirs(OUT,exist_ok=True)
           s=requests.Session(); s.headers.update({'User-Agent':'Mozilla/5.0','Referer':'https://www.nba.com/','Origin':'https://www.nba.com','Accept':'application/json,text/plain,*/*'})
           base='https://stats.gleague.nba.com/stats/'
@@ -45,6 +45,11 @@ jobs:
             ('team',{'TeamID':'1610612762'}),
           ]
           rec=[]
+          def count_rows(x):
+            if isinstance(x,dict):
+              for k in ['shots','players','data','results','gravityLeaders','leaders']:
+                if isinstance(x.get(k),list): return len(x[k])
+            return None
           for ep in endpoints:
             for label,extra in variants:
               p={**basep,**extra}
@@ -53,29 +58,22 @@ jobs:
                 txt=r.text
                 try:j=r.json()
                 except:j=None
-                def count_rows(x):
-                  if isinstance(x,dict):
-                    for k in ['shots','players','data','results','gravityLeaders','leaders']:
-                      if isinstance(x.get(k),list): return len(x[k])
-                  return None
                 keys=list(j.keys()) if isinstance(j,dict) else None
-                paths=[]
-                target=False
+                paths=[]; state={'target':False}
                 def walk(x,path=''):
-                  nonlocal target
                   if isinstance(x,dict):
                     for k,v in x.items():
                       np=f'{path}/{k}'
-                      if k.upper() in ['AVGDEFENSIVEHANDHEIGHT','AVGSHOOTERSPEED','AVGROTATIONDEGREES','AVGDEFENDERPRESSURESCORE']: target=True; paths.append(np)
+                      if k.upper() in ['AVGDEFENSIVEHANDHEIGHT','AVGSHOOTERSPEED','AVGROTATIONDEGREES','AVGDEFENDERPRESSURESCORE']:
+                        state['target']=True; paths.append(np)
                       walk(v,np)
                   elif isinstance(x,list):
                     for i,v in enumerate(x[:3]): walk(v,f'{path}/{i}')
                 if j is not None: walk(j)
-                rec.append({'endpoint':ep,'variant':label,'params':p,'status':r.status_code,'bytes':len(r.content),'location':r.headers.get('location'),'ct':r.headers.get('content-type'),'sha256':hashlib.sha256(r.content).hexdigest(),'keys':keys,'row_count':count_rows(j),'target':target,'target_paths':paths[:20],'prefix':txt[:900] if r.status_code!=200 or len(r.content)<1000 else ''})
+                rec.append({'endpoint':ep,'variant':label,'params':p,'status':r.status_code,'bytes':len(r.content),'location':r.headers.get('location'),'ct':r.headers.get('content-type'),'sha256':hashlib.sha256(r.content).hexdigest(),'keys':keys,'row_count':count_rows(j),'target':state['target'],'target_paths':paths[:20],'prefix':txt[:900] if r.status_code!=200 or len(r.content)<1000 else ''})
               except Exception as e: rec.append({'endpoint':ep,'variant':label,'params':p,'error':repr(e)})
               time.sleep(.08)
           json.dump(rec,open(f'{OUT}/report.json','w'),indent=2)
-          # keep anything that differs from endpoint baseline or is 200/target
           interesting=[]
           for ep in endpoints:
             rr=[x for x in rec if x.get('endpoint')==ep]
