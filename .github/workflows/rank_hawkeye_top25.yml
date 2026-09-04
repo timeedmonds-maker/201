@@ -1,0 +1,49 @@
+name: Rank 2025-26 Hawk-Eye top 25
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/rank_hawkeye_top25.yml'
+permissions:
+  contents: write
+jobs:
+  rank:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: analysis/hawkeye-all-players-2025-26
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build rankings
+        run: |
+          python - <<'PY'
+          import csv,json,pathlib
+          src=pathlib.Path('outputs/hawkeye_2025_26_season_full_schema/qualified_125_full_schema.csv')
+          rows=list(csv.DictReader(src.open(encoding='utf-8-sig')))
+          metrics=[
+            ('defender_pressure_score','AVGDEFENDERPRESSURESCORE','AVGDEFENDERPRESSURESCORE_RANK'),
+            ('defensive_hand_height','AVGDEFENSIVEHANDHEIGHT','AVGDEFENSIVEHANDHEIGHT_RANK'),
+            ('shooter_speed','AVGSHOOTERSPEED','AVGSHOOTERSPEED_RANK'),
+            ('rotation_degrees','AVGROTATIONDEGREES','AVGROTATIONDEGREES_RANK'),
+          ]
+          out={'season':'2025-26','season_type':'Regular Season','qualified_players':len(rows),'rankings':{}}
+          for label,val,rank in metrics:
+            rr=sorted(rows,key=lambda r:(int(float(r[rank])), -float(r[val]), r['PLAYERNAME']))
+            out['rankings'][label]=[
+              {'rank':i+1,'official_rank':int(float(r[rank])),'player':r['PLAYERNAME'],'team':r['TEAMABBREVIATION'],'value':float(r[val])}
+              for i,r in enumerate(rr[:25])
+            ]
+          pathlib.Path('outputs/hawkeye_top25').mkdir(parents=True,exist_ok=True)
+          pathlib.Path('outputs/hawkeye_top25/top25.json').write_text(json.dumps(out,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps(out,indent=2,ensure_ascii=False))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hawkeye_top25/top25.json
+          git commit -m 'Add 2025-26 Hawk-Eye top 25 rankings' || exit 0
+          for i in 1 2 3 4; do git pull --rebase origin analysis/hawkeye-all-players-2025-26 && git push origin HEAD:analysis/hawkeye-all-players-2025-26 && exit 0; sleep 2; done
+          exit 1
