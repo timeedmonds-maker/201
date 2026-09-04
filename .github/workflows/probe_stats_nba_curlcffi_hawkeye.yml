@@ -1,0 +1,56 @@
+name: Probe stats.nba Hawk-Eye with browser transport
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/probe_stats_nba_curlcffi_hawkeye.yml'
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: analysis/hawkeye-all-players-2025-26
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip -q install curl_cffi requests
+      - name: Browser-impersonated direct NBA host probe
+        run: |
+          python - <<'PY'
+          from curl_cffi import requests as creq
+          import requests,json,os,hashlib,time
+          OUT='outputs/stats_nba_curlcffi_hawkeye'; os.makedirs(OUT,exist_ok=True)
+          urls=['https://stats.nba.com/stats/shotqualityleaders','https://stats.gleague.nba.com/stats/shotqualityleaders']
+          variants=[('all',{}),('pj',{'PlayerID':'1629023'}),('love',{'PlayerID':'201567'}),('lebron',{'PlayerID':'2544'}),('all_minfgm0',{'MinFGM':'0'}),('pj_minfgm0',{'PlayerID':'1629023','MinFGM':'0'})]
+          base={'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season'}
+          hdr={'Accept':'application/json, text/plain, */*','Accept-Language':'en-US,en;q=0.9','Origin':'https://www.nba.com','Referer':'https://www.nba.com/','Connection':'keep-alive','Cache-Control':'no-cache'}
+          rec=[]
+          for u in urls:
+            for label,extra in variants:
+              p={**base,**extra}
+              for transport in ['curl_chrome','curl_safari']:
+                try:
+                  r=creq.get(u,params=p,headers=hdr,impersonate='chrome124' if transport=='curl_chrome' else 'safari17_0',timeout=40,allow_redirects=False)
+                  txt=r.text
+                  try:j=r.json()
+                  except:j=None
+                  shots=j.get('shots',[]) if isinstance(j,dict) else []
+                  target=any(str(x.get('PLAYERID')) in ['1629023','201567'] for x in shots if isinstance(x,dict))
+                  rec.append({'url':u,'variant':label,'transport':transport,'status':r.status_code,'bytes':len(r.content),'location':r.headers.get('location'),'sha256':hashlib.sha256(r.content).hexdigest(),'shots':len(shots),'target_found':target,'first_ids':[x.get('PLAYERID') for x in shots[:5]] if shots else [],'prefix':txt[:500] if not shots else ''})
+                except Exception as e: rec.append({'url':u,'variant':label,'transport':transport,'error':repr(e)})
+              time.sleep(.1)
+          json.dump(rec,open(f'{OUT}/report.json','w'),indent=2)
+          json.dump([x for x in rec if x.get('target_found') or x.get('shots') or x.get('status') not in [None,200]],open(f'{OUT}/interesting.json','w'),indent=2)
+          print(json.dumps(rec,indent=2))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/stats_nba_curlcffi_hawkeye
+          git commit -m 'Probe stats.nba Hawk-Eye with curl_cffi' || exit 0
+          git pull --rebase origin analysis/hawkeye-all-players-2025-26
+          git push origin HEAD:analysis/hawkeye-all-players-2025-26
