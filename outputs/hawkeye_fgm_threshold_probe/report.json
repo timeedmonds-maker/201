@@ -1,0 +1,1245 @@
+[
+  {
+    "label": "control",
+    "extra": {},
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinFGM=0",
+    "extra": {
+      "MinFGM": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinFGM=1",
+    "extra": {
+      "MinFGM": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinimumFGM=0",
+    "extra": {
+      "MinimumFGM": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinimumFGM=1",
+    "extra": {
+      "MinimumFGM": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "FGMThreshold=0",
+    "extra": {
+      "FGMThreshold": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "FGMThreshold=1",
+    "extra": {
+      "FGMThreshold": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "QualifyingFGM=0",
+    "extra": {
+      "QualifyingFGM": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "QualifyingFGM=1",
+    "extra": {
+      "QualifyingFGM": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "QualifierFGM=0",
+    "extra": {
+      "QualifierFGM": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "QualifierFGM=1",
+    "extra": {
+      "QualifierFGM": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinMakes=0",
+    "extra": {
+      "MinMakes": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinMakes=1",
+    "extra": {
+      "MinMakes": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinimumMakes=0",
+    "extra": {
+      "MinimumMakes": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinimumMakes=1",
+    "extra": {
+      "MinimumMakes": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MakesThreshold=0",
+    "extra": {
+      "MakesThreshold": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MakesThreshold=1",
+    "extra": {
+      "MakesThreshold": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinFieldGoalsMade=0",
+    "extra": {
+      "MinFieldGoalsMade": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinFieldGoalsMade=1",
+    "extra": {
+      "MinFieldGoalsMade": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinimumFieldGoalsMade=0",
+    "extra": {
+      "MinimumFieldGoalsMade": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinimumFieldGoalsMade=1",
+    "extra": {
+      "MinimumFieldGoalsMade": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinFieldGoalMakes=0",
+    "extra": {
+      "MinFieldGoalMakes": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinFieldGoalMakes=1",
+    "extra": {
+      "MinFieldGoalMakes": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinimumFieldGoalMakes=0",
+    "extra": {
+      "MinimumFieldGoalMakes": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinimumFieldGoalMakes=1",
+    "extra": {
+      "MinimumFieldGoalMakes": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinimumFieldGoals=0",
+    "extra": {
+      "MinimumFieldGoals": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinimumFieldGoals=1",
+    "extra": {
+      "MinimumFieldGoals": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinFieldGoals=0",
+    "extra": {
+      "MinFieldGoals": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinFieldGoals=1",
+    "extra": {
+      "MinFieldGoals": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinMadeShots=0",
+    "extra": {
+      "MinMadeShots": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinMadeShots=1",
+    "extra": {
+      "MinMadeShots": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinimumMadeShots=0",
+    "extra": {
+      "MinimumMadeShots": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinimumMadeShots=1",
+    "extra": {
+      "MinimumMadeShots": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinShotsMade=0",
+    "extra": {
+      "MinShotsMade": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinShotsMade=1",
+    "extra": {
+      "MinShotsMade": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinimumShotsMade=0",
+    "extra": {
+      "MinimumShotsMade": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinimumShotsMade=1",
+    "extra": {
+      "MinimumShotsMade": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "FGMMin=0",
+    "extra": {
+      "FGMMin": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "FGMMin=1",
+    "extra": {
+      "FGMMin": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "minFgm=0",
+    "extra": {
+      "minFgm": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "minFgm=1",
+    "extra": {
+      "minFgm": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "minimumFgm=0",
+    "extra": {
+      "minimumFgm": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "minimumFgm=1",
+    "extra": {
+      "minimumFgm": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "minFieldGoalsMade=0",
+    "extra": {
+      "minFieldGoalsMade": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "minFieldGoalsMade=1",
+    "extra": {
+      "minFieldGoalsMade": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinimumQualifiedFGM=0",
+    "extra": {
+      "MinimumQualifiedFGM": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinimumQualifiedFGM=1",
+    "extra": {
+      "MinimumQualifiedFGM": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "QualifiedFGM=0",
+    "extra": {
+      "QualifiedFGM": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "QualifiedFGM=1",
+    "extra": {
+      "QualifiedFGM": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "QualificationFGM=0",
+    "extra": {
+      "QualificationFGM": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "QualificationFGM=1",
+    "extra": {
+      "QualificationFGM": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "FieldGoalsMadeThreshold=0",
+    "extra": {
+      "FieldGoalsMadeThreshold": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "FieldGoalsMadeThreshold=1",
+    "extra": {
+      "FieldGoalsMadeThreshold": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MadeFieldGoalsThreshold=0",
+    "extra": {
+      "MadeFieldGoalsThreshold": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MadeFieldGoalsThreshold=1",
+    "extra": {
+      "MadeFieldGoalsThreshold": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinMadeFieldGoals=0",
+    "extra": {
+      "MinMadeFieldGoals": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "MinMadeFieldGoals=1",
+    "extra": {
+      "MinMadeFieldGoals": "1"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "Qualified=false+MinFGM=0",
+    "extra": {
+      "Qualified": "false",
+      "MinFGM": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "QualifiersOnly=false+MinFGM=0",
+    "extra": {
+      "QualifiersOnly": "false",
+      "MinFGM": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "IncludeUnqualified=true+MinFGM=0",
+    "extra": {
+      "IncludeUnqualified": "true",
+      "MinFGM": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "Qualified=false+MinimumFGM=0",
+    "extra": {
+      "Qualified": "false",
+      "MinimumFGM": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  },
+  {
+    "label": "QualifiersOnly=false+MinimumFGM=0",
+    "extra": {
+      "QualifiersOnly": "false",
+      "MinimumFGM": "0"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "count": 125,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "params_echo": {
+      "leagueId": "00",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025-26"
+    },
+    "control_presence": {
+      "PJ Washington": false,
+      "Kevin Love": false,
+      "Tosan Evbuomwan": false
+    }
+  }
+]
