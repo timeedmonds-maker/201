@@ -1,0 +1,288 @@
+name: Deep recover Hawk-Eye all-player season metrics
+
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/deep_recover_hawkeye_all_players.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: analysis/hawkeye-all-players-2025-26
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip -q install requests
+      - name: Deep probe endpoints, archives, public snapshots and NBA client
+        run: |
+          python - <<'PY'
+          import requests, json, pathlib, hashlib, re, csv, io, base64, time, datetime, urllib.parse, os
+          from collections import defaultdict
+
+          OUT=pathlib.Path('outputs/hawkeye_deep_recovery'); OUT.mkdir(parents=True,exist_ok=True)
+          H={
+            'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/137.0 Safari/537.36',
+            'Origin':'https://www.nba.com','Referer':'https://www.nba.com/',
+            'Accept':'application/json,text/plain,*/*','x-nba-stats-origin':'stats','x-nba-stats-token':'true'
+          }
+          s=requests.Session(); s.headers.update(H)
+          TARGETS=['AVGDEFENSIVEHANDHEIGHT','AVGSHOOTERSPEED','AVGROTATIONDEGREES','AVGDEFENDERPRESSURESCORE']
+
+          def safe_get(url,params=None,timeout=25,headers=None,allow_redirects=False):
+            try:
+              r=requests.get(url,params=params,headers=headers or H,timeout=timeout,allow_redirects=allow_redirects)
+              return {'ok':True,'status':r.status_code,'url':r.url,'final_url':r.url,'headers':dict(r.headers),'content':r.content,'text':r.text}
+            except Exception as e:
+              return {'ok':False,'error':repr(e),'url':url,'params':params}
+
+          def target_hits(v,p=''):
+            out=[]
+            if isinstance(v,dict):
+              for k,z in v.items():
+                ku=k.upper().replace('_','')
+                if any(t.replace('_','') in ku for t in TARGETS): out.append({'path':p+'/'+k,'value':z if not isinstance(z,(dict,list)) else type(z).__name__})
+                if isinstance(z,(dict,list)): out.extend(target_hits(z,p+'/'+k))
+            elif isinstance(v,list):
+              for i,z in enumerate(v[:100]):
+                if isinstance(z,(dict,list)): out.extend(target_hits(z,f'{p}/{i}'))
+            return out
+
+          # 1) Probe real and strongly implied adjacent Hawk-Eye resources with qualified and unqualified players.
+          controls=[
+            {'name':'Tosan Evbuomwan','pid':'1641787','gid':'0022500285','date':'2025-11-24'},
+            {'name':'Kevin Love','pid':'201567','gid':'0022501004','date':'2026-03-18'},
+            {'name':'LeBron James','pid':'2544','gid':'0022501198','date':'2026-04-12'},
+            {'name':'Jaylen Brown','pid':'1627759','gid':'0022501174','date':'2026-04-09'},
+          ]
+          resources=[
+            'shotqualityleaders','shotqualityleaderstimeframe','shotqualityleadersseason','shotqualitytopperformersseason','shotqualitytopperformerstimeframe',
+            'gravityleaders','gravityleaderstimeframe','gravityleadersseason','gravitytopperformersseason','gravitytopperformerstimeframe',
+            'gravityvideologs','gravitygamelog','gravityplayergamelog','gravityplayergame'
+          ]
+          paramsets=[]
+          for c in controls:
+            base={'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season','PlayerID':c['pid']}
+            paramsets.extend([
+              (c,base),
+              (c,{**base,'GameID':c['gid']}),
+              (c,{**base,'DateFrom':c['date'],'DateTo':c['date']}),
+              (c,{**base,'FromDate':c['date'],'ToDate':c['date']}),
+              (c,{**base,'StartDate':c['date'],'EndDate':c['date']}),
+              (c,{**base,'LastNGames':1}),
+              (c,{**base,'Month':1}),
+            ])
+          endpoint_probe=[]
+          for resource in resources:
+            for c,params in paramsets:
+              rec={'resource':resource,'control':c,'params':params}
+              rr=safe_get('https://stats.gleague.nba.com/stats/'+resource,params=params,timeout=18)
+              if rr.get('ok'):
+                rec.update(status=rr['status'],bytes=len(rr['content']),location=rr['headers'].get('Location'),sha256=hashlib.sha256(rr['content']).hexdigest())
+                if rr['status']==200 and rr['content']:
+                  try:
+                    j=json.loads(rr['content']); rec['top_keys']=list(j) if isinstance(j,dict) else None; rec['target_hits']=target_hits(j)
+                    # summarize obvious row arrays
+                    for key in ('shots','players','gravity','data','results'):
+                      if isinstance(j,dict) and isinstance(j.get(key),list):
+                        rec[key+'_count']=len(j[key]);
+                        if j[key] and isinstance(j[key][0],dict): rec[key+'_keys']=list(j[key][0])
+                    if rec.get('target_hits'):
+                      fn=f"endpoint_{resource}_{c['pid']}_{hashlib.md5(json.dumps(params,sort_keys=True).encode()).hexdigest()[:8]}.json"
+                      (OUT/fn).write_bytes(rr['content']); rec['raw_file']=str(OUT/fn)
+                  except Exception as e:
+                    rec['json_error']=repr(e); rec['prefix']=rr['text'][:500]
+                else: rec['prefix']=rr['text'][:300]
+              else: rec['error']=rr.get('error')
+              endpoint_probe.append(rec)
+              time.sleep(.02)
+          (OUT/'endpoint_probe.json').write_text(json.dumps(endpoint_probe,indent=2,ensure_ascii=False),encoding='utf-8')
+
+          # 2) Current leaderboard + known public 2025-10-28 snapshot.
+          snapshots=[]
+          def parse_snapshot_bytes(raw,label,url=None,timestamp=None):
+            rows=[]; fmt=None
+            try:
+              j=json.loads(raw); fmt='json'
+              if isinstance(j,dict) and isinstance(j.get('shots'),list): rows=j['shots']
+              elif isinstance(j,list): rows=j
+            except: pass
+            if not rows:
+              try:
+                text=raw.decode('utf-8-sig'); dr=list(csv.DictReader(io.StringIO(text))); 
+                if dr and TARGETS[0] in dr[0]: rows=dr; fmt='csv'
+              except: pass
+            keep=[]
+            for x in rows:
+              if not isinstance(x,dict): continue
+              pid=x.get('PLAYERID') or x.get('player_id') or x.get('PLAYER_ID')
+              if pid is None: continue
+              if any(k in x for k in TARGETS):
+                keep.append({k:x.get(k) for k in ['PLAYERID','PLAYERNAME','TEAMID','TEAMABBREVIATION']+TARGETS+[t+'_RANK' for t in TARGETS] if k in x})
+            rec={'label':label,'url':url,'timestamp':timestamp,'format':fmt,'row_count':len(rows),'target_row_count':len(keep),'unique_players':len({str(x.get('PLAYERID')) for x in keep})}
+            if keep:
+              fn='snapshot_'+re.sub(r'[^A-Za-z0-9_.-]+','_',label)+'.json'; (OUT/fn).write_text(json.dumps(keep,indent=2,ensure_ascii=False),encoding='utf-8'); rec['file']=str(OUT/fn)
+            snapshots.append(rec)
+            return keep
+
+          cur=safe_get('https://stats.gleague.nba.com/stats/shotqualityleaders',params={'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season'},timeout=30)
+          if cur.get('ok') and cur['status']==200: parse_snapshot_bytes(cur['content'],'current_official',cur['url'],'2026-09-04')
+          pub=safe_get('https://raw.githubusercontent.com/gabriel1200/site_Data/master/efg.csv',timeout=30,headers={'User-Agent':H['User-Agent']},allow_redirects=True)
+          if pub.get('ok') and pub['status']==200: parse_snapshot_bytes(pub['content'],'github_gabriel_2025-10-28',pub['url'],'2025-10-28')
+
+          # 3) Internet Archive CDX search for historical endpoint responses.
+          archive_queries=[]; archive_snaps=[]
+          for host in ['stats.nba.com','stats.gleague.nba.com']:
+            params={'url':f'https://{host}/stats/shotqualityleaders','matchType':'prefix','output':'json','fl':'timestamp,original,statuscode,mimetype,digest','filter':'statuscode:200','from':'2025','to':'2026','collapse':'digest','limit':'2000'}
+            rr=safe_get('https://web.archive.org/cdx/search/cdx',params=params,timeout=40,headers={'User-Agent':H['User-Agent']},allow_redirects=True)
+            ar={'host':host,'status':rr.get('status'),'bytes':len(rr.get('content',b'')) if rr.get('ok') else None,'error':rr.get('error')}
+            if rr.get('ok') and rr['status']==200:
+              try:
+                data=json.loads(rr['content']); ar['rows']=len(data)-1 if isinstance(data,list) and data else 0
+                if isinstance(data,list) and len(data)>1:
+                  hdr=data[0]
+                  for row in data[1:201]:
+                    d=dict(zip(hdr,row)); ts=d['timestamp']; orig=d['original']
+                    snap_url=f'https://web.archive.org/web/{ts}id_/{orig}'
+                    sr=safe_get(snap_url,timeout=30,headers={'User-Agent':H['User-Agent']},allow_redirects=True)
+                    srec={'timestamp':ts,'original':orig,'status':sr.get('status'),'bytes':len(sr.get('content',b'')) if sr.get('ok') else None}
+                    if sr.get('ok') and sr['status']==200:
+                      keep=parse_snapshot_bytes(sr['content'],f'wayback_{host}_{ts}',orig,ts)
+                      srec['target_rows']=len(keep)
+                    archive_snaps.append(srec)
+              except Exception as e: ar['parse_error']=repr(e); ar['prefix']=rr.get('text','')[:500]
+            else: ar['prefix']=rr.get('text','')[:500]
+            archive_queries.append(ar)
+          (OUT/'archive_queries.json').write_text(json.dumps(archive_queries,indent=2),encoding='utf-8')
+          (OUT/'archive_snapshots.json').write_text(json.dumps(archive_snaps,indent=2),encoding='utf-8')
+
+          # 4) GitHub global code search for public copies/snapshots containing the raw fields.
+          gh_hits=[]; gh_files=[]
+          token=os.environ.get('GH_TOKEN')
+          ghh={'Accept':'application/vnd.github+json','User-Agent':'hawkeye-recovery'}
+          if token: ghh['Authorization']='Bearer '+token
+          queries=['AVGDEFENSIVEHANDHEIGHT in:file','AVGDEFENDERPRESSURESCORE in:file','AVGSHOOTERSPEED in:file']
+          seen=set()
+          for q in queries:
+            rr=safe_get('https://api.github.com/search/code',params={'q':q,'per_page':100,'page':1},timeout=30,headers=ghh,allow_redirects=True)
+            qrec={'query':q,'status':rr.get('status'),'bytes':len(rr.get('content',b'')) if rr.get('ok') else None}
+            try:
+              j=json.loads(rr.get('content',b'{}')); qrec['total_count']=j.get('total_count'); items=j.get('items',[])
+              for it in items:
+                key=(it.get('repository',{}).get('full_name'),it.get('path'))
+                if key in seen: continue
+                seen.add(key)
+                hit={'repo':key[0],'path':key[1],'html_url':it.get('html_url'),'sha':it.get('sha')}; gh_hits.append(hit)
+                # Fetch file through contents API at default branch.
+                api=it.get('url')
+                fr=safe_get(api,timeout=30,headers=ghh,allow_redirects=True)
+                if fr.get('ok') and fr['status']==200:
+                  try:
+                    fj=json.loads(fr['content']); raw=base64.b64decode(fj.get('content','')) if fj.get('encoding')=='base64' else b''
+                    if raw and len(raw)<2_000_000:
+                      keep=parse_snapshot_bytes(raw,f"github_{key[0]}_{key[1]}",it.get('html_url'),None)
+                      if keep: gh_files.append({**hit,'target_rows':len(keep)})
+                  except Exception as e: hit['fetch_parse_error']=repr(e)
+            except Exception as e: qrec['parse_error']=repr(e); qrec['prefix']=rr.get('text','')[:500]
+            qrec['hits_seen']=len(gh_hits)
+            (OUT/f"github_search_{len(gh_hits)}.json").write_text(json.dumps(qrec,indent=2),encoding='utf-8')
+            time.sleep(1)
+          (OUT/'github_hits.json').write_text(json.dumps(gh_hits,indent=2),encoding='utf-8')
+          (OUT/'github_snapshot_files.json').write_text(json.dumps(gh_files,indent=2),encoding='utf-8')
+
+          # 5) Crawl current NBA page JS and locate Hana service module / hidden Shot Quality resources.
+          page_url='https://www.nba.com/inside-the-game/shot-difficulty'
+          pr=safe_get(page_url,timeout=40,headers={'User-Agent':H['User-Agent'],'Accept':'text/html,*/*'},allow_redirects=True)
+          frontend={'page_status':pr.get('status'),'page_bytes':len(pr.get('content',b'')) if pr.get('ok') else None,'scripts':[],'contexts':[]}
+          scripts=set()
+          if pr.get('ok') and pr['status']==200:
+            html=pr['text']
+            for src in re.findall(r'<script[^>]+src=["\']([^"\']+\.js[^"\']*)',html):
+              scripts.add(urllib.parse.urljoin(page_url,src))
+            m=re.search(r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>',html,re.S)
+            if m:
+              try:
+                nd=json.loads(m.group(1)); bid=nd.get('buildId'); frontend['build_id']=bid
+                if bid:
+                  for p in [f'/_next/static/{bid}/_buildManifest.js',f'/_next/static/{bid}/_ssgManifest.js']:
+                    scripts.add(urllib.parse.urljoin(page_url,p))
+              except Exception as e: frontend['next_data_error']=repr(e)
+          fetched={}
+          # first pass
+          for url in list(scripts):
+            rr=safe_get(url,timeout=30,headers={'User-Agent':H['User-Agent']},allow_redirects=True)
+            frontend['scripts'].append({'url':url,'status':rr.get('status'),'bytes':len(rr.get('content',b'')) if rr.get('ok') else None})
+            if rr.get('ok') and rr['status']==200:
+              text=rr['text']; fetched[url]=text
+              # manifest/chunk references
+              for path in re.findall(r'[_A-Za-z0-9./-]+\.js',text):
+                if '/static/' in path or path.startswith('static/') or path.startswith('_next/'):
+                  scripts.add(urllib.parse.urljoin('https://www.nba.com/_next/',path.replace('_next/','')) if not path.startswith('http') else path)
+          # second pass newly found, cap 250
+          for url in list(scripts)[:250]:
+            if url in fetched: continue
+            rr=safe_get(url,timeout=20,headers={'User-Agent':H['User-Agent']},allow_redirects=True)
+            if rr.get('ok') and rr['status']==200: fetched[url]=rr['text']
+          needles=['36843:function','shotqualityleaders','shotqualityleaderstimeframe','shotqualitytopperformersseason','gravityleaderstimeframe','hanaService','stats.gleague.nba.com','stats.nba.com/stats']
+          for url,text in fetched.items():
+            for needle in needles:
+              start=0
+              while True:
+                i=text.find(needle,start)
+                if i<0: break
+                frontend['contexts'].append({'url':url,'needle':needle,'offset':i,'context':text[max(0,i-1800):i+3500]})
+                start=i+len(needle)
+                if sum(1 for x in frontend['contexts'] if x['url']==url and x['needle']==needle)>=5: break
+          (OUT/'frontend_scan.json').write_text(json.dumps(frontend,indent=2,ensure_ascii=False),encoding='utf-8')
+
+          # Build a deduplicated union inventory from all parsed snapshots.
+          union=defaultdict(list)
+          for snap in snapshots:
+            fp=snap.get('file')
+            if not fp or not pathlib.Path(fp).exists(): continue
+            try: rows=json.loads(pathlib.Path(fp).read_text())
+            except: continue
+            for x in rows:
+              pid=str(x.get('PLAYERID')) if x.get('PLAYERID') is not None else None
+              if pid: union[pid].append({'snapshot':snap['label'],**x})
+          union_summary={'unique_players_across_parsed_snapshots':len(union),'players':{pid:len(v) for pid,v in union.items()}}
+          (OUT/'snapshot_union_summary.json').write_text(json.dumps(union_summary,indent=2),encoding='utf-8')
+
+          resources_200=sorted(set(r['resource'] for r in endpoint_probe if r.get('status')==200 and r.get('bytes',0)>2))
+          resources_target=sorted(set(r['resource'] for r in endpoint_probe if r.get('target_hits')))
+          summary={
+            'retrieved_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
+            'endpoint_requests':len(endpoint_probe),'resources_with_meaningful_200':resources_200,'resources_with_target_fields':resources_target,
+            'snapshot_sources_parsed':len([x for x in snapshots if x.get('target_row_count')]),
+            'snapshot_union_unique_players':len(union),
+            'archive_queries':archive_queries,
+            'archive_snapshots_fetched':len(archive_snaps),
+            'github_code_hits':len(gh_hits),'github_snapshot_files':gh_files,
+            'frontend_context_hits':len(frontend.get('contexts',[])),
+            'frontend_needles_found':sorted(set(x['needle'] for x in frontend.get('contexts',[]))),
+          }
+          (OUT/'summary.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps(summary,indent=2,ensure_ascii=False))
+          PY
+      - name: Commit deep recovery outputs
+        if: always()
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hawkeye_deep_recovery || true
+          git diff --cached --quiet && exit 0
+          git commit -m 'Preserve deep Hawk-Eye recovery search'
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin analysis/hawkeye-all-players-2025-26 && git push origin HEAD:analysis/hawkeye-all-players-2025-26 && exit 0
+            sleep $((i*2))
+          done
+          exit 1
