@@ -1,0 +1,85 @@
+name: Extract NBA HANA service module
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/extract_hana_service_module.yml'
+permissions:
+  contents: write
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: analysis/hawkeye-all-players-2025-26
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip -q install requests beautifulsoup4
+      - name: Locate module 36843 and HANA environment strings across NBA bundles
+        run: |
+          python - <<'PY'
+          import requests,re,json,os,urllib.parse,hashlib
+          from bs4 import BeautifulSoup
+          OUT='outputs/hana_service_module'; os.makedirs(OUT,exist_ok=True)
+          s=requests.Session(); s.headers.update({'User-Agent':'Mozilla/5.0'})
+          root='https://www.nba.com/inside-the-game/shot-difficulty'
+          html=s.get(root,timeout=30).text
+          scripts=set(urllib.parse.urljoin(root,x.get('src')) for x in BeautifulSoup(html,'html.parser').find_all('script',src=True))
+          # build manifest
+          m=re.search(r'/_next/static/([^/]+)/_buildManifest\.js',html)
+          if m:
+            bid=m.group(1); scripts.add(f'https://www.nba.com/_next/static/{bid}/_buildManifest.js')
+          q=list(scripts); seen=set(); hits=[]
+          while q and len(seen)<1800:
+            u=q.pop(0)
+            if u in seen: continue
+            seen.add(u)
+            try:
+              r=s.get(u,timeout=20)
+              if r.status_code!=200: continue
+              t=r.text
+            except: continue
+            # recurse chunk strings
+            for x in re.findall(r'["\']([^"\']+\.js)["\']',t):
+              if '_next/' in x or x.startswith('static/') or x.startswith('/_next/'):
+                nu=('https://www.nba.com/_next/'+x if x.startswith('static/') else urllib.parse.urljoin('https://www.nba.com/',x))
+                if nu not in seen: q.append(nu)
+            for x in re.findall(r'(?:static/)?chunks/[A-Za-z0-9_./\[\]-]+\.js',t):
+              nu='https://www.nba.com/_next/'+x if x.startswith('static/') else 'https://www.nba.com/_next/static/'+x
+              if nu not in seen: q.append(nu)
+            low=t.lower()
+            terms=['36843:function','36843:', 'hana_source','hana source','stats.gleague.nba.com','stats.nba.com','resource:', 'shotqualityleaders']
+            if any(term.lower() in low for term in terms):
+              contexts=[]
+              for term in terms:
+                start=0
+                while True:
+                  i=low.find(term.lower(),start)
+                  if i<0: break
+                  contexts.append({'term':term,'offset':i,'context':t[max(0,i-3500):min(len(t),i+9000)]})
+                  start=i+len(term)
+                  if len(contexts)>=40: break
+                if len(contexts)>=40: break
+              hits.append({'url':u,'bytes':len(t.encode()),'sha256':hashlib.sha256(t.encode()).hexdigest(),'contexts':contexts})
+          json.dump(hits,open(f'{OUT}/hits.json','w'),indent=2)
+          # compact only module-specific contexts
+          mod=[]
+          for h in hits:
+            for c in h['contexts']:
+              if c['term'] in ['36843:function','36843:','hana_source','hana source','stats.gleague.nba.com','stats.nba.com']:
+                mod.append({'url':h['url'],**c})
+          json.dump(mod,open(f'{OUT}/module_contexts.json','w'),indent=2)
+          summary={'scripts_seen':len(seen),'hit_files':len(hits),'module_contexts':len(mod),'module_files':sorted(set(x['url'] for x in mod))}
+          json.dump(summary,open(f'{OUT}/summary.json','w'),indent=2)
+          print(json.dumps(summary,indent=2))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hana_service_module
+          git commit -m 'Extract NBA HANA service module' || exit 0
+          git pull --rebase origin analysis/hawkeye-all-players-2025-26
+          git push origin HEAD:analysis/hawkeye-all-players-2025-26
