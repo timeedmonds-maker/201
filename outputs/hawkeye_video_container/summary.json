@@ -1,0 +1,37 @@
+{
+  "source_status": 200,
+  "selected_url": "https://videos.nba.com/nba/pbp/media/2025/12/26/0022500430/114/ea7b1b3b-51af-3fb5-c258-4846c1c7aac4_320x180.mp4",
+  "video": {
+    "status": 200,
+    "bytes": 31580089,
+    "ct": "video/mp4",
+    "sha256": "45934326c3cac055be7389cc27484107cafbda429afa54ca35b3ac2350df79a0"
+  },
+  "top_boxes": [
+    {
+      "offset": 0,
+      "size": 24,
+      "type": "ftyp"
+    },
+    {
+      "offset": 24,
+      "size": 5554,
+      "type": "moov"
+    },
+    {
+      "offset": 5578,
+      "size": 607418,
+      "type": "uuid"
+    },
+    {
+      "offset": 612996,
+      "size": 30967093,
+      "type": "mdat"
+    }
+  ],
+  "string_hit_terms": [
+    "metadata",
+    "uuid"
+  ],
+  "ffprobe_rc": 0
+}
