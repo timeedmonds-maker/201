@@ -1,0 +1,71 @@
+name: Probe stats.nba Hawk-Eye from browser
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/probe_stats_nba_playwright_hawkeye.yml'
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: analysis/hawkeye-all-players-2025-26
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: |
+          pip -q install playwright
+          python -m playwright install --with-deps chromium >/dev/null
+      - name: Fetch direct NBA Hawk-Eye in Chromium page context
+        run: |
+          python - <<'PY'
+          import asyncio,json,os,hashlib
+          from playwright.async_api import async_playwright
+          OUT='outputs/stats_nba_playwright_hawkeye'; os.makedirs(OUT,exist_ok=True)
+          async def main():
+            async with async_playwright() as p:
+              browser=await p.chromium.launch(headless=True,args=['--disable-blink-features=AutomationControlled'])
+              ctx=await browser.new_context(user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',locale='en-US')
+              page=await ctx.new_page()
+              nav={}
+              try:
+                r=await page.goto('https://www.nba.com/inside-the-game/shot-difficulty',wait_until='domcontentloaded',timeout=60000)
+                nav={'status':r.status if r else None,'url':page.url,'title':await page.title()}
+              except Exception as e: nav={'error':repr(e),'url':page.url}
+              variants=[('all',{}),('pj',{'PlayerID':'1629023'}),('love',{'PlayerID':'201567'}),('lebron',{'PlayerID':'2544'}),('qualified_false',{'Qualified':'false'}),('pj_qualified_false',{'PlayerID':'1629023','Qualified':'false'}),('pj_minfgm0',{'PlayerID':'1629023','MinFGM':'0'})]
+              rec=[]
+              for label,extra in variants:
+                params={'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season',**extra}
+                qs='&'.join(f'{k}={str(v).replace(" ","%20")}' for k,v in params.items())
+                url='https://stats.nba.com/stats/shotqualityleaders?'+qs
+                try:
+                  out=await page.evaluate('''async (url) => {
+                    try {
+                      const r=await fetch(url,{method:'GET',headers:{'Accept':'application/json, text/plain, */*'}});
+                      const text=await r.text();
+                      return {ok:r.ok,status:r.status,url:r.url,headers:Object.fromEntries(r.headers.entries()),text};
+                    } catch(e) { return {error:String(e),stack:e?.stack||''}; }
+                  }''',url)
+                  text=out.pop('text','') if isinstance(out,dict) else ''
+                  try:j=json.loads(text)
+                  except:j=None
+                  shots=j.get('shots',[]) if isinstance(j,dict) else []
+                  rec.append({'label':label,'params':params,**out,'bytes':len(text.encode()),'sha256':hashlib.sha256(text.encode()).hexdigest(),'keys':list(j.keys()) if isinstance(j,dict) else None,'shots':len(shots),'target_found':any(str(x.get('PLAYERID')) in ['1629023','201567'] for x in shots if isinstance(x,dict)),'first_ids':[x.get('PLAYERID') for x in shots[:5]],'target_rows':[x for x in shots if str(x.get('PLAYERID')) in ['1629023','201567','2544']],'prefix':text[:700] if not shots else ''})
+                except Exception as e: rec.append({'label':label,'params':params,'error':repr(e)})
+              await browser.close()
+              json.dump({'navigation':nav,'requests':rec},open(f'{OUT}/report.json','w'),indent=2)
+              json.dump({'navigation':nav,'requests':[{'label':x['label'],'status':x.get('status'),'error':x.get('error'),'bytes':x.get('bytes'),'shots':x.get('shots'),'target_found':x.get('target_found'),'first_ids':x.get('first_ids')} for x in rec]},open(f'{OUT}/summary.json','w'),indent=2)
+              print(json.dumps({'navigation':nav,'requests':[{'label':x['label'],'status':x.get('status'),'error':x.get('error'),'bytes':x.get('bytes'),'shots':x.get('shots'),'target_found':x.get('target_found')} for x in rec]},indent=2))
+          asyncio.run(main())
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/stats_nba_playwright_hawkeye
+          git commit -m 'Probe stats.nba Hawk-Eye from browser context' || exit 0
+          for i in 1 2 3 4; do git pull --rebase origin analysis/hawkeye-all-players-2025-26 && git push origin HEAD:analysis/hawkeye-all-players-2025-26 && exit 0; sleep 2; done
+          exit 1
