@@ -1,0 +1,81 @@
+name: Probe WNBA shot-quality performance routes
+
+on:
+  push:
+    branches: [analysis/hawkeye-season-complete-v2]
+    paths: ['.github/workflows/probe_wnba_shot_quality_routes.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-season-complete-v2}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Probe routes
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,hashlib,time
+          H={'User-Agent':'Mozilla/5.0 Chrome/137.0 Safari/537.36','Accept':'application/json,text/plain,*/*'}
+          s=requests.Session();s.headers.update(H)
+          tests=[]
+          season_base='https://www.wnba.com/api/stats/shot-quality'
+          for label,p in [
+            ('season_base',{'season':'2026'}),('season_type',{'season':'2026','seasonType':'Regular Season'}),
+            ('season_player',{'season':'2026','playerId':'1642289'}),('season_limit1000',{'season':'2026','limit':'1000'}),
+            ('season_all',{'season':'2026','allPlayers':'true'}),('season_unqualified',{'season':'2026','includeUnqualified':'true'}),
+          ]: tests.append((label,season_base,p))
+          day_base='https://www.wnba.com/api/stats/shot-quality-shooting'
+          for date in ['2026-07-01','07/01/2026','2026-06-30','2026-08-01']:
+            tests.append((f'day_{date}',day_base,{'gameDate':date}))
+          # analogous NBA routes, in case hidden server handlers exist on other pathname variants
+          for host in ['https://www.nba.com','https://www.wnba.com']:
+            for path in ['/api/stats/shot-quality','/api/stats/shot-quality-shooting']:
+              p={'season':'2025-26'} if path.endswith('shot-quality') else {'gameDate':'2026-01-15'}
+              tests.append((host.split('//')[1]+'_'+path.rsplit('/',1)[-1],host+path,p))
+          out=[]
+          def summary(j):
+            rec={}
+            if isinstance(j,dict):
+              rec['top_keys']=list(j)
+              for k,v in j.items():
+                if isinstance(v,list):
+                  rec.setdefault('arrays',[]).append({'key':k,'count':len(v),'first_keys':list(v[0]) if v and isinstance(v[0],dict) else None,'first':v[0] if v and isinstance(v[0],dict) else None})
+                elif isinstance(v,dict): rec.setdefault('dict_keys',{})[k]=list(v)
+            elif isinstance(j,list): rec={'array_count':len(j),'first_keys':list(j[0]) if j and isinstance(j[0],dict) else None,'first':j[0] if j and isinstance(j[0],dict) else None}
+            return rec
+          for label,u,p in tests:
+            rrec={'label':label,'url':u,'params':p}
+            try:
+              r=s.get(u,params=p,timeout=40,allow_redirects=True);rrec.update(status=r.status_code,bytes=len(r.content),ct=r.headers.get('content-type'),final_url=r.url,sha256=hashlib.sha256(r.content).hexdigest())
+              if r.status_code==200:
+                try:
+                  j=r.json();rrec.update(summary(j));
+                  if len(r.content)<200000:rrec['json']=j
+                except Exception as e:rrec['json_error']=repr(e);rrec['text']=r.text[:3000]
+              else:rrec['text']=r.text[:1500]
+            except Exception as e:rrec['error']=repr(e)
+            out.append(rrec);print(label,rrec.get('status'),rrec.get('bytes'),rrec.get('top_keys'),rrec.get('array_count'),rrec.get('arrays'),flush=True)
+            time.sleep(.1)
+          d=pathlib.Path('outputs/wnba_shot_quality_route_probe');d.mkdir(parents=True,exist_ok=True)
+          (d/'report.json').write_text(json.dumps(out,indent=2,ensure_ascii=False),encoding='utf-8')
+          compact=[]
+          for x in out:
+            compact.append({k:x.get(k) for k in ['label','url','params','status','bytes','ct','top_keys','array_count','first_keys','arrays','dict_keys','error']})
+          (d/'summary.json').write_text(json.dumps(compact,indent=2,ensure_ascii=False),encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/wnba_shot_quality_route_probe
+          git commit -m 'Preserve WNBA shot-quality performance route probe' || exit 0
+          git pull --rebase origin analysis/hawkeye-season-complete-v2
+          git push origin HEAD:analysis/hawkeye-season-complete-v2
