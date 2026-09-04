@@ -1,0 +1,30 @@
+[
+  {
+    "map": "https://www.nba.com/_next/static/chunks/3245-01f19ec519c167ff.js.map",
+    "status": 404,
+    "bytes": 4762,
+    "sources_count": null,
+    "hit_sources": 0
+  },
+  {
+    "map": "https://www.nba.com/_next/static/chunks/15964-836461f8faac1d2a.js.map",
+    "status": 404,
+    "bytes": 4762,
+    "sources_count": null,
+    "hit_sources": 0
+  },
+  {
+    "map": "https://www.nba.com/_next/static/chunks/pages/inside-the-game-b0781697e3451234.js.map",
+    "status": 404,
+    "bytes": 4762,
+    "sources_count": null,
+    "hit_sources": 0
+  },
+  {
+    "map": "https://www.nba.com/_next/static/chunks/pages/_app-17641b50b12c156d.js.map",
+    "status": 404,
+    "bytes": 4762,
+    "sources_count": null,
+    "hit_sources": 0
+  }
+]
