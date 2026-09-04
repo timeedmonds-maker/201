@@ -1,0 +1,106 @@
+name: Probe raw Hawk-Eye game feature fields
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/probe_hawkeye_raw_game_features.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: analysis/hawkeye-all-players-2025-26
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip -q install requests
+      - name: Probe player-game and shot-level Hawk-Eye schemas
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,hashlib,time,random
+          BASE='https://stats.gleague.nba.com/stats/'
+          H={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/137.0 Safari/537.36','Origin':'https://www.nba.com','Referer':'https://www.nba.com/','Accept':'application/json,text/plain,*/*','x-nba-stats-origin':'stats','x-nba-stats-token':'true'}
+          S=requests.Session();S.headers.update(H)
+          season={'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season'}
+          controls={'unqualified':'201567','qualified':'2544'}
+          def get(resource,params,tries=5):
+            last=None
+            for a in range(tries):
+              try:
+                r=S.get(BASE+resource,params=params,timeout=30,allow_redirects=False)
+                if r.status_code==200 and r.content:return r,r.json()
+                last=f'HTTP {r.status_code}'
+              except Exception as e:last=repr(e)
+              time.sleep(.35*(2**a)+random.random()*.2)
+            return None,{'error':last}
+          lr,lj=get('leaguegamelog',{**season,'PlayerOrTeam':'P','Counter':'0','Sorter':'DATE','Direction':'DESC','DateFrom':'','DateTo':''})
+          rs=lj.get('resultSets') or lj.get('resultSet');rs=rs[0] if isinstance(rs,list) else rs
+          hh=(rs or {}).get('headers',[]);rr=(rs or {}).get('rowSet',[]);ix={k:i for i,k in enumerate(hh)}
+          games={k:[] for k in controls}
+          for row in rr:
+            for label,pid in controls.items():
+              if str(row[ix['PLAYER_ID']])==pid:games[label].append({'game_id':str(row[ix['GAME_ID']]),'player_name':row[ix['PLAYER_NAME']]})
+          chosen={}
+          for label,gs in games.items():
+            if not gs: chosen[label]=[];continue
+            picks=[]
+            for q in [0,len(gs)//2,len(gs)-1]:
+              if gs[q]['game_id'] not in [x['game_id'] for x in picks]:picks.append(gs[q])
+            chosen[label]=picks
+          resources=['shotqualityvideologs','shotqualityshotlog','shotqualitylogs','shotqualitylog','shotqualityplayergamelog','shotqualitygamelog','shotqualitygame','shotqualitydetails','shotqualitydetail','shotqualityonmake','shotquality2pt','shotquality3pt']
+          needles=('hand','height','speed','rotation','pressure','defender','quality','velocity','angle','contest')
+          def walk(v,p=''):
+            hits=[]
+            if isinstance(v,dict):
+              for k,z in v.items():
+                np=f'{p}/{k}'
+                if any(n in k.lower() for n in needles):hits.append({'path':np,'key':k,'value':z if not isinstance(z,(dict,list)) else type(z).__name__})
+                if isinstance(z,(dict,list)):hits.extend(walk(z,np))
+            elif isinstance(v,list):
+              for i,z in enumerate(v[:20]):
+                if isinstance(z,(dict,list)):hits.extend(walk(z,f'{p}/{i}'))
+            return hits
+          def schema(v,p='',out=None):
+            if out is None:out=[]
+            if isinstance(v,dict):
+              out.append({'path':p or '/','keys':list(v.keys())})
+              for k,z in v.items():
+                if isinstance(z,(dict,list)):schema(z,f'{p}/{k}',out)
+            elif isinstance(v,list) and v:schema(v[0],f'{p}/0',out)
+            return out
+          report=[]
+          for label,pid in controls.items():
+            for g in chosen[label]:
+              gid=g['game_id']
+              for resource in resources:
+                for params in [{'GameID':gid,'PlayerID':pid},{**season,'GameID':gid,'PlayerID':pid}]:
+                  r,j=get(resource,params)
+                  rec={'label':label,'player_id':pid,'game_id':gid,'resource':resource,'params':params}
+                  if r is not None:
+                    rec.update(status=r.status_code,bytes=len(r.content),sha256=hashlib.sha256(r.content).hexdigest(),top_keys=list(j)[:50] if isinstance(j,dict) else None)
+                    rec['feature_hits']=walk(j);rec['schema']=schema(j)[:80]
+                    if len(r.content)<250000:rec['json']=j
+                  else:rec['error']=j.get('error')
+                  report.append(rec)
+          out=pathlib.Path('outputs/hawkeye_raw_game_feature_probe');out.mkdir(parents=True,exist_ok=True)
+          (out/'report.json').write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding='utf-8')
+          interesting=[r for r in report if r.get('feature_hits') or (r.get('status')==200 and r.get('bytes',0)>2)]
+          (out/'interesting.json').write_text(json.dumps(interesting,indent=2,ensure_ascii=False),encoding='utf-8')
+          summary={'controls':controls,'chosen_games':chosen,'requests':len(report),'interesting':len(interesting),'responses_with_hand':sum(any('hand' in h['key'].lower() for h in r.get('feature_hits',[])) for r in report),'responses_with_speed':sum(any('speed' in h['key'].lower() or 'velocity' in h['key'].lower() for h in r.get('feature_hits',[])) for r in report),'responses_with_rotation':sum(any('rotation' in h['key'].lower() or 'angle' in h['key'].lower() for h in r.get('feature_hits',[])) for r in report),'responses_with_pressure':sum(any('pressure' in h['key'].lower() for h in r.get('feature_hits',[])) for r in report)}
+          (out/'summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')
+          print(json.dumps(summary,indent=2))
+          PY
+      - name: Commit probe outputs
+        if: always()
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hawkeye_raw_game_feature_probe || true
+          git diff --cached --quiet && exit 0
+          git commit -m 'Preserve raw Hawk-Eye game feature probe'
+          git pull --rebase origin analysis/hawkeye-all-players-2025-26
+          git push origin HEAD:analysis/hawkeye-all-players-2025-26
