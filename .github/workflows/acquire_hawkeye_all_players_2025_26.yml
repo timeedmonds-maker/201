@@ -1,0 +1,123 @@
+name: Acquire all 2025-26 Hawk-Eye player season metrics
+
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/acquire_hawkeye_all_players_2025_26.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: analysis/hawkeye-all-players-2025-26
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip -q install requests
+      - name: Acquire all players
+        run: |
+          python - <<'PY'
+          import csv, json, pathlib, requests, hashlib, datetime, time, random
+          from concurrent.futures import ThreadPoolExecutor, as_completed
+
+          SEASON='2025-26'; ST='Regular Season'; LEAGUE='00'
+          BASE='https://stats.gleague.nba.com/stats/'
+          H={
+            'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/137.0 Safari/537.36',
+            'Origin':'https://www.nba.com','Referer':'https://www.nba.com/',
+            'Accept':'application/json,text/plain,*/*','x-nba-stats-origin':'stats','x-nba-stats-token':'true'
+          }
+          out=pathlib.Path('outputs/hawkeye_2025_26_all_players'); out.mkdir(parents=True,exist_ok=True)
+
+          def get_json(resource, params, timeout=60, tries=6):
+            last=None
+            for attempt in range(tries):
+              try:
+                r=requests.get(BASE+resource,params=params,headers=H,timeout=timeout,allow_redirects=False)
+                if r.status_code==200 and r.content:
+                  return r,r.json()
+                last=f'HTTP {r.status_code} {r.text[:200]}'
+              except Exception as e: last=repr(e)
+              time.sleep((0.4*(2**attempt))+random.random()*0.25)
+            raise RuntimeError(last)
+
+          lp={'LeagueID':LEAGUE,'Season':SEASON,'SeasonType':ST,'PlayerOrTeam':'P','Counter':'0','Sorter':'DATE','Direction':'DESC','DateFrom':'','DateTo':''}
+          lr,lj=get_json('leaguegamelog',lp,timeout=90)
+          rs=lj.get('resultSets') or lj.get('resultSet')
+          if isinstance(rs,list): rs=rs[0] if rs else None
+          if not isinstance(rs,dict): raise SystemExit('bad leaguegamelog schema')
+          hh=rs.get('headers') or []; rr=rs.get('rowSet') or []; ix={k:i for i,k in enumerate(hh)}
+          pidk=next((k for k in ('PLAYER_ID','PERSON_ID') if k in ix),None); namek=next((k for k in ('PLAYER_NAME','PLAYER') if k in ix),None)
+          if not pidk or not namek: raise SystemExit(str(hh))
+          players={}
+          for row in rr:
+            pid=str(row[ix[pidk]])
+            if not pid or pid=='None': continue
+            p=players.setdefault(pid,{'player_id':pid,'player_name':row[ix[namek]],'league_fga':0,'teams':set(),'team_ids':set(),'player_game_rows':0})
+            p['player_game_rows']+=1
+            if 'FGA' in ix:
+              try:p['league_fga']+=int(row[ix['FGA']] or 0)
+              except:pass
+            if 'TEAM_ABBREVIATION' in ix and row[ix['TEAM_ABBREVIATION']]:p['teams'].add(str(row[ix['TEAM_ABBREVIATION']]))
+            if 'TEAM_ID' in ix and row[ix['TEAM_ID']] is not None:p['team_ids'].add(str(row[ix['TEAM_ID']]))
+          if len(players)<400: raise SystemExit(f'universe too small {len(players)}')
+          print('universe',len(players),'league rows',len(rr),flush=True)
+
+          def one(pid,p):
+            base={'season':SEASON,'season_type':ST,'player_id':pid,'player_name':p['player_name'],'league_fga':p['league_fga'],'player_game_rows':p['player_game_rows'],'teams':'|'.join(sorted(p['teams'])),'team_ids':'|'.join(sorted(p['team_ids']))}
+            try:
+              r,j=get_json('shotqualityleaders',{'LeagueID':LEAGUE,'Season':SEASON,'SeasonType':ST,'PlayerID':pid},timeout=30,tries=6)
+              shots=j.get('shots',[]) if isinstance(j,dict) else []
+              mm=[x for x in shots if str(x.get('PLAYERID'))==pid]
+              x=mm[0] if mm else (shots[0] if len(shots)==1 else None)
+              if not x:return {**base,'query_status':'no_metric_row','http_status':r.status_code}
+              return {**base,'query_status':'ok','http_status':r.status_code,'player_name_metric':x.get('PLAYERNAME'),'team_id_metric':x.get('TEAMID'),'team_abbreviation_metric':x.get('TEAMABBREVIATION'),'metric_fga':x.get('FGA'),'avg_defensive_hand_height':x.get('AVGDEFENSIVEHANDHEIGHT'),'avg_shooter_speed':x.get('AVGSHOOTERSPEED'),'avg_defender_pressure_score':x.get('AVGDEFENDERPRESSURESCORE'),'defensive_hand_height_rank':x.get('AVGDEFENSIVEHANDHEIGHT_RANK'),'shooter_speed_rank':x.get('AVGSHOOTERSPEED_RANK'),'defender_pressure_score_rank':x.get('AVGDEFENDERPRESSURESCORE_RANK'),'raw_sha256':hashlib.sha256(r.content).hexdigest()}
+            except Exception as e:return {**base,'query_status':'error','error':repr(e)}
+
+          results=[]
+          with ThreadPoolExecutor(max_workers=6) as ex:
+            fs={ex.submit(one,pid,p):pid for pid,p in players.items()}
+            for i,f in enumerate(as_completed(fs),1):
+              results.append(f.result())
+              if i%50==0:print('done',i,'/',len(players),flush=True)
+          results.sort(key=lambda x:(x.get('query_status')!='ok',-int(x.get('league_fga') or 0),x.get('player_name','')))
+          fields=[];seen=set()
+          for r in results:
+            for k in r:
+              if k not in seen:seen.add(k);fields.append(k)
+          with (out/'player_season_hawkeye_all_players.csv').open('w',newline='',encoding='utf-8') as f:
+            w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(results)
+          (out/'player_season_hawkeye_all_players.json').write_text(json.dumps(results,indent=2,ensure_ascii=False),encoding='utf-8')
+          shooters=[r for r in results if int(r.get('league_fga') or 0)>0]
+          ok=[r for r in results if r.get('query_status')=='ok']
+          unresolved=[r for r in shooters if r.get('query_status')!='ok']
+          zero=[r for r in results if int(r.get('league_fga') or 0)==0]
+          nulls={m:sum(r.get(m) in (None,'') for r in ok) for m in ['avg_defensive_hand_height','avg_shooter_speed','avg_defender_pressure_score']}
+          mism=[]
+          for r in ok:
+            try:
+              if int(r.get('league_fga') or 0)!=int(r.get('metric_fga') or 0):mism.append({'player_id':r['player_id'],'player_name':r['player_name'],'league_fga':r.get('league_fga'),'metric_fga':r.get('metric_fga')})
+            except:pass
+          summary={'season':SEASON,'season_type':ST,'source_universe':'NBA leaguegamelog PlayerOrTeam=P','source_metrics':'NBA shotqualityleaders individual PlayerID queries','retrieved_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'universe_player_count':len(results),'players_with_fga':len(shooters),'players_with_zero_fga':len(zero),'metric_rows_recovered':len(ok),'shooters_unresolved_count':len(unresolved),'coverage_of_players_with_fga_pct':round(100*sum(r.get('query_status')=='ok' for r in shooters)/len(shooters),4) if shooters else None,'null_metric_counts_among_recovered':nulls,'fga_mismatch_count':len(mism),'fga_mismatches':mism,'unresolved_shooters':unresolved,'zero_fga_players':zero,'leaguegamelog_sha256':hashlib.sha256(lr.content).hexdigest(),'leaguegamelog_rows':len(rr)}
+          (out/'summary.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps({k:v for k,v in summary.items() if k not in ('fga_mismatches','unresolved_shooters','zero_fga_players')},indent=2))
+          if unresolved:raise SystemExit(f'unresolved shooters {len(unresolved)}')
+          if any(nulls.values()):raise SystemExit(f'null metrics {nulls}')
+          PY
+      - name: Commit results
+        if: always()
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hawkeye_2025_26_all_players || true
+          git diff --cached --quiet && exit 0
+          git commit -m 'Preserve all-player 2025-26 Hawk-Eye season metrics'
+          git pull --rebase origin analysis/hawkeye-all-players-2025-26
+          git push origin HEAD:analysis/hawkeye-all-players-2025-26
