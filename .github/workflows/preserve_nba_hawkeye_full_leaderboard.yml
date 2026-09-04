@@ -1,0 +1,53 @@
+name: Preserve full NBA Hawk-Eye leaderboard and rotation QA
+
+on:
+  push:
+    branches: [analysis/hawkeye-season-complete-v2]
+    paths: ['.github/workflows/preserve_nba_hawkeye_full_leaderboard.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-season-complete-v2}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Acquire and QA
+        run: |
+          python - <<'PY'
+          import requests,json,csv,pathlib,hashlib,collections,datetime
+          H={'User-Agent':'Mozilla/5.0 Chrome/137.0 Safari/537.36','Origin':'https://www.nba.com','Referer':'https://www.nba.com/','Accept':'application/json,text/plain,*/*','x-nba-stats-origin':'stats','x-nba-stats-token':'true'}
+          u='https://stats.gleague.nba.com/stats/shotqualityleaders';p={'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season'}
+          r=requests.get(u,params=p,headers=H,timeout=60);r.raise_for_status();j=r.json();rows=j['shots']
+          d=pathlib.Path('outputs/nba_hawkeye_2025_26_full_leaderboard');d.mkdir(parents=True,exist_ok=True)
+          (d/'raw.json').write_bytes(r.content)
+          fields=[];seen=set()
+          for x in rows:
+            for k in x:
+              if k not in seen:seen.add(k);fields.append(k)
+          with (d/'all_fields.csv').open('w',newline='',encoding='utf-8') as f:
+            w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(rows)
+          targets=['AVGDEFENSIVEHANDHEIGHT','AVGDEFENDERBALLDISTANCE','AVGSHOOTERSPEED','AVGROTATIONDEGREES','AVGDEFENDERPRESSURESCORE']
+          with (d/'tracking_metrics.csv').open('w',newline='',encoding='utf-8') as f:
+            ff=['PLAYERID','PLAYERNAME','TEAMID','TEAMABBREVIATION','FGM','FGA']+targets+[k+'_RANK' for k in targets]
+            w=csv.DictWriter(f,fieldnames=ff);w.writeheader();w.writerows([{k:x.get(k) for k in ff} for x in rows])
+          rot=[x.get('AVGROTATIONDEGREES') for x in rows]; rotr=[x.get('AVGROTATIONDEGREES_RANK') for x in rows]
+          summary={'season':'2025-26','season_type':'Regular Season','retrieved_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source_url':r.url,'raw_sha256':hashlib.sha256(r.content).hexdigest(),'row_count':len(rows),'field_count':len(fields),'fields':fields,'target_null_counts':{k:sum(x.get(k) is None for x in rows) for k in targets},'rotation_unique_values':sorted(set(rot),key=lambda z:(z is None,z)),'rotation_value_counts':dict(collections.Counter(map(str,rot))),'rotation_rank_unique_values':sorted(set(rotr),key=lambda z:(z is None,z)),'rotation_rank_counts':dict(collections.Counter(map(str,rotr))),'rotation_nonzero_count':sum((v or 0)!=0 for v in rot)}
+          (d/'summary.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps({k:summary[k] for k in ['row_count','target_null_counts','rotation_unique_values','rotation_rank_unique_values','rotation_nonzero_count']},indent=2))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/nba_hawkeye_2025_26_full_leaderboard
+          git commit -m 'Preserve complete 2025-26 NBA Hawk-Eye leaderboard fields' || exit 0
+          git pull --rebase origin analysis/hawkeye-season-complete-v2
+          git push origin HEAD:analysis/hawkeye-season-complete-v2
