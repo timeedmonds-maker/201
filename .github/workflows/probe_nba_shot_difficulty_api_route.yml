@@ -1,0 +1,64 @@
+name: Probe NBA shot difficulty API route
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/probe_nba_shot_difficulty_api_route.yml']
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-all-players-2025-26}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Probe route
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,hashlib,itertools
+          H={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/137.0 Safari/537.36','Accept':'application/json,text/plain,*/*','Referer':'https://www.nba.com/inside-the-game/shot-difficulty'}
+          urls=['https://www.nba.com/api/stats/shot-difficulty','https://www.wnba.com/api/stats/shot-difficulty']
+          params=[
+            {'season':'2025-26'},
+            {'season':'2025-26','seasonType':'Regular Season'},
+            {'Season':'2025-26','SeasonType':'Regular Season'},
+            {'season':'2025-26','seasonType':'Regular Season','leagueId':'00'},
+            {'season':'2025-26','SeasonType':'Regular Season','LeagueID':'00'},
+            {'season':'2025-26','seasonType':'Regular Season','playerId':'201567'},
+            {'season':'2025-26','seasonType':'Regular Season','teamId':'1610612762'},
+          ]
+          out=[]
+          for u in urls:
+            for p in params:
+              rec={'url':u,'params':p}
+              try:
+                r=requests.get(u,params=p,headers=H,timeout=30,allow_redirects=True)
+                rec.update(status=r.status_code,final_url=r.url,bytes=len(r.content),ct=r.headers.get('content-type'),sha256=hashlib.sha256(r.content).hexdigest(),prefix=r.text[:1000])
+                if r.status_code==200:
+                  try:
+                    j=r.json();rec['top_type']=type(j).__name__;rec['top_keys']=list(j)[:50] if isinstance(j,dict) else None
+                    arr=[]
+                    def walk(v,path=''):
+                      if isinstance(v,list) and v and isinstance(v[0],dict):arr.append({'path':path,'count':len(v),'keys':list(v[0])})
+                      if isinstance(v,dict):
+                        for k,z in v.items():
+                          if isinstance(z,(dict,list)):walk(z,path+'/'+k)
+                    walk(j);rec['arrays']=arr[:20]
+                    if len(r.content)<300000:rec['json']=j
+                  except Exception as e:rec['json_error']=repr(e)
+              except Exception as e:rec['error']=repr(e)
+              out.append(rec);print(u,p,rec.get('status'),rec.get('bytes'),rec.get('top_keys'),rec.get('arrays'),flush=True)
+          d=pathlib.Path('outputs/shot_difficulty_api_route_probe');d.mkdir(parents=True,exist_ok=True)
+          (d/'report.json').write_text(json.dumps(out,indent=2,ensure_ascii=False),encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/shot_difficulty_api_route_probe
+          git commit -m 'Preserve shot difficulty API route probe' || exit 0
+          git pull --rebase origin analysis/hawkeye-all-players-2025-26
+          git push origin HEAD:analysis/hawkeye-all-players-2025-26
