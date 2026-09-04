@@ -1,0 +1,76 @@
+name: Extract shot quality top performers client contract
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/extract_shotquality_topperformers_client.yml'
+permissions:
+  contents: write
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: analysis/hawkeye-all-players-2025-26
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip -q install requests beautifulsoup4
+      - name: Scan NBA/WNBA bundle graphs for top performers usage
+        run: |
+          python - <<'PY'
+          import requests,re,json,os,urllib.parse
+          from bs4 import BeautifulSoup
+          OUT='outputs/shotquality_topperformers_client'; os.makedirs(OUT,exist_ok=True)
+          s=requests.Session(); s.headers.update({'User-Agent':'Mozilla/5.0'})
+          roots=['https://www.nba.com/inside-the-game/shot-difficulty','https://www.wnba.com/stats/inside-the-game/shot-difficulty']
+          terms=['shotqualitytopperformersseason','topperformersseason','shotqualitytopperformer','top performers','topPerformers']
+          hits=[]
+          for root in roots:
+            site=urllib.parse.urlparse(root).netloc
+            try: html=s.get(root,timeout=30).text
+            except: continue
+            q=[urllib.parse.urljoin(root,x.get('src')) for x in BeautifulSoup(html,'html.parser').find_all('script',src=True)]
+            m=re.search(r'/_next/static/([^/]+)/_buildManifest\.js',html)
+            if m:q.append(f'https://{site}/_next/static/{m.group(1)}/_buildManifest.js')
+            seen=set()
+            while q and len(seen)<1800:
+              u=q.pop(0)
+              if u in seen:continue
+              seen.add(u)
+              try:
+                r=s.get(u,timeout=20)
+                if r.status_code!=200:continue
+                t=r.text
+              except:continue
+              for x in re.findall(r'["\']([^"\']+\.js)["\']',t):
+                if '_next/' in x or x.startswith('static/') or x.startswith('/_next/'):
+                  nu=(f'https://{site}/_next/'+x if x.startswith('static/') else urllib.parse.urljoin(f'https://{site}/',x))
+                  if nu not in seen:q.append(nu)
+              for x in re.findall(r'(?:static/)?chunks/[A-Za-z0-9_./\[\]-]+\.js',t):
+                nu=f'https://{site}/_next/'+x if x.startswith('static/') else f'https://{site}/_next/static/'+x
+                if nu not in seen:q.append(nu)
+              lo=t.lower(); contexts=[]
+              for term in terms:
+                st=0
+                while True:
+                  i=lo.find(term.lower(),st)
+                  if i<0:break
+                  contexts.append({'term':term,'offset':i,'context':t[max(0,i-5000):min(len(t),i+12000)]})
+                  st=i+len(term)
+                  if len(contexts)>60:break
+              if contexts:hits.append({'root':root,'url':u,'contexts':contexts})
+          json.dump(hits,open(f'{OUT}/hits.json','w'),indent=2)
+          summary={'hit_files':len(hits),'files':[x['url'] for x in hits],'contexts':sum(len(x['contexts']) for x in hits)}
+          json.dump(summary,open(f'{OUT}/summary.json','w'),indent=2)
+          print(json.dumps(summary,indent=2))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/shotquality_topperformers_client
+          git commit -m 'Extract shotqualitytopperformersseason client contract' || exit 0
+          git pull --rebase origin analysis/hawkeye-all-players-2025-26
+          git push origin HEAD:analysis/hawkeye-all-players-2025-26
