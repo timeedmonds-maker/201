@@ -1,0 +1,143 @@
+{
+  "navigation": {
+    "status": 403,
+    "url": "https://www.nba.com/inside-the-game/shot-difficulty",
+    "title": "Access Denied"
+  },
+  "requests": [
+    {
+      "label": "all",
+      "params": {
+        "LeagueID": "00",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season"
+      },
+      "error": "TypeError: Failed to fetch",
+      "stack": "TypeError: Failed to fetch\n    at eval (eval at evaluate (:311:30), <anonymous>:3:27)\n    at UtilityScript.evaluate (<anonymous>:318:18)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "keys": null,
+      "shots": 0,
+      "target_found": false,
+      "first_ids": [],
+      "target_rows": [],
+      "prefix": ""
+    },
+    {
+      "label": "pj",
+      "params": {
+        "LeagueID": "00",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season",
+        "PlayerID": "1629023"
+      },
+      "error": "TypeError: Failed to fetch",
+      "stack": "TypeError: Failed to fetch\n    at eval (eval at evaluate (:311:30), <anonymous>:3:27)\n    at UtilityScript.evaluate (<anonymous>:318:18)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "keys": null,
+      "shots": 0,
+      "target_found": false,
+      "first_ids": [],
+      "target_rows": [],
+      "prefix": ""
+    },
+    {
+      "label": "love",
+      "params": {
+        "LeagueID": "00",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season",
+        "PlayerID": "201567"
+      },
+      "error": "TypeError: Failed to fetch",
+      "stack": "TypeError: Failed to fetch\n    at eval (eval at evaluate (:311:30), <anonymous>:3:27)\n    at UtilityScript.evaluate (<anonymous>:318:18)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "keys": null,
+      "shots": 0,
+      "target_found": false,
+      "first_ids": [],
+      "target_rows": [],
+      "prefix": ""
+    },
+    {
+      "label": "lebron",
+      "params": {
+        "LeagueID": "00",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season",
+        "PlayerID": "2544"
+      },
+      "error": "TypeError: Failed to fetch",
+      "stack": "TypeError: Failed to fetch\n    at eval (eval at evaluate (:311:30), <anonymous>:3:27)\n    at UtilityScript.evaluate (<anonymous>:318:18)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "keys": null,
+      "shots": 0,
+      "target_found": false,
+      "first_ids": [],
+      "target_rows": [],
+      "prefix": ""
+    },
+    {
+      "label": "qualified_false",
+      "params": {
+        "LeagueID": "00",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season",
+        "Qualified": "false"
+      },
+      "error": "TypeError: Failed to fetch",
+      "stack": "TypeError: Failed to fetch\n    at eval (eval at evaluate (:311:30), <anonymous>:3:27)\n    at UtilityScript.evaluate (<anonymous>:318:18)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "keys": null,
+      "shots": 0,
+      "target_found": false,
+      "first_ids": [],
+      "target_rows": [],
+      "prefix": ""
+    },
+    {
+      "label": "pj_qualified_false",
+      "params": {
+        "LeagueID": "00",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season",
+        "PlayerID": "1629023",
+        "Qualified": "false"
+      },
+      "error": "TypeError: Failed to fetch",
+      "stack": "TypeError: Failed to fetch\n    at eval (eval at evaluate (:311:30), <anonymous>:3:27)\n    at UtilityScript.evaluate (<anonymous>:318:18)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "keys": null,
+      "shots": 0,
+      "target_found": false,
+      "first_ids": [],
+      "target_rows": [],
+      "prefix": ""
+    },
+    {
+      "label": "pj_minfgm0",
+      "params": {
+        "LeagueID": "00",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season",
+        "PlayerID": "1629023",
+        "MinFGM": "0"
+      },
+      "error": "TypeError: Failed to fetch",
+      "stack": "TypeError: Failed to fetch\n    at eval (eval at evaluate (:311:30), <anonymous>:3:27)\n    at UtilityScript.evaluate (<anonymous>:318:18)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "keys": null,
+      "shots": 0,
+      "target_found": false,
+      "first_ids": [],
+      "target_rows": [],
+      "prefix": ""
+    }
+  ]
+}

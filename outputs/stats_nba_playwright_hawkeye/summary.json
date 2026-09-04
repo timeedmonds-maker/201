@@ -1,0 +1,72 @@
+{
+  "navigation": {
+    "status": 403,
+    "url": "https://www.nba.com/inside-the-game/shot-difficulty",
+    "title": "Access Denied"
+  },
+  "requests": [
+    {
+      "label": "all",
+      "status": null,
+      "error": "TypeError: Failed to fetch",
+      "bytes": 0,
+      "shots": 0,
+      "target_found": false,
+      "first_ids": []
+    },
+    {
+      "label": "pj",
+      "status": null,
+      "error": "TypeError: Failed to fetch",
+      "bytes": 0,
+      "shots": 0,
+      "target_found": false,
+      "first_ids": []
+    },
+    {
+      "label": "love",
+      "status": null,
+      "error": "TypeError: Failed to fetch",
+      "bytes": 0,
+      "shots": 0,
+      "target_found": false,
+      "first_ids": []
+    },
+    {
+      "label": "lebron",
+      "status": null,
+      "error": "TypeError: Failed to fetch",
+      "bytes": 0,
+      "shots": 0,
+      "target_found": false,
+      "first_ids": []
+    },
+    {
+      "label": "qualified_false",
+      "status": null,
+      "error": "TypeError: Failed to fetch",
+      "bytes": 0,
+      "shots": 0,
+      "target_found": false,
+      "first_ids": []
+    },
+    {
+      "label": "pj_qualified_false",
+      "status": null,
+      "error": "TypeError: Failed to fetch",
+      "bytes": 0,
+      "shots": 0,
+      "target_found": false,
+      "first_ids": []
+    },
+    {
+      "label": "pj_minfgm0",
+      "status": null,
+      "error": "TypeError: Failed to fetch",
+      "bytes": 0,
+      "shots": 0,
+      "target_found": false,
+      "first_ids": []
+    }
+  ]
+}
