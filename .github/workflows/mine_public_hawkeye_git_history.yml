@@ -1,0 +1,142 @@
+name: Mine public Hawk-Eye git history and forks
+
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/mine_public_hawkeye_git_history.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  mine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-all-players-2025-26}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Mine all reachable Git blobs and forks for historical Hawk-Eye snapshots
+        run: |
+          python - <<'PY'
+          import subprocess, pathlib, json, csv, io, os, re, requests, shutil, datetime
+          OUT=pathlib.Path('outputs/hawkeye_git_history_mine'); OUT.mkdir(parents=True,exist_ok=True)
+          TARGET=b'AVGDEFENSIVEHANDHEIGHT'
+          repo_url='https://github.com/gabriel1200/site_Data.git'
+          work=pathlib.Path('/tmp/hawkeye_git_mine');shutil.rmtree(work,ignore_errors=True);work.mkdir()
+          token=os.environ.get('GH_TOKEN')
+          api_headers={'Accept':'application/vnd.github+json','User-Agent':'hawkeye-history-mine'}
+          if token: api_headers['Authorization']='Bearer '+token
+          repos=[{'full_name':'gabriel1200/site_Data','clone_url':repo_url,'source':'origin'}]
+          try:
+            r=requests.get('https://api.github.com/repos/gabriel1200/site_Data/forks',params={'per_page':100},headers=api_headers,timeout=30)
+            fork_status=r.status_code
+            if r.status_code==200:
+              for x in r.json(): repos.append({'full_name':x.get('full_name'),'clone_url':x.get('clone_url'),'source':'fork','default_branch':x.get('default_branch'),'updated_at':x.get('updated_at')})
+            else: (OUT/'fork_api_error.txt').write_text(r.text[:4000])
+          except Exception as e:
+            fork_status=None;(OUT/'fork_api_error.txt').write_text(repr(e))
+
+          def parse_rows(raw):
+            rows=[]
+            try:
+              text=raw.decode('utf-8-sig')
+              dr=list(csv.DictReader(io.StringIO(text)))
+              if dr and 'AVGDEFENSIVEHANDHEIGHT' in dr[0]: rows=dr
+            except: pass
+            if not rows:
+              try:
+                j=json.loads(raw)
+                if isinstance(j,dict) and isinstance(j.get('shots'),list): rows=j['shots']
+                elif isinstance(j,list): rows=j
+              except: pass
+            return rows
+
+          all_results=[]; union_final={}; unique_snapshots={}
+          for ri,repo in enumerate(repos):
+            if not repo.get('clone_url'):continue
+            rp=work/f'r{ri}.git'
+            rec={'repo':repo['full_name'],'source':repo['source']}
+            try:
+              cp=subprocess.run(['git','clone','--mirror','--quiet',repo['clone_url'],str(rp)],capture_output=True,text=True,timeout=180)
+              rec['clone_rc']=cp.returncode;rec['clone_stderr']=cp.stderr[-1000:]
+              if cp.returncode: all_results.append(rec);continue
+              # enumerate all reachable blobs with paths
+              rev=subprocess.check_output(['git','-C',str(rp),'rev-list','--objects','--all'],text=True,timeout=180)
+              blobs={}
+              for line in rev.splitlines():
+                parts=line.split(' ',1);sha=parts[0];path=parts[1] if len(parts)>1 else ''
+                try:
+                  typ=subprocess.check_output(['git','-C',str(rp),'cat-file','-t',sha],text=True,timeout=5).strip()
+                except:continue
+                if typ!='blob':continue
+                try:
+                  size=int(subprocess.check_output(['git','-C',str(rp),'cat-file','-s',sha],text=True,timeout=5).strip())
+                except:continue
+                if size>3_000_000:continue
+                if sha not in blobs:blobs[sha]=set()
+                if path:blobs[sha].add(path)
+              matches=[]
+              for bi,(sha,paths) in enumerate(blobs.items()):
+                try:raw=subprocess.check_output(['git','-C',str(rp),'cat-file','blob',sha],timeout=10)
+                except:continue
+                if TARGET not in raw:continue
+                rows=parse_rows(raw)
+                players=[]
+                for x in rows:
+                  if not isinstance(x,dict):continue
+                  pid=x.get('PLAYERID') or x.get('PLAYER_ID') or x.get('player_id')
+                  if pid is None:continue
+                  players.append({k:x.get(k) for k in ['PLAYERID','PLAYERNAME','TEAMID','TEAMABBREVIATION','AVGDEFENSIVEHANDHEIGHT','AVGSHOOTERSPEED','AVGROTATIONDEGREES','AVGDEFENDERPRESSURESCORE'] if k in x})
+                # locate commits introducing/deleting blob; --find-object identifies changes touching it
+                try:
+                  log=subprocess.check_output(['git','-C',str(rp),'log','--all','--find-object='+sha,'--format=%H|%aI|%s','--'],text=True,timeout=60).splitlines()
+                except:log=[]
+                m={'blob':sha,'paths':sorted(paths),'bytes':len(raw),'row_count':len(rows),'target_player_count':len(players),'commits':log[:100]}
+                if players:
+                  key=sha
+                  fn=f'repo{ri}_blob_{sha[:12]}.json';(OUT/fn).write_text(json.dumps(players,indent=2,ensure_ascii=False),encoding='utf-8');m['parsed_file']=str(OUT/fn)
+                  unique_snapshots[(repo['full_name'],sha)]=players
+                matches.append(m)
+              rec['blob_count_scanned']=len(blobs);rec['matching_blobs']=len(matches);rec['matches']=matches
+            except Exception as e:rec['error']=repr(e)
+            all_results.append(rec)
+          (OUT/'repos.json').write_text(json.dumps(repos,indent=2,ensure_ascii=False),encoding='utf-8')
+          (OUT/'report.json').write_text(json.dumps(all_results,indent=2,ensure_ascii=False),encoding='utf-8')
+
+          # Union every distinct player appearing in any target-bearing historical blob.
+          union={}
+          sightings={}
+          for (repo,sha),players in unique_snapshots.items():
+            for x in players:
+              pid=str(x.get('PLAYERID')) if x.get('PLAYERID') is not None else None
+              if not pid:continue
+              sightings.setdefault(pid,[]).append({'repo':repo,'blob':sha,**x})
+              union[pid]=x
+          (OUT/'player_sightings.json').write_text(json.dumps(sightings,indent=2,ensure_ascii=False),encoding='utf-8')
+          summary={
+            'retrieved_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
+            'fork_api_status':fork_status,'repos_checked':len(repos),'repo_names':[x['full_name'] for x in repos],
+            'repos_cloned_ok':sum(x.get('clone_rc')==0 for x in all_results),
+            'matching_hawkeye_blobs':sum(x.get('matching_blobs',0) for x in all_results),
+            'parsed_unique_snapshots':len(unique_snapshots),
+            'union_unique_players':len(union),
+            'players_with_multiple_sightings':sum(len(v)>1 for v in sightings.values()),
+            'repo_match_counts':{x['repo']:x.get('matching_blobs',0) for x in all_results},
+          }
+          (OUT/'summary.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps(summary,indent=2,ensure_ascii=False))
+          PY
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hawkeye_git_history_mine || true
+          git diff --cached --quiet && exit 0
+          git commit -m 'Preserve public Hawk-Eye git history mine'
+          for i in 1 2 3 4 5; do git pull --rebase origin analysis/hawkeye-all-players-2025-26 && git push origin HEAD:analysis/hawkeye-all-players-2025-26 && exit 0; sleep $((i*2)); done
+          exit 1
