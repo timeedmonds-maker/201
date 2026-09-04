@@ -1,0 +1,102 @@
+name: Scan all NBA/WNBA bundles for Hawk-Eye resources
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/scan_all_nba_hawkeye_bundles.yml'
+permissions:
+  contents: write
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: analysis/hawkeye-all-players-2025-26
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip -q install requests beautifulsoup4
+      - name: Scan full Next.js bundle graphs
+        run: |
+          python - <<'PY'
+          import requests,re,json,hashlib,os,urllib.parse,time
+          from bs4 import BeautifulSoup
+          OUT='outputs/hawkeye_bundle_full_scan'; os.makedirs(OUT,exist_ok=True)
+          sess=requests.Session(); sess.headers.update({'User-Agent':'Mozilla/5.0','Accept':'text/html,application/xhtml+xml,application/javascript,*/*'})
+          roots=['https://www.nba.com/inside-the-game/shot-difficulty','https://www.wnba.com/stats/inside-the-game/shot-difficulty']
+          needles=['shotquality','shot-difficulty','hawkeye','gravityleader','defensivehand','shooterspeed','rotationdegrees','defenderpressurescore','videologs','shotlog','timeframe','courtvision','pose','keypoint','skeleton']
+          all_results=[]
+          for root in roots:
+            site=urllib.parse.urlparse(root).netloc
+            try:
+              r=sess.get(root,timeout=30); html=r.text
+            except Exception as e:
+              all_results.append({'root':root,'error':repr(e)}); continue
+            urls=set()
+            soup=BeautifulSoup(html,'html.parser')
+            for s in soup.find_all('script',src=True):
+              urls.add(urllib.parse.urljoin(root,s['src']))
+            # find build id and manifests
+            m=re.search(r'/_next/static/([^/]+)/_buildManifest\.js',html)
+            if m:
+              bid=m.group(1)
+              urls.add(f'https://{site}/_next/static/{bid}/_buildManifest.js')
+              urls.add(f'https://{site}/_next/static/{bid}/_ssgManifest.js')
+            # fetch current scripts/manifests and recursively extract every _next JS URL/string
+            q=list(urls); seen=set(); blobs=[]
+            while q and len(seen)<2500:
+              u=q.pop(0)
+              if u in seen: continue
+              seen.add(u)
+              try:
+                rr=sess.get(u,timeout=25)
+                if rr.status_code!=200: continue
+                text=rr.text
+              except Exception: continue
+              blobs.append((u,text))
+              # build manifest uses quoted chunk paths, including static/chunks/...js
+              for x in re.findall(r'["\']([^"\']+\.js)["\']',text):
+                if '_next/' in x or x.startswith('static/') or x.startswith('/_next/'):
+                  if x.startswith('static/'):
+                    nu=f'https://{site}/_next/{x}'
+                  else:
+                    nu=urllib.parse.urljoin(f'https://{site}/',x)
+                  if nu not in seen: q.append(nu)
+              # webpack runtime can expose chunk filenames in strings
+              for x in re.findall(r'(?:static/)?chunks/[A-Za-z0-9_./-]+\.js',text):
+                nu=f'https://{site}/_next/{x}' if x.startswith('static/') else f'https://{site}/_next/static/{x}'
+                if nu not in seen: q.append(nu)
+            hits=[]; resources=set()
+            for u,text in blobs:
+              low=text.lower()
+              if any(n in low for n in needles):
+                ctx=[]
+                for n in needles:
+                  start=0
+                  while True:
+                    i=low.find(n,start)
+                    if i<0: break
+                    ctx.append({'needle':n,'offset':i,'context':text[max(0,i-550):min(len(text),i+1100)]})
+                    start=i+len(n)
+                    if len(ctx)>120: break
+                  if len(ctx)>120: break
+                hits.append({'url':u,'bytes':len(text.encode()),'sha256':hashlib.sha256(text.encode()).hexdigest(),'contexts':ctx})
+              # collect likely service resource literals
+              for s in re.findall(r'["\']([a-z][a-z0-9_-]{4,80})["\']',text):
+                if any(k in s.lower() for k in ['shotquality','gravityleader','hawkeye','shotdifficulty','courtvision']): resources.add(s)
+            res={'root':root,'site':site,'scripts_fetched':len(blobs),'urls_seen':len(seen),'resources':sorted(resources),'hit_files':len(hits),'hits':hits}
+            all_results.append(res)
+          json.dump(all_results,open(f'{OUT}/report.json','w'),indent=2)
+          summary=[{'root':x.get('root'),'scripts_fetched':x.get('scripts_fetched'),'hit_files':x.get('hit_files'),'resources':x.get('resources',[])} for x in all_results]
+          json.dump(summary,open(f'{OUT}/summary.json','w'),indent=2)
+          print(json.dumps(summary,indent=2))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hawkeye_bundle_full_scan
+          git commit -m 'Full Hawk-Eye bundle scan results' || exit 0
+          git pull --rebase origin analysis/hawkeye-all-players-2025-26
+          git push origin HEAD:analysis/hawkeye-all-players-2025-26
