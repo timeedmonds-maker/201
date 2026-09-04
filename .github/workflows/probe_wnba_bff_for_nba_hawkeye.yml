@@ -1,0 +1,96 @@
+name: Probe WNBA BFF for NBA Hawk-Eye data
+
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/probe_wnba_bff_for_nba_hawkeye.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-all-players-2025-26}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Probe BFF parameter surface
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,hashlib,datetime,itertools
+          s=requests.Session();s.headers.update({'User-Agent':'Mozilla/5.0','Accept':'application/json,text/plain,*/*','Referer':'https://www.wnba.com/stats/inside-the-game/shot-difficulty'})
+          base='https://www.wnba.com/api/stats/shot-difficulty'
+          paramsets=[
+            {'season':'2025-26','seasonType':'Regular Season'},
+            {'season':'2025-26','seasonType':'Regular Season','LeagueID':'00'},
+            {'season':'2025-26','seasonType':'Regular Season','leagueId':'00'},
+            {'season':'2025-26','seasonType':'Regular Season','LeagueID':'10'},
+            {'season':'2025-26','seasonType':'Regular Season','leagueId':'10'},
+            {'season':'2026','seasonType':'Regular Season'},
+            {'season':'2026','seasonType':'Regular Season','LeagueID':'00'},
+            {'season':'2026','seasonType':'Regular Season','leagueId':'00'},
+            {'season':'2026','seasonType':'Regular Season','LeagueID':'10'},
+          ]
+          out=[]
+          def walk(v,p=''):
+            hits=[]
+            if isinstance(v,dict):
+              for k,z in v.items():
+                if any(n in k.upper() for n in ('HANDHEIGHT','SHOOTERSPEED','ROTATIONDEGREES','PRESSURESCORE')):hits.append({'path':p+'/'+k,'value':z})
+                if isinstance(z,(dict,list)):hits+=walk(z,p+'/'+k)
+            elif isinstance(v,list):
+              for i,z in enumerate(v[:10]):
+                if isinstance(z,(dict,list)):hits+=walk(z,f'{p}/{i}')
+            return hits
+          for p in paramsets:
+            rec={'url':base,'params':p}
+            try:
+              r=s.get(base,params=p,timeout=30);rec.update(status=r.status_code,bytes=len(r.content),final_url=r.url,ct=r.headers.get('content-type'),sha256=hashlib.sha256(r.content).hexdigest())
+              if r.status_code==200:
+                j=r.json(); rec['top_keys']=list(j) if isinstance(j,dict) else None; rec['params_echo']=j.get('params') if isinstance(j,dict) else None; shots=j.get('shots',[]) if isinstance(j,dict) else []
+                rec['shot_count']=len(shots); rec['first_players']=[x.get('PLAYERNAME') for x in shots[:12] if isinstance(x,dict)];rec['first_ids']=[x.get('PLAYERID') for x in shots[:12] if isinstance(x,dict)];rec['first_keys']=list(shots[0]) if shots else [];rec['target_hits']=walk(j)
+                if len(r.content)<120000:rec['json']=j
+              else:rec['prefix']=r.text[:1000]
+            except Exception as e:rec['error']=repr(e)
+            out.append(rec)
+          # Current exact WNBA shot-quality top-performance and shooting BFF routes found in client.
+          extras=[]
+          for url in ['https://www.wnba.com/api/stats/shot-quality','https://www.wnba.com/api/stats/shot-quality-shooting']:
+            ps=[{'season':'2025-26','seasonType':'Regular Season'},{'season':'2025-26','seasonType':'Regular Season','LeagueID':'00'},{'season':'2025-26','seasonType':'Regular Season','leagueId':'00'}] if url.endswith('shot-quality') else [{'gameDate':'10/21/2025'},{'gameDate':'11/01/2025'},{'gameDate':'4/12/2026'}]
+            for p in ps:
+              rec={'url':url,'params':p}
+              try:
+                r=s.get(url,params=p,timeout=30);rec.update(status=r.status_code,bytes=len(r.content),final_url=r.url,ct=r.headers.get('content-type'),sha256=hashlib.sha256(r.content).hexdigest())
+                if r.status_code==200:
+                  j=r.json();rec['top_keys']=list(j) if isinstance(j,dict) else None;rec['target_hits']=walk(j)
+                  # summarize any list of dicts recursively
+                  def lists(v,pth=''):
+                    z=[]
+                    if isinstance(v,list) and v and isinstance(v[0],dict):z.append({'path':pth,'count':len(v),'keys':list(v[0]),'sample':v[:2]})
+                    if isinstance(v,dict):
+                      for k,x in v.items():
+                        if isinstance(x,(dict,list)):z+=lists(x,pth+'/'+k)
+                    return z
+                  rec['lists']=lists(j)[:20]
+                  if len(r.content)<150000:rec['json']=j
+                else:rec['prefix']=r.text[:1000]
+              except Exception as e:rec['error']=repr(e)
+              extras.append(rec)
+          d=pathlib.Path('outputs/wnba_bff_nba_hawkeye_probe');d.mkdir(parents=True,exist_ok=True)
+          summary={'retrieved_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'shot_difficulty':[{k:v for k,v in x.items() if k!='json'} for x in out],'extras':[{k:v for k,v in x.items() if k!='json'} for x in extras]}
+          (d/'summary.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False),encoding='utf-8')
+          (d/'full.json').write_text(json.dumps({'shot_difficulty':out,'extras':extras},indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps(summary,indent=2,ensure_ascii=False))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/wnba_bff_nba_hawkeye_probe
+          git diff --cached --quiet && exit 0
+          git commit -m 'Probe WNBA BFF for NBA Hawk-Eye data'
+          for i in 1 2 3 4 5; do git pull --rebase origin analysis/hawkeye-all-players-2025-26 && git push origin HEAD:analysis/hawkeye-all-players-2025-26 && exit 0; sleep $((i*2)); done
+          exit 1
