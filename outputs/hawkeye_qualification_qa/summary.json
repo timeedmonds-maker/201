@@ -1,0 +1,344 @@
+{
+  "retrieved_at_utc": "2026-09-04T10:04:16.670587+00:00",
+  "qualified_count": 125,
+  "universe_count": 582,
+  "min_qualified_by_fgm": [
+    {
+      "player_id": "1630577",
+      "player_name": "Julian Champagnie",
+      "fgm": 301,
+      "fga": 689,
+      "games": 82,
+      "qualified": true
+    },
+    {
+      "player_id": "1628404",
+      "player_name": "Josh Hart",
+      "fgm": 301,
+      "fga": 592,
+      "games": 66,
+      "qualified": true
+    },
+    {
+      "player_id": "1642377",
+      "player_name": "Jaylen Wells",
+      "fgm": 301,
+      "fga": 698,
+      "games": 69,
+      "qualified": true
+    },
+    {
+      "player_id": "1641709",
+      "player_name": "Ausar Thompson",
+      "fgm": 303,
+      "fga": 577,
+      "games": 73,
+      "qualified": true
+    },
+    {
+      "player_id": "1642907",
+      "player_name": "Cedric Coward",
+      "fgm": 305,
+      "fga": 648,
+      "games": 62,
+      "qualified": true
+    },
+    {
+      "player_id": "1629060",
+      "player_name": "Rui Hachimura",
+      "fgm": 307,
+      "fga": 597,
+      "games": 68,
+      "qualified": true
+    },
+    {
+      "player_id": "1641716",
+      "player_name": "Jarace Walker",
+      "fgm": 307,
+      "fga": 733,
+      "games": 76,
+      "qualified": true
+    },
+    {
+      "player_id": "1629636",
+      "player_name": "Darius Garland",
+      "fgm": 309,
+      "fga": 672,
+      "games": 45,
+      "qualified": true
+    },
+    {
+      "player_id": "202699",
+      "player_name": "Tobias Harris",
+      "fgm": 309,
+      "fga": 659,
+      "games": 63,
+      "qualified": true
+    },
+    {
+      "player_id": "1642267",
+      "player_name": "Bub Carrington",
+      "fgm": 314,
+      "fga": 741,
+      "games": 82,
+      "qualified": true
+    },
+    {
+      "player_id": "1630173",
+      "player_name": "Precious Achiuwa",
+      "fgm": 316,
+      "fga": 598,
+      "games": 73,
+      "qualified": true
+    },
+    {
+      "player_id": "1642259",
+      "player_name": "Alex Sarr",
+      "fgm": 316,
+      "fga": 656,
+      "games": 48,
+      "qualified": true
+    },
+    {
+      "player_id": "1629130",
+      "player_name": "Duncan Robinson",
+      "fgm": 318,
+      "fga": 698,
+      "games": 77,
+      "qualified": true
+    },
+    {
+      "player_id": "201950",
+      "player_name": "Jrue Holiday",
+      "fgm": 320,
+      "fga": 709,
+      "games": 53,
+      "qualified": true
+    },
+    {
+      "player_id": "1631108",
+      "player_name": "Max Christie",
+      "fgm": 320,
+      "fga": 725,
+      "games": 77,
+      "qualified": true
+    },
+    {
+      "player_id": "1630581",
+      "player_name": "Josh Giddey",
+      "fgm": 321,
+      "fga": 717,
+      "games": 54,
+      "qualified": true
+    },
+    {
+      "player_id": "1642271",
+      "player_name": "Kyle Filipowski",
+      "fgm": 323,
+      "fga": 657,
+      "games": 77,
+      "qualified": true
+    },
+    {
+      "player_id": "1628976",
+      "player_name": "Wendell Carter Jr.",
+      "fgm": 326,
+      "fga": 637,
+      "games": 78,
+      "qualified": true
+    },
+    {
+      "player_id": "1629674",
+      "player_name": "Neemias Queta",
+      "fgm": 326,
+      "fga": 499,
+      "games": 76,
+      "qualified": true
+    },
+    {
+      "player_id": "1642281",
+      "player_name": "Jaylon Tyson",
+      "fgm": 330,
+      "fga": 670,
+      "games": 66,
+      "qualified": true
+    }
+  ],
+  "max_unqualified_by_fgm": [
+    {
+      "player_id": "1629023",
+      "player_name": "P.J. Washington",
+      "fgm": 296,
+      "fga": 658,
+      "games": 56,
+      "qualified": false
+    },
+    {
+      "player_id": "1631097",
+      "player_name": "Bennedict Mathurin",
+      "fgm": 291,
+      "fga": 677,
+      "games": 54,
+      "qualified": false
+    },
+    {
+      "player_id": "1630643",
+      "player_name": "Jay Huff",
+      "fgm": 291,
+      "fga": 611,
+      "games": 82,
+      "qualified": false
+    },
+    {
+      "player_id": "1630314",
+      "player_name": "Brandon Williams",
+      "fgm": 291,
+      "fga": 617,
+      "games": 66,
+      "qualified": false
+    },
+    {
+      "player_id": "1627826",
+      "player_name": "Ivica Zubac",
+      "fgm": 288,
+      "fga": 482,
+      "games": 48,
+      "qualified": false
+    },
+    {
+      "player_id": "202691",
+      "player_name": "Klay Thompson",
+      "fgm": 286,
+      "fga": 728,
+      "games": 69,
+      "qualified": false
+    },
+    {
+      "player_id": "1642349",
+      "player_name": "Ajay Mitchell",
+      "fgm": 286,
+      "fga": 590,
+      "games": 57,
+      "qualified": false
+    },
+    {
+      "player_id": "1631212",
+      "player_name": "Peyton Watson",
+      "fgm": 285,
+      "fga": 581,
+      "games": 54,
+      "qualified": false
+    },
+    {
+      "player_id": "1629014",
+      "player_name": "Anfernee Simons",
+      "fgm": 285,
+      "fga": 648,
+      "games": 55,
+      "qualified": false
+    },
+    {
+      "player_id": "1626167",
+      "player_name": "Myles Turner",
+      "fgm": 284,
+      "fga": 646,
+      "games": 71,
+      "qualified": false
+    },
+    {
+      "player_id": "1630591",
+      "player_name": "Jalen Suggs",
+      "fgm": 282,
+      "fga": 649,
+      "games": 57,
+      "qualified": false
+    },
+    {
+      "player_id": "1631109",
+      "player_name": "Mark Williams",
+      "fgm": 282,
+      "fga": 438,
+      "games": 60,
+      "qualified": false
+    },
+    {
+      "player_id": "1629111",
+      "player_name": "Jock Landale",
+      "fgm": 282,
+      "fga": 548,
+      "games": 68,
+      "qualified": false
+    },
+    {
+      "player_id": "1641783",
+      "player_name": "Tristan da Silva",
+      "fgm": 279,
+      "fga": 620,
+      "games": 77,
+      "qualified": false
+    },
+    {
+      "player_id": "1629632",
+      "player_name": "Coby White",
+      "fgm": 278,
+      "fga": 623,
+      "games": 50,
+      "qualified": false
+    },
+    {
+      "player_id": "1641796",
+      "player_name": "Pelle Larsson",
+      "fgm": 277,
+      "fga": 559,
+      "games": 70,
+      "qualified": false
+    },
+    {
+      "player_id": "1628370",
+      "player_name": "Malik Monk",
+      "fgm": 277,
+      "fga": 632,
+      "games": 62,
+      "qualified": false
+    },
+    {
+      "player_id": "1642860",
+      "player_name": "Will Riley",
+      "fgm": 271,
+      "fga": 618,
+      "games": 74,
+      "qualified": false
+    },
+    {
+      "player_id": "1642848",
+      "player_name": "Tre Johnson",
+      "fgm": 271,
+      "fga": 647,
+      "games": 60,
+      "qualified": false
+    },
+    {
+      "player_id": "1628989",
+      "player_name": "Kevin Huerter",
+      "fgm": 269,
+      "fga": 596,
+      "games": 69,
+      "qualified": false
+    }
+  ],
+  "exact_fgm_thresholds_matching_set": [
+    297,
+    298,
+    299,
+    300,
+    301
+  ],
+  "qualified_fgm_range": [
+    301,
+    736
+  ],
+  "unqualified_fgm_range": [
+    0,
+    296
+  ]
+}
