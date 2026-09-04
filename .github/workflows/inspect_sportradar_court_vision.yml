@@ -1,0 +1,86 @@
+name: Inspect Sportradar NBA Court Vision schema and docs
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/inspect_sportradar_court_vision.yml'
+permissions:
+  contents: write
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: analysis/hawkeye-all-players-2025-26
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip -q install requests
+      - name: Download schema and documentation indexes
+        run: |
+          python - <<'PY'
+          import requests,zipfile,io,os,re,json,hashlib
+          OUT='outputs/sportradar_court_vision'; os.makedirs(OUT,exist_ok=True)
+          s=requests.Session(); s.headers.update({'User-Agent':'Mozilla/5.0'})
+          report={'downloads':[],'matches':[]}
+          urls=['https://api-docs.sportradar.us/nba/NBA_v8_schema.zip','https://developer.sportradar.com/basketball/llms.txt']
+          contents={}
+          for u in urls:
+            try:
+              r=s.get(u,timeout=45)
+              rec={'url':u,'status':r.status_code,'bytes':len(r.content),'ct':r.headers.get('content-type'),'final_url':r.url,'sha256':hashlib.sha256(r.content).hexdigest()}
+              report['downloads'].append(rec)
+              contents[u]=r.content
+              if 'llms.txt' in u:
+                open(f'{OUT}/llms.txt','wb').write(r.content)
+            except Exception as e:
+              report['downloads'].append({'url':u,'error':repr(e)})
+          zdata=contents.get(urls[0],b'')
+          if zdata.startswith(b'PK'):
+            z=zipfile.ZipFile(io.BytesIO(zdata))
+            report['schema_files']=z.namelist()
+            pats=['court','vision','pose','joint','keypoint','skeleton','ball','location','tracking','coordinate','postgame']
+            schema_hits=[]
+            for fn in z.namelist():
+              try: text=z.read(fn).decode('utf-8','ignore')
+              except: continue
+              low=text.lower()
+              hits=[]
+              for p in pats:
+                for m in list(re.finditer(p,low))[:60]:
+                  hits.append({'term':p,'offset':m.start(),'context':text[max(0,m.start()-500):m.start()+1200]})
+              if hits: schema_hits.append({'file':fn,'hits':hits[:200]})
+            report['schema_hits']=schema_hits
+            json.dump(schema_hits,open(f'{OUT}/schema_hits.json','w'),indent=2)
+          ll=contents.get(urls[1],b'').decode('utf-8','ignore')
+          llhits=[]
+          for term in ['Court Vision','court-vision','courtvision','pose','Post-Game Post']:
+            for m in re.finditer(term,ll,re.I):
+              llhits.append({'term':term,'offset':m.start(),'context':ll[max(0,m.start()-700):m.start()+1500]})
+          report['llms_hits']=llhits
+          json.dump(llhits,open(f'{OUT}/llms_hits.json','w'),indent=2)
+          # Fetch any likely URLs appearing in llms contexts
+          links=set(re.findall(r'https?://[^\s)\]<>]+',ll))
+          likely=[u.rstrip('.,') for u in links if any(k in u.lower() for k in ['court','vision','pose'])]
+          report['likely_links']=likely
+          fetched=[]
+          for u in likely[:30]:
+            try:
+              r=s.get(u,timeout=30); txt=r.text
+              fetched.append({'url':u,'status':r.status_code,'bytes':len(r.content),'ct':r.headers.get('content-type'),'prefix':txt[:5000]})
+            except Exception as e: fetched.append({'url':u,'error':repr(e)})
+          report['likely_link_fetches']=fetched
+          json.dump(report,open(f'{OUT}/report.json','w'),indent=2)
+          summary={'downloads':report['downloads'],'schema_file_count':len(report.get('schema_files',[])),'schema_hit_files':len(report.get('schema_hits',[])),'llms_hits':len(llhits),'likely_links':likely}
+          json.dump(summary,open(f'{OUT}/summary.json','w'),indent=2)
+          print(json.dumps(summary,indent=2))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/sportradar_court_vision
+          git commit -m 'Inspect Sportradar Court Vision schema and docs' || exit 0
+          git pull --rebase origin analysis/hawkeye-all-players-2025-26
+          git push origin HEAD:analysis/hawkeye-all-players-2025-26
