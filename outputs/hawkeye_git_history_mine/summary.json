@@ -1,0 +1,22 @@
+{
+  "retrieved_at_utc": "2026-09-04T10:47:35.265345+00:00",
+  "fork_api_status": 200,
+  "repos_checked": 4,
+  "repo_names": [
+    "gabriel1200/site_Data",
+    "malibu-ken/site_Data",
+    "RussDT/site_Data",
+    "noahgleeman/site_Data"
+  ],
+  "repos_cloned_ok": 4,
+  "matching_hawkeye_blobs": 2,
+  "parsed_unique_snapshots": 2,
+  "union_unique_players": 148,
+  "players_with_multiple_sightings": 148,
+  "repo_match_counts": {
+    "gabriel1200/site_Data": 1,
+    "malibu-ken/site_Data": 1,
+    "RussDT/site_Data": 0,
+    "noahgleeman/site_Data": 0
+  }
+}
