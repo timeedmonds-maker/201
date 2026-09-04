@@ -1,0 +1,88 @@
+name: Reverse WNBA Shot Difficulty BFF upstream
+
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/reverse_wnba_bff_upstream.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  reverse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-all-players-2025-26}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Inspect BFF implementation and backing resource
+        run: |
+          python - <<'PY'
+          import requests,re,json,pathlib,hashlib,urllib.parse,datetime,time
+          s=requests.Session();s.headers.update({'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/137.0 Safari/537.36','Accept':'*/*','Referer':'https://www.wnba.com/stats/inside-the-game/shot-difficulty'})
+          host='https://www.wnba.com'
+          report={'retrieved_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'bff':{},'manifests':{},'candidates':[],'direct_stats':[]}
+          # exact BFF response + headers
+          u=host+'/api/stats/shot-difficulty';r=s.get(u,params={'season':'2026','seasonType':'Regular Season'},timeout=30)
+          report['bff']={'url':r.url,'status':r.status_code,'bytes':len(r.content),'headers':dict(r.headers),'sha256':hashlib.sha256(r.content).hexdigest(),'prefix':r.text[:1000]}
+          # discover current build assets/manifests
+          root=s.get(host+'/',timeout=30);html=root.text
+          scripts=[urllib.parse.urljoin(root.url,x) for x in re.findall(r'<script[^>]+src=["\']([^"\']+)["\']',html,re.I)]
+          build=None
+          m=re.search(r'/_next/static/([^/]+)/_buildManifest\.js',html)
+          if m:build=m.group(1)
+          manifest_paths=['/_next/server/pages-manifest.json','/_next/routes-manifest.json','/_next/server/middleware-manifest.json','/_next/server/functions-manifest.json','/_next/server/required-server-files.json']
+          if build:
+            manifest_paths += [f'/_next/static/{build}/_buildManifest.js',f'/_next/static/{build}/_ssgManifest.js']
+          for p in manifest_paths:
+            try:
+              x=s.get(host+p,timeout=20,allow_redirects=False);report['manifests'][p]={'status':x.status_code,'bytes':len(x.content),'ct':x.headers.get('content-type'),'location':x.headers.get('location'),'sha256':hashlib.sha256(x.content).hexdigest(),'text':x.text[:20000]}
+            except Exception as e:report['manifests'][p]={'error':repr(e)}
+          # likely server bundle paths, source maps, API variants
+          candidates=[
+            '/_next/server/pages/api/stats/shot-difficulty.js','/_next/server/pages/api/stats/shot-difficulty.js.map',
+            '/_next/server/pages/api/stats/shot-quality.js','/_next/server/pages/api/stats/shot-quality.js.map',
+            '/_next/server/pages/api/stats/shot-quality-shooting.js','/_next/server/pages/api/stats/shot-quality-shooting.js.map',
+            '/server/pages/api/stats/shot-difficulty.js','/pages/api/stats/shot-difficulty.js',
+            '/_next/pages/api/stats/shot-difficulty.js','/_next/server/api/stats/shot-difficulty.js',
+            '/api/stats/shot-difficulty.js','/api/stats/shot-difficulty.js.map'
+          ]
+          for p in candidates:
+            try:
+              x=s.get(host+p,timeout=20,allow_redirects=False);txt=x.text
+              report['candidates'].append({'path':p,'status':x.status_code,'bytes':len(x.content),'ct':x.headers.get('content-type'),'location':x.headers.get('location'),'sha256':hashlib.sha256(x.content).hexdigest(),'text_prefix':txt[:12000],'stats_tokens':sorted(set(re.findall(r'(?:https?://[^"\'\s]+|shotquality[a-z0-9_-]+|LeagueID|leagueId|seasonYear|SeasonType)',txt,re.I)))[:200]})
+            except Exception as e:report['candidates'].append({'path':p,'error':repr(e)})
+          # Compare WNBA BFF to candidate direct backing endpoint on G League host.
+          ds=requests.Session();ds.headers.update({'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/137.0 Safari/537.36','Origin':'https://www.wnba.com','Referer':'https://www.wnba.com/','Accept':'application/json,text/plain,*/*','x-nba-stats-origin':'stats','x-nba-stats-token':'true'})
+          for base in ['https://stats.gleague.nba.com/stats/','https://stats.nba.com/stats/']:
+            for season in ['2025','2026']:
+              for lid in ['10','00']:
+                p={'LeagueID':lid,'Season':season,'SeasonType':'Regular Season'}
+                rec={'base':base,'params':p}
+                try:
+                  x=ds.get(base+'shotqualityleaders',params=p,timeout=30,allow_redirects=False);rec.update(status=x.status_code,bytes=len(x.content),sha256=hashlib.sha256(x.content).hexdigest(),location=x.headers.get('location'),ct=x.headers.get('content-type'))
+                  if x.status_code==200:
+                    try:
+                      j=x.json();shots=j.get('shots',[]);rec['params_echo']=j.get('params');rec['count']=len(shots);rec['first']=shots[0] if shots else None
+                    except Exception as e:rec['json_error']=repr(e);rec['prefix']=x.text[:1000]
+                  else:rec['prefix']=x.text[:500]
+                except Exception as e:rec['error']=repr(e)
+                report['direct_stats'].append(rec);time.sleep(.05)
+          out=pathlib.Path('outputs/wnba_bff_upstream_reverse');out.mkdir(parents=True,exist_ok=True)
+          (out/'report.json').write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding='utf-8')
+          summary={'build':build,'bff_status':report['bff'].get('status'),'bff_headers':report['bff'].get('headers'),'server_candidate_successes':[x for x in report['candidates'] if x.get('status')==200 and x.get('bytes',0)>10],'direct_stats':report['direct_stats']}
+          (out/'summary.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps(summary,indent=2,ensure_ascii=False))
+          PY
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/wnba_bff_upstream_reverse || true
+          git diff --cached --quiet && exit 0
+          git commit -m 'Reverse WNBA shot difficulty BFF upstream'
+          for i in 1 2 3 4 5; do git pull --rebase origin analysis/hawkeye-all-players-2025-26 && git push origin HEAD:analysis/hawkeye-all-players-2025-26 && exit 0; sleep $((i*2)); done
+          exit 1
