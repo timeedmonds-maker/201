@@ -1,0 +1,89 @@
+name: Probe NBA UAT Hawk-Eye BFF
+
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/probe_nba_uat_hawkeye_bff.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-all-players-2025-26}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Probe NBA UAT and related BFF routes
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,re,urllib.parse,hashlib
+          h={'User-Agent':'Mozilla/5.0','Accept':'application/json,text/plain,*/*','Referer':'https://cdn-uat.nba.com/inside-the-game/player/shot-difficulty'}
+          params={'season':'2025-26','seasonType':'Regular Season'}
+          urls=[
+            'https://cdn-uat.nba.com/api/stats/shot-difficulty',
+            'https://cdn-uat.nba.com/stats/api/stats/shot-difficulty',
+            'https://cdn-uat.nba.com/api/inside-the-game/shot-difficulty',
+            'https://cdn-uat.nba.com/api/shot-difficulty',
+            'https://uat.nba.com/api/stats/shot-difficulty',
+            'https://www-uat.nba.com/api/stats/shot-difficulty',
+            'https://stage.nba.com/api/stats/shot-difficulty',
+            'https://staging.nba.com/api/stats/shot-difficulty',
+            'https://cdn.nba.com/api/stats/shot-difficulty',
+            'https://api.nba.net/api/stats/shot-difficulty',
+          ]
+          out=[]
+          for u in urls:
+            rec={'url':u}
+            try:
+              r=requests.get(u,params=params,headers=h,timeout=30,allow_redirects=False);rec.update(status=r.status_code,bytes=len(r.content),location=r.headers.get('location'),ct=r.headers.get('content-type'),sha256=hashlib.sha256(r.content).hexdigest())
+              if r.status_code==200:
+                try:
+                  j=r.json();shots=j.get('shots',[]) if isinstance(j,dict) else [];rec['params_echo']=j.get('params') if isinstance(j,dict) else None;rec['count']=len(shots);rec['first_players']=[x.get('PLAYERNAME') for x in shots[:10] if isinstance(x,dict)];rec['first_keys']=list(shots[0]) if shots and isinstance(shots[0],dict) else None
+                except Exception as e:rec['json_error']=repr(e);rec['prefix']=r.text[:1000]
+              else:rec['prefix']=r.text[:1000]
+            except Exception as e:rec['error']=repr(e)
+            out.append(rec)
+          # Fetch UAT page and inspect all client scripts for route/base hints.
+          page='https://cdn-uat.nba.com/inside-the-game/player/shot-difficulty'
+          page_rec={'url':page}
+          contexts=[]
+          try:
+            r=requests.get(page,headers={'User-Agent':'Mozilla/5.0','Accept':'text/html,*/*'},timeout=40,allow_redirects=True);page_rec.update(status=r.status_code,bytes=len(r.content),final_url=r.url)
+            scripts=[]
+            if r.status_code==200:
+              for src in re.findall(r'<script[^>]+src=["\']([^"\']+\.js[^"\']*)',r.text): scripts.append(urllib.parse.urljoin(r.url,src))
+              page_rec['scripts']=scripts
+              for su in scripts[:80]:
+                try:
+                  sr=requests.get(su,headers={'User-Agent':'Mozilla/5.0'},timeout=20);text=sr.text
+                  for needle in ['/api/stats/shot-difficulty','shotqualityleaders','stats.gleague.nba.com','LeagueID','leagueId','shot-difficulty']:
+                    pos=0
+                    while True:
+                      i=text.find(needle,pos)
+                      if i<0: break
+                      contexts.append({'script':su,'needle':needle,'offset':i,'context':text[max(0,i-1200):i+2600]});pos=i+len(needle)
+                      if sum(1 for x in contexts if x['script']==su and x['needle']==needle)>=5:break
+                except:pass
+          except Exception as e:page_rec['error']=repr(e)
+          d=pathlib.Path('outputs/nba_uat_hawkeye_bff_probe');d.mkdir(parents=True,exist_ok=True)
+          (d/'routes.json').write_text(json.dumps(out,indent=2,ensure_ascii=False),encoding='utf-8')
+          (d/'page.json').write_text(json.dumps(page_rec,indent=2,ensure_ascii=False),encoding='utf-8')
+          (d/'contexts.json').write_text(json.dumps(contexts,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps({'routes':out,'page':page_rec,'context_hits':len(contexts)},indent=2,ensure_ascii=False))
+          PY
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/nba_uat_hawkeye_bff_probe || true
+          git diff --cached --quiet && exit 0
+          git commit -m 'Preserve NBA UAT Hawk-Eye BFF probe'
+          for i in 1 2 3 4 5; do git pull --rebase origin analysis/hawkeye-all-players-2025-26 && git push origin HEAD:analysis/hawkeye-all-players-2025-26 && exit 0; sleep $((i*2)); done
+          exit 1
