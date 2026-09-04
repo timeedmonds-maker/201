@@ -1,0 +1,4219 @@
+{
+  "retrieved_at_utc": "2026-09-04T10:08:59.450370+00:00",
+  "shot_difficulty": [
+    {
+      "url": "https://www.wnba.com/api/stats/shot-difficulty",
+      "params": {
+        "season": "2025-26",
+        "seasonType": "Regular Season"
+      },
+      "status": 200,
+      "bytes": 86790,
+      "final_url": "https://www.wnba.com/api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season",
+      "ct": "application/json; charset=utf-8",
+      "sha256": "e2eaf495abb3695580fa44aa2d4546cef97b35aa0cc99f0d0a6aed67989deaac",
+      "top_keys": [
+        "params",
+        "shots"
+      ],
+      "params_echo": {
+        "leagueId": "10",
+        "seasonType": "Regular Season",
+        "seasonYear": "2025"
+      },
+      "shot_count": 61,
+      "first_players": [
+        "Shakira Austin",
+        "Tina Charles",
+        "Angel Reese",
+        "Kiki Iriafen",
+        "Brittney Griner",
+        "Elizabeth Williams",
+        "Paige Bueckers",
+        "A'ja Wilson",
+        "Kahleah Copper",
+        "Brittney Sykes",
+        "Aneesah Morrow",
+        "NaLyssa Smith"
+      ],
+      "first_ids": [
+        1631022,
+        202250,
+        1642291,
+        1642792,
+        203398,
+        204322,
+        1642784,
+        1628932,
+        1627674,
+        1628279,
+        1642800,
+        1631019
+      ],
+      "first_keys": [
+        "PLAYERID",
+        "FIRSTNAME",
+        "LASTNAME",
+        "PLAYERNAME",
+        "JERSEYNUM",
+        "POSITION",
+        "TEAMID",
+        "TEAMCITY",
+        "TEAMNAME",
+        "TEAMABBREVIATION",
+        "AVGSHOTQUALITY",
+        "AVGMADESHOTQUALITY",
+        "AVGMISSEDSHOTQUALITY",
+        "MINSHOTQUALITYONMAKE",
+        "AVGSHOTQUALITY2PT",
+        "AVGMADESHOTQUALITY2PT",
+        "AVGMISSEDSHOTQUALITY2PT",
+        "AVGSHOTQUALITY3PT",
+        "AVGMADESHOTQUALITY3PT",
+        "AVGMISSEDSHOTQUALITY3PT",
+        "FG2M",
+        "FG2M_RANK",
+        "FG2A",
+        "FG2A_RANK",
+        "FG3M",
+        "FG3M_RANK",
+        "FG3A",
+        "FG3A_RANK",
+        "FGM",
+        "FGM_RANK",
+        "FGA",
+        "FGA_RANK",
+        "FGPCT",
+        "FGPCTABOVEEXPECTED",
+        "FG3PCT",
+        "FG3PCTABOVEEXPECTED",
+        "AVGDEFENSIVEHANDHEIGHT",
+        "AVGDEFENDERBALLDISTANCE",
+        "AVGSHOOTERSPEED",
+        "AVGROTATIONDEGREES",
+        "AVGDEFENDERPRESSURESCORE",
+        "AVGSHOTQUALITY_RANK",
+        "AVGMADESHOTQUALITY_RANK",
+        "AVGMISSEDSHOTQUALITY_RANK",
+        "MINSHOTQUALITYONMAKE_RANK",
+        "AVGSHOTQUALITY2PT_RANK",
+        "AVGMADESHOTQUALITY2PT_RANK",
+        "AVGMISSEDSHOTQUALITY2PT_RANK",
+        "AVGSHOTQUALITY3PT_RANK",
+        "AVGMADESHOTQUALITY3PT_RANK",
+        "AVGMISSEDSHOTQUALITY3PT_RANK",
+        "FGPCT_RANK",
+        "FGPCTABOVEEXPECTED_RANK",
+        "FG3PCT_RANK",
+        "FG3PCTABOVEEXPECTED_RANK",
+        "AVGDEFENSIVEHANDHEIGHT_RANK",
+        "AVGDEFENDERBALLDISTANCE_RANK",
+        "AVGSHOOTERSPEED_RANK",
+        "AVGROTATIONDEGREES_RANK",
+        "AVGDEFENDERPRESSURESCORE_RANK"
+      ],
+      "target_hits": [
+        {
+          "path": "/shots/0/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.576
+        },
+        {
+          "path": "/shots/0/AVGSHOOTERSPEED",
+          "value": 5.838
+        },
+        {
+          "path": "/shots/0/AVGROTATIONDEGREES",
+          "value": 85.249
+        },
+        {
+          "path": "/shots/0/AVGDEFENDERPRESSURESCORE",
+          "value": 0.882
+        },
+        {
+          "path": "/shots/0/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/0/AVGSHOOTERSPEED_RANK",
+          "value": 18
+        },
+        {
+          "path": "/shots/0/AVGROTATIONDEGREES_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/0/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 1
+        },
+        {
+          "path": "/shots/1/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.525
+        },
+        {
+          "path": "/shots/1/AVGSHOOTERSPEED",
+          "value": 4.021
+        },
+        {
+          "path": "/shots/1/AVGROTATIONDEGREES",
+          "value": 72.202
+        },
+        {
+          "path": "/shots/1/AVGDEFENDERPRESSURESCORE",
+          "value": 0.87
+        },
+        {
+          "path": "/shots/1/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 3
+        },
+        {
+          "path": "/shots/1/AVGSHOOTERSPEED_RANK",
+          "value": 54
+        },
+        {
+          "path": "/shots/1/AVGROTATIONDEGREES_RANK",
+          "value": 10
+        },
+        {
+          "path": "/shots/1/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/2/AVGDEFENSIVEHANDHEIGHT",
+          "value": 5.788
+        },
+        {
+          "path": "/shots/2/AVGSHOOTERSPEED",
+          "value": 6.465
+        },
+        {
+          "path": "/shots/2/AVGROTATIONDEGREES",
+          "value": 68.052
+        },
+        {
+          "path": "/shots/2/AVGDEFENDERPRESSURESCORE",
+          "value": 0.864
+        },
+        {
+          "path": "/shots/2/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 34
+        },
+        {
+          "path": "/shots/2/AVGSHOOTERSPEED_RANK",
+          "value": 6
+        },
+        {
+          "path": "/shots/2/AVGROTATIONDEGREES_RANK",
+          "value": 16
+        },
+        {
+          "path": "/shots/2/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 3
+        },
+        {
+          "path": "/shots/3/AVGDEFENSIVEHANDHEIGHT",
+          "value": 5.952
+        },
+        {
+          "path": "/shots/3/AVGSHOOTERSPEED",
+          "value": 5.082
+        },
+        {
+          "path": "/shots/3/AVGROTATIONDEGREES",
+          "value": 71.856
+        },
+        {
+          "path": "/shots/3/AVGDEFENDERPRESSURESCORE",
+          "value": 0.863
+        },
+        {
+          "path": "/shots/3/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 21
+        },
+        {
+          "path": "/shots/3/AVGSHOOTERSPEED_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/3/AVGROTATIONDEGREES_RANK",
+          "value": 11
+        },
+        {
+          "path": "/shots/3/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 4
+        },
+        {
+          "path": "/shots/4/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.744
+        },
+        {
+          "path": "/shots/4/AVGSHOOTERSPEED",
+          "value": 4.709
+        },
+        {
+          "path": "/shots/4/AVGROTATIONDEGREES",
+          "value": 90.207
+        },
+        {
+          "path": "/shots/4/AVGDEFENDERPRESSURESCORE",
+          "value": 0.858
+        },
+        {
+          "path": "/shots/4/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 1
+        },
+        {
+          "path": "/shots/4/AVGSHOOTERSPEED_RANK",
+          "value": 41
+        },
+        {
+          "path": "/shots/4/AVGROTATIONDEGREES_RANK",
+          "value": 1
+        },
+        {
+          "path": "/shots/4/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 5
+        },
+        {
+          "path": "/shots/5/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.261
+        },
+        {
+          "path": "/shots/5/AVGSHOOTERSPEED",
+          "value": 5.917
+        },
+        {
+          "path": "/shots/5/AVGROTATIONDEGREES",
+          "value": 76.014
+        },
+        {
+          "path": "/shots/5/AVGDEFENDERPRESSURESCORE",
+          "value": 0.858
+        },
+        {
+          "path": "/shots/5/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 9
+        },
+        {
+          "path": "/shots/5/AVGSHOOTERSPEED_RANK",
+          "value": 15
+        },
+        {
+          "path": "/shots/5/AVGROTATIONDEGREES_RANK",
+          "value": 5
+        },
+        {
+          "path": "/shots/5/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 6
+        },
+        {
+          "path": "/shots/6/AVGDEFENSIVEHANDHEIGHT",
+          "value": 5.877
+        },
+        {
+          "path": "/shots/6/AVGSHOOTERSPEED",
+          "value": 4.634
+        },
+        {
+          "path": "/shots/6/AVGROTATIONDEGREES",
+          "value": 59.142
+        },
+        {
+          "path": "/shots/6/AVGDEFENDERPRESSURESCORE",
+          "value": 0.858
+        },
+        {
+          "path": "/shots/6/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 26
+        },
+        {
+          "path": "/shots/6/AVGSHOOTERSPEED_RANK",
+          "value": 44
+        },
+        {
+          "path": "/shots/6/AVGROTATIONDEGREES_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/6/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 7
+        },
+        {
+          "path": "/shots/7/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.276
+        },
+        {
+          "path": "/shots/7/AVGSHOOTERSPEED",
+          "value": 4.444
+        },
+        {
+          "path": "/shots/7/AVGROTATIONDEGREES",
+          "value": 70.717
+        },
+        {
+          "path": "/shots/7/AVGDEFENDERPRESSURESCORE",
+          "value": 0.856
+        },
+        {
+          "path": "/shots/7/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 7
+        },
+        {
+          "path": "/shots/7/AVGSHOOTERSPEED_RANK",
+          "value": 49
+        },
+        {
+          "path": "/shots/7/AVGROTATIONDEGREES_RANK",
+          "value": 13
+        },
+        {
+          "path": "/shots/7/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 8
+        },
+        {
+          "path": "/shots/8/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.076
+        },
+        {
+          "path": "/shots/8/AVGSHOOTERSPEED",
+          "value": 6.139
+        },
+        {
+          "path": "/shots/8/AVGROTATIONDEGREES",
+          "value": 57.928
+        },
+        {
+          "path": "/shots/8/AVGDEFENDERPRESSURESCORE",
+          "value": 0.856
+        },
+        {
+          "path": "/shots/8/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 14
+        },
+        {
+          "path": "/shots/8/AVGSHOOTERSPEED_RANK",
+          "value": 13
+        },
+        {
+          "path": "/shots/8/AVGROTATIONDEGREES_RANK",
+          "value": 36
+        },
+        {
+          "path": "/shots/8/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 9
+        },
+        {
+          "path": "/shots/9/AVGDEFENSIVEHANDHEIGHT",
+          "value": 5.765
+        },
+        {
+          "path": "/shots/9/AVGSHOOTERSPEED",
+          "value": 7.18
+        },
+        {
+          "path": "/shots/9/AVGROTATIONDEGREES",
+          "value": 65.385
+        },
+        {
+          "path": "/shots/9/AVGDEFENDERPRESSURESCORE",
+          "value": 0.851
+        },
+        {
+          "path": "/shots/9/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 38
+        },
+        {
+          "path": "/shots/9/AVGSHOOTERSPEED_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/9/AVGROTATIONDEGREES_RANK",
+          "value": 22
+        },
+        {
+          "path": "/shots/9/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "url": "https://www.wnba.com/api/stats/shot-difficulty",
+      "params": {
+        "season": "2025-26",
+        "seasonType": "Regular Season",
+        "LeagueID": "00"
+      },
+      "status": 200,
+      "bytes": 86790,
+      "final_url": "https://www.wnba.com/api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season&LeagueID=00",
+      "ct": "application/json; charset=utf-8",
+      "sha256": "e2eaf495abb3695580fa44aa2d4546cef97b35aa0cc99f0d0a6aed67989deaac",
+      "top_keys": [
+        "params",
+        "shots"
+      ],
+      "params_echo": {
+        "leagueId": "10",
+        "seasonType": "Regular Season",
+        "seasonYear": "2025"
+      },
+      "shot_count": 61,
+      "first_players": [
+        "Shakira Austin",
+        "Tina Charles",
+        "Angel Reese",
+        "Kiki Iriafen",
+        "Brittney Griner",
+        "Elizabeth Williams",
+        "Paige Bueckers",
+        "A'ja Wilson",
+        "Kahleah Copper",
+        "Brittney Sykes",
+        "Aneesah Morrow",
+        "NaLyssa Smith"
+      ],
+      "first_ids": [
+        1631022,
+        202250,
+        1642291,
+        1642792,
+        203398,
+        204322,
+        1642784,
+        1628932,
+        1627674,
+        1628279,
+        1642800,
+        1631019
+      ],
+      "first_keys": [
+        "PLAYERID",
+        "FIRSTNAME",
+        "LASTNAME",
+        "PLAYERNAME",
+        "JERSEYNUM",
+        "POSITION",
+        "TEAMID",
+        "TEAMCITY",
+        "TEAMNAME",
+        "TEAMABBREVIATION",
+        "AVGSHOTQUALITY",
+        "AVGMADESHOTQUALITY",
+        "AVGMISSEDSHOTQUALITY",
+        "MINSHOTQUALITYONMAKE",
+        "AVGSHOTQUALITY2PT",
+        "AVGMADESHOTQUALITY2PT",
+        "AVGMISSEDSHOTQUALITY2PT",
+        "AVGSHOTQUALITY3PT",
+        "AVGMADESHOTQUALITY3PT",
+        "AVGMISSEDSHOTQUALITY3PT",
+        "FG2M",
+        "FG2M_RANK",
+        "FG2A",
+        "FG2A_RANK",
+        "FG3M",
+        "FG3M_RANK",
+        "FG3A",
+        "FG3A_RANK",
+        "FGM",
+        "FGM_RANK",
+        "FGA",
+        "FGA_RANK",
+        "FGPCT",
+        "FGPCTABOVEEXPECTED",
+        "FG3PCT",
+        "FG3PCTABOVEEXPECTED",
+        "AVGDEFENSIVEHANDHEIGHT",
+        "AVGDEFENDERBALLDISTANCE",
+        "AVGSHOOTERSPEED",
+        "AVGROTATIONDEGREES",
+        "AVGDEFENDERPRESSURESCORE",
+        "AVGSHOTQUALITY_RANK",
+        "AVGMADESHOTQUALITY_RANK",
+        "AVGMISSEDSHOTQUALITY_RANK",
+        "MINSHOTQUALITYONMAKE_RANK",
+        "AVGSHOTQUALITY2PT_RANK",
+        "AVGMADESHOTQUALITY2PT_RANK",
+        "AVGMISSEDSHOTQUALITY2PT_RANK",
+        "AVGSHOTQUALITY3PT_RANK",
+        "AVGMADESHOTQUALITY3PT_RANK",
+        "AVGMISSEDSHOTQUALITY3PT_RANK",
+        "FGPCT_RANK",
+        "FGPCTABOVEEXPECTED_RANK",
+        "FG3PCT_RANK",
+        "FG3PCTABOVEEXPECTED_RANK",
+        "AVGDEFENSIVEHANDHEIGHT_RANK",
+        "AVGDEFENDERBALLDISTANCE_RANK",
+        "AVGSHOOTERSPEED_RANK",
+        "AVGROTATIONDEGREES_RANK",
+        "AVGDEFENDERPRESSURESCORE_RANK"
+      ],
+      "target_hits": [
+        {
+          "path": "/shots/0/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.576
+        },
+        {
+          "path": "/shots/0/AVGSHOOTERSPEED",
+          "value": 5.838
+        },
+        {
+          "path": "/shots/0/AVGROTATIONDEGREES",
+          "value": 85.249
+        },
+        {
+          "path": "/shots/0/AVGDEFENDERPRESSURESCORE",
+          "value": 0.882
+        },
+        {
+          "path": "/shots/0/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/0/AVGSHOOTERSPEED_RANK",
+          "value": 18
+        },
+        {
+          "path": "/shots/0/AVGROTATIONDEGREES_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/0/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 1
+        },
+        {
+          "path": "/shots/1/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.525
+        },
+        {
+          "path": "/shots/1/AVGSHOOTERSPEED",
+          "value": 4.021
+        },
+        {
+          "path": "/shots/1/AVGROTATIONDEGREES",
+          "value": 72.202
+        },
+        {
+          "path": "/shots/1/AVGDEFENDERPRESSURESCORE",
+          "value": 0.87
+        },
+        {
+          "path": "/shots/1/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 3
+        },
+        {
+          "path": "/shots/1/AVGSHOOTERSPEED_RANK",
+          "value": 54
+        },
+        {
+          "path": "/shots/1/AVGROTATIONDEGREES_RANK",
+          "value": 10
+        },
+        {
+          "path": "/shots/1/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/2/AVGDEFENSIVEHANDHEIGHT",
+          "value": 5.788
+        },
+        {
+          "path": "/shots/2/AVGSHOOTERSPEED",
+          "value": 6.465
+        },
+        {
+          "path": "/shots/2/AVGROTATIONDEGREES",
+          "value": 68.052
+        },
+        {
+          "path": "/shots/2/AVGDEFENDERPRESSURESCORE",
+          "value": 0.864
+        },
+        {
+          "path": "/shots/2/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 34
+        },
+        {
+          "path": "/shots/2/AVGSHOOTERSPEED_RANK",
+          "value": 6
+        },
+        {
+          "path": "/shots/2/AVGROTATIONDEGREES_RANK",
+          "value": 16
+        },
+        {
+          "path": "/shots/2/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 3
+        },
+        {
+          "path": "/shots/3/AVGDEFENSIVEHANDHEIGHT",
+          "value": 5.952
+        },
+        {
+          "path": "/shots/3/AVGSHOOTERSPEED",
+          "value": 5.082
+        },
+        {
+          "path": "/shots/3/AVGROTATIONDEGREES",
+          "value": 71.856
+        },
+        {
+          "path": "/shots/3/AVGDEFENDERPRESSURESCORE",
+          "value": 0.863
+        },
+        {
+          "path": "/shots/3/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 21
+        },
+        {
+          "path": "/shots/3/AVGSHOOTERSPEED_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/3/AVGROTATIONDEGREES_RANK",
+          "value": 11
+        },
+        {
+          "path": "/shots/3/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 4
+        },
+        {
+          "path": "/shots/4/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.744
+        },
+        {
+          "path": "/shots/4/AVGSHOOTERSPEED",
+          "value": 4.709
+        },
+        {
+          "path": "/shots/4/AVGROTATIONDEGREES",
+          "value": 90.207
+        },
+        {
+          "path": "/shots/4/AVGDEFENDERPRESSURESCORE",
+          "value": 0.858
+        },
+        {
+          "path": "/shots/4/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 1
+        },
+        {
+          "path": "/shots/4/AVGSHOOTERSPEED_RANK",
+          "value": 41
+        },
+        {
+          "path": "/shots/4/AVGROTATIONDEGREES_RANK",
+          "value": 1
+        },
+        {
+          "path": "/shots/4/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 5
+        },
+        {
+          "path": "/shots/5/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.261
+        },
+        {
+          "path": "/shots/5/AVGSHOOTERSPEED",
+          "value": 5.917
+        },
+        {
+          "path": "/shots/5/AVGROTATIONDEGREES",
+          "value": 76.014
+        },
+        {
+          "path": "/shots/5/AVGDEFENDERPRESSURESCORE",
+          "value": 0.858
+        },
+        {
+          "path": "/shots/5/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 9
+        },
+        {
+          "path": "/shots/5/AVGSHOOTERSPEED_RANK",
+          "value": 15
+        },
+        {
+          "path": "/shots/5/AVGROTATIONDEGREES_RANK",
+          "value": 5
+        },
+        {
+          "path": "/shots/5/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 6
+        },
+        {
+          "path": "/shots/6/AVGDEFENSIVEHANDHEIGHT",
+          "value": 5.877
+        },
+        {
+          "path": "/shots/6/AVGSHOOTERSPEED",
+          "value": 4.634
+        },
+        {
+          "path": "/shots/6/AVGROTATIONDEGREES",
+          "value": 59.142
+        },
+        {
+          "path": "/shots/6/AVGDEFENDERPRESSURESCORE",
+          "value": 0.858
+        },
+        {
+          "path": "/shots/6/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 26
+        },
+        {
+          "path": "/shots/6/AVGSHOOTERSPEED_RANK",
+          "value": 44
+        },
+        {
+          "path": "/shots/6/AVGROTATIONDEGREES_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/6/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 7
+        },
+        {
+          "path": "/shots/7/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.276
+        },
+        {
+          "path": "/shots/7/AVGSHOOTERSPEED",
+          "value": 4.444
+        },
+        {
+          "path": "/shots/7/AVGROTATIONDEGREES",
+          "value": 70.717
+        },
+        {
+          "path": "/shots/7/AVGDEFENDERPRESSURESCORE",
+          "value": 0.856
+        },
+        {
+          "path": "/shots/7/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 7
+        },
+        {
+          "path": "/shots/7/AVGSHOOTERSPEED_RANK",
+          "value": 49
+        },
+        {
+          "path": "/shots/7/AVGROTATIONDEGREES_RANK",
+          "value": 13
+        },
+        {
+          "path": "/shots/7/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 8
+        },
+        {
+          "path": "/shots/8/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.076
+        },
+        {
+          "path": "/shots/8/AVGSHOOTERSPEED",
+          "value": 6.139
+        },
+        {
+          "path": "/shots/8/AVGROTATIONDEGREES",
+          "value": 57.928
+        },
+        {
+          "path": "/shots/8/AVGDEFENDERPRESSURESCORE",
+          "value": 0.856
+        },
+        {
+          "path": "/shots/8/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 14
+        },
+        {
+          "path": "/shots/8/AVGSHOOTERSPEED_RANK",
+          "value": 13
+        },
+        {
+          "path": "/shots/8/AVGROTATIONDEGREES_RANK",
+          "value": 36
+        },
+        {
+          "path": "/shots/8/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 9
+        },
+        {
+          "path": "/shots/9/AVGDEFENSIVEHANDHEIGHT",
+          "value": 5.765
+        },
+        {
+          "path": "/shots/9/AVGSHOOTERSPEED",
+          "value": 7.18
+        },
+        {
+          "path": "/shots/9/AVGROTATIONDEGREES",
+          "value": 65.385
+        },
+        {
+          "path": "/shots/9/AVGDEFENDERPRESSURESCORE",
+          "value": 0.851
+        },
+        {
+          "path": "/shots/9/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 38
+        },
+        {
+          "path": "/shots/9/AVGSHOOTERSPEED_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/9/AVGROTATIONDEGREES_RANK",
+          "value": 22
+        },
+        {
+          "path": "/shots/9/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "url": "https://www.wnba.com/api/stats/shot-difficulty",
+      "params": {
+        "season": "2025-26",
+        "seasonType": "Regular Season",
+        "leagueId": "00"
+      },
+      "status": 200,
+      "bytes": 86790,
+      "final_url": "https://www.wnba.com/api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season&leagueId=00",
+      "ct": "application/json; charset=utf-8",
+      "sha256": "e2eaf495abb3695580fa44aa2d4546cef97b35aa0cc99f0d0a6aed67989deaac",
+      "top_keys": [
+        "params",
+        "shots"
+      ],
+      "params_echo": {
+        "leagueId": "10",
+        "seasonType": "Regular Season",
+        "seasonYear": "2025"
+      },
+      "shot_count": 61,
+      "first_players": [
+        "Shakira Austin",
+        "Tina Charles",
+        "Angel Reese",
+        "Kiki Iriafen",
+        "Brittney Griner",
+        "Elizabeth Williams",
+        "Paige Bueckers",
+        "A'ja Wilson",
+        "Kahleah Copper",
+        "Brittney Sykes",
+        "Aneesah Morrow",
+        "NaLyssa Smith"
+      ],
+      "first_ids": [
+        1631022,
+        202250,
+        1642291,
+        1642792,
+        203398,
+        204322,
+        1642784,
+        1628932,
+        1627674,
+        1628279,
+        1642800,
+        1631019
+      ],
+      "first_keys": [
+        "PLAYERID",
+        "FIRSTNAME",
+        "LASTNAME",
+        "PLAYERNAME",
+        "JERSEYNUM",
+        "POSITION",
+        "TEAMID",
+        "TEAMCITY",
+        "TEAMNAME",
+        "TEAMABBREVIATION",
+        "AVGSHOTQUALITY",
+        "AVGMADESHOTQUALITY",
+        "AVGMISSEDSHOTQUALITY",
+        "MINSHOTQUALITYONMAKE",
+        "AVGSHOTQUALITY2PT",
+        "AVGMADESHOTQUALITY2PT",
+        "AVGMISSEDSHOTQUALITY2PT",
+        "AVGSHOTQUALITY3PT",
+        "AVGMADESHOTQUALITY3PT",
+        "AVGMISSEDSHOTQUALITY3PT",
+        "FG2M",
+        "FG2M_RANK",
+        "FG2A",
+        "FG2A_RANK",
+        "FG3M",
+        "FG3M_RANK",
+        "FG3A",
+        "FG3A_RANK",
+        "FGM",
+        "FGM_RANK",
+        "FGA",
+        "FGA_RANK",
+        "FGPCT",
+        "FGPCTABOVEEXPECTED",
+        "FG3PCT",
+        "FG3PCTABOVEEXPECTED",
+        "AVGDEFENSIVEHANDHEIGHT",
+        "AVGDEFENDERBALLDISTANCE",
+        "AVGSHOOTERSPEED",
+        "AVGROTATIONDEGREES",
+        "AVGDEFENDERPRESSURESCORE",
+        "AVGSHOTQUALITY_RANK",
+        "AVGMADESHOTQUALITY_RANK",
+        "AVGMISSEDSHOTQUALITY_RANK",
+        "MINSHOTQUALITYONMAKE_RANK",
+        "AVGSHOTQUALITY2PT_RANK",
+        "AVGMADESHOTQUALITY2PT_RANK",
+        "AVGMISSEDSHOTQUALITY2PT_RANK",
+        "AVGSHOTQUALITY3PT_RANK",
+        "AVGMADESHOTQUALITY3PT_RANK",
+        "AVGMISSEDSHOTQUALITY3PT_RANK",
+        "FGPCT_RANK",
+        "FGPCTABOVEEXPECTED_RANK",
+        "FG3PCT_RANK",
+        "FG3PCTABOVEEXPECTED_RANK",
+        "AVGDEFENSIVEHANDHEIGHT_RANK",
+        "AVGDEFENDERBALLDISTANCE_RANK",
+        "AVGSHOOTERSPEED_RANK",
+        "AVGROTATIONDEGREES_RANK",
+        "AVGDEFENDERPRESSURESCORE_RANK"
+      ],
+      "target_hits": [
+        {
+          "path": "/shots/0/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.576
+        },
+        {
+          "path": "/shots/0/AVGSHOOTERSPEED",
+          "value": 5.838
+        },
+        {
+          "path": "/shots/0/AVGROTATIONDEGREES",
+          "value": 85.249
+        },
+        {
+          "path": "/shots/0/AVGDEFENDERPRESSURESCORE",
+          "value": 0.882
+        },
+        {
+          "path": "/shots/0/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/0/AVGSHOOTERSPEED_RANK",
+          "value": 18
+        },
+        {
+          "path": "/shots/0/AVGROTATIONDEGREES_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/0/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 1
+        },
+        {
+          "path": "/shots/1/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.525
+        },
+        {
+          "path": "/shots/1/AVGSHOOTERSPEED",
+          "value": 4.021
+        },
+        {
+          "path": "/shots/1/AVGROTATIONDEGREES",
+          "value": 72.202
+        },
+        {
+          "path": "/shots/1/AVGDEFENDERPRESSURESCORE",
+          "value": 0.87
+        },
+        {
+          "path": "/shots/1/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 3
+        },
+        {
+          "path": "/shots/1/AVGSHOOTERSPEED_RANK",
+          "value": 54
+        },
+        {
+          "path": "/shots/1/AVGROTATIONDEGREES_RANK",
+          "value": 10
+        },
+        {
+          "path": "/shots/1/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/2/AVGDEFENSIVEHANDHEIGHT",
+          "value": 5.788
+        },
+        {
+          "path": "/shots/2/AVGSHOOTERSPEED",
+          "value": 6.465
+        },
+        {
+          "path": "/shots/2/AVGROTATIONDEGREES",
+          "value": 68.052
+        },
+        {
+          "path": "/shots/2/AVGDEFENDERPRESSURESCORE",
+          "value": 0.864
+        },
+        {
+          "path": "/shots/2/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 34
+        },
+        {
+          "path": "/shots/2/AVGSHOOTERSPEED_RANK",
+          "value": 6
+        },
+        {
+          "path": "/shots/2/AVGROTATIONDEGREES_RANK",
+          "value": 16
+        },
+        {
+          "path": "/shots/2/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 3
+        },
+        {
+          "path": "/shots/3/AVGDEFENSIVEHANDHEIGHT",
+          "value": 5.952
+        },
+        {
+          "path": "/shots/3/AVGSHOOTERSPEED",
+          "value": 5.082
+        },
+        {
+          "path": "/shots/3/AVGROTATIONDEGREES",
+          "value": 71.856
+        },
+        {
+          "path": "/shots/3/AVGDEFENDERPRESSURESCORE",
+          "value": 0.863
+        },
+        {
+          "path": "/shots/3/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 21
+        },
+        {
+          "path": "/shots/3/AVGSHOOTERSPEED_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/3/AVGROTATIONDEGREES_RANK",
+          "value": 11
+        },
+        {
+          "path": "/shots/3/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 4
+        },
+        {
+          "path": "/shots/4/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.744
+        },
+        {
+          "path": "/shots/4/AVGSHOOTERSPEED",
+          "value": 4.709
+        },
+        {
+          "path": "/shots/4/AVGROTATIONDEGREES",
+          "value": 90.207
+        },
+        {
+          "path": "/shots/4/AVGDEFENDERPRESSURESCORE",
+          "value": 0.858
+        },
+        {
+          "path": "/shots/4/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 1
+        },
+        {
+          "path": "/shots/4/AVGSHOOTERSPEED_RANK",
+          "value": 41
+        },
+        {
+          "path": "/shots/4/AVGROTATIONDEGREES_RANK",
+          "value": 1
+        },
+        {
+          "path": "/shots/4/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 5
+        },
+        {
+          "path": "/shots/5/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.261
+        },
+        {
+          "path": "/shots/5/AVGSHOOTERSPEED",
+          "value": 5.917
+        },
+        {
+          "path": "/shots/5/AVGROTATIONDEGREES",
+          "value": 76.014
+        },
+        {
+          "path": "/shots/5/AVGDEFENDERPRESSURESCORE",
+          "value": 0.858
+        },
+        {
+          "path": "/shots/5/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 9
+        },
+        {
+          "path": "/shots/5/AVGSHOOTERSPEED_RANK",
+          "value": 15
+        },
+        {
+          "path": "/shots/5/AVGROTATIONDEGREES_RANK",
+          "value": 5
+        },
+        {
+          "path": "/shots/5/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 6
+        },
+        {
+          "path": "/shots/6/AVGDEFENSIVEHANDHEIGHT",
+          "value": 5.877
+        },
+        {
+          "path": "/shots/6/AVGSHOOTERSPEED",
+          "value": 4.634
+        },
+        {
+          "path": "/shots/6/AVGROTATIONDEGREES",
+          "value": 59.142
+        },
+        {
+          "path": "/shots/6/AVGDEFENDERPRESSURESCORE",
+          "value": 0.858
+        },
+        {
+          "path": "/shots/6/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 26
+        },
+        {
+          "path": "/shots/6/AVGSHOOTERSPEED_RANK",
+          "value": 44
+        },
+        {
+          "path": "/shots/6/AVGROTATIONDEGREES_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/6/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 7
+        },
+        {
+          "path": "/shots/7/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.276
+        },
+        {
+          "path": "/shots/7/AVGSHOOTERSPEED",
+          "value": 4.444
+        },
+        {
+          "path": "/shots/7/AVGROTATIONDEGREES",
+          "value": 70.717
+        },
+        {
+          "path": "/shots/7/AVGDEFENDERPRESSURESCORE",
+          "value": 0.856
+        },
+        {
+          "path": "/shots/7/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 7
+        },
+        {
+          "path": "/shots/7/AVGSHOOTERSPEED_RANK",
+          "value": 49
+        },
+        {
+          "path": "/shots/7/AVGROTATIONDEGREES_RANK",
+          "value": 13
+        },
+        {
+          "path": "/shots/7/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 8
+        },
+        {
+          "path": "/shots/8/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.076
+        },
+        {
+          "path": "/shots/8/AVGSHOOTERSPEED",
+          "value": 6.139
+        },
+        {
+          "path": "/shots/8/AVGROTATIONDEGREES",
+          "value": 57.928
+        },
+        {
+          "path": "/shots/8/AVGDEFENDERPRESSURESCORE",
+          "value": 0.856
+        },
+        {
+          "path": "/shots/8/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 14
+        },
+        {
+          "path": "/shots/8/AVGSHOOTERSPEED_RANK",
+          "value": 13
+        },
+        {
+          "path": "/shots/8/AVGROTATIONDEGREES_RANK",
+          "value": 36
+        },
+        {
+          "path": "/shots/8/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 9
+        },
+        {
+          "path": "/shots/9/AVGDEFENSIVEHANDHEIGHT",
+          "value": 5.765
+        },
+        {
+          "path": "/shots/9/AVGSHOOTERSPEED",
+          "value": 7.18
+        },
+        {
+          "path": "/shots/9/AVGROTATIONDEGREES",
+          "value": 65.385
+        },
+        {
+          "path": "/shots/9/AVGDEFENDERPRESSURESCORE",
+          "value": 0.851
+        },
+        {
+          "path": "/shots/9/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 38
+        },
+        {
+          "path": "/shots/9/AVGSHOOTERSPEED_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/9/AVGROTATIONDEGREES_RANK",
+          "value": 22
+        },
+        {
+          "path": "/shots/9/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "url": "https://www.wnba.com/api/stats/shot-difficulty",
+      "params": {
+        "season": "2025-26",
+        "seasonType": "Regular Season",
+        "LeagueID": "10"
+      },
+      "status": 200,
+      "bytes": 86790,
+      "final_url": "https://www.wnba.com/api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season&LeagueID=10",
+      "ct": "application/json; charset=utf-8",
+      "sha256": "e2eaf495abb3695580fa44aa2d4546cef97b35aa0cc99f0d0a6aed67989deaac",
+      "top_keys": [
+        "params",
+        "shots"
+      ],
+      "params_echo": {
+        "leagueId": "10",
+        "seasonType": "Regular Season",
+        "seasonYear": "2025"
+      },
+      "shot_count": 61,
+      "first_players": [
+        "Shakira Austin",
+        "Tina Charles",
+        "Angel Reese",
+        "Kiki Iriafen",
+        "Brittney Griner",
+        "Elizabeth Williams",
+        "Paige Bueckers",
+        "A'ja Wilson",
+        "Kahleah Copper",
+        "Brittney Sykes",
+        "Aneesah Morrow",
+        "NaLyssa Smith"
+      ],
+      "first_ids": [
+        1631022,
+        202250,
+        1642291,
+        1642792,
+        203398,
+        204322,
+        1642784,
+        1628932,
+        1627674,
+        1628279,
+        1642800,
+        1631019
+      ],
+      "first_keys": [
+        "PLAYERID",
+        "FIRSTNAME",
+        "LASTNAME",
+        "PLAYERNAME",
+        "JERSEYNUM",
+        "POSITION",
+        "TEAMID",
+        "TEAMCITY",
+        "TEAMNAME",
+        "TEAMABBREVIATION",
+        "AVGSHOTQUALITY",
+        "AVGMADESHOTQUALITY",
+        "AVGMISSEDSHOTQUALITY",
+        "MINSHOTQUALITYONMAKE",
+        "AVGSHOTQUALITY2PT",
+        "AVGMADESHOTQUALITY2PT",
+        "AVGMISSEDSHOTQUALITY2PT",
+        "AVGSHOTQUALITY3PT",
+        "AVGMADESHOTQUALITY3PT",
+        "AVGMISSEDSHOTQUALITY3PT",
+        "FG2M",
+        "FG2M_RANK",
+        "FG2A",
+        "FG2A_RANK",
+        "FG3M",
+        "FG3M_RANK",
+        "FG3A",
+        "FG3A_RANK",
+        "FGM",
+        "FGM_RANK",
+        "FGA",
+        "FGA_RANK",
+        "FGPCT",
+        "FGPCTABOVEEXPECTED",
+        "FG3PCT",
+        "FG3PCTABOVEEXPECTED",
+        "AVGDEFENSIVEHANDHEIGHT",
+        "AVGDEFENDERBALLDISTANCE",
+        "AVGSHOOTERSPEED",
+        "AVGROTATIONDEGREES",
+        "AVGDEFENDERPRESSURESCORE",
+        "AVGSHOTQUALITY_RANK",
+        "AVGMADESHOTQUALITY_RANK",
+        "AVGMISSEDSHOTQUALITY_RANK",
+        "MINSHOTQUALITYONMAKE_RANK",
+        "AVGSHOTQUALITY2PT_RANK",
+        "AVGMADESHOTQUALITY2PT_RANK",
+        "AVGMISSEDSHOTQUALITY2PT_RANK",
+        "AVGSHOTQUALITY3PT_RANK",
+        "AVGMADESHOTQUALITY3PT_RANK",
+        "AVGMISSEDSHOTQUALITY3PT_RANK",
+        "FGPCT_RANK",
+        "FGPCTABOVEEXPECTED_RANK",
+        "FG3PCT_RANK",
+        "FG3PCTABOVEEXPECTED_RANK",
+        "AVGDEFENSIVEHANDHEIGHT_RANK",
+        "AVGDEFENDERBALLDISTANCE_RANK",
+        "AVGSHOOTERSPEED_RANK",
+        "AVGROTATIONDEGREES_RANK",
+        "AVGDEFENDERPRESSURESCORE_RANK"
+      ],
+      "target_hits": [
+        {
+          "path": "/shots/0/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.576
+        },
+        {
+          "path": "/shots/0/AVGSHOOTERSPEED",
+          "value": 5.838
+        },
+        {
+          "path": "/shots/0/AVGROTATIONDEGREES",
+          "value": 85.249
+        },
+        {
+          "path": "/shots/0/AVGDEFENDERPRESSURESCORE",
+          "value": 0.882
+        },
+        {
+          "path": "/shots/0/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/0/AVGSHOOTERSPEED_RANK",
+          "value": 18
+        },
+        {
+          "path": "/shots/0/AVGROTATIONDEGREES_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/0/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 1
+        },
+        {
+          "path": "/shots/1/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.525
+        },
+        {
+          "path": "/shots/1/AVGSHOOTERSPEED",
+          "value": 4.021
+        },
+        {
+          "path": "/shots/1/AVGROTATIONDEGREES",
+          "value": 72.202
+        },
+        {
+          "path": "/shots/1/AVGDEFENDERPRESSURESCORE",
+          "value": 0.87
+        },
+        {
+          "path": "/shots/1/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 3
+        },
+        {
+          "path": "/shots/1/AVGSHOOTERSPEED_RANK",
+          "value": 54
+        },
+        {
+          "path": "/shots/1/AVGROTATIONDEGREES_RANK",
+          "value": 10
+        },
+        {
+          "path": "/shots/1/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/2/AVGDEFENSIVEHANDHEIGHT",
+          "value": 5.788
+        },
+        {
+          "path": "/shots/2/AVGSHOOTERSPEED",
+          "value": 6.465
+        },
+        {
+          "path": "/shots/2/AVGROTATIONDEGREES",
+          "value": 68.052
+        },
+        {
+          "path": "/shots/2/AVGDEFENDERPRESSURESCORE",
+          "value": 0.864
+        },
+        {
+          "path": "/shots/2/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 34
+        },
+        {
+          "path": "/shots/2/AVGSHOOTERSPEED_RANK",
+          "value": 6
+        },
+        {
+          "path": "/shots/2/AVGROTATIONDEGREES_RANK",
+          "value": 16
+        },
+        {
+          "path": "/shots/2/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 3
+        },
+        {
+          "path": "/shots/3/AVGDEFENSIVEHANDHEIGHT",
+          "value": 5.952
+        },
+        {
+          "path": "/shots/3/AVGSHOOTERSPEED",
+          "value": 5.082
+        },
+        {
+          "path": "/shots/3/AVGROTATIONDEGREES",
+          "value": 71.856
+        },
+        {
+          "path": "/shots/3/AVGDEFENDERPRESSURESCORE",
+          "value": 0.863
+        },
+        {
+          "path": "/shots/3/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 21
+        },
+        {
+          "path": "/shots/3/AVGSHOOTERSPEED_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/3/AVGROTATIONDEGREES_RANK",
+          "value": 11
+        },
+        {
+          "path": "/shots/3/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 4
+        },
+        {
+          "path": "/shots/4/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.744
+        },
+        {
+          "path": "/shots/4/AVGSHOOTERSPEED",
+          "value": 4.709
+        },
+        {
+          "path": "/shots/4/AVGROTATIONDEGREES",
+          "value": 90.207
+        },
+        {
+          "path": "/shots/4/AVGDEFENDERPRESSURESCORE",
+          "value": 0.858
+        },
+        {
+          "path": "/shots/4/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 1
+        },
+        {
+          "path": "/shots/4/AVGSHOOTERSPEED_RANK",
+          "value": 41
+        },
+        {
+          "path": "/shots/4/AVGROTATIONDEGREES_RANK",
+          "value": 1
+        },
+        {
+          "path": "/shots/4/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 5
+        },
+        {
+          "path": "/shots/5/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.261
+        },
+        {
+          "path": "/shots/5/AVGSHOOTERSPEED",
+          "value": 5.917
+        },
+        {
+          "path": "/shots/5/AVGROTATIONDEGREES",
+          "value": 76.014
+        },
+        {
+          "path": "/shots/5/AVGDEFENDERPRESSURESCORE",
+          "value": 0.858
+        },
+        {
+          "path": "/shots/5/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 9
+        },
+        {
+          "path": "/shots/5/AVGSHOOTERSPEED_RANK",
+          "value": 15
+        },
+        {
+          "path": "/shots/5/AVGROTATIONDEGREES_RANK",
+          "value": 5
+        },
+        {
+          "path": "/shots/5/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 6
+        },
+        {
+          "path": "/shots/6/AVGDEFENSIVEHANDHEIGHT",
+          "value": 5.877
+        },
+        {
+          "path": "/shots/6/AVGSHOOTERSPEED",
+          "value": 4.634
+        },
+        {
+          "path": "/shots/6/AVGROTATIONDEGREES",
+          "value": 59.142
+        },
+        {
+          "path": "/shots/6/AVGDEFENDERPRESSURESCORE",
+          "value": 0.858
+        },
+        {
+          "path": "/shots/6/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 26
+        },
+        {
+          "path": "/shots/6/AVGSHOOTERSPEED_RANK",
+          "value": 44
+        },
+        {
+          "path": "/shots/6/AVGROTATIONDEGREES_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/6/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 7
+        },
+        {
+          "path": "/shots/7/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.276
+        },
+        {
+          "path": "/shots/7/AVGSHOOTERSPEED",
+          "value": 4.444
+        },
+        {
+          "path": "/shots/7/AVGROTATIONDEGREES",
+          "value": 70.717
+        },
+        {
+          "path": "/shots/7/AVGDEFENDERPRESSURESCORE",
+          "value": 0.856
+        },
+        {
+          "path": "/shots/7/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 7
+        },
+        {
+          "path": "/shots/7/AVGSHOOTERSPEED_RANK",
+          "value": 49
+        },
+        {
+          "path": "/shots/7/AVGROTATIONDEGREES_RANK",
+          "value": 13
+        },
+        {
+          "path": "/shots/7/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 8
+        },
+        {
+          "path": "/shots/8/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.076
+        },
+        {
+          "path": "/shots/8/AVGSHOOTERSPEED",
+          "value": 6.139
+        },
+        {
+          "path": "/shots/8/AVGROTATIONDEGREES",
+          "value": 57.928
+        },
+        {
+          "path": "/shots/8/AVGDEFENDERPRESSURESCORE",
+          "value": 0.856
+        },
+        {
+          "path": "/shots/8/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 14
+        },
+        {
+          "path": "/shots/8/AVGSHOOTERSPEED_RANK",
+          "value": 13
+        },
+        {
+          "path": "/shots/8/AVGROTATIONDEGREES_RANK",
+          "value": 36
+        },
+        {
+          "path": "/shots/8/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 9
+        },
+        {
+          "path": "/shots/9/AVGDEFENSIVEHANDHEIGHT",
+          "value": 5.765
+        },
+        {
+          "path": "/shots/9/AVGSHOOTERSPEED",
+          "value": 7.18
+        },
+        {
+          "path": "/shots/9/AVGROTATIONDEGREES",
+          "value": 65.385
+        },
+        {
+          "path": "/shots/9/AVGDEFENDERPRESSURESCORE",
+          "value": 0.851
+        },
+        {
+          "path": "/shots/9/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 38
+        },
+        {
+          "path": "/shots/9/AVGSHOOTERSPEED_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/9/AVGROTATIONDEGREES_RANK",
+          "value": 22
+        },
+        {
+          "path": "/shots/9/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "url": "https://www.wnba.com/api/stats/shot-difficulty",
+      "params": {
+        "season": "2025-26",
+        "seasonType": "Regular Season",
+        "leagueId": "10"
+      },
+      "status": 200,
+      "bytes": 86790,
+      "final_url": "https://www.wnba.com/api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season&leagueId=10",
+      "ct": "application/json; charset=utf-8",
+      "sha256": "e2eaf495abb3695580fa44aa2d4546cef97b35aa0cc99f0d0a6aed67989deaac",
+      "top_keys": [
+        "params",
+        "shots"
+      ],
+      "params_echo": {
+        "leagueId": "10",
+        "seasonType": "Regular Season",
+        "seasonYear": "2025"
+      },
+      "shot_count": 61,
+      "first_players": [
+        "Shakira Austin",
+        "Tina Charles",
+        "Angel Reese",
+        "Kiki Iriafen",
+        "Brittney Griner",
+        "Elizabeth Williams",
+        "Paige Bueckers",
+        "A'ja Wilson",
+        "Kahleah Copper",
+        "Brittney Sykes",
+        "Aneesah Morrow",
+        "NaLyssa Smith"
+      ],
+      "first_ids": [
+        1631022,
+        202250,
+        1642291,
+        1642792,
+        203398,
+        204322,
+        1642784,
+        1628932,
+        1627674,
+        1628279,
+        1642800,
+        1631019
+      ],
+      "first_keys": [
+        "PLAYERID",
+        "FIRSTNAME",
+        "LASTNAME",
+        "PLAYERNAME",
+        "JERSEYNUM",
+        "POSITION",
+        "TEAMID",
+        "TEAMCITY",
+        "TEAMNAME",
+        "TEAMABBREVIATION",
+        "AVGSHOTQUALITY",
+        "AVGMADESHOTQUALITY",
+        "AVGMISSEDSHOTQUALITY",
+        "MINSHOTQUALITYONMAKE",
+        "AVGSHOTQUALITY2PT",
+        "AVGMADESHOTQUALITY2PT",
+        "AVGMISSEDSHOTQUALITY2PT",
+        "AVGSHOTQUALITY3PT",
+        "AVGMADESHOTQUALITY3PT",
+        "AVGMISSEDSHOTQUALITY3PT",
+        "FG2M",
+        "FG2M_RANK",
+        "FG2A",
+        "FG2A_RANK",
+        "FG3M",
+        "FG3M_RANK",
+        "FG3A",
+        "FG3A_RANK",
+        "FGM",
+        "FGM_RANK",
+        "FGA",
+        "FGA_RANK",
+        "FGPCT",
+        "FGPCTABOVEEXPECTED",
+        "FG3PCT",
+        "FG3PCTABOVEEXPECTED",
+        "AVGDEFENSIVEHANDHEIGHT",
+        "AVGDEFENDERBALLDISTANCE",
+        "AVGSHOOTERSPEED",
+        "AVGROTATIONDEGREES",
+        "AVGDEFENDERPRESSURESCORE",
+        "AVGSHOTQUALITY_RANK",
+        "AVGMADESHOTQUALITY_RANK",
+        "AVGMISSEDSHOTQUALITY_RANK",
+        "MINSHOTQUALITYONMAKE_RANK",
+        "AVGSHOTQUALITY2PT_RANK",
+        "AVGMADESHOTQUALITY2PT_RANK",
+        "AVGMISSEDSHOTQUALITY2PT_RANK",
+        "AVGSHOTQUALITY3PT_RANK",
+        "AVGMADESHOTQUALITY3PT_RANK",
+        "AVGMISSEDSHOTQUALITY3PT_RANK",
+        "FGPCT_RANK",
+        "FGPCTABOVEEXPECTED_RANK",
+        "FG3PCT_RANK",
+        "FG3PCTABOVEEXPECTED_RANK",
+        "AVGDEFENSIVEHANDHEIGHT_RANK",
+        "AVGDEFENDERBALLDISTANCE_RANK",
+        "AVGSHOOTERSPEED_RANK",
+        "AVGROTATIONDEGREES_RANK",
+        "AVGDEFENDERPRESSURESCORE_RANK"
+      ],
+      "target_hits": [
+        {
+          "path": "/shots/0/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.576
+        },
+        {
+          "path": "/shots/0/AVGSHOOTERSPEED",
+          "value": 5.838
+        },
+        {
+          "path": "/shots/0/AVGROTATIONDEGREES",
+          "value": 85.249
+        },
+        {
+          "path": "/shots/0/AVGDEFENDERPRESSURESCORE",
+          "value": 0.882
+        },
+        {
+          "path": "/shots/0/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/0/AVGSHOOTERSPEED_RANK",
+          "value": 18
+        },
+        {
+          "path": "/shots/0/AVGROTATIONDEGREES_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/0/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 1
+        },
+        {
+          "path": "/shots/1/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.525
+        },
+        {
+          "path": "/shots/1/AVGSHOOTERSPEED",
+          "value": 4.021
+        },
+        {
+          "path": "/shots/1/AVGROTATIONDEGREES",
+          "value": 72.202
+        },
+        {
+          "path": "/shots/1/AVGDEFENDERPRESSURESCORE",
+          "value": 0.87
+        },
+        {
+          "path": "/shots/1/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 3
+        },
+        {
+          "path": "/shots/1/AVGSHOOTERSPEED_RANK",
+          "value": 54
+        },
+        {
+          "path": "/shots/1/AVGROTATIONDEGREES_RANK",
+          "value": 10
+        },
+        {
+          "path": "/shots/1/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/2/AVGDEFENSIVEHANDHEIGHT",
+          "value": 5.788
+        },
+        {
+          "path": "/shots/2/AVGSHOOTERSPEED",
+          "value": 6.465
+        },
+        {
+          "path": "/shots/2/AVGROTATIONDEGREES",
+          "value": 68.052
+        },
+        {
+          "path": "/shots/2/AVGDEFENDERPRESSURESCORE",
+          "value": 0.864
+        },
+        {
+          "path": "/shots/2/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 34
+        },
+        {
+          "path": "/shots/2/AVGSHOOTERSPEED_RANK",
+          "value": 6
+        },
+        {
+          "path": "/shots/2/AVGROTATIONDEGREES_RANK",
+          "value": 16
+        },
+        {
+          "path": "/shots/2/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 3
+        },
+        {
+          "path": "/shots/3/AVGDEFENSIVEHANDHEIGHT",
+          "value": 5.952
+        },
+        {
+          "path": "/shots/3/AVGSHOOTERSPEED",
+          "value": 5.082
+        },
+        {
+          "path": "/shots/3/AVGROTATIONDEGREES",
+          "value": 71.856
+        },
+        {
+          "path": "/shots/3/AVGDEFENDERPRESSURESCORE",
+          "value": 0.863
+        },
+        {
+          "path": "/shots/3/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 21
+        },
+        {
+          "path": "/shots/3/AVGSHOOTERSPEED_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/3/AVGROTATIONDEGREES_RANK",
+          "value": 11
+        },
+        {
+          "path": "/shots/3/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 4
+        },
+        {
+          "path": "/shots/4/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.744
+        },
+        {
+          "path": "/shots/4/AVGSHOOTERSPEED",
+          "value": 4.709
+        },
+        {
+          "path": "/shots/4/AVGROTATIONDEGREES",
+          "value": 90.207
+        },
+        {
+          "path": "/shots/4/AVGDEFENDERPRESSURESCORE",
+          "value": 0.858
+        },
+        {
+          "path": "/shots/4/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 1
+        },
+        {
+          "path": "/shots/4/AVGSHOOTERSPEED_RANK",
+          "value": 41
+        },
+        {
+          "path": "/shots/4/AVGROTATIONDEGREES_RANK",
+          "value": 1
+        },
+        {
+          "path": "/shots/4/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 5
+        },
+        {
+          "path": "/shots/5/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.261
+        },
+        {
+          "path": "/shots/5/AVGSHOOTERSPEED",
+          "value": 5.917
+        },
+        {
+          "path": "/shots/5/AVGROTATIONDEGREES",
+          "value": 76.014
+        },
+        {
+          "path": "/shots/5/AVGDEFENDERPRESSURESCORE",
+          "value": 0.858
+        },
+        {
+          "path": "/shots/5/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 9
+        },
+        {
+          "path": "/shots/5/AVGSHOOTERSPEED_RANK",
+          "value": 15
+        },
+        {
+          "path": "/shots/5/AVGROTATIONDEGREES_RANK",
+          "value": 5
+        },
+        {
+          "path": "/shots/5/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 6
+        },
+        {
+          "path": "/shots/6/AVGDEFENSIVEHANDHEIGHT",
+          "value": 5.877
+        },
+        {
+          "path": "/shots/6/AVGSHOOTERSPEED",
+          "value": 4.634
+        },
+        {
+          "path": "/shots/6/AVGROTATIONDEGREES",
+          "value": 59.142
+        },
+        {
+          "path": "/shots/6/AVGDEFENDERPRESSURESCORE",
+          "value": 0.858
+        },
+        {
+          "path": "/shots/6/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 26
+        },
+        {
+          "path": "/shots/6/AVGSHOOTERSPEED_RANK",
+          "value": 44
+        },
+        {
+          "path": "/shots/6/AVGROTATIONDEGREES_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/6/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 7
+        },
+        {
+          "path": "/shots/7/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.276
+        },
+        {
+          "path": "/shots/7/AVGSHOOTERSPEED",
+          "value": 4.444
+        },
+        {
+          "path": "/shots/7/AVGROTATIONDEGREES",
+          "value": 70.717
+        },
+        {
+          "path": "/shots/7/AVGDEFENDERPRESSURESCORE",
+          "value": 0.856
+        },
+        {
+          "path": "/shots/7/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 7
+        },
+        {
+          "path": "/shots/7/AVGSHOOTERSPEED_RANK",
+          "value": 49
+        },
+        {
+          "path": "/shots/7/AVGROTATIONDEGREES_RANK",
+          "value": 13
+        },
+        {
+          "path": "/shots/7/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 8
+        },
+        {
+          "path": "/shots/8/AVGDEFENSIVEHANDHEIGHT",
+          "value": 6.076
+        },
+        {
+          "path": "/shots/8/AVGSHOOTERSPEED",
+          "value": 6.139
+        },
+        {
+          "path": "/shots/8/AVGROTATIONDEGREES",
+          "value": 57.928
+        },
+        {
+          "path": "/shots/8/AVGDEFENDERPRESSURESCORE",
+          "value": 0.856
+        },
+        {
+          "path": "/shots/8/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 14
+        },
+        {
+          "path": "/shots/8/AVGSHOOTERSPEED_RANK",
+          "value": 13
+        },
+        {
+          "path": "/shots/8/AVGROTATIONDEGREES_RANK",
+          "value": 36
+        },
+        {
+          "path": "/shots/8/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 9
+        },
+        {
+          "path": "/shots/9/AVGDEFENSIVEHANDHEIGHT",
+          "value": 5.765
+        },
+        {
+          "path": "/shots/9/AVGSHOOTERSPEED",
+          "value": 7.18
+        },
+        {
+          "path": "/shots/9/AVGROTATIONDEGREES",
+          "value": 65.385
+        },
+        {
+          "path": "/shots/9/AVGDEFENDERPRESSURESCORE",
+          "value": 0.851
+        },
+        {
+          "path": "/shots/9/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 38
+        },
+        {
+          "path": "/shots/9/AVGSHOOTERSPEED_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/9/AVGROTATIONDEGREES_RANK",
+          "value": 22
+        },
+        {
+          "path": "/shots/9/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "url": "https://www.wnba.com/api/stats/shot-difficulty",
+      "params": {
+        "season": "2026",
+        "seasonType": "Regular Season"
+      },
+      "status": 200,
+      "bytes": 106924,
+      "final_url": "https://www.wnba.com/api/stats/shot-difficulty?season=2026&seasonType=Regular+Season",
+      "ct": "application/json; charset=utf-8",
+      "sha256": "cf07975ef231e7b012e13033156dca0fd8db87ad089ebc31e951e39c9a01e4e4",
+      "top_keys": [
+        "params",
+        "shots"
+      ],
+      "params_echo": {
+        "leagueId": "10",
+        "seasonType": "Regular Season",
+        "seasonYear": "2026"
+      },
+      "shot_count": 75,
+      "first_players": [
+        "Kamilla Cardoso",
+        "NaLyssa Smith",
+        "Cecilia Zandalasini",
+        "Brittney Sykes",
+        "Olivia Nelson-Ododa",
+        "Shakira Austin",
+        "Kiki Iriafen",
+        "A'ja Wilson",
+        "Janelle Salaun",
+        "Breanna Stewart",
+        "Courtney Williams",
+        "Gabby Williams"
+      ],
+      "first_ids": [
+        1642289,
+        1631019,
+        1628508,
+        1628279,
+        1631135,
+        1631022,
+        1642792,
+        1628932,
+        1642767,
+        1627668,
+        1627675,
+        1628931
+      ],
+      "first_keys": [
+        "PLAYERID",
+        "FIRSTNAME",
+        "LASTNAME",
+        "PLAYERNAME",
+        "JERSEYNUM",
+        "POSITION",
+        "TEAMID",
+        "TEAMCITY",
+        "TEAMNAME",
+        "TEAMABBREVIATION",
+        "AVGSHOTQUALITY",
+        "AVGMADESHOTQUALITY",
+        "AVGMISSEDSHOTQUALITY",
+        "MINSHOTQUALITYONMAKE",
+        "AVGSHOTQUALITY2PT",
+        "AVGMADESHOTQUALITY2PT",
+        "AVGMISSEDSHOTQUALITY2PT",
+        "AVGSHOTQUALITY3PT",
+        "AVGMADESHOTQUALITY3PT",
+        "AVGMISSEDSHOTQUALITY3PT",
+        "FG2M",
+        "FG2M_RANK",
+        "FG2A",
+        "FG2A_RANK",
+        "FG3M",
+        "FG3M_RANK",
+        "FG3A",
+        "FG3A_RANK",
+        "FGM",
+        "FGM_RANK",
+        "FGA",
+        "FGA_RANK",
+        "FGPCT",
+        "FGPCTABOVEEXPECTED",
+        "FG3PCT",
+        "FG3PCTABOVEEXPECTED",
+        "AVGDEFENSIVEHANDHEIGHT",
+        "AVGDEFENDERBALLDISTANCE",
+        "AVGSHOOTERSPEED",
+        "AVGROTATIONDEGREES",
+        "AVGDEFENDERPRESSURESCORE",
+        "AVGSHOTQUALITY_RANK",
+        "AVGMADESHOTQUALITY_RANK",
+        "AVGMISSEDSHOTQUALITY_RANK",
+        "MINSHOTQUALITYONMAKE_RANK",
+        "AVGSHOTQUALITY2PT_RANK",
+        "AVGMADESHOTQUALITY2PT_RANK",
+        "AVGMISSEDSHOTQUALITY2PT_RANK",
+        "AVGSHOTQUALITY3PT_RANK",
+        "AVGMADESHOTQUALITY3PT_RANK",
+        "AVGMISSEDSHOTQUALITY3PT_RANK",
+        "FGPCT_RANK",
+        "FGPCTABOVEEXPECTED_RANK",
+        "FG3PCT_RANK",
+        "FG3PCTABOVEEXPECTED_RANK",
+        "AVGDEFENSIVEHANDHEIGHT_RANK",
+        "AVGDEFENDERBALLDISTANCE_RANK",
+        "AVGSHOOTERSPEED_RANK",
+        "AVGROTATIONDEGREES_RANK",
+        "AVGDEFENDERPRESSURESCORE_RANK"
+      ],
+      "target_hits": [
+        {
+          "path": "/shots/0/AVGDEFENSIVEHANDHEIGHT",
+          "value": 52.205
+        },
+        {
+          "path": "/shots/0/AVGSHOOTERSPEED",
+          "value": 6
+        },
+        {
+          "path": "/shots/0/AVGROTATIONDEGREES",
+          "value": 54.578
+        },
+        {
+          "path": "/shots/0/AVGDEFENDERPRESSURESCORE",
+          "value": 0.876
+        },
+        {
+          "path": "/shots/0/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 14
+        },
+        {
+          "path": "/shots/0/AVGSHOOTERSPEED_RANK",
+          "value": 26
+        },
+        {
+          "path": "/shots/0/AVGROTATIONDEGREES_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/0/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 1
+        },
+        {
+          "path": "/shots/1/AVGDEFENSIVEHANDHEIGHT",
+          "value": 50.967
+        },
+        {
+          "path": "/shots/1/AVGSHOOTERSPEED",
+          "value": 6.794
+        },
+        {
+          "path": "/shots/1/AVGROTATIONDEGREES",
+          "value": 53.504
+        },
+        {
+          "path": "/shots/1/AVGDEFENDERPRESSURESCORE",
+          "value": 0.875
+        },
+        {
+          "path": "/shots/1/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 19
+        },
+        {
+          "path": "/shots/1/AVGSHOOTERSPEED_RANK",
+          "value": 12
+        },
+        {
+          "path": "/shots/1/AVGROTATIONDEGREES_RANK",
+          "value": 3
+        },
+        {
+          "path": "/shots/1/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/2/AVGDEFENSIVEHANDHEIGHT",
+          "value": 57.213
+        },
+        {
+          "path": "/shots/2/AVGSHOOTERSPEED",
+          "value": 3.045
+        },
+        {
+          "path": "/shots/2/AVGROTATIONDEGREES",
+          "value": 34.216
+        },
+        {
+          "path": "/shots/2/AVGDEFENDERPRESSURESCORE",
+          "value": 0.873
+        },
+        {
+          "path": "/shots/2/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 5
+        },
+        {
+          "path": "/shots/2/AVGSHOOTERSPEED_RANK",
+          "value": 74
+        },
+        {
+          "path": "/shots/2/AVGROTATIONDEGREES_RANK",
+          "value": 31
+        },
+        {
+          "path": "/shots/2/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 3
+        },
+        {
+          "path": "/shots/3/AVGDEFENSIVEHANDHEIGHT",
+          "value": 16.33
+        },
+        {
+          "path": "/shots/3/AVGSHOOTERSPEED",
+          "value": 6.695
+        },
+        {
+          "path": "/shots/3/AVGROTATIONDEGREES",
+          "value": 45.31
+        },
+        {
+          "path": "/shots/3/AVGDEFENDERPRESSURESCORE",
+          "value": 0.869
+        },
+        {
+          "path": "/shots/3/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 75
+        },
+        {
+          "path": "/shots/3/AVGSHOOTERSPEED_RANK",
+          "value": 14
+        },
+        {
+          "path": "/shots/3/AVGROTATIONDEGREES_RANK",
+          "value": 11
+        },
+        {
+          "path": "/shots/3/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 4
+        },
+        {
+          "path": "/shots/4/AVGDEFENSIVEHANDHEIGHT",
+          "value": 58.155
+        },
+        {
+          "path": "/shots/4/AVGSHOOTERSPEED",
+          "value": 5.075
+        },
+        {
+          "path": "/shots/4/AVGROTATIONDEGREES",
+          "value": 34.246
+        },
+        {
+          "path": "/shots/4/AVGDEFENDERPRESSURESCORE",
+          "value": 0.868
+        },
+        {
+          "path": "/shots/4/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 4
+        },
+        {
+          "path": "/shots/4/AVGSHOOTERSPEED_RANK",
+          "value": 39
+        },
+        {
+          "path": "/shots/4/AVGROTATIONDEGREES_RANK",
+          "value": 30
+        },
+        {
+          "path": "/shots/4/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 5
+        },
+        {
+          "path": "/shots/5/AVGDEFENSIVEHANDHEIGHT",
+          "value": 52.215
+        },
+        {
+          "path": "/shots/5/AVGSHOOTERSPEED",
+          "value": 5.477
+        },
+        {
+          "path": "/shots/5/AVGROTATIONDEGREES",
+          "value": 39.757
+        },
+        {
+          "path": "/shots/5/AVGDEFENDERPRESSURESCORE",
+          "value": 0.868
+        },
+        {
+          "path": "/shots/5/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 13
+        },
+        {
+          "path": "/shots/5/AVGSHOOTERSPEED_RANK",
+          "value": 28
+        },
+        {
+          "path": "/shots/5/AVGROTATIONDEGREES_RANK",
+          "value": 19
+        },
+        {
+          "path": "/shots/5/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 6
+        },
+        {
+          "path": "/shots/6/AVGDEFENSIVEHANDHEIGHT",
+          "value": 48.219
+        },
+        {
+          "path": "/shots/6/AVGSHOOTERSPEED",
+          "value": 4.914
+        },
+        {
+          "path": "/shots/6/AVGROTATIONDEGREES",
+          "value": 33.63
+        },
+        {
+          "path": "/shots/6/AVGDEFENDERPRESSURESCORE",
+          "value": 0.866
+        },
+        {
+          "path": "/shots/6/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 28
+        },
+        {
+          "path": "/shots/6/AVGSHOOTERSPEED_RANK",
+          "value": 44
+        },
+        {
+          "path": "/shots/6/AVGROTATIONDEGREES_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/6/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 7
+        },
+        {
+          "path": "/shots/7/AVGDEFENSIVEHANDHEIGHT",
+          "value": 48.189
+        },
+        {
+          "path": "/shots/7/AVGSHOOTERSPEED",
+          "value": 4.006
+        },
+        {
+          "path": "/shots/7/AVGROTATIONDEGREES",
+          "value": 43.445
+        },
+        {
+          "path": "/shots/7/AVGDEFENDERPRESSURESCORE",
+          "value": 0.866
+        },
+        {
+          "path": "/shots/7/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 30
+        },
+        {
+          "path": "/shots/7/AVGSHOOTERSPEED_RANK",
+          "value": 65
+        },
+        {
+          "path": "/shots/7/AVGROTATIONDEGREES_RANK",
+          "value": 12
+        },
+        {
+          "path": "/shots/7/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 8
+        },
+        {
+          "path": "/shots/8/AVGDEFENSIVEHANDHEIGHT",
+          "value": 47.983
+        },
+        {
+          "path": "/shots/8/AVGSHOOTERSPEED",
+          "value": 2.071
+        },
+        {
+          "path": "/shots/8/AVGROTATIONDEGREES",
+          "value": 31.319
+        },
+        {
+          "path": "/shots/8/AVGDEFENDERPRESSURESCORE",
+          "value": 0.864
+        },
+        {
+          "path": "/shots/8/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/8/AVGSHOOTERSPEED_RANK",
+          "value": 75
+        },
+        {
+          "path": "/shots/8/AVGROTATIONDEGREES_RANK",
+          "value": 37
+        },
+        {
+          "path": "/shots/8/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 9
+        },
+        {
+          "path": "/shots/9/AVGDEFENSIVEHANDHEIGHT",
+          "value": 48.975
+        },
+        {
+          "path": "/shots/9/AVGSHOOTERSPEED",
+          "value": 5.389
+        },
+        {
+          "path": "/shots/9/AVGROTATIONDEGREES",
+          "value": 46.595
+        },
+        {
+          "path": "/shots/9/AVGDEFENDERPRESSURESCORE",
+          "value": 0.861
+        },
+        {
+          "path": "/shots/9/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 24
+        },
+        {
+          "path": "/shots/9/AVGSHOOTERSPEED_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/9/AVGROTATIONDEGREES_RANK",
+          "value": 9
+        },
+        {
+          "path": "/shots/9/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "url": "https://www.wnba.com/api/stats/shot-difficulty",
+      "params": {
+        "season": "2026",
+        "seasonType": "Regular Season",
+        "LeagueID": "00"
+      },
+      "status": 200,
+      "bytes": 106924,
+      "final_url": "https://www.wnba.com/api/stats/shot-difficulty?season=2026&seasonType=Regular+Season&LeagueID=00",
+      "ct": "application/json; charset=utf-8",
+      "sha256": "cf07975ef231e7b012e13033156dca0fd8db87ad089ebc31e951e39c9a01e4e4",
+      "top_keys": [
+        "params",
+        "shots"
+      ],
+      "params_echo": {
+        "leagueId": "10",
+        "seasonType": "Regular Season",
+        "seasonYear": "2026"
+      },
+      "shot_count": 75,
+      "first_players": [
+        "Kamilla Cardoso",
+        "NaLyssa Smith",
+        "Cecilia Zandalasini",
+        "Brittney Sykes",
+        "Olivia Nelson-Ododa",
+        "Shakira Austin",
+        "Kiki Iriafen",
+        "A'ja Wilson",
+        "Janelle Salaun",
+        "Breanna Stewart",
+        "Courtney Williams",
+        "Gabby Williams"
+      ],
+      "first_ids": [
+        1642289,
+        1631019,
+        1628508,
+        1628279,
+        1631135,
+        1631022,
+        1642792,
+        1628932,
+        1642767,
+        1627668,
+        1627675,
+        1628931
+      ],
+      "first_keys": [
+        "PLAYERID",
+        "FIRSTNAME",
+        "LASTNAME",
+        "PLAYERNAME",
+        "JERSEYNUM",
+        "POSITION",
+        "TEAMID",
+        "TEAMCITY",
+        "TEAMNAME",
+        "TEAMABBREVIATION",
+        "AVGSHOTQUALITY",
+        "AVGMADESHOTQUALITY",
+        "AVGMISSEDSHOTQUALITY",
+        "MINSHOTQUALITYONMAKE",
+        "AVGSHOTQUALITY2PT",
+        "AVGMADESHOTQUALITY2PT",
+        "AVGMISSEDSHOTQUALITY2PT",
+        "AVGSHOTQUALITY3PT",
+        "AVGMADESHOTQUALITY3PT",
+        "AVGMISSEDSHOTQUALITY3PT",
+        "FG2M",
+        "FG2M_RANK",
+        "FG2A",
+        "FG2A_RANK",
+        "FG3M",
+        "FG3M_RANK",
+        "FG3A",
+        "FG3A_RANK",
+        "FGM",
+        "FGM_RANK",
+        "FGA",
+        "FGA_RANK",
+        "FGPCT",
+        "FGPCTABOVEEXPECTED",
+        "FG3PCT",
+        "FG3PCTABOVEEXPECTED",
+        "AVGDEFENSIVEHANDHEIGHT",
+        "AVGDEFENDERBALLDISTANCE",
+        "AVGSHOOTERSPEED",
+        "AVGROTATIONDEGREES",
+        "AVGDEFENDERPRESSURESCORE",
+        "AVGSHOTQUALITY_RANK",
+        "AVGMADESHOTQUALITY_RANK",
+        "AVGMISSEDSHOTQUALITY_RANK",
+        "MINSHOTQUALITYONMAKE_RANK",
+        "AVGSHOTQUALITY2PT_RANK",
+        "AVGMADESHOTQUALITY2PT_RANK",
+        "AVGMISSEDSHOTQUALITY2PT_RANK",
+        "AVGSHOTQUALITY3PT_RANK",
+        "AVGMADESHOTQUALITY3PT_RANK",
+        "AVGMISSEDSHOTQUALITY3PT_RANK",
+        "FGPCT_RANK",
+        "FGPCTABOVEEXPECTED_RANK",
+        "FG3PCT_RANK",
+        "FG3PCTABOVEEXPECTED_RANK",
+        "AVGDEFENSIVEHANDHEIGHT_RANK",
+        "AVGDEFENDERBALLDISTANCE_RANK",
+        "AVGSHOOTERSPEED_RANK",
+        "AVGROTATIONDEGREES_RANK",
+        "AVGDEFENDERPRESSURESCORE_RANK"
+      ],
+      "target_hits": [
+        {
+          "path": "/shots/0/AVGDEFENSIVEHANDHEIGHT",
+          "value": 52.205
+        },
+        {
+          "path": "/shots/0/AVGSHOOTERSPEED",
+          "value": 6
+        },
+        {
+          "path": "/shots/0/AVGROTATIONDEGREES",
+          "value": 54.578
+        },
+        {
+          "path": "/shots/0/AVGDEFENDERPRESSURESCORE",
+          "value": 0.876
+        },
+        {
+          "path": "/shots/0/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 14
+        },
+        {
+          "path": "/shots/0/AVGSHOOTERSPEED_RANK",
+          "value": 26
+        },
+        {
+          "path": "/shots/0/AVGROTATIONDEGREES_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/0/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 1
+        },
+        {
+          "path": "/shots/1/AVGDEFENSIVEHANDHEIGHT",
+          "value": 50.967
+        },
+        {
+          "path": "/shots/1/AVGSHOOTERSPEED",
+          "value": 6.794
+        },
+        {
+          "path": "/shots/1/AVGROTATIONDEGREES",
+          "value": 53.504
+        },
+        {
+          "path": "/shots/1/AVGDEFENDERPRESSURESCORE",
+          "value": 0.875
+        },
+        {
+          "path": "/shots/1/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 19
+        },
+        {
+          "path": "/shots/1/AVGSHOOTERSPEED_RANK",
+          "value": 12
+        },
+        {
+          "path": "/shots/1/AVGROTATIONDEGREES_RANK",
+          "value": 3
+        },
+        {
+          "path": "/shots/1/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/2/AVGDEFENSIVEHANDHEIGHT",
+          "value": 57.213
+        },
+        {
+          "path": "/shots/2/AVGSHOOTERSPEED",
+          "value": 3.045
+        },
+        {
+          "path": "/shots/2/AVGROTATIONDEGREES",
+          "value": 34.216
+        },
+        {
+          "path": "/shots/2/AVGDEFENDERPRESSURESCORE",
+          "value": 0.873
+        },
+        {
+          "path": "/shots/2/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 5
+        },
+        {
+          "path": "/shots/2/AVGSHOOTERSPEED_RANK",
+          "value": 74
+        },
+        {
+          "path": "/shots/2/AVGROTATIONDEGREES_RANK",
+          "value": 31
+        },
+        {
+          "path": "/shots/2/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 3
+        },
+        {
+          "path": "/shots/3/AVGDEFENSIVEHANDHEIGHT",
+          "value": 16.33
+        },
+        {
+          "path": "/shots/3/AVGSHOOTERSPEED",
+          "value": 6.695
+        },
+        {
+          "path": "/shots/3/AVGROTATIONDEGREES",
+          "value": 45.31
+        },
+        {
+          "path": "/shots/3/AVGDEFENDERPRESSURESCORE",
+          "value": 0.869
+        },
+        {
+          "path": "/shots/3/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 75
+        },
+        {
+          "path": "/shots/3/AVGSHOOTERSPEED_RANK",
+          "value": 14
+        },
+        {
+          "path": "/shots/3/AVGROTATIONDEGREES_RANK",
+          "value": 11
+        },
+        {
+          "path": "/shots/3/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 4
+        },
+        {
+          "path": "/shots/4/AVGDEFENSIVEHANDHEIGHT",
+          "value": 58.155
+        },
+        {
+          "path": "/shots/4/AVGSHOOTERSPEED",
+          "value": 5.075
+        },
+        {
+          "path": "/shots/4/AVGROTATIONDEGREES",
+          "value": 34.246
+        },
+        {
+          "path": "/shots/4/AVGDEFENDERPRESSURESCORE",
+          "value": 0.868
+        },
+        {
+          "path": "/shots/4/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 4
+        },
+        {
+          "path": "/shots/4/AVGSHOOTERSPEED_RANK",
+          "value": 39
+        },
+        {
+          "path": "/shots/4/AVGROTATIONDEGREES_RANK",
+          "value": 30
+        },
+        {
+          "path": "/shots/4/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 5
+        },
+        {
+          "path": "/shots/5/AVGDEFENSIVEHANDHEIGHT",
+          "value": 52.215
+        },
+        {
+          "path": "/shots/5/AVGSHOOTERSPEED",
+          "value": 5.477
+        },
+        {
+          "path": "/shots/5/AVGROTATIONDEGREES",
+          "value": 39.757
+        },
+        {
+          "path": "/shots/5/AVGDEFENDERPRESSURESCORE",
+          "value": 0.868
+        },
+        {
+          "path": "/shots/5/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 13
+        },
+        {
+          "path": "/shots/5/AVGSHOOTERSPEED_RANK",
+          "value": 28
+        },
+        {
+          "path": "/shots/5/AVGROTATIONDEGREES_RANK",
+          "value": 19
+        },
+        {
+          "path": "/shots/5/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 6
+        },
+        {
+          "path": "/shots/6/AVGDEFENSIVEHANDHEIGHT",
+          "value": 48.219
+        },
+        {
+          "path": "/shots/6/AVGSHOOTERSPEED",
+          "value": 4.914
+        },
+        {
+          "path": "/shots/6/AVGROTATIONDEGREES",
+          "value": 33.63
+        },
+        {
+          "path": "/shots/6/AVGDEFENDERPRESSURESCORE",
+          "value": 0.866
+        },
+        {
+          "path": "/shots/6/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 28
+        },
+        {
+          "path": "/shots/6/AVGSHOOTERSPEED_RANK",
+          "value": 44
+        },
+        {
+          "path": "/shots/6/AVGROTATIONDEGREES_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/6/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 7
+        },
+        {
+          "path": "/shots/7/AVGDEFENSIVEHANDHEIGHT",
+          "value": 48.189
+        },
+        {
+          "path": "/shots/7/AVGSHOOTERSPEED",
+          "value": 4.006
+        },
+        {
+          "path": "/shots/7/AVGROTATIONDEGREES",
+          "value": 43.445
+        },
+        {
+          "path": "/shots/7/AVGDEFENDERPRESSURESCORE",
+          "value": 0.866
+        },
+        {
+          "path": "/shots/7/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 30
+        },
+        {
+          "path": "/shots/7/AVGSHOOTERSPEED_RANK",
+          "value": 65
+        },
+        {
+          "path": "/shots/7/AVGROTATIONDEGREES_RANK",
+          "value": 12
+        },
+        {
+          "path": "/shots/7/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 8
+        },
+        {
+          "path": "/shots/8/AVGDEFENSIVEHANDHEIGHT",
+          "value": 47.983
+        },
+        {
+          "path": "/shots/8/AVGSHOOTERSPEED",
+          "value": 2.071
+        },
+        {
+          "path": "/shots/8/AVGROTATIONDEGREES",
+          "value": 31.319
+        },
+        {
+          "path": "/shots/8/AVGDEFENDERPRESSURESCORE",
+          "value": 0.864
+        },
+        {
+          "path": "/shots/8/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/8/AVGSHOOTERSPEED_RANK",
+          "value": 75
+        },
+        {
+          "path": "/shots/8/AVGROTATIONDEGREES_RANK",
+          "value": 37
+        },
+        {
+          "path": "/shots/8/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 9
+        },
+        {
+          "path": "/shots/9/AVGDEFENSIVEHANDHEIGHT",
+          "value": 48.975
+        },
+        {
+          "path": "/shots/9/AVGSHOOTERSPEED",
+          "value": 5.389
+        },
+        {
+          "path": "/shots/9/AVGROTATIONDEGREES",
+          "value": 46.595
+        },
+        {
+          "path": "/shots/9/AVGDEFENDERPRESSURESCORE",
+          "value": 0.861
+        },
+        {
+          "path": "/shots/9/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 24
+        },
+        {
+          "path": "/shots/9/AVGSHOOTERSPEED_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/9/AVGROTATIONDEGREES_RANK",
+          "value": 9
+        },
+        {
+          "path": "/shots/9/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "url": "https://www.wnba.com/api/stats/shot-difficulty",
+      "params": {
+        "season": "2026",
+        "seasonType": "Regular Season",
+        "leagueId": "00"
+      },
+      "status": 200,
+      "bytes": 106924,
+      "final_url": "https://www.wnba.com/api/stats/shot-difficulty?season=2026&seasonType=Regular+Season&leagueId=00",
+      "ct": "application/json; charset=utf-8",
+      "sha256": "cf07975ef231e7b012e13033156dca0fd8db87ad089ebc31e951e39c9a01e4e4",
+      "top_keys": [
+        "params",
+        "shots"
+      ],
+      "params_echo": {
+        "leagueId": "10",
+        "seasonType": "Regular Season",
+        "seasonYear": "2026"
+      },
+      "shot_count": 75,
+      "first_players": [
+        "Kamilla Cardoso",
+        "NaLyssa Smith",
+        "Cecilia Zandalasini",
+        "Brittney Sykes",
+        "Olivia Nelson-Ododa",
+        "Shakira Austin",
+        "Kiki Iriafen",
+        "A'ja Wilson",
+        "Janelle Salaun",
+        "Breanna Stewart",
+        "Courtney Williams",
+        "Gabby Williams"
+      ],
+      "first_ids": [
+        1642289,
+        1631019,
+        1628508,
+        1628279,
+        1631135,
+        1631022,
+        1642792,
+        1628932,
+        1642767,
+        1627668,
+        1627675,
+        1628931
+      ],
+      "first_keys": [
+        "PLAYERID",
+        "FIRSTNAME",
+        "LASTNAME",
+        "PLAYERNAME",
+        "JERSEYNUM",
+        "POSITION",
+        "TEAMID",
+        "TEAMCITY",
+        "TEAMNAME",
+        "TEAMABBREVIATION",
+        "AVGSHOTQUALITY",
+        "AVGMADESHOTQUALITY",
+        "AVGMISSEDSHOTQUALITY",
+        "MINSHOTQUALITYONMAKE",
+        "AVGSHOTQUALITY2PT",
+        "AVGMADESHOTQUALITY2PT",
+        "AVGMISSEDSHOTQUALITY2PT",
+        "AVGSHOTQUALITY3PT",
+        "AVGMADESHOTQUALITY3PT",
+        "AVGMISSEDSHOTQUALITY3PT",
+        "FG2M",
+        "FG2M_RANK",
+        "FG2A",
+        "FG2A_RANK",
+        "FG3M",
+        "FG3M_RANK",
+        "FG3A",
+        "FG3A_RANK",
+        "FGM",
+        "FGM_RANK",
+        "FGA",
+        "FGA_RANK",
+        "FGPCT",
+        "FGPCTABOVEEXPECTED",
+        "FG3PCT",
+        "FG3PCTABOVEEXPECTED",
+        "AVGDEFENSIVEHANDHEIGHT",
+        "AVGDEFENDERBALLDISTANCE",
+        "AVGSHOOTERSPEED",
+        "AVGROTATIONDEGREES",
+        "AVGDEFENDERPRESSURESCORE",
+        "AVGSHOTQUALITY_RANK",
+        "AVGMADESHOTQUALITY_RANK",
+        "AVGMISSEDSHOTQUALITY_RANK",
+        "MINSHOTQUALITYONMAKE_RANK",
+        "AVGSHOTQUALITY2PT_RANK",
+        "AVGMADESHOTQUALITY2PT_RANK",
+        "AVGMISSEDSHOTQUALITY2PT_RANK",
+        "AVGSHOTQUALITY3PT_RANK",
+        "AVGMADESHOTQUALITY3PT_RANK",
+        "AVGMISSEDSHOTQUALITY3PT_RANK",
+        "FGPCT_RANK",
+        "FGPCTABOVEEXPECTED_RANK",
+        "FG3PCT_RANK",
+        "FG3PCTABOVEEXPECTED_RANK",
+        "AVGDEFENSIVEHANDHEIGHT_RANK",
+        "AVGDEFENDERBALLDISTANCE_RANK",
+        "AVGSHOOTERSPEED_RANK",
+        "AVGROTATIONDEGREES_RANK",
+        "AVGDEFENDERPRESSURESCORE_RANK"
+      ],
+      "target_hits": [
+        {
+          "path": "/shots/0/AVGDEFENSIVEHANDHEIGHT",
+          "value": 52.205
+        },
+        {
+          "path": "/shots/0/AVGSHOOTERSPEED",
+          "value": 6
+        },
+        {
+          "path": "/shots/0/AVGROTATIONDEGREES",
+          "value": 54.578
+        },
+        {
+          "path": "/shots/0/AVGDEFENDERPRESSURESCORE",
+          "value": 0.876
+        },
+        {
+          "path": "/shots/0/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 14
+        },
+        {
+          "path": "/shots/0/AVGSHOOTERSPEED_RANK",
+          "value": 26
+        },
+        {
+          "path": "/shots/0/AVGROTATIONDEGREES_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/0/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 1
+        },
+        {
+          "path": "/shots/1/AVGDEFENSIVEHANDHEIGHT",
+          "value": 50.967
+        },
+        {
+          "path": "/shots/1/AVGSHOOTERSPEED",
+          "value": 6.794
+        },
+        {
+          "path": "/shots/1/AVGROTATIONDEGREES",
+          "value": 53.504
+        },
+        {
+          "path": "/shots/1/AVGDEFENDERPRESSURESCORE",
+          "value": 0.875
+        },
+        {
+          "path": "/shots/1/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 19
+        },
+        {
+          "path": "/shots/1/AVGSHOOTERSPEED_RANK",
+          "value": 12
+        },
+        {
+          "path": "/shots/1/AVGROTATIONDEGREES_RANK",
+          "value": 3
+        },
+        {
+          "path": "/shots/1/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/2/AVGDEFENSIVEHANDHEIGHT",
+          "value": 57.213
+        },
+        {
+          "path": "/shots/2/AVGSHOOTERSPEED",
+          "value": 3.045
+        },
+        {
+          "path": "/shots/2/AVGROTATIONDEGREES",
+          "value": 34.216
+        },
+        {
+          "path": "/shots/2/AVGDEFENDERPRESSURESCORE",
+          "value": 0.873
+        },
+        {
+          "path": "/shots/2/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 5
+        },
+        {
+          "path": "/shots/2/AVGSHOOTERSPEED_RANK",
+          "value": 74
+        },
+        {
+          "path": "/shots/2/AVGROTATIONDEGREES_RANK",
+          "value": 31
+        },
+        {
+          "path": "/shots/2/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 3
+        },
+        {
+          "path": "/shots/3/AVGDEFENSIVEHANDHEIGHT",
+          "value": 16.33
+        },
+        {
+          "path": "/shots/3/AVGSHOOTERSPEED",
+          "value": 6.695
+        },
+        {
+          "path": "/shots/3/AVGROTATIONDEGREES",
+          "value": 45.31
+        },
+        {
+          "path": "/shots/3/AVGDEFENDERPRESSURESCORE",
+          "value": 0.869
+        },
+        {
+          "path": "/shots/3/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 75
+        },
+        {
+          "path": "/shots/3/AVGSHOOTERSPEED_RANK",
+          "value": 14
+        },
+        {
+          "path": "/shots/3/AVGROTATIONDEGREES_RANK",
+          "value": 11
+        },
+        {
+          "path": "/shots/3/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 4
+        },
+        {
+          "path": "/shots/4/AVGDEFENSIVEHANDHEIGHT",
+          "value": 58.155
+        },
+        {
+          "path": "/shots/4/AVGSHOOTERSPEED",
+          "value": 5.075
+        },
+        {
+          "path": "/shots/4/AVGROTATIONDEGREES",
+          "value": 34.246
+        },
+        {
+          "path": "/shots/4/AVGDEFENDERPRESSURESCORE",
+          "value": 0.868
+        },
+        {
+          "path": "/shots/4/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 4
+        },
+        {
+          "path": "/shots/4/AVGSHOOTERSPEED_RANK",
+          "value": 39
+        },
+        {
+          "path": "/shots/4/AVGROTATIONDEGREES_RANK",
+          "value": 30
+        },
+        {
+          "path": "/shots/4/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 5
+        },
+        {
+          "path": "/shots/5/AVGDEFENSIVEHANDHEIGHT",
+          "value": 52.215
+        },
+        {
+          "path": "/shots/5/AVGSHOOTERSPEED",
+          "value": 5.477
+        },
+        {
+          "path": "/shots/5/AVGROTATIONDEGREES",
+          "value": 39.757
+        },
+        {
+          "path": "/shots/5/AVGDEFENDERPRESSURESCORE",
+          "value": 0.868
+        },
+        {
+          "path": "/shots/5/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 13
+        },
+        {
+          "path": "/shots/5/AVGSHOOTERSPEED_RANK",
+          "value": 28
+        },
+        {
+          "path": "/shots/5/AVGROTATIONDEGREES_RANK",
+          "value": 19
+        },
+        {
+          "path": "/shots/5/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 6
+        },
+        {
+          "path": "/shots/6/AVGDEFENSIVEHANDHEIGHT",
+          "value": 48.219
+        },
+        {
+          "path": "/shots/6/AVGSHOOTERSPEED",
+          "value": 4.914
+        },
+        {
+          "path": "/shots/6/AVGROTATIONDEGREES",
+          "value": 33.63
+        },
+        {
+          "path": "/shots/6/AVGDEFENDERPRESSURESCORE",
+          "value": 0.866
+        },
+        {
+          "path": "/shots/6/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 28
+        },
+        {
+          "path": "/shots/6/AVGSHOOTERSPEED_RANK",
+          "value": 44
+        },
+        {
+          "path": "/shots/6/AVGROTATIONDEGREES_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/6/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 7
+        },
+        {
+          "path": "/shots/7/AVGDEFENSIVEHANDHEIGHT",
+          "value": 48.189
+        },
+        {
+          "path": "/shots/7/AVGSHOOTERSPEED",
+          "value": 4.006
+        },
+        {
+          "path": "/shots/7/AVGROTATIONDEGREES",
+          "value": 43.445
+        },
+        {
+          "path": "/shots/7/AVGDEFENDERPRESSURESCORE",
+          "value": 0.866
+        },
+        {
+          "path": "/shots/7/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 30
+        },
+        {
+          "path": "/shots/7/AVGSHOOTERSPEED_RANK",
+          "value": 65
+        },
+        {
+          "path": "/shots/7/AVGROTATIONDEGREES_RANK",
+          "value": 12
+        },
+        {
+          "path": "/shots/7/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 8
+        },
+        {
+          "path": "/shots/8/AVGDEFENSIVEHANDHEIGHT",
+          "value": 47.983
+        },
+        {
+          "path": "/shots/8/AVGSHOOTERSPEED",
+          "value": 2.071
+        },
+        {
+          "path": "/shots/8/AVGROTATIONDEGREES",
+          "value": 31.319
+        },
+        {
+          "path": "/shots/8/AVGDEFENDERPRESSURESCORE",
+          "value": 0.864
+        },
+        {
+          "path": "/shots/8/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/8/AVGSHOOTERSPEED_RANK",
+          "value": 75
+        },
+        {
+          "path": "/shots/8/AVGROTATIONDEGREES_RANK",
+          "value": 37
+        },
+        {
+          "path": "/shots/8/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 9
+        },
+        {
+          "path": "/shots/9/AVGDEFENSIVEHANDHEIGHT",
+          "value": 48.975
+        },
+        {
+          "path": "/shots/9/AVGSHOOTERSPEED",
+          "value": 5.389
+        },
+        {
+          "path": "/shots/9/AVGROTATIONDEGREES",
+          "value": 46.595
+        },
+        {
+          "path": "/shots/9/AVGDEFENDERPRESSURESCORE",
+          "value": 0.861
+        },
+        {
+          "path": "/shots/9/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 24
+        },
+        {
+          "path": "/shots/9/AVGSHOOTERSPEED_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/9/AVGROTATIONDEGREES_RANK",
+          "value": 9
+        },
+        {
+          "path": "/shots/9/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "url": "https://www.wnba.com/api/stats/shot-difficulty",
+      "params": {
+        "season": "2026",
+        "seasonType": "Regular Season",
+        "LeagueID": "10"
+      },
+      "status": 200,
+      "bytes": 106924,
+      "final_url": "https://www.wnba.com/api/stats/shot-difficulty?season=2026&seasonType=Regular+Season&LeagueID=10",
+      "ct": "application/json; charset=utf-8",
+      "sha256": "cf07975ef231e7b012e13033156dca0fd8db87ad089ebc31e951e39c9a01e4e4",
+      "top_keys": [
+        "params",
+        "shots"
+      ],
+      "params_echo": {
+        "leagueId": "10",
+        "seasonType": "Regular Season",
+        "seasonYear": "2026"
+      },
+      "shot_count": 75,
+      "first_players": [
+        "Kamilla Cardoso",
+        "NaLyssa Smith",
+        "Cecilia Zandalasini",
+        "Brittney Sykes",
+        "Olivia Nelson-Ododa",
+        "Shakira Austin",
+        "Kiki Iriafen",
+        "A'ja Wilson",
+        "Janelle Salaun",
+        "Breanna Stewart",
+        "Courtney Williams",
+        "Gabby Williams"
+      ],
+      "first_ids": [
+        1642289,
+        1631019,
+        1628508,
+        1628279,
+        1631135,
+        1631022,
+        1642792,
+        1628932,
+        1642767,
+        1627668,
+        1627675,
+        1628931
+      ],
+      "first_keys": [
+        "PLAYERID",
+        "FIRSTNAME",
+        "LASTNAME",
+        "PLAYERNAME",
+        "JERSEYNUM",
+        "POSITION",
+        "TEAMID",
+        "TEAMCITY",
+        "TEAMNAME",
+        "TEAMABBREVIATION",
+        "AVGSHOTQUALITY",
+        "AVGMADESHOTQUALITY",
+        "AVGMISSEDSHOTQUALITY",
+        "MINSHOTQUALITYONMAKE",
+        "AVGSHOTQUALITY2PT",
+        "AVGMADESHOTQUALITY2PT",
+        "AVGMISSEDSHOTQUALITY2PT",
+        "AVGSHOTQUALITY3PT",
+        "AVGMADESHOTQUALITY3PT",
+        "AVGMISSEDSHOTQUALITY3PT",
+        "FG2M",
+        "FG2M_RANK",
+        "FG2A",
+        "FG2A_RANK",
+        "FG3M",
+        "FG3M_RANK",
+        "FG3A",
+        "FG3A_RANK",
+        "FGM",
+        "FGM_RANK",
+        "FGA",
+        "FGA_RANK",
+        "FGPCT",
+        "FGPCTABOVEEXPECTED",
+        "FG3PCT",
+        "FG3PCTABOVEEXPECTED",
+        "AVGDEFENSIVEHANDHEIGHT",
+        "AVGDEFENDERBALLDISTANCE",
+        "AVGSHOOTERSPEED",
+        "AVGROTATIONDEGREES",
+        "AVGDEFENDERPRESSURESCORE",
+        "AVGSHOTQUALITY_RANK",
+        "AVGMADESHOTQUALITY_RANK",
+        "AVGMISSEDSHOTQUALITY_RANK",
+        "MINSHOTQUALITYONMAKE_RANK",
+        "AVGSHOTQUALITY2PT_RANK",
+        "AVGMADESHOTQUALITY2PT_RANK",
+        "AVGMISSEDSHOTQUALITY2PT_RANK",
+        "AVGSHOTQUALITY3PT_RANK",
+        "AVGMADESHOTQUALITY3PT_RANK",
+        "AVGMISSEDSHOTQUALITY3PT_RANK",
+        "FGPCT_RANK",
+        "FGPCTABOVEEXPECTED_RANK",
+        "FG3PCT_RANK",
+        "FG3PCTABOVEEXPECTED_RANK",
+        "AVGDEFENSIVEHANDHEIGHT_RANK",
+        "AVGDEFENDERBALLDISTANCE_RANK",
+        "AVGSHOOTERSPEED_RANK",
+        "AVGROTATIONDEGREES_RANK",
+        "AVGDEFENDERPRESSURESCORE_RANK"
+      ],
+      "target_hits": [
+        {
+          "path": "/shots/0/AVGDEFENSIVEHANDHEIGHT",
+          "value": 52.205
+        },
+        {
+          "path": "/shots/0/AVGSHOOTERSPEED",
+          "value": 6
+        },
+        {
+          "path": "/shots/0/AVGROTATIONDEGREES",
+          "value": 54.578
+        },
+        {
+          "path": "/shots/0/AVGDEFENDERPRESSURESCORE",
+          "value": 0.876
+        },
+        {
+          "path": "/shots/0/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 14
+        },
+        {
+          "path": "/shots/0/AVGSHOOTERSPEED_RANK",
+          "value": 26
+        },
+        {
+          "path": "/shots/0/AVGROTATIONDEGREES_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/0/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 1
+        },
+        {
+          "path": "/shots/1/AVGDEFENSIVEHANDHEIGHT",
+          "value": 50.967
+        },
+        {
+          "path": "/shots/1/AVGSHOOTERSPEED",
+          "value": 6.794
+        },
+        {
+          "path": "/shots/1/AVGROTATIONDEGREES",
+          "value": 53.504
+        },
+        {
+          "path": "/shots/1/AVGDEFENDERPRESSURESCORE",
+          "value": 0.875
+        },
+        {
+          "path": "/shots/1/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 19
+        },
+        {
+          "path": "/shots/1/AVGSHOOTERSPEED_RANK",
+          "value": 12
+        },
+        {
+          "path": "/shots/1/AVGROTATIONDEGREES_RANK",
+          "value": 3
+        },
+        {
+          "path": "/shots/1/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 2
+        },
+        {
+          "path": "/shots/2/AVGDEFENSIVEHANDHEIGHT",
+          "value": 57.213
+        },
+        {
+          "path": "/shots/2/AVGSHOOTERSPEED",
+          "value": 3.045
+        },
+        {
+          "path": "/shots/2/AVGROTATIONDEGREES",
+          "value": 34.216
+        },
+        {
+          "path": "/shots/2/AVGDEFENDERPRESSURESCORE",
+          "value": 0.873
+        },
+        {
+          "path": "/shots/2/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 5
+        },
+        {
+          "path": "/shots/2/AVGSHOOTERSPEED_RANK",
+          "value": 74
+        },
+        {
+          "path": "/shots/2/AVGROTATIONDEGREES_RANK",
+          "value": 31
+        },
+        {
+          "path": "/shots/2/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 3
+        },
+        {
+          "path": "/shots/3/AVGDEFENSIVEHANDHEIGHT",
+          "value": 16.33
+        },
+        {
+          "path": "/shots/3/AVGSHOOTERSPEED",
+          "value": 6.695
+        },
+        {
+          "path": "/shots/3/AVGROTATIONDEGREES",
+          "value": 45.31
+        },
+        {
+          "path": "/shots/3/AVGDEFENDERPRESSURESCORE",
+          "value": 0.869
+        },
+        {
+          "path": "/shots/3/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 75
+        },
+        {
+          "path": "/shots/3/AVGSHOOTERSPEED_RANK",
+          "value": 14
+        },
+        {
+          "path": "/shots/3/AVGROTATIONDEGREES_RANK",
+          "value": 11
+        },
+        {
+          "path": "/shots/3/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 4
+        },
+        {
+          "path": "/shots/4/AVGDEFENSIVEHANDHEIGHT",
+          "value": 58.155
+        },
+        {
+          "path": "/shots/4/AVGSHOOTERSPEED",
+          "value": 5.075
+        },
+        {
+          "path": "/shots/4/AVGROTATIONDEGREES",
+          "value": 34.246
+        },
+        {
+          "path": "/shots/4/AVGDEFENDERPRESSURESCORE",
+          "value": 0.868
+        },
+        {
+          "path": "/shots/4/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 4
+        },
+        {
+          "path": "/shots/4/AVGSHOOTERSPEED_RANK",
+          "value": 39
+        },
+        {
+          "path": "/shots/4/AVGROTATIONDEGREES_RANK",
+          "value": 30
+        },
+        {
+          "path": "/shots/4/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 5
+        },
+        {
+          "path": "/shots/5/AVGDEFENSIVEHANDHEIGHT",
+          "value": 52.215
+        },
+        {
+          "path": "/shots/5/AVGSHOOTERSPEED",
+          "value": 5.477
+        },
+        {
+          "path": "/shots/5/AVGROTATIONDEGREES",
+          "value": 39.757
+        },
+        {
+          "path": "/shots/5/AVGDEFENDERPRESSURESCORE",
+          "value": 0.868
+        },
+        {
+          "path": "/shots/5/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 13
+        },
+        {
+          "path": "/shots/5/AVGSHOOTERSPEED_RANK",
+          "value": 28
+        },
+        {
+          "path": "/shots/5/AVGROTATIONDEGREES_RANK",
+          "value": 19
+        },
+        {
+          "path": "/shots/5/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 6
+        },
+        {
+          "path": "/shots/6/AVGDEFENSIVEHANDHEIGHT",
+          "value": 48.219
+        },
+        {
+          "path": "/shots/6/AVGSHOOTERSPEED",
+          "value": 4.914
+        },
+        {
+          "path": "/shots/6/AVGROTATIONDEGREES",
+          "value": 33.63
+        },
+        {
+          "path": "/shots/6/AVGDEFENDERPRESSURESCORE",
+          "value": 0.866
+        },
+        {
+          "path": "/shots/6/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 28
+        },
+        {
+          "path": "/shots/6/AVGSHOOTERSPEED_RANK",
+          "value": 44
+        },
+        {
+          "path": "/shots/6/AVGROTATIONDEGREES_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/6/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 7
+        },
+        {
+          "path": "/shots/7/AVGDEFENSIVEHANDHEIGHT",
+          "value": 48.189
+        },
+        {
+          "path": "/shots/7/AVGSHOOTERSPEED",
+          "value": 4.006
+        },
+        {
+          "path": "/shots/7/AVGROTATIONDEGREES",
+          "value": 43.445
+        },
+        {
+          "path": "/shots/7/AVGDEFENDERPRESSURESCORE",
+          "value": 0.866
+        },
+        {
+          "path": "/shots/7/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 30
+        },
+        {
+          "path": "/shots/7/AVGSHOOTERSPEED_RANK",
+          "value": 65
+        },
+        {
+          "path": "/shots/7/AVGROTATIONDEGREES_RANK",
+          "value": 12
+        },
+        {
+          "path": "/shots/7/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 8
+        },
+        {
+          "path": "/shots/8/AVGDEFENSIVEHANDHEIGHT",
+          "value": 47.983
+        },
+        {
+          "path": "/shots/8/AVGSHOOTERSPEED",
+          "value": 2.071
+        },
+        {
+          "path": "/shots/8/AVGROTATIONDEGREES",
+          "value": 31.319
+        },
+        {
+          "path": "/shots/8/AVGDEFENDERPRESSURESCORE",
+          "value": 0.864
+        },
+        {
+          "path": "/shots/8/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/8/AVGSHOOTERSPEED_RANK",
+          "value": 75
+        },
+        {
+          "path": "/shots/8/AVGROTATIONDEGREES_RANK",
+          "value": 37
+        },
+        {
+          "path": "/shots/8/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 9
+        },
+        {
+          "path": "/shots/9/AVGDEFENSIVEHANDHEIGHT",
+          "value": 48.975
+        },
+        {
+          "path": "/shots/9/AVGSHOOTERSPEED",
+          "value": 5.389
+        },
+        {
+          "path": "/shots/9/AVGROTATIONDEGREES",
+          "value": 46.595
+        },
+        {
+          "path": "/shots/9/AVGDEFENDERPRESSURESCORE",
+          "value": 0.861
+        },
+        {
+          "path": "/shots/9/AVGDEFENSIVEHANDHEIGHT_RANK",
+          "value": 24
+        },
+        {
+          "path": "/shots/9/AVGSHOOTERSPEED_RANK",
+          "value": 32
+        },
+        {
+          "path": "/shots/9/AVGROTATIONDEGREES_RANK",
+          "value": 9
+        },
+        {
+          "path": "/shots/9/AVGDEFENDERPRESSURESCORE_RANK",
+          "value": 10
+        }
+      ]
+    }
+  ],
+  "extras": [
+    {
+      "url": "https://www.wnba.com/api/stats/shot-quality",
+      "params": {
+        "season": "2025-26",
+        "seasonType": "Regular Season"
+      },
+      "status": 200,
+      "bytes": 63772,
+      "final_url": "https://www.wnba.com/api/stats/shot-quality?season=2025-26&seasonType=Regular+Season",
+      "ct": "application/json; charset=utf-8",
+      "sha256": "5dc182f0b09a91bd70d0903518b4438d9764a93fdc4d70a3969ee2251a85595a",
+      "top_keys": [
+        "performers"
+      ],
+      "target_hits": [],
+      "lists": [
+        {
+          "path": "/performers",
+          "count": 127,
+          "keys": [
+            "gameId",
+            "gameDate",
+            "matchup",
+            "playerId",
+            "firstName",
+            "lastName",
+            "playerName",
+            "jerseyNum",
+            "position",
+            "teamId",
+            "teamCity",
+            "teamName",
+            "teamAbbreviation",
+            "shots",
+            "avgShotQuality",
+            "fgPct",
+            "fgPctAboveExpected",
+            "thumbnail",
+            "totalDuration"
+          ],
+          "sample": [
+            {
+              "gameId": "1022500156",
+              "gameDate": "07/25/2025",
+              "matchup": "LVA @ MIN",
+              "playerId": 1627675,
+              "firstName": "Courtney",
+              "lastName": "Williams",
+              "playerName": "Courtney Williams",
+              "jerseyNum": "10",
+              "position": "G",
+              "teamId": 1611661324,
+              "teamCity": "Minnesota",
+              "teamName": "Lynx",
+              "teamAbbreviation": "MIN",
+              "shots": 12,
+              "avgShotQuality": 0.37,
+              "fgPct": 0.833,
+              "fgPctAboveExpected": 0.463,
+              "thumbnail": "https://videos.nba.com/wnba/pbp/media/2025/07/25/1022500156/10/fd3c0475-e9c1-8050-b1ba-90c71a684712_320x180.jpg",
+              "totalDuration": 121764
+            },
+            {
+              "gameId": "1022500030",
+              "gameDate": "05/27/2025",
+              "matchup": "ATL @ LAS",
+              "playerId": 1628277,
+              "firstName": "Allisha",
+              "lastName": "Gray",
+              "playerName": "Allisha Gray",
+              "jerseyNum": "15",
+              "position": "G",
+              "teamId": 1611661330,
+              "teamCity": "Atlanta",
+              "teamName": "Dream",
+              "teamAbbreviation": "ATL",
+              "shots": 10,
+              "avgShotQuality": 0.418,
+              "fgPct": 0.875,
+              "fgPctAboveExpected": 0.457,
+              "thumbnail": "https://videos.nba.com/wnba/pbp/media/2025/05/27/1022500030/7/35da6c24-e957-4af5-7a95-14e93a8c4f19_320x180.jpg",
+              "totalDuration": 95929
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://www.wnba.com/api/stats/shot-quality",
+      "params": {
+        "season": "2025-26",
+        "seasonType": "Regular Season",
+        "LeagueID": "00"
+      },
+      "status": 200,
+      "bytes": 63772,
+      "final_url": "https://www.wnba.com/api/stats/shot-quality?season=2025-26&seasonType=Regular+Season&LeagueID=00",
+      "ct": "application/json; charset=utf-8",
+      "sha256": "5dc182f0b09a91bd70d0903518b4438d9764a93fdc4d70a3969ee2251a85595a",
+      "top_keys": [
+        "performers"
+      ],
+      "target_hits": [],
+      "lists": [
+        {
+          "path": "/performers",
+          "count": 127,
+          "keys": [
+            "gameId",
+            "gameDate",
+            "matchup",
+            "playerId",
+            "firstName",
+            "lastName",
+            "playerName",
+            "jerseyNum",
+            "position",
+            "teamId",
+            "teamCity",
+            "teamName",
+            "teamAbbreviation",
+            "shots",
+            "avgShotQuality",
+            "fgPct",
+            "fgPctAboveExpected",
+            "thumbnail",
+            "totalDuration"
+          ],
+          "sample": [
+            {
+              "gameId": "1022500156",
+              "gameDate": "07/25/2025",
+              "matchup": "LVA @ MIN",
+              "playerId": 1627675,
+              "firstName": "Courtney",
+              "lastName": "Williams",
+              "playerName": "Courtney Williams",
+              "jerseyNum": "10",
+              "position": "G",
+              "teamId": 1611661324,
+              "teamCity": "Minnesota",
+              "teamName": "Lynx",
+              "teamAbbreviation": "MIN",
+              "shots": 12,
+              "avgShotQuality": 0.37,
+              "fgPct": 0.833,
+              "fgPctAboveExpected": 0.463,
+              "thumbnail": "https://videos.nba.com/wnba/pbp/media/2025/07/25/1022500156/10/fd3c0475-e9c1-8050-b1ba-90c71a684712_320x180.jpg",
+              "totalDuration": 121764
+            },
+            {
+              "gameId": "1022500030",
+              "gameDate": "05/27/2025",
+              "matchup": "ATL @ LAS",
+              "playerId": 1628277,
+              "firstName": "Allisha",
+              "lastName": "Gray",
+              "playerName": "Allisha Gray",
+              "jerseyNum": "15",
+              "position": "G",
+              "teamId": 1611661330,
+              "teamCity": "Atlanta",
+              "teamName": "Dream",
+              "teamAbbreviation": "ATL",
+              "shots": 10,
+              "avgShotQuality": 0.418,
+              "fgPct": 0.875,
+              "fgPctAboveExpected": 0.457,
+              "thumbnail": "https://videos.nba.com/wnba/pbp/media/2025/05/27/1022500030/7/35da6c24-e957-4af5-7a95-14e93a8c4f19_320x180.jpg",
+              "totalDuration": 95929
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://www.wnba.com/api/stats/shot-quality",
+      "params": {
+        "season": "2025-26",
+        "seasonType": "Regular Season",
+        "leagueId": "00"
+      },
+      "status": 200,
+      "bytes": 63772,
+      "final_url": "https://www.wnba.com/api/stats/shot-quality?season=2025-26&seasonType=Regular+Season&leagueId=00",
+      "ct": "application/json; charset=utf-8",
+      "sha256": "5dc182f0b09a91bd70d0903518b4438d9764a93fdc4d70a3969ee2251a85595a",
+      "top_keys": [
+        "performers"
+      ],
+      "target_hits": [],
+      "lists": [
+        {
+          "path": "/performers",
+          "count": 127,
+          "keys": [
+            "gameId",
+            "gameDate",
+            "matchup",
+            "playerId",
+            "firstName",
+            "lastName",
+            "playerName",
+            "jerseyNum",
+            "position",
+            "teamId",
+            "teamCity",
+            "teamName",
+            "teamAbbreviation",
+            "shots",
+            "avgShotQuality",
+            "fgPct",
+            "fgPctAboveExpected",
+            "thumbnail",
+            "totalDuration"
+          ],
+          "sample": [
+            {
+              "gameId": "1022500156",
+              "gameDate": "07/25/2025",
+              "matchup": "LVA @ MIN",
+              "playerId": 1627675,
+              "firstName": "Courtney",
+              "lastName": "Williams",
+              "playerName": "Courtney Williams",
+              "jerseyNum": "10",
+              "position": "G",
+              "teamId": 1611661324,
+              "teamCity": "Minnesota",
+              "teamName": "Lynx",
+              "teamAbbreviation": "MIN",
+              "shots": 12,
+              "avgShotQuality": 0.37,
+              "fgPct": 0.833,
+              "fgPctAboveExpected": 0.463,
+              "thumbnail": "https://videos.nba.com/wnba/pbp/media/2025/07/25/1022500156/10/fd3c0475-e9c1-8050-b1ba-90c71a684712_320x180.jpg",
+              "totalDuration": 121764
+            },
+            {
+              "gameId": "1022500030",
+              "gameDate": "05/27/2025",
+              "matchup": "ATL @ LAS",
+              "playerId": 1628277,
+              "firstName": "Allisha",
+              "lastName": "Gray",
+              "playerName": "Allisha Gray",
+              "jerseyNum": "15",
+              "position": "G",
+              "teamId": 1611661330,
+              "teamCity": "Atlanta",
+              "teamName": "Dream",
+              "teamAbbreviation": "ATL",
+              "shots": 10,
+              "avgShotQuality": 0.418,
+              "fgPct": 0.875,
+              "fgPctAboveExpected": 0.457,
+              "thumbnail": "https://videos.nba.com/wnba/pbp/media/2025/05/27/1022500030/7/35da6c24-e957-4af5-7a95-14e93a8c4f19_320x180.jpg",
+              "totalDuration": 95929
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://www.wnba.com/api/stats/shot-quality-shooting",
+      "params": {
+        "gameDate": "10/21/2025"
+      },
+      "status": 502,
+      "bytes": 46,
+      "final_url": "https://www.wnba.com/api/stats/shot-quality-shooting?gameDate=10%2F21%2F2025",
+      "ct": "application/json; charset=utf-8",
+      "sha256": "e5f3277b3754d3edbd62011da748fc5c65f1c8b828d43ef56ea7de61378cb2f0",
+      "prefix": "{\"error\":\"Error: 500 Internal Server Error: \"}"
+    },
+    {
+      "url": "https://www.wnba.com/api/stats/shot-quality-shooting",
+      "params": {
+        "gameDate": "11/01/2025"
+      },
+      "status": 502,
+      "bytes": 46,
+      "final_url": "https://www.wnba.com/api/stats/shot-quality-shooting?gameDate=11%2F01%2F2025",
+      "ct": "application/json; charset=utf-8",
+      "sha256": "e5f3277b3754d3edbd62011da748fc5c65f1c8b828d43ef56ea7de61378cb2f0",
+      "prefix": "{\"error\":\"Error: 500 Internal Server Error: \"}"
+    },
+    {
+      "url": "https://www.wnba.com/api/stats/shot-quality-shooting",
+      "params": {
+        "gameDate": "4/12/2026"
+      },
+      "status": 502,
+      "bytes": 46,
+      "final_url": "https://www.wnba.com/api/stats/shot-quality-shooting?gameDate=4%2F12%2F2026",
+      "ct": "application/json; charset=utf-8",
+      "sha256": "e5f3277b3754d3edbd62011da748fc5c65f1c8b828d43ef56ea7de61378cb2f0",
+      "prefix": "{\"error\":\"Error: 500 Internal Server Error: \"}"
+    }
+  ]
+}
