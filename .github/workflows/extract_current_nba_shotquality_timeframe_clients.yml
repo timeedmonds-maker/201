@@ -1,0 +1,62 @@
+name: Extract current NBA shot-quality timeframe clients
+
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/extract_current_nba_shotquality_timeframe_clients.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-all-players-2025-26}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests beautifulsoup4
+      - name: Fetch current NBA pages/scripts and extract resource modules
+        run: |
+          python - <<'PY'
+          import requests,re,json,pathlib
+          from urllib.parse import urljoin
+          H={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/137.0 Safari/537.36','Accept-Language':'en-US,en;q=0.9'}
+          pages=['https://www.nba.com/inside-the-game','https://www.nba.com/inside-the-game/shot-difficulty']
+          needles=['shotqualityleaderstimeframe','shotqualitytopperformerstimeframe','shotqualitytopperformersseason','shotqualityleaders','gravityleaderstimeframe']
+          hits=[]; scripts={}
+          for page in pages:
+            r=requests.get(page,headers=H,timeout=30); html=r.text
+            for src in re.findall(r'<script[^>]+src=["\']([^"\']+)',html,re.I):
+              u=urljoin(r.url,src); scripts[u]=None
+          for i,u in enumerate(scripts):
+            try:
+              r=requests.get(u,headers={**H,'Referer':pages[0]},timeout=30); t=r.text
+              if r.status_code!=200: continue
+              low=t.lower()
+              for n in needles:
+                pos=0
+                while True:
+                  j=low.find(n,pos)
+                  if j<0: break
+                  hits.append({'needle':n,'url':u,'offset':j,'context':t[max(0,j-12000):min(len(t),j+24000)]})
+                  pos=j+len(n)
+            except Exception as e: pass
+          d=pathlib.Path('outputs/current_nba_shotquality_clients');d.mkdir(parents=True,exist_ok=True)
+          (d/'hits.json').write_text(json.dumps(hits,indent=2,ensure_ascii=False),encoding='utf-8')
+          with (d/'hits.txt').open('w',encoding='utf-8') as f:
+            for h in hits:f.write('\n\n### '+h['needle']+' '+h['url']+' '+str(h['offset'])+'\n'+h['context'])
+          print('scripts',len(scripts),'hits',len(hits))
+          for h in hits:print(h['needle'],h['url'],h['offset'])
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/current_nba_shotquality_clients
+          git commit -m 'Preserve current NBA shot-quality client contexts' || exit 0
+          git pull --rebase origin analysis/hawkeye-all-players-2025-26
+          git push origin HEAD:analysis/hawkeye-all-players-2025-26
