@@ -1,0 +1,54 @@
+name: QA Hawk-Eye leaderboard qualification rule
+
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/qa_hawkeye_qualification_rule.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-all-players-2025-26}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Identify exact qualification boundary
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,datetime
+          B='https://stats.gleague.nba.com/stats/'
+          H={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/137.0 Safari/537.36','Origin':'https://www.nba.com','Referer':'https://www.nba.com/','Accept':'application/json,text/plain,*/*','x-nba-stats-origin':'stats','x-nba-stats-token':'true'}
+          s=requests.Session();s.headers.update(H); p={'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season'}
+          leaders=s.get(B+'shotqualityleaders',params=p,timeout=60).json()['shots']; q={str(x['PLAYERID']) for x in leaders}
+          j=s.get(B+'leaguegamelog',params={**p,'PlayerOrTeam':'P','Counter':'0','Sorter':'DATE','Direction':'DESC','DateFrom':'','DateTo':''},timeout=60).json()
+          rs=j.get('resultSets') or j.get('resultSet');rs=rs[0] if isinstance(rs,list) else rs;ix={k:i for i,k in enumerate(rs['headers'])}
+          P={}
+          for row in rs['rowSet']:
+            pid=str(row[ix['PLAYER_ID']]);x=P.setdefault(pid,{'player_id':pid,'player_name':row[ix['PLAYER_NAME']],'fgm':0,'fga':0,'games':0})
+            x['games']+=1;x['fgm']+=int(row[ix['FGM']] or 0);x['fga']+=int(row[ix['FGA']] or 0)
+          rows=[]
+          for pid,x in P.items():x['qualified']=pid in q;rows.append(x)
+          qual=sorted([x for x in rows if x['qualified']],key=lambda x:x['fgm']);unq=sorted([x for x in rows if not x['qualified']],key=lambda x:x['fgm'],reverse=True)
+          tests=[]
+          for n in range(1,601):
+            pred={pid for pid,x in P.items() if x['fgm']>=n}
+            if pred==q:tests.append(n)
+          out=pathlib.Path('outputs/hawkeye_qualification_qa');out.mkdir(parents=True,exist_ok=True)
+          summary={'retrieved_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'qualified_count':len(q),'universe_count':len(P),'min_qualified_by_fgm':qual[:20],'max_unqualified_by_fgm':unq[:20],'exact_fgm_thresholds_matching_set':tests,'qualified_fgm_range':[min(x['fgm'] for x in qual),max(x['fgm'] for x in qual)],'unqualified_fgm_range':[min(x['fgm'] for x in unq),max(x['fgm'] for x in unq)]}
+          (out/'summary.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps(summary,indent=2,ensure_ascii=False))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hawkeye_qualification_qa
+          git diff --cached --quiet && exit 0
+          git commit -m 'QA Hawk-Eye qualification boundary'
+          for i in 1 2 3 4 5; do git pull --rebase origin analysis/hawkeye-all-players-2025-26 && git push origin HEAD:analysis/hawkeye-all-players-2025-26 && exit 0; sleep $((i*2)); done
+          exit 1
