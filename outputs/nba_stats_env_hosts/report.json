@@ -1,0 +1,164 @@
+[
+  {
+    "url": "https://dev.stats.nba.com/stats/shotqualityleaders",
+    "variant": "all",
+    "transport": "requests",
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='dev.stats.nba.com', port=443): Read timed out. (read timeout=12)\"))"
+  },
+  {
+    "url": "https://dev.stats.nba.com/stats/shotqualityleaders",
+    "variant": "pj",
+    "transport": "requests",
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='dev.stats.nba.com', port=443): Read timed out. (read timeout=12)\"))"
+  },
+  {
+    "url": "https://dev.stats.nba.com/stats/shotqualityleaders",
+    "variant": "love",
+    "transport": "requests",
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='dev.stats.nba.com', port=443): Read timed out. (read timeout=12)\"))"
+  },
+  {
+    "url": "https://stats.nba.com/stats/shotqualityleaders",
+    "variant": "all",
+    "transport": "requests",
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=12)\"))"
+  },
+  {
+    "url": "https://stats.nba.com/stats/shotqualityleaders",
+    "variant": "pj",
+    "transport": "requests",
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=12)\"))"
+  },
+  {
+    "url": "https://stats.nba.com/stats/shotqualityleaders",
+    "variant": "love",
+    "transport": "requests",
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=12)\"))"
+  },
+  {
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders",
+    "variant": "all",
+    "transport": "requests",
+    "status": 200,
+    "bytes": 174916,
+    "shots": 125,
+    "target": false,
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "location": null,
+    "prefix": ""
+  },
+  {
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders",
+    "variant": "pj",
+    "transport": "requests",
+    "status": 200,
+    "bytes": 92,
+    "shots": 0,
+    "target": false,
+    "sha256": "dfeef8a59bda8a3037671ff420c27b21f628b5015f776d5d1c1f2c0600045101",
+    "location": null,
+    "prefix": "{\"params\":{\"leagueId\":\"00\",\"seasonType\":\"Regular Season\",\"seasonYear\":\"2025-26\"},\"shots\":[]}"
+  },
+  {
+    "url": "https://stats.gleague.nba.com/stats/shotqualityleaders",
+    "variant": "love",
+    "transport": "requests",
+    "status": 200,
+    "bytes": 92,
+    "shots": 0,
+    "target": false,
+    "sha256": "dfeef8a59bda8a3037671ff420c27b21f628b5015f776d5d1c1f2c0600045101",
+    "location": null,
+    "prefix": "{\"params\":{\"leagueId\":\"00\",\"seasonType\":\"Regular Season\",\"seasonYear\":\"2025-26\"},\"shots\":[]}"
+  },
+  {
+    "url": "https://origin-stats-trafficcop-prod.internal.nba.com/stats/shotqualityleaders",
+    "variant": "all",
+    "transport": "requests",
+    "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'origin-stats-trafficcop-prod.internal.nba.com\\', port=443): Max retries exceeded with url: /stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season (Caused by NameResolutionError(\"HTTPSConnection(host=\\'origin-stats-trafficcop-prod.internal.nba.com\\', port=443): Failed to resolve \\'origin-stats-trafficcop-prod.internal.nba.com\\' ([Errno -2] Name or service not known)\"))'))"
+  },
+  {
+    "url": "https://origin-stats-trafficcop-prod.internal.nba.com/stats/shotqualityleaders",
+    "variant": "pj",
+    "transport": "requests",
+    "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'origin-stats-trafficcop-prod.internal.nba.com\\', port=443): Max retries exceeded with url: /stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=1629023 (Caused by NameResolutionError(\"HTTPSConnection(host=\\'origin-stats-trafficcop-prod.internal.nba.com\\', port=443): Failed to resolve \\'origin-stats-trafficcop-prod.internal.nba.com\\' ([Errno -2] Name or service not known)\"))'))"
+  },
+  {
+    "url": "https://origin-stats-trafficcop-prod.internal.nba.com/stats/shotqualityleaders",
+    "variant": "love",
+    "transport": "requests",
+    "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'origin-stats-trafficcop-prod.internal.nba.com\\', port=443): Max retries exceeded with url: /stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=201567 (Caused by NameResolutionError(\"HTTPSConnection(host=\\'origin-stats-trafficcop-prod.internal.nba.com\\', port=443): Failed to resolve \\'origin-stats-trafficcop-prod.internal.nba.com\\' ([Errno -2] Name or service not known)\"))'))"
+  },
+  {
+    "url": "https://origin-stats-trafficcop-dev.internal.nba.com/stats/shotqualityleaders",
+    "variant": "all",
+    "transport": "requests",
+    "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'origin-stats-trafficcop-dev.internal.nba.com\\', port=443): Max retries exceeded with url: /stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season (Caused by NameResolutionError(\"HTTPSConnection(host=\\'origin-stats-trafficcop-dev.internal.nba.com\\', port=443): Failed to resolve \\'origin-stats-trafficcop-dev.internal.nba.com\\' ([Errno -2] Name or service not known)\"))'))"
+  },
+  {
+    "url": "https://origin-stats-trafficcop-dev.internal.nba.com/stats/shotqualityleaders",
+    "variant": "pj",
+    "transport": "requests",
+    "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'origin-stats-trafficcop-dev.internal.nba.com\\', port=443): Max retries exceeded with url: /stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=1629023 (Caused by NameResolutionError(\"HTTPSConnection(host=\\'origin-stats-trafficcop-dev.internal.nba.com\\', port=443): Failed to resolve \\'origin-stats-trafficcop-dev.internal.nba.com\\' ([Errno -2] Name or service not known)\"))'))"
+  },
+  {
+    "url": "https://origin-stats-trafficcop-dev.internal.nba.com/stats/shotqualityleaders",
+    "variant": "love",
+    "transport": "requests",
+    "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'origin-stats-trafficcop-dev.internal.nba.com\\', port=443): Max retries exceeded with url: /stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=201567 (Caused by NameResolutionError(\"HTTPSConnection(host=\\'origin-stats-trafficcop-dev.internal.nba.com\\', port=443): Failed to resolve \\'origin-stats-trafficcop-dev.internal.nba.com\\' ([Errno -2] Name or service not known)\"))'))"
+  },
+  {
+    "url": "https://origin-stats-trafficcop-qa.internal.nba.com/stats/shotqualityleaders",
+    "variant": "all",
+    "transport": "requests",
+    "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'origin-stats-trafficcop-qa.internal.nba.com\\', port=443): Max retries exceeded with url: /stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season (Caused by NameResolutionError(\"HTTPSConnection(host=\\'origin-stats-trafficcop-qa.internal.nba.com\\', port=443): Failed to resolve \\'origin-stats-trafficcop-qa.internal.nba.com\\' ([Errno -2] Name or service not known)\"))'))"
+  },
+  {
+    "url": "https://origin-stats-trafficcop-qa.internal.nba.com/stats/shotqualityleaders",
+    "variant": "pj",
+    "transport": "requests",
+    "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'origin-stats-trafficcop-qa.internal.nba.com\\', port=443): Max retries exceeded with url: /stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=1629023 (Caused by NameResolutionError(\"HTTPSConnection(host=\\'origin-stats-trafficcop-qa.internal.nba.com\\', port=443): Failed to resolve \\'origin-stats-trafficcop-qa.internal.nba.com\\' ([Errno -2] Name or service not known)\"))'))"
+  },
+  {
+    "url": "https://origin-stats-trafficcop-qa.internal.nba.com/stats/shotqualityleaders",
+    "variant": "love",
+    "transport": "requests",
+    "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'origin-stats-trafficcop-qa.internal.nba.com\\', port=443): Max retries exceeded with url: /stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=201567 (Caused by NameResolutionError(\"HTTPSConnection(host=\\'origin-stats-trafficcop-qa.internal.nba.com\\', port=443): Failed to resolve \\'origin-stats-trafficcop-qa.internal.nba.com\\' ([Errno -2] Name or service not known)\"))'))"
+  },
+  {
+    "url": "https://origin-stats-trafficcop-prod.nba.com/stats/shotqualityleaders",
+    "variant": "all",
+    "transport": "requests",
+    "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'origin-stats-trafficcop-prod.nba.com\\', port=443): Max retries exceeded with url: /stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season (Caused by NameResolutionError(\"HTTPSConnection(host=\\'origin-stats-trafficcop-prod.nba.com\\', port=443): Failed to resolve \\'origin-stats-trafficcop-prod.nba.com\\' ([Errno -2] Name or service not known)\"))'))"
+  },
+  {
+    "url": "https://origin-stats-trafficcop-prod.nba.com/stats/shotqualityleaders",
+    "variant": "pj",
+    "transport": "requests",
+    "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'origin-stats-trafficcop-prod.nba.com\\', port=443): Max retries exceeded with url: /stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=1629023 (Caused by NameResolutionError(\"HTTPSConnection(host=\\'origin-stats-trafficcop-prod.nba.com\\', port=443): Failed to resolve \\'origin-stats-trafficcop-prod.nba.com\\' ([Errno -2] Name or service not known)\"))'))"
+  },
+  {
+    "url": "https://origin-stats-trafficcop-prod.nba.com/stats/shotqualityleaders",
+    "variant": "love",
+    "transport": "requests",
+    "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'origin-stats-trafficcop-prod.nba.com\\', port=443): Max retries exceeded with url: /stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=201567 (Caused by NameResolutionError(\"HTTPSConnection(host=\\'origin-stats-trafficcop-prod.nba.com\\', port=443): Failed to resolve \\'origin-stats-trafficcop-prod.nba.com\\' ([Errno -2] Name or service not known)\"))'))"
+  },
+  {
+    "url": "https://origin-stats-trafficcop.nba.com/stats/shotqualityleaders",
+    "variant": "all",
+    "transport": "requests",
+    "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'origin-stats-trafficcop.nba.com\\', port=443): Max retries exceeded with url: /stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season (Caused by NameResolutionError(\"HTTPSConnection(host=\\'origin-stats-trafficcop.nba.com\\', port=443): Failed to resolve \\'origin-stats-trafficcop.nba.com\\' ([Errno -2] Name or service not known)\"))'))"
+  },
+  {
+    "url": "https://origin-stats-trafficcop.nba.com/stats/shotqualityleaders",
+    "variant": "pj",
+    "transport": "requests",
+    "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'origin-stats-trafficcop.nba.com\\', port=443): Max retries exceeded with url: /stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=1629023 (Caused by NameResolutionError(\"HTTPSConnection(host=\\'origin-stats-trafficcop.nba.com\\', port=443): Failed to resolve \\'origin-stats-trafficcop.nba.com\\' ([Errno -2] Name or service not known)\"))'))"
+  },
+  {
+    "url": "https://origin-stats-trafficcop.nba.com/stats/shotqualityleaders",
+    "variant": "love",
+    "transport": "requests",
+    "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'origin-stats-trafficcop.nba.com\\', port=443): Max retries exceeded with url: /stats/shotqualityleaders?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=201567 (Caused by NameResolutionError(\"HTTPSConnection(host=\\'origin-stats-trafficcop.nba.com\\', port=443): Failed to resolve \\'origin-stats-trafficcop.nba.com\\' ([Errno -2] Name or service not known)\"))'))"
+  }
+]
