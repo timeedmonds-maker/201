@@ -1,0 +1,77 @@
+name: Probe Hawk-Eye FGM qualification bypass
+
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/probe_hawkeye_fgm_threshold_bypass.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-all-players-2025-26}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Probe likely made-field-goal qualification parameters
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,hashlib,time
+          u='https://stats.gleague.nba.com/stats/shotqualityleaders'
+          h={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/137.0 Safari/537.36','Origin':'https://www.nba.com','Referer':'https://www.nba.com/','Accept':'application/json,text/plain,*/*','x-nba-stats-origin':'stats','x-nba-stats-token':'true'}
+          s=requests.Session();s.headers.update(h)
+          base={'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season'}
+          names=[
+            'MinFGM','MinimumFGM','FGMThreshold','QualifyingFGM','QualifierFGM','MinMakes','MinimumMakes','MakesThreshold',
+            'MinFieldGoalsMade','MinimumFieldGoalsMade','MinFieldGoalMakes','MinimumFieldGoalMakes','MinimumFieldGoals','MinFieldGoals',
+            'MinMadeShots','MinimumMadeShots','MinShotsMade','MinimumShotsMade','FGMMin','minFgm','minimumFgm','minFieldGoalsMade',
+            'MinimumQualifiedFGM','QualifiedFGM','QualificationFGM','FieldGoalsMadeThreshold','MadeFieldGoalsThreshold','MinMadeFieldGoals'
+          ]
+          variants=[('control',{})]
+          for n in names:
+            for v in ['0','1']:
+              variants.append((f'{n}={v}',{n:v}))
+          # Also try likely booleans / mode switches coupled to FGM minimum.
+          variants += [
+            ('Qualified=false+MinFGM=0',{'Qualified':'false','MinFGM':'0'}),
+            ('QualifiersOnly=false+MinFGM=0',{'QualifiersOnly':'false','MinFGM':'0'}),
+            ('IncludeUnqualified=true+MinFGM=0',{'IncludeUnqualified':'true','MinFGM':'0'}),
+            ('Qualified=false+MinimumFGM=0',{'Qualified':'false','MinimumFGM':'0'}),
+            ('QualifiersOnly=false+MinimumFGM=0',{'QualifiersOnly':'false','MinimumFGM':'0'}),
+          ]
+          controls=[('PJ Washington','1629023'),('Kevin Love','201567'),('Tosan Evbuomwan','1641787')]
+          out=[]
+          for label,extra in variants:
+            # broad response
+            try:
+              r=s.get(u,params={**base,**extra},timeout=25);j=r.json() if r.status_code==200 else {};shots=j.get('shots',[]) if isinstance(j,dict) else []
+              rec={'label':label,'extra':extra,'status':r.status_code,'bytes':len(r.content),'count':len(shots),'sha256':hashlib.sha256(r.content).hexdigest(),'params_echo':j.get('params') if isinstance(j,dict) else None}
+              ids={str(x.get('PLAYERID')) for x in shots}
+              rec['control_presence']={name:(pid in ids) for name,pid in controls}
+              if len(shots)!=125 or any(rec['control_presence'].values()):
+                rec['first_players']=[x.get('PLAYERNAME') for x in shots[:10]]
+              out.append(rec)
+            except Exception as e: out.append({'label':label,'extra':extra,'error':repr(e)})
+            time.sleep(.03)
+          d=pathlib.Path('outputs/hawkeye_fgm_threshold_probe');d.mkdir(parents=True,exist_ok=True)
+          (d/'report.json').write_text(json.dumps(out,indent=2,ensure_ascii=False),encoding='utf-8')
+          interesting=[x for x in out if x.get('count')!=125 or any((x.get('control_presence') or {}).values())]
+          (d/'interesting.json').write_text(json.dumps(interesting,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps({'requests':len(out),'interesting':interesting},indent=2,ensure_ascii=False))
+          PY
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hawkeye_fgm_threshold_probe || true
+          git diff --cached --quiet && exit 0
+          git commit -m 'Preserve Hawk-Eye FGM threshold probe'
+          for i in 1 2 3 4 5; do git pull --rebase origin analysis/hawkeye-all-players-2025-26 && git push origin HEAD:analysis/hawkeye-all-players-2025-26 && exit 0; sleep $((i*2)); done
+          exit 1
