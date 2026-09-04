@@ -1,0 +1,93 @@
+{
+  "pages": [
+    {
+      "url": "https://www.wnba.com/stats/inside-the-game",
+      "status": 200,
+      "bytes": 183817
+    },
+    {
+      "url": "https://www.wnba.com/stats/inside-the-game/shot-difficulty",
+      "status": 200,
+      "bytes": 189537
+    }
+  ],
+  "script_count": 15,
+  "scripts": [
+    {
+      "url": "https://cdn.nba.com/user-consent/index.min.js",
+      "status": 200,
+      "bytes": 18292
+    },
+    {
+      "url": "https://www.wnba.com/Lvw6ZG/Xz/oH/9rdw/LDz9Nh74vmJIA/Ytw1bzEbNYb1EO/IDZSAQ/VlAxK/XUALEMB",
+      "status": 200,
+      "bytes": 535633
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/4_6g5XQe5hGVuoMnmFXJm/_buildManifest.js",
+      "status": 200,
+      "bytes": 18228
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/4_6g5XQe5hGVuoMnmFXJm/_ssgManifest.js",
+      "status": 200,
+      "bytes": 91
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/3311-e90a7d40e14833d6.js",
+      "status": 200,
+      "bytes": 20780
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/3854-15ae1a076624ca65.js",
+      "status": 200,
+      "bytes": 16037
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/3923-7467b105279e3589.js",
+      "status": 200,
+      "bytes": 19216
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/523-fcd4956c2ca7db99.js",
+      "status": 200,
+      "bytes": 56871
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/framework-b0ec748c7a4c483a.js",
+      "status": 200,
+      "bytes": 140040
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/main-a0c9a6bd28bf8556.js",
+      "status": 200,
+      "bytes": 116849
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/pages/_app-a02772bdeee21ecb.js",
+      "status": 200,
+      "bytes": 3743322
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/pages/stats/inside-the-game-3ba8df66c2f5d4a2.js",
+      "status": 200,
+      "bytes": 282
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/pages/stats/inside-the-game/shot-difficulty-14d5ba97f552d155.js",
+      "status": 200,
+      "bytes": 289
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "status": 200,
+      "bytes": 112594
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/webpack-6f7b1042af2a14b6.js",
+      "status": 200,
+      "bytes": 1708
+    }
+  ],
+  "hit_count": 21
+}
