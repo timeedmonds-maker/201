@@ -1,0 +1,69 @@
+name: Extract Inside-the-Game API route literals
+
+on:
+  push:
+    branches: [analysis/hawkeye-season-complete-v2]
+    paths: ['.github/workflows/extract_api_stats_routes.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-season-complete-v2}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests beautifulsoup4
+      - name: Extract API route literals
+        run: |
+          python - <<'PY'
+          import requests,re,json,pathlib,urllib.parse
+          from bs4 import BeautifulSoup
+          H={'User-Agent':'Mozilla/5.0 Chrome/137.0 Safari/537.36'}
+          s=requests.Session();s.headers.update(H)
+          pages={'wnba':['https://www.wnba.com/stats/inside-the-game','https://www.wnba.com/stats/inside-the-game/shot-difficulty'],
+                 'nba':['https://www.nba.com/inside-the-game','https://www.nba.com/inside-the-game/player/shot-difficulty']}
+          out={}
+          for league,ps in pages.items():
+            scripts={}
+            for p in ps:
+              r=s.get(p,timeout=45); soup=BeautifulSoup(r.text,'html.parser')
+              for tag in soup.find_all('script',src=True):
+                u=urllib.parse.urljoin(p,tag['src'])
+                if u not in scripts:
+                  try:
+                    rr=s.get(u,timeout=45); scripts[u]=rr.text if rr.status_code==200 else ''
+                  except: scripts[u]=''
+            hits=[]
+            patterns=[r'/api/stats/[A-Za-z0-9_./?=&${}:-]+',r'/api/[A-Za-z0-9_./?=&${}:-]*shot[A-Za-z0-9_./?=&${}:-]*',r'shotquality[a-zA-Z0-9_-]+']
+            for u,txt in scripts.items():
+              for pat in patterns:
+                for m in re.finditer(pat,txt,re.I):
+                  v=m.group(0)
+                  hits.append({'url':u,'match':v,'index':m.start(),'context':txt[max(0,m.start()-1800):min(len(txt),m.end()+2800)]})
+            # dedupe by url+match+context signature
+            uniq=[];seen=set()
+            for h in hits:
+              k=(h['url'],h['match'],h['index'])
+              if k not in seen:seen.add(k);uniq.append(h)
+            out[league]={'script_count':len(scripts),'hits':uniq}
+          d=pathlib.Path('outputs/inside_game_api_route_literals');d.mkdir(parents=True,exist_ok=True)
+          (d/'routes.json').write_text(json.dumps(out,indent=2,ensure_ascii=False),encoding='utf-8')
+          # compact route list
+          compact={league:sorted(set(h['match'] for h in data['hits'])) for league,data in out.items()}
+          (d/'route_list.json').write_text(json.dumps(compact,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps(compact,indent=2))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/inside_game_api_route_literals
+          git commit -m 'Preserve Inside-the-Game API route literals' || exit 0
+          git pull --rebase origin analysis/hawkeye-season-complete-v2
+          git push origin HEAD:analysis/hawkeye-season-complete-v2
