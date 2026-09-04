@@ -1,0 +1,147 @@
+name: Deep probe Hawk-Eye feature-level surfaces
+
+on:
+  push:
+    branches: [analysis/hawkeye-deep-feature-probe]
+    paths: ['.github/workflows/deep_probe_hawkeye_feature_surfaces.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-deep-feature-probe}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Deep probe
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,hashlib,time,re,itertools,collections
+          from concurrent.futures import ThreadPoolExecutor,as_completed
+          BASE='https://stats.gleague.nba.com/stats/'
+          H={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/137.0 Safari/537.36','Origin':'https://www.nba.com','Referer':'https://www.nba.com/','Accept':'application/json,text/plain,*/*','x-nba-stats-origin':'stats','x-nba-stats-token':'true'}
+          GAME='0022500928'; SEASON='2025-26'; ST='Regular Season'
+          def get(resource,params,timeout=25):
+            s=requests.Session();s.headers.update(H)
+            try:
+              r=s.get(BASE+resource,params=params,timeout=timeout,allow_redirects=False)
+              rec={'resource':resource,'params':params,'status':r.status_code,'bytes':len(r.content),'ct':r.headers.get('content-type'),'location':r.headers.get('location'),'sha256':hashlib.sha256(r.content).hexdigest()}
+              if r.status_code==200 and r.content:
+                try: rec['json']=r.json()
+                except Exception as e: rec['json_error']=repr(e);rec['text']=r.text[:2000]
+              else: rec['text']=r.text[:800]
+              return rec
+            except Exception as e:return {'resource':resource,'params':params,'error':repr(e)}
+          def key_inventory(v):
+            keys=collections.Counter(); paths=[]; arrays=[]
+            def walk(x,p=''):
+              if isinstance(x,dict):
+                for k,z in x.items():
+                  keys[k]+=1; paths.append(p+'/'+k)
+                  if isinstance(z,(dict,list)):walk(z,p+'/'+k)
+              elif isinstance(x,list):
+                if x:
+                  arrays.append({'path':p,'count':len(x),'first_type':type(x[0]).__name__,'first_keys':list(x[0]) if isinstance(x[0],dict) else None})
+                for i,z in enumerate(x[:50]):
+                  if isinstance(z,(dict,list)):walk(z,f'{p}/{i}')
+            walk(v);return {'unique_keys':sorted(keys),'key_counts':dict(keys),'paths':paths[:5000],'arrays':arrays[:200]}
+          synonyms=re.compile(r'(hand|height|speed|velocity|rotat|pressur|contest|defend|close|distance|angle|orient|body|hip|feature|tracking)',re.I)
+          exact=re.compile(r'(defensivehandheight|shooterspeed|rotationdegrees|defenderpressurescore|pressurescore)',re.I)
+          def hits(v):
+            out=[]
+            def walk(x,p=''):
+              if isinstance(x,dict):
+                for k,z in x.items():
+                  if synonyms.search(k):
+                    val=z if not isinstance(z,(dict,list)) else type(z).__name__
+                    out.append({'path':p+'/'+k,'key':k,'value':val,'exact':bool(exact.search(k))})
+                  if isinstance(z,(dict,list)):walk(z,p+'/'+k)
+              elif isinstance(x,list):
+                for i,z in enumerate(x[:100]):
+                  if isinstance(z,(dict,list)):walk(z,f'{p}/{i}')
+            walk(v);return out[:3000]
+          # player universe for chosen game
+          lg=get('leaguegamelog',{'LeagueID':'00','Season':SEASON,'SeasonType':ST,'PlayerOrTeam':'P','Counter':'0','Sorter':'DATE','Direction':'DESC','DateFrom':'','DateTo':''},60)
+          players=[]
+          if isinstance(lg.get('json'),dict):
+            j=lg['json']; rs=j.get('resultSets') or j.get('resultSet'); rs=rs[0] if isinstance(rs,list) else rs
+            if isinstance(rs,dict):
+              hh=rs.get('headers',[]); ix={k:i for i,k in enumerate(hh)}
+              for row in rs.get('rowSet',[]):
+                if 'GAME_ID' in ix and str(row[ix['GAME_ID']])==GAME:
+                  pid=row[ix.get('PLAYER_ID',ix.get('PERSON_ID'))]; name=row[ix.get('PLAYER_NAME',ix.get('PLAYER'))]
+                  players.append({'player_id':str(pid),'player_name':name})
+          # core known routes
+          known=[]
+          known.append(get('shotqualityshotlog',{'GameID':GAME,'LeagueID':'00'},60))
+          for p in players:
+            known.append(get('shotqualityvideologs',{'GameID':GAME,'PlayerID':p['player_id']},40))
+          # add common param variants on known routes for one player
+          control=(players[0]['player_id'] if players else '1631221')
+          for resource in ['shotqualityshotlog','shotqualityvideologs','shotqualityleaders']:
+            for params in [
+              {'GameID':GAME,'PlayerID':control,'LeagueID':'00','Season':SEASON,'SeasonType':ST},
+              {'gameId':GAME,'playerId':control,'leagueId':'00','season':SEASON,'seasonType':ST},
+              {'GameID':GAME,'PlayerID':control},
+            ]: known.append(get(resource,params,40))
+          # systematic resource-name fuzzing. 302/404 are cheap; save only successes/interesting.
+          roots=['shotquality','hawkeye','tracking','shotdifficulty']
+          middles=['player','players','shot','shots','event','events','game','games','feature','features','tracking','context','contexts','detail','details','metric','metrics','raw','season','playerseason','gamelog','playergame']
+          suffixes=['','log','logs','stats','detail','details','metrics','data']
+          resources=set(['shotqualitylogs','shotqualitylog','shotqualityplayerlog','shotqualityplayerlogs','shotqualitygamelog','shotqualityplayergamelog','shotqualityplayergame','shotqualitygame','shotqualitygamestats','shotqualitygameleaders','shotqualitystats','shotqualityplayerstats','shotqualitymetrics','shotqualitytracking','shotqualitydetails','shotqualitydetail'])
+          for root in roots:
+            for mid in middles:
+              for suf in suffixes:
+                resources.add(root+mid+suf)
+          params={'GameID':GAME,'PlayerID':control,'LeagueID':'00','Season':SEASON,'SeasonType':ST}
+          fuzz=[]
+          with ThreadPoolExecutor(max_workers=8) as ex:
+            fs={ex.submit(get,r,params,12):r for r in sorted(resources)}
+            for i,f in enumerate(as_completed(fs),1):
+              z=f.result()
+              if z.get('status')==200 and z.get('bytes',0)>2: fuzz.append(z)
+              elif z.get('status') not in (302,404,None): fuzz.append(z)
+              if i%100==0: print('fuzz',i,'/',len(fs),'interesting',len(fuzz),flush=True)
+          # compact and preserve JSON only for useful response sizes
+          def compact(rec):
+            z={k:rec.get(k) for k in ['resource','params','status','bytes','ct','location','sha256','error','json_error'] if rec.get(k) is not None}
+            j=rec.get('json')
+            if j is not None:
+              z['top_keys']=list(j) if isinstance(j,dict) else None
+              z['inventory']=key_inventory(j)
+              z['feature_hits']=hits(j)
+              if rec.get('bytes',0)<300000:z['json']=j
+            return z
+          known_c=[compact(x) for x in known]
+          fuzz_c=[compact(x) for x in fuzz]
+          # per-known-route schema summaries
+          schema=[]
+          for x in known_c:
+            schema.append({'resource':x.get('resource'),'params':x.get('params'),'status':x.get('status'),'bytes':x.get('bytes'),'top_keys':x.get('top_keys'),'unique_keys':(x.get('inventory') or {}).get('unique_keys'),'arrays':(x.get('inventory') or {}).get('arrays'),'feature_hits':x.get('feature_hits')})
+          d=pathlib.Path('outputs/hawkeye_deep_feature_probe');d.mkdir(parents=True,exist_ok=True)
+          (d/'players_in_control_game.json').write_text(json.dumps(players,indent=2,ensure_ascii=False),encoding='utf-8')
+          (d/'known_routes.json').write_text(json.dumps(known_c,indent=2,ensure_ascii=False),encoding='utf-8')
+          (d/'known_route_schema.json').write_text(json.dumps(schema,indent=2,ensure_ascii=False),encoding='utf-8')
+          (d/'fuzz_interesting.json').write_text(json.dumps(fuzz_c,indent=2,ensure_ascii=False),encoding='utf-8')
+          allhits=[]
+          for x in known_c+fuzz_c:
+            for h in x.get('feature_hits',[]) or []:allhits.append({'resource':x.get('resource'),'params':x.get('params'),**h})
+          (d/'all_feature_hits.json').write_text(json.dumps(allhits,indent=2,ensure_ascii=False),encoding='utf-8')
+          summary={'game_id':GAME,'players_in_game':len(players),'known_calls':len(known),'fuzz_resource_count':len(resources),'fuzz_interesting_count':len(fuzz_c),'feature_hit_count':len(allhits),'exact_target_hit_count':sum(bool(h.get('exact')) for h in allhits),'resources_with_exact_hits':sorted(set(h['resource'] for h in allhits if h.get('exact'))),'resources_with_any_feature_hits':sorted(set(h['resource'] for h in allhits))}
+          (d/'summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')
+          print(json.dumps(summary,indent=2),flush=True)
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hawkeye_deep_feature_probe
+          git commit -m 'Preserve deep Hawk-Eye feature surface probe' || exit 0
+          git pull --rebase origin analysis/hawkeye-deep-feature-probe
+          git push origin HEAD:analysis/hawkeye-deep-feature-probe
