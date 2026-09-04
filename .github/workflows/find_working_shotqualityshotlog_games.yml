@@ -1,0 +1,90 @@
+name: Find working NBA shotqualityshotlog games and inspect schema
+
+on:
+  push:
+    branches: [analysis/hawkeye-deep-feature-probe]
+    paths: ['.github/workflows/find_working_shotqualityshotlog_games.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-deep-feature-probe}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Find working games
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,hashlib,re,time
+          H={'User-Agent':'Mozilla/5.0 Chrome/137.0 Safari/537.36','Origin':'https://www.nba.com','Referer':'https://www.nba.com/','Accept':'application/json,text/plain,*/*','x-nba-stats-origin':'stats','x-nba-stats-token':'true'}
+          B='https://stats.gleague.nba.com/stats/'
+          s=requests.Session();s.headers.update(H)
+          def call(res,p,t=35):
+            try:
+              r=s.get(B+res,params=p,timeout=t,allow_redirects=False);z={'resource':res,'params':p,'status':r.status_code,'bytes':len(r.content),'sha256':hashlib.sha256(r.content).hexdigest(),'ct':r.headers.get('content-type'),'location':r.headers.get('location')}
+              if r.status_code==200 and r.content:
+                try:z['json']=r.json()
+                except Exception as e:z['json_error']=repr(e);z['text']=r.text[:1000]
+              else:z['text']=r.text[:500]
+              return z
+            except Exception as e:return {'resource':res,'params':p,'error':repr(e)}
+          # obtain team game universe; latest first
+          lg=call('leaguegamelog',{'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season','PlayerOrTeam':'T','Counter':'0','Sorter':'DATE','Direction':'DESC','DateFrom':'','DateTo':''},60)
+          games=[]
+          j=lg.get('json',{});rs=j.get('resultSets') or j.get('resultSet');rs=rs[0] if isinstance(rs,list) else rs
+          if isinstance(rs,dict):
+            hh=rs.get('headers',[]);ix={k:i for i,k in enumerate(hh)}
+            seen=set()
+            for row in rs.get('rowSet',[]):
+              gid=str(row[ix['GAME_ID']]) if 'GAME_ID' in ix else ''
+              if gid.startswith('002') and gid not in seen:
+                seen.add(gid);games.append({'game_id':gid,'date':row[ix['GAME_DATE']] if 'GAME_DATE' in ix else None,'matchup':row[ix['MATCHUP']] if 'MATCHUP' in ix else None})
+          # sample across season, plus games seen in other public work
+          extras=['0022500867','0022500651','0022500652','0022500537','0022500296','0022500147','0022500009','0022500010']
+          candidates=[]; seen=set()
+          for g in (games[:25]+games[::max(1,len(games)//20)][:20]+[{'game_id':x} for x in extras]):
+            if g['game_id'] not in seen:seen.add(g['game_id']);candidates.append(g)
+          results=[];working=[]
+          for g in candidates:
+            z=call('shotqualityshotlog',{'LeagueID':'00','GameID':g['game_id']},35)
+            rec={'game':g,**{k:z.get(k) for k in ['status','bytes','sha256','ct','location','error','json_error']}}
+            if z.get('json') is not None:
+              jj=z['json']; rec['top_keys']=list(jj) if isinstance(jj,dict) else None
+              if isinstance(jj,dict):
+                rec['arrays']=[{'key':k,'count':len(v),'first_keys':list(v[0]) if v and isinstance(v[0],dict) else None,'first':v[0] if v and isinstance(v[0],dict) else None} for k,v in jj.items() if isinstance(v,list)]
+                # all recursively observed keys
+                keys=set()
+                def walk(x):
+                  if isinstance(x,dict):
+                    for k,v in x.items():keys.add(k);walk(v)
+                  elif isinstance(x,list):
+                    for v in x[:100]:walk(v)
+                walk(jj);rec['unique_keys']=sorted(keys)
+                rec['targetish_keys']=[k for k in rec['unique_keys'] if re.search(r'hand|height|speed|rotat|pressur|defend|distance|velocity|contest',k,re.I)]
+              if z.get('bytes',0)<400000:rec['json']=jj
+              if any(isinstance(v,list) and len(v)>0 for v in jj.values() if isinstance(jj,dict)):
+                working.append(rec)
+            results.append(rec)
+            print(g['game_id'],rec.get('status'),rec.get('bytes'),rec.get('top_keys'),[(a['key'],a['count']) for a in rec.get('arrays',[])],rec.get('targetish_keys'),flush=True)
+            if len(working)>=5:break
+            time.sleep(.1)
+          d=pathlib.Path('outputs/shotqualityshotlog_working_games');d.mkdir(parents=True,exist_ok=True)
+          (d/'results.json').write_text(json.dumps(results,indent=2,ensure_ascii=False),encoding='utf-8')
+          (d/'working.json').write_text(json.dumps(working,indent=2,ensure_ascii=False),encoding='utf-8')
+          (d/'summary.json').write_text(json.dumps({'candidate_count':len(candidates),'tested_count':len(results),'working_count':len(working),'working_game_ids':[x['game']['game_id'] for x in working],'working_targetish_keys':{x['game']['game_id']:x.get('targetish_keys') for x in working}},indent=2),encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/shotqualityshotlog_working_games
+          git commit -m 'Preserve working NBA shotqualityshotlog schemas' || exit 0
+          git pull --rebase origin analysis/hawkeye-deep-feature-probe
+          git push origin HEAD:analysis/hawkeye-deep-feature-probe
