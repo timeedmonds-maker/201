@@ -1,0 +1,457 @@
+[
+  {
+    "index": "CC-MAIN-2026-34",
+    "pattern": "stats.nba.com/stats/shotqualityleaders*",
+    "query_status": 504,
+    "query_prefix": "<html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx/1.31.5</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "index": "CC-MAIN-2026-34",
+    "pattern": "stats.gleague.nba.com/stats/shotqualityleaders*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: stats.gleague.nba.com/stats/shotqualityleaders*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-34",
+    "pattern": "www.nba.com/api/stats/shot-difficulty*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: www.nba.com/api/stats/shot-difficulty*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-34",
+    "pattern": "cdn.nba.com/api/stats/shot-difficulty*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: cdn.nba.com/api/stats/shot-difficulty*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-30",
+    "pattern": "stats.nba.com/stats/shotqualityleaders*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: stats.nba.com/stats/shotqualityleaders*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-30",
+    "pattern": "stats.gleague.nba.com/stats/shotqualityleaders*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: stats.gleague.nba.com/stats/shotqualityleaders*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-30",
+    "pattern": "www.nba.com/api/stats/shot-difficulty*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: www.nba.com/api/stats/shot-difficulty*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-30",
+    "pattern": "cdn.nba.com/api/stats/shot-difficulty*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: cdn.nba.com/api/stats/shot-difficulty*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-25",
+    "pattern": "stats.nba.com/stats/shotqualityleaders*",
+    "query_status": 502,
+    "query_prefix": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.31.5</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "index": "CC-MAIN-2026-25",
+    "pattern": "stats.gleague.nba.com/stats/shotqualityleaders*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: stats.gleague.nba.com/stats/shotqualityleaders*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-25",
+    "pattern": "www.nba.com/api/stats/shot-difficulty*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: www.nba.com/api/stats/shot-difficulty*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-25",
+    "pattern": "cdn.nba.com/api/stats/shot-difficulty*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: cdn.nba.com/api/stats/shot-difficulty*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-21",
+    "pattern": "stats.nba.com/stats/shotqualityleaders*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: stats.nba.com/stats/shotqualityleaders*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-21",
+    "pattern": "stats.gleague.nba.com/stats/shotqualityleaders*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: stats.gleague.nba.com/stats/shotqualityleaders*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-21",
+    "pattern": "www.nba.com/api/stats/shot-difficulty*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: www.nba.com/api/stats/shot-difficulty*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-21",
+    "pattern": "cdn.nba.com/api/stats/shot-difficulty*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: cdn.nba.com/api/stats/shot-difficulty*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-17",
+    "pattern": "stats.nba.com/stats/shotqualityleaders*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: stats.nba.com/stats/shotqualityleaders*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-17",
+    "pattern": "stats.gleague.nba.com/stats/shotqualityleaders*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: stats.gleague.nba.com/stats/shotqualityleaders*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-17",
+    "pattern": "www.nba.com/api/stats/shot-difficulty*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: www.nba.com/api/stats/shot-difficulty*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-17",
+    "pattern": "cdn.nba.com/api/stats/shot-difficulty*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: cdn.nba.com/api/stats/shot-difficulty*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-12",
+    "pattern": "stats.nba.com/stats/shotqualityleaders*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: stats.nba.com/stats/shotqualityleaders*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-12",
+    "pattern": "stats.gleague.nba.com/stats/shotqualityleaders*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: stats.gleague.nba.com/stats/shotqualityleaders*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-12",
+    "pattern": "www.nba.com/api/stats/shot-difficulty*",
+    "query_status": 502,
+    "query_prefix": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.31.5</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "index": "CC-MAIN-2026-12",
+    "pattern": "cdn.nba.com/api/stats/shot-difficulty*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: cdn.nba.com/api/stats/shot-difficulty*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-08",
+    "pattern": "stats.nba.com/stats/shotqualityleaders*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: stats.nba.com/stats/shotqualityleaders*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-08",
+    "pattern": "stats.gleague.nba.com/stats/shotqualityleaders*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: stats.gleague.nba.com/stats/shotqualityleaders*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-08",
+    "pattern": "www.nba.com/api/stats/shot-difficulty*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: www.nba.com/api/stats/shot-difficulty*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-08",
+    "pattern": "cdn.nba.com/api/stats/shot-difficulty*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: cdn.nba.com/api/stats/shot-difficulty*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-04",
+    "pattern": "stats.nba.com/stats/shotqualityleaders*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: stats.nba.com/stats/shotqualityleaders*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-04",
+    "pattern": "stats.gleague.nba.com/stats/shotqualityleaders*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: stats.gleague.nba.com/stats/shotqualityleaders*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-04",
+    "pattern": "www.nba.com/api/stats/shot-difficulty*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: www.nba.com/api/stats/shot-difficulty*\"}"
+  },
+  {
+    "index": "CC-MAIN-2026-04",
+    "pattern": "cdn.nba.com/api/stats/shot-difficulty*",
+    "query_status": 503,
+    "query_prefix": "<html>\r\n<head><title>503 Service Temporarily Unavailable</title></head>\r\n<body>\r\n<center><h1>503 Service Temporarily Unavailable</h1></center>\r\n<hr><center>nginx/1.31.5</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "index": "CC-MAIN-2025-51",
+    "pattern": "stats.nba.com/stats/shotqualityleaders*",
+    "query_status": 503,
+    "query_prefix": "<html>\r\n<head><title>503 Service Temporarily Unavailable</title></head>\r\n<body>\r\n<center><h1>503 Service Temporarily Unavailable</h1></center>\r\n<hr><center>nginx/1.31.5</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "index": "CC-MAIN-2025-51",
+    "pattern": "stats.gleague.nba.com/stats/shotqualityleaders*",
+    "query_status": 503,
+    "query_prefix": "<html>\r\n<head><title>503 Service Temporarily Unavailable</title></head>\r\n<body>\r\n<center><h1>503 Service Temporarily Unavailable</h1></center>\r\n<hr><center>nginx/1.31.5</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "index": "CC-MAIN-2025-51",
+    "pattern": "www.nba.com/api/stats/shot-difficulty*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: www.nba.com/api/stats/shot-difficulty*\"}"
+  },
+  {
+    "index": "CC-MAIN-2025-51",
+    "pattern": "cdn.nba.com/api/stats/shot-difficulty*",
+    "query_status": 503,
+    "query_prefix": "<html>\r\n<head><title>503 Service Temporarily Unavailable</title></head>\r\n<body>\r\n<center><h1>503 Service Temporarily Unavailable</h1></center>\r\n<hr><center>nginx/1.31.5</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "index": "CC-MAIN-2025-47",
+    "pattern": "stats.nba.com/stats/shotqualityleaders*",
+    "query_status": 503,
+    "query_prefix": "<html>\r\n<head><title>503 Service Temporarily Unavailable</title></head>\r\n<body>\r\n<center><h1>503 Service Temporarily Unavailable</h1></center>\r\n<hr><center>nginx/1.31.5</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "index": "CC-MAIN-2025-47",
+    "pattern": "stats.gleague.nba.com/stats/shotqualityleaders*",
+    "query_status": 503,
+    "query_prefix": "<html>\r\n<head><title>503 Service Temporarily Unavailable</title></head>\r\n<body>\r\n<center><h1>503 Service Temporarily Unavailable</h1></center>\r\n<hr><center>nginx/1.31.5</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "index": "CC-MAIN-2025-47",
+    "pattern": "www.nba.com/api/stats/shot-difficulty*",
+    "query_status": 503,
+    "query_prefix": "<html>\r\n<head><title>503 Service Temporarily Unavailable</title></head>\r\n<body>\r\n<center><h1>503 Service Temporarily Unavailable</h1></center>\r\n<hr><center>nginx/1.31.5</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "index": "CC-MAIN-2025-47",
+    "pattern": "cdn.nba.com/api/stats/shot-difficulty*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: cdn.nba.com/api/stats/shot-difficulty*\"}"
+  },
+  {
+    "index": "CC-MAIN-2025-43",
+    "pattern": "stats.nba.com/stats/shotqualityleaders*",
+    "query_error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Read timed out. (read timeout=30)\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-43",
+    "pattern": "stats.gleague.nba.com/stats/shotqualityleaders*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-43-index?url=stats.gleague.nba.com%2Fstats%2Fshotqualityleaders%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ce8fec0>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-43",
+    "pattern": "www.nba.com/api/stats/shot-difficulty*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-43-index?url=www.nba.com%2Fapi%2Fstats%2Fshot-difficulty%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ccf0170>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-43",
+    "pattern": "cdn.nba.com/api/stats/shot-difficulty*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-43-index?url=cdn.nba.com%2Fapi%2Fstats%2Fshot-difficulty%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ccf0530>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-38",
+    "pattern": "stats.nba.com/stats/shotqualityleaders*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-38-index?url=stats.nba.com%2Fstats%2Fshotqualityleaders%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ccf0a10>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-38",
+    "pattern": "stats.gleague.nba.com/stats/shotqualityleaders*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-38-index?url=stats.gleague.nba.com%2Fstats%2Fshotqualityleaders%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ccf0dd0>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-38",
+    "pattern": "www.nba.com/api/stats/shot-difficulty*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-38-index?url=www.nba.com%2Fapi%2Fstats%2Fshot-difficulty%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ccf1070>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-38",
+    "pattern": "cdn.nba.com/api/stats/shot-difficulty*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-38-index?url=cdn.nba.com%2Fapi%2Fstats%2Fshot-difficulty%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ce8f590>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-33",
+    "pattern": "stats.nba.com/stats/shotqualityleaders*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-33-index?url=stats.nba.com%2Fstats%2Fshotqualityleaders%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ce8ede0>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-33",
+    "pattern": "stats.gleague.nba.com/stats/shotqualityleaders*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-33-index?url=stats.gleague.nba.com%2Fstats%2Fshotqualityleaders%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ccf0b30>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-33",
+    "pattern": "www.nba.com/api/stats/shot-difficulty*",
+    "query_status": 504,
+    "query_prefix": "<html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx/1.31.5</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "index": "CC-MAIN-2025-33",
+    "pattern": "cdn.nba.com/api/stats/shot-difficulty*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: cdn.nba.com/api/stats/shot-difficulty*\"}"
+  },
+  {
+    "index": "CC-MAIN-2025-30",
+    "pattern": "stats.nba.com/stats/shotqualityleaders*",
+    "query_status": 504,
+    "query_prefix": "<html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx/1.31.5</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "index": "CC-MAIN-2025-30",
+    "pattern": "stats.gleague.nba.com/stats/shotqualityleaders*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: stats.gleague.nba.com/stats/shotqualityleaders*\"}"
+  },
+  {
+    "index": "CC-MAIN-2025-30",
+    "pattern": "www.nba.com/api/stats/shot-difficulty*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: www.nba.com/api/stats/shot-difficulty*\"}"
+  },
+  {
+    "index": "CC-MAIN-2025-30",
+    "pattern": "cdn.nba.com/api/stats/shot-difficulty*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: cdn.nba.com/api/stats/shot-difficulty*\"}"
+  },
+  {
+    "index": "CC-MAIN-2025-26",
+    "pattern": "stats.nba.com/stats/shotqualityleaders*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: stats.nba.com/stats/shotqualityleaders*\"}"
+  },
+  {
+    "index": "CC-MAIN-2025-26",
+    "pattern": "stats.gleague.nba.com/stats/shotqualityleaders*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: stats.gleague.nba.com/stats/shotqualityleaders*\"}"
+  },
+  {
+    "index": "CC-MAIN-2025-26",
+    "pattern": "www.nba.com/api/stats/shot-difficulty*",
+    "query_status": 502,
+    "query_prefix": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.31.5</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "index": "CC-MAIN-2025-26",
+    "pattern": "cdn.nba.com/api/stats/shot-difficulty*",
+    "query_status": 502,
+    "query_prefix": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.31.5</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "index": "CC-MAIN-2025-21",
+    "pattern": "stats.nba.com/stats/shotqualityleaders*",
+    "query_status": 504,
+    "query_prefix": "<html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx/1.31.5</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "index": "CC-MAIN-2025-21",
+    "pattern": "stats.gleague.nba.com/stats/shotqualityleaders*",
+    "query_status": 404,
+    "query_prefix": "{\"message\": \"No Captures found for: stats.gleague.nba.com/stats/shotqualityleaders*\"}"
+  },
+  {
+    "index": "CC-MAIN-2025-21",
+    "pattern": "www.nba.com/api/stats/shot-difficulty*",
+    "query_status": 504,
+    "query_prefix": "<html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx/1.31.5</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "index": "CC-MAIN-2025-21",
+    "pattern": "cdn.nba.com/api/stats/shot-difficulty*",
+    "query_status": 504,
+    "query_prefix": "<html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx/1.31.5</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "index": "CC-MAIN-2025-18",
+    "pattern": "stats.nba.com/stats/shotqualityleaders*",
+    "query_status": 504,
+    "query_prefix": "<html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx/1.31.5</center>\r\n</body>\r\n</html>\r\n"
+  },
+  {
+    "index": "CC-MAIN-2025-18",
+    "pattern": "stats.gleague.nba.com/stats/shotqualityleaders*",
+    "query_error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Read timed out. (read timeout=30)\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-18",
+    "pattern": "www.nba.com/api/stats/shot-difficulty*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-18-index?url=www.nba.com%2Fapi%2Fstats%2Fshot-difficulty%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ccf04a0>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-18",
+    "pattern": "cdn.nba.com/api/stats/shot-difficulty*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-18-index?url=cdn.nba.com%2Fapi%2Fstats%2Fshot-difficulty%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ccf16d0>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-13",
+    "pattern": "stats.nba.com/stats/shotqualityleaders*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-13-index?url=stats.nba.com%2Fstats%2Fshotqualityleaders%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ccf1af0>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-13",
+    "pattern": "stats.gleague.nba.com/stats/shotqualityleaders*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-13-index?url=stats.gleague.nba.com%2Fstats%2Fshotqualityleaders%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ccf1e50>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-13",
+    "pattern": "www.nba.com/api/stats/shot-difficulty*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-13-index?url=www.nba.com%2Fapi%2Fstats%2Fshot-difficulty%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ccf20f0>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-13",
+    "pattern": "cdn.nba.com/api/stats/shot-difficulty*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-13-index?url=cdn.nba.com%2Fapi%2Fstats%2Fshot-difficulty%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ccf2450>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-08",
+    "pattern": "stats.nba.com/stats/shotqualityleaders*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-08-index?url=stats.nba.com%2Fstats%2Fshotqualityleaders%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ccf2870>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-08",
+    "pattern": "stats.gleague.nba.com/stats/shotqualityleaders*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-08-index?url=stats.gleague.nba.com%2Fstats%2Fshotqualityleaders%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ce8ef90>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-08",
+    "pattern": "www.nba.com/api/stats/shot-difficulty*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-08-index?url=www.nba.com%2Fapi%2Fstats%2Fshot-difficulty%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ce8f9e0>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-08",
+    "pattern": "cdn.nba.com/api/stats/shot-difficulty*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-08-index?url=cdn.nba.com%2Fapi%2Fstats%2Fshot-difficulty%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ce8fb30>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-05",
+    "pattern": "stats.nba.com/stats/shotqualityleaders*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-05-index?url=stats.nba.com%2Fstats%2Fshotqualityleaders%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ccf20c0>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-05",
+    "pattern": "stats.gleague.nba.com/stats/shotqualityleaders*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-05-index?url=stats.gleague.nba.com%2Fstats%2Fshotqualityleaders%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ccf1ee0>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-05",
+    "pattern": "www.nba.com/api/stats/shot-difficulty*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-05-index?url=www.nba.com%2Fapi%2Fstats%2Fshot-difficulty%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ccf1c40>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  },
+  {
+    "index": "CC-MAIN-2025-05",
+    "pattern": "cdn.nba.com/api/stats/shot-difficulty*",
+    "query_error": "ConnectTimeout(MaxRetryError(\"HTTPSConnectionPool(host='index.commoncrawl.org', port=443): Max retries exceeded with url: /CC-MAIN-2025-05-index?url=cdn.nba.com%2Fapi%2Fstats%2Fshot-difficulty%2A&output=json&matchType=prefix&filter=status%3A200 (Caused by ConnectTimeoutError(<HTTPSConnection(host='index.commoncrawl.org', port=443) at 0x7fef9ccf1820>, 'Connection to index.commoncrawl.org timed out. (connect timeout=30)'))\"))"
+  }
+]

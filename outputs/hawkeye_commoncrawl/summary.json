@@ -1,0 +1,37 @@
+{
+  "indexes_checked": [
+    "CC-MAIN-2026-34",
+    "CC-MAIN-2026-30",
+    "CC-MAIN-2026-25",
+    "CC-MAIN-2026-21",
+    "CC-MAIN-2026-17",
+    "CC-MAIN-2026-12",
+    "CC-MAIN-2026-08",
+    "CC-MAIN-2026-04",
+    "CC-MAIN-2025-51",
+    "CC-MAIN-2025-47",
+    "CC-MAIN-2025-43",
+    "CC-MAIN-2025-38",
+    "CC-MAIN-2025-33",
+    "CC-MAIN-2025-30",
+    "CC-MAIN-2025-26",
+    "CC-MAIN-2025-21",
+    "CC-MAIN-2025-18",
+    "CC-MAIN-2025-13",
+    "CC-MAIN-2025-08",
+    "CC-MAIN-2025-05"
+  ],
+  "patterns": [
+    "stats.nba.com/stats/shotqualityleaders*",
+    "stats.gleague.nba.com/stats/shotqualityleaders*",
+    "www.nba.com/api/stats/shot-difficulty*",
+    "cdn.nba.com/api/stats/shot-difficulty*"
+  ],
+  "capture_records": 80,
+  "real_captures": 0,
+  "retrieved_unique": 0,
+  "target_snapshots": 0,
+  "target_snapshot_rows": [],
+  "union_unique_players": 0,
+  "retrieved_at_utc": "2026-09-04T10:41:32.355746+00:00"
+}
