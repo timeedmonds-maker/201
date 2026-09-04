@@ -1,0 +1,13 @@
+{
+  "game_id": "0022500928",
+  "players_in_game": 22,
+  "known_calls": 32,
+  "fuzz_resource_count": 704,
+  "fuzz_interesting_count": 640,
+  "feature_hit_count": 25,
+  "exact_target_hit_count": 0,
+  "resources_with_exact_hits": [],
+  "resources_with_any_feature_hits": [
+    "shotqualityvideologs"
+  ]
+}

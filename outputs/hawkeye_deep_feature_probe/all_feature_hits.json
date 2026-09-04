@@ -1,0 +1,283 @@
+[
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1630224"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 29.332,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1642851"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 47.21,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1626220"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 82.627,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1628970"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 55.303,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1629684"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 57.801,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1641750"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 45.127,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1630182"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 42.672,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1642883"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 45.661,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1631221"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 36.565,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1642863"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 37.185,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1626192"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 29.07,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1630544"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 26.991,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1626164"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 31.969,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1629599"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 25.351,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1642853"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 65.333,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1629632"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 41.3,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1630163"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 52.279,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1629312"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 47.216,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1642345"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 64.922,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1642346"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 43.083,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1631217"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 18.452,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1641706"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 58.732,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1630224",
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 29.332,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "gameId": "0022500928",
+      "playerId": "1630224",
+      "leagueId": "00",
+      "season": "2025-26",
+      "seasonType": "Regular Season"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 29.332,
+    "exact": false
+  },
+  {
+    "resource": "shotqualityvideologs",
+    "params": {
+      "GameID": "0022500928",
+      "PlayerID": "1630224"
+    },
+    "path": "/avgDefenderBallDistance",
+    "key": "avgDefenderBallDistance",
+    "value": 29.332,
+    "exact": false
+  }
+]
