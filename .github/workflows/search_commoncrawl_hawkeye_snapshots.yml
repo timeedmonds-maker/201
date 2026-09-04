@@ -1,0 +1,116 @@
+name: Search Common Crawl for Hawk-Eye snapshots
+
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/search_commoncrawl_hawkeye_snapshots.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-all-players-2025-26}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Search Common Crawl indexes and retrieve captured API responses
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,gzip,io,re,time,datetime
+          d=pathlib.Path('outputs/hawkeye_commoncrawl');d.mkdir(parents=True,exist_ok=True)
+          S=requests.Session();S.headers.update({'User-Agent':'Mozilla/5.0 hawkeye-public-research'})
+          try:
+            colls=S.get('https://index.commoncrawl.org/collinfo.json',timeout=30).json()
+          except Exception as e:
+            (d/'summary.json').write_text(json.dumps({'error':repr(e)},indent=2));raise
+          indexes=[]
+          for c in colls:
+            cid=c.get('id','')
+            if cid.startswith('CC-MAIN-2025-') or cid.startswith('CC-MAIN-2026-'):
+              indexes.append(c)
+          # newest first, cap 30
+          indexes=indexes[:30]
+          patterns=[
+            'stats.nba.com/stats/shotqualityleaders*',
+            'stats.gleague.nba.com/stats/shotqualityleaders*',
+            'www.nba.com/api/stats/shot-difficulty*',
+            'cdn.nba.com/api/stats/shot-difficulty*',
+          ]
+          captures=[]
+          for c in indexes:
+            api=c.get('cdx-api') or f"https://index.commoncrawl.org/{c['id']}-index"
+            for pat in patterns:
+              try:
+                r=S.get(api,params={'url':pat,'output':'json','matchType':'prefix','filter':'status:200'},timeout=30)
+                if r.status_code!=200:
+                  captures.append({'index':c['id'],'pattern':pat,'query_status':r.status_code,'query_prefix':r.text[:200]});continue
+                for line in r.text.splitlines():
+                  try: x=json.loads(line)
+                  except: continue
+                  captures.append({'index':c['id'],'pattern':pat,**x})
+              except Exception as e:captures.append({'index':c['id'],'pattern':pat,'query_error':repr(e)})
+              time.sleep(.05)
+          (d/'captures.json').write_text(json.dumps(captures,indent=2,ensure_ascii=False),encoding='utf-8')
+          real=[x for x in captures if x.get('filename') and x.get('offset') and x.get('length')]
+          snapshots=[];unique={}
+          targets=['AVGDEFENSIVEHANDHEIGHT','AVGSHOOTERSPEED','AVGROTATIONDEGREES','AVGDEFENDERPRESSURESCORE']
+          for i,x in enumerate(real[:300]):
+            key=(x.get('digest'),x.get('filename'),x.get('offset'),x.get('length'))
+            if key in unique:continue
+            unique[key]=1
+            rec={'index':x.get('index'),'timestamp':x.get('timestamp'),'url':x.get('url'),'digest':x.get('digest'),'filename':x.get('filename'),'offset':x.get('offset'),'length':x.get('length')}
+            try:
+              off=int(x['offset']);ln=int(x['length']);u='https://data.commoncrawl.org/'+x['filename']
+              rr=S.get(u,headers={'Range':f'bytes={off}-{off+ln-1}','User-Agent':'Mozilla/5.0 hawkeye-public-research'},timeout=45)
+              rec['range_status']=rr.status_code;rec['range_bytes']=len(rr.content)
+              raw=rr.content
+              try:raw=gzip.decompress(raw)
+              except:pass
+              # split WARC headers, HTTP headers, body
+              pos=raw.find(b'HTTP/1.')
+              if pos>=0:
+                h_end=raw.find(b'\r\n\r\n',pos);body=raw[h_end+4:] if h_end>=0 else raw[pos:]
+              else:body=raw
+              rec['payload_bytes']=len(body);rec['target_literal']=any(t.encode() in body for t in targets)
+              if rec['target_literal']:
+                # trim trailing WARC separator if needed and parse JSON candidates
+                text=body.decode('utf-8','ignore')
+                j=None
+                for candidate in [text,text.strip()]:
+                  try:j=json.loads(candidate);break
+                  except:pass
+                if j is None:
+                  # find first JSON object through decoder
+                  try:
+                    start=text.find('{');j=json.JSONDecoder().raw_decode(text[start:])[0] if start>=0 else None
+                  except:pass
+                shots=j.get('shots',[]) if isinstance(j,dict) else []
+                rec['rows']=len(shots);rec['params']=j.get('params') if isinstance(j,dict) else None
+                rec['player_ids']=[str(z.get('PLAYERID')) for z in shots if isinstance(z,dict)]
+                fn=f"snapshot_{i}_{x.get('timestamp','na')}.json"
+                if j is not None:(d/fn).write_text(json.dumps(j,indent=2,ensure_ascii=False),encoding='utf-8');rec['file']=str(d/fn)
+              snapshots.append(rec)
+            except Exception as e:rec['error']=repr(e);snapshots.append(rec)
+            time.sleep(.05)
+          (d/'retrieved.json').write_text(json.dumps(snapshots,indent=2,ensure_ascii=False),encoding='utf-8')
+          target=[x for x in snapshots if x.get('target_literal')]
+          union=set()
+          for x in target:union.update(x.get('player_ids',[]))
+          summary={'indexes_checked':[c['id'] for c in indexes],'patterns':patterns,'capture_records':len(captures),'real_captures':len(real),'retrieved_unique':len(snapshots),'target_snapshots':len(target),'target_snapshot_rows':[(x.get('timestamp'),x.get('url'),x.get('rows')) for x in target],'union_unique_players':len(union),'retrieved_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat()}
+          (d/'summary.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps(summary,indent=2,ensure_ascii=False))
+          PY
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hawkeye_commoncrawl || true
+          git diff --cached --quiet && exit 0
+          git commit -m 'Preserve Common Crawl Hawk-Eye snapshot search'
+          for i in 1 2 3 4 5; do git pull --rebase origin analysis/hawkeye-all-players-2025-26 && git push origin HEAD:analysis/hawkeye-all-players-2025-26 && exit 0; sleep $((i*2)); done
+          exit 1
