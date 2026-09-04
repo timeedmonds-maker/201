@@ -1,0 +1,47 @@
+name: Probe team-filtered Hawk-Eye all-player coverage
+
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/probe_hawkeye_team_all_players.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-all-players-2025-26}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Query all 30 team filters
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,time
+          H={'User-Agent':'Mozilla/5.0','Origin':'https://www.nba.com','Referer':'https://www.nba.com/','Accept':'application/json,text/plain,*/*','x-nba-stats-origin':'stats','x-nba-stats-token':'true'}
+          u='https://stats.gleague.nba.com/stats/shotqualityleaders'
+          out=[]; uniq={}
+          for tid in range(1610612737,1610612767):
+            r=requests.get(u,params={'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season','TeamID':str(tid)},headers=H,timeout=30)
+            rec={'team_id':tid,'status':r.status_code,'bytes':len(r.content)}
+            if r.status_code==200:
+              j=r.json(); rows=j.get('shots',[]) if isinstance(j,dict) else []; rec['rows']=len(rows); rec['player_ids']=[x.get('PLAYERID') for x in rows]
+              for x in rows:
+                if x.get('PLAYERID') is not None: uniq[str(x.get('PLAYERID'))]=x
+            out.append(rec); print(tid,rec.get('rows'),flush=True); time.sleep(.05)
+          d=pathlib.Path('outputs/hawkeye_team_probe');d.mkdir(parents=True,exist_ok=True)
+          (d/'report.json').write_text(json.dumps({'teams':out,'unique_players':len(uniq),'players':list(uniq.values())},indent=2),encoding='utf-8')
+          print('unique',len(uniq))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hawkeye_team_probe
+          git commit -m 'Preserve team-filter Hawk-Eye coverage probe' || exit 0
+          git pull --rebase origin analysis/hawkeye-all-players-2025-26
+          git push origin HEAD:analysis/hawkeye-all-players-2025-26
