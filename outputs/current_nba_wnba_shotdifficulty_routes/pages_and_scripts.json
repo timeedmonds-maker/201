@@ -1,0 +1,251 @@
+{
+  "pages": [
+    {
+      "url": "https://www.nba.com/inside-the-game/player/shot-difficulty",
+      "status": 200,
+      "bytes": 236430,
+      "final_url": "https://www.nba.com/inside-the-game/player/shot-difficulty"
+    },
+    {
+      "url": "https://www.nba.com/inside-the-game",
+      "status": 200,
+      "bytes": 270331,
+      "final_url": "https://www.nba.com/inside-the-game"
+    },
+    {
+      "url": "https://www.wnba.com/stats/inside-the-game/shot-difficulty",
+      "status": 200,
+      "bytes": 189537,
+      "final_url": "https://www.wnba.com/stats/inside-the-game/shot-difficulty"
+    },
+    {
+      "url": "https://www.wnba.com/stats/inside-the-game",
+      "status": 200,
+      "bytes": 183818,
+      "final_url": "https://www.wnba.com/stats/inside-the-game"
+    }
+  ],
+  "script_count": 55,
+  "scripts": [
+    {
+      "url": "https://cdn.nba.com/user-consent/index-gam.min.js",
+      "bytes": 18292
+    },
+    {
+      "url": "https://www.nba.com/theme-loader.js",
+      "bytes": 361
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "bytes": 112541
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/webpack-b21b30b4d5eb111b.js",
+      "bytes": 11889
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/framework-ad7abf312d5d61d4.js",
+      "bytes": 140992
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/main-196c53f13b153e43.js",
+      "bytes": 121519
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/pages/_app-17641b50b12c156d.js",
+      "bytes": 1430758
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/68866-2b57036c0cd48a32.js",
+      "bytes": 32194
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/32044-099e1d31a77e2211.js",
+      "bytes": 213358
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/92590-1dfe5f3068903af4.js",
+      "bytes": 8547
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/21293-c1cf0e1083718a12.js",
+      "bytes": 25505
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/18138-f88acd807ddb1cdd.js",
+      "bytes": 8199
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/62458-17b32fc400e14c63.js",
+      "bytes": 35049
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/3245-01f19ec519c167ff.js",
+      "bytes": 16694
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/pages/inside-the-game/player/shot-difficulty-9534483b5df44d6a.js",
+      "bytes": 351
+    },
+    {
+      "url": "https://www.nba.com/_next/static/4V8xkN7kTM7jBu03RBIXc/_buildManifest.js",
+      "bytes": 85784
+    },
+    {
+      "url": "https://www.nba.com/_next/static/4V8xkN7kTM7jBu03RBIXc/_ssgManifest.js",
+      "bytes": 77
+    },
+    {
+      "url": "https://securepubads.g.doubleclick.net/tag/js/gpt.js",
+      "bytes": 126505
+    },
+    {
+      "url": "https://tags.nba.com/nba-web/prod/utag.js",
+      "bytes": 174490
+    },
+    {
+      "url": "https://www.nba.com/cxbKJOtCV/n7v5cJQa/A/XEYObmaODiiEmOitEp/OwoJHgE/WWQ/bcmp3BCEB",
+      "bytes": 535633
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/93140-92a3fc7709623b3b.js",
+      "bytes": 33565
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/72378-ab850e13b2f99fb8.js",
+      "bytes": 9593
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/85246-8f4d03fb8b8434f9.js",
+      "bytes": 114134
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/2712-5bda75ca4b0ac78b.js",
+      "bytes": 14068
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/93042-3c7e472f0ace0313.js",
+      "bytes": 15707
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/50153-e1bf5c3cec560efa.js",
+      "bytes": 19935
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/23646-7841c31c392dcc72.js",
+      "bytes": 8780
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/86679-94d9b09db655fe0f.js",
+      "bytes": 24720
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/44072-fb186d154e64fb4d.js",
+      "bytes": 11197
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/56784-8868d04007f262ad.js",
+      "bytes": 17227
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/49077-7c5777e788353679.js",
+      "bytes": 12134
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/47361-34c309c9d3fb2642.js",
+      "bytes": 13839
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/63031-410fe7a34b592f75.js",
+      "bytes": 12694
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/84106-cec7cf3f7632e38a.js",
+      "bytes": 48083
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/14672-ae6e79ef6de3ca65.js",
+      "bytes": 36930
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/7970-9ae567fa2edaf918.js",
+      "bytes": 8361
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/89668-fe99f83aa93d7b0c.js",
+      "bytes": 14243
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/36166-81d5ac4fe64cd737.js",
+      "bytes": 11634
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/65577-55d73fc278ca7c20.js",
+      "bytes": 148856
+    },
+    {
+      "url": "https://www.nba.com/_next/static/chunks/pages/inside-the-game-b0781697e3451234.js",
+      "bytes": 44448
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "bytes": 112594
+    },
+    {
+      "url": "https://cdn.nba.com/user-consent/index.min.js",
+      "bytes": 18292
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/webpack-6f7b1042af2a14b6.js",
+      "bytes": 1708
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/framework-b0ec748c7a4c483a.js",
+      "bytes": 140040
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/main-a0c9a6bd28bf8556.js",
+      "bytes": 116849
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/pages/_app-a02772bdeee21ecb.js",
+      "bytes": 3743322
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/3923-7467b105279e3589.js",
+      "bytes": 19216
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/pages/stats/inside-the-game/shot-difficulty-14d5ba97f552d155.js",
+      "bytes": 289
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/4_6g5XQe5hGVuoMnmFXJm/_buildManifest.js",
+      "bytes": 18228
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/4_6g5XQe5hGVuoMnmFXJm/_ssgManifest.js",
+      "bytes": 91
+    },
+    {
+      "url": "https://www.wnba.com/Lvw6ZG/Xz/oH/9rdw/LDz9Nh74vmJIA/Ytw1bzEbNYb1EO/IDZSAQ/VlAxK/XUALEMB",
+      "bytes": 535633
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/3311-e90a7d40e14833d6.js",
+      "bytes": 20780
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/3854-15ae1a076624ca65.js",
+      "bytes": 16037
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/523-fcd4956c2ca7db99.js",
+      "bytes": 56871
+    },
+    {
+      "url": "https://www.wnba.com/_next/static/chunks/pages/stats/inside-the-game-3ba8df66c2f5d4a2.js",
+      "bytes": 282
+    }
+  ]
+}

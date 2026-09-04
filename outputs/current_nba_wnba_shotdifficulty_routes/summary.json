@@ -1,0 +1,422 @@
+{
+  "pages": [
+    {
+      "url": "https://www.nba.com/inside-the-game/player/shot-difficulty",
+      "status": 200,
+      "bytes": 236430,
+      "final_url": "https://www.nba.com/inside-the-game/player/shot-difficulty"
+    },
+    {
+      "url": "https://www.nba.com/inside-the-game",
+      "status": 200,
+      "bytes": 270331,
+      "final_url": "https://www.nba.com/inside-the-game"
+    },
+    {
+      "url": "https://www.wnba.com/stats/inside-the-game/shot-difficulty",
+      "status": 200,
+      "bytes": 189537,
+      "final_url": "https://www.wnba.com/stats/inside-the-game/shot-difficulty"
+    },
+    {
+      "url": "https://www.wnba.com/stats/inside-the-game",
+      "status": 200,
+      "bytes": 183818,
+      "final_url": "https://www.wnba.com/stats/inside-the-game"
+    }
+  ],
+  "script_count": 55,
+  "context_hits": 63,
+  "api_tests": [
+    {
+      "league": "nba",
+      "label": "base",
+      "status": 404,
+      "bytes": 4762,
+      "shot_count": null,
+      "top_keys": null,
+      "params_echo": null,
+      "first_row": null,
+      "error": null
+    },
+    {
+      "league": "nba",
+      "label": "allPlayers",
+      "status": 404,
+      "bytes": 4762,
+      "shot_count": null,
+      "top_keys": null,
+      "params_echo": null,
+      "first_row": null,
+      "error": null
+    },
+    {
+      "league": "nba",
+      "label": "includeUnqualified",
+      "status": 404,
+      "bytes": 4762,
+      "shot_count": null,
+      "top_keys": null,
+      "params_echo": null,
+      "first_row": null,
+      "error": null
+    },
+    {
+      "league": "nba",
+      "label": "qualifiedFalse",
+      "status": 404,
+      "bytes": 4762,
+      "shot_count": null,
+      "top_keys": null,
+      "params_echo": null,
+      "first_row": null,
+      "error": null
+    },
+    {
+      "league": "nba",
+      "label": "playerId-love",
+      "status": 404,
+      "bytes": 4762,
+      "shot_count": null,
+      "top_keys": null,
+      "params_echo": null,
+      "first_row": null,
+      "error": null
+    },
+    {
+      "league": "nba",
+      "label": "PlayerID-love",
+      "status": 404,
+      "bytes": 4762,
+      "shot_count": null,
+      "top_keys": null,
+      "params_echo": null,
+      "first_row": null,
+      "error": null
+    },
+    {
+      "league": "nba",
+      "label": "limit1000",
+      "status": 404,
+      "bytes": 4762,
+      "shot_count": null,
+      "top_keys": null,
+      "params_echo": null,
+      "first_row": null,
+      "error": null
+    },
+    {
+      "league": "nba",
+      "label": "pageSize1000",
+      "status": 404,
+      "bytes": 4762,
+      "shot_count": null,
+      "top_keys": null,
+      "params_echo": null,
+      "first_row": null,
+      "error": null
+    },
+    {
+      "league": "nba",
+      "label": "minimumFga0",
+      "status": 404,
+      "bytes": 4762,
+      "shot_count": null,
+      "top_keys": null,
+      "params_echo": null,
+      "first_row": null,
+      "error": null
+    },
+    {
+      "league": "nba",
+      "label": "minFga0",
+      "status": 404,
+      "bytes": 4762,
+      "shot_count": null,
+      "top_keys": null,
+      "params_echo": null,
+      "first_row": null,
+      "error": null
+    },
+    {
+      "league": "wnba",
+      "label": "base",
+      "status": 200,
+      "bytes": 106924,
+      "shot_count": 75,
+      "top_keys": [
+        "params",
+        "shots"
+      ],
+      "params_echo": {
+        "leagueId": "10",
+        "seasonType": "Regular Season",
+        "seasonYear": "2026"
+      },
+      "first_row": {
+        "PLAYERID": 1642289,
+        "PLAYERNAME": "Kamilla Cardoso",
+        "FGA": 400,
+        "FGM": 219,
+        "AVGSHOTQUALITY": 0.521,
+        "AVGDEFENSIVEHANDHEIGHT": 52.205,
+        "AVGSHOOTERSPEED": 6,
+        "AVGROTATIONDEGREES": 54.578,
+        "AVGDEFENDERPRESSURESCORE": 0.876
+      },
+      "error": null
+    },
+    {
+      "league": "wnba",
+      "label": "allPlayers",
+      "status": 200,
+      "bytes": 106924,
+      "shot_count": 75,
+      "top_keys": [
+        "params",
+        "shots"
+      ],
+      "params_echo": {
+        "leagueId": "10",
+        "seasonType": "Regular Season",
+        "seasonYear": "2026"
+      },
+      "first_row": {
+        "PLAYERID": 1642289,
+        "PLAYERNAME": "Kamilla Cardoso",
+        "FGA": 400,
+        "FGM": 219,
+        "AVGSHOTQUALITY": 0.521,
+        "AVGDEFENSIVEHANDHEIGHT": 52.205,
+        "AVGSHOOTERSPEED": 6,
+        "AVGROTATIONDEGREES": 54.578,
+        "AVGDEFENDERPRESSURESCORE": 0.876
+      },
+      "error": null
+    },
+    {
+      "league": "wnba",
+      "label": "includeUnqualified",
+      "status": 200,
+      "bytes": 106924,
+      "shot_count": 75,
+      "top_keys": [
+        "params",
+        "shots"
+      ],
+      "params_echo": {
+        "leagueId": "10",
+        "seasonType": "Regular Season",
+        "seasonYear": "2026"
+      },
+      "first_row": {
+        "PLAYERID": 1642289,
+        "PLAYERNAME": "Kamilla Cardoso",
+        "FGA": 400,
+        "FGM": 219,
+        "AVGSHOTQUALITY": 0.521,
+        "AVGDEFENSIVEHANDHEIGHT": 52.205,
+        "AVGSHOOTERSPEED": 6,
+        "AVGROTATIONDEGREES": 54.578,
+        "AVGDEFENDERPRESSURESCORE": 0.876
+      },
+      "error": null
+    },
+    {
+      "league": "wnba",
+      "label": "qualifiedFalse",
+      "status": 200,
+      "bytes": 106924,
+      "shot_count": 75,
+      "top_keys": [
+        "params",
+        "shots"
+      ],
+      "params_echo": {
+        "leagueId": "10",
+        "seasonType": "Regular Season",
+        "seasonYear": "2026"
+      },
+      "first_row": {
+        "PLAYERID": 1642289,
+        "PLAYERNAME": "Kamilla Cardoso",
+        "FGA": 400,
+        "FGM": 219,
+        "AVGSHOTQUALITY": 0.521,
+        "AVGDEFENSIVEHANDHEIGHT": 52.205,
+        "AVGSHOOTERSPEED": 6,
+        "AVGROTATIONDEGREES": 54.578,
+        "AVGDEFENDERPRESSURESCORE": 0.876
+      },
+      "error": null
+    },
+    {
+      "league": "wnba",
+      "label": "playerId-love",
+      "status": 200,
+      "bytes": 106924,
+      "shot_count": 75,
+      "top_keys": [
+        "params",
+        "shots"
+      ],
+      "params_echo": {
+        "leagueId": "10",
+        "seasonType": "Regular Season",
+        "seasonYear": "2026"
+      },
+      "first_row": {
+        "PLAYERID": 1642289,
+        "PLAYERNAME": "Kamilla Cardoso",
+        "FGA": 400,
+        "FGM": 219,
+        "AVGSHOTQUALITY": 0.521,
+        "AVGDEFENSIVEHANDHEIGHT": 52.205,
+        "AVGSHOOTERSPEED": 6,
+        "AVGROTATIONDEGREES": 54.578,
+        "AVGDEFENDERPRESSURESCORE": 0.876
+      },
+      "error": null
+    },
+    {
+      "league": "wnba",
+      "label": "PlayerID-love",
+      "status": 200,
+      "bytes": 106924,
+      "shot_count": 75,
+      "top_keys": [
+        "params",
+        "shots"
+      ],
+      "params_echo": {
+        "leagueId": "10",
+        "seasonType": "Regular Season",
+        "seasonYear": "2026"
+      },
+      "first_row": {
+        "PLAYERID": 1642289,
+        "PLAYERNAME": "Kamilla Cardoso",
+        "FGA": 400,
+        "FGM": 219,
+        "AVGSHOTQUALITY": 0.521,
+        "AVGDEFENSIVEHANDHEIGHT": 52.205,
+        "AVGSHOOTERSPEED": 6,
+        "AVGROTATIONDEGREES": 54.578,
+        "AVGDEFENDERPRESSURESCORE": 0.876
+      },
+      "error": null
+    },
+    {
+      "league": "wnba",
+      "label": "limit1000",
+      "status": 200,
+      "bytes": 106924,
+      "shot_count": 75,
+      "top_keys": [
+        "params",
+        "shots"
+      ],
+      "params_echo": {
+        "leagueId": "10",
+        "seasonType": "Regular Season",
+        "seasonYear": "2026"
+      },
+      "first_row": {
+        "PLAYERID": 1642289,
+        "PLAYERNAME": "Kamilla Cardoso",
+        "FGA": 400,
+        "FGM": 219,
+        "AVGSHOTQUALITY": 0.521,
+        "AVGDEFENSIVEHANDHEIGHT": 52.205,
+        "AVGSHOOTERSPEED": 6,
+        "AVGROTATIONDEGREES": 54.578,
+        "AVGDEFENDERPRESSURESCORE": 0.876
+      },
+      "error": null
+    },
+    {
+      "league": "wnba",
+      "label": "pageSize1000",
+      "status": 200,
+      "bytes": 106924,
+      "shot_count": 75,
+      "top_keys": [
+        "params",
+        "shots"
+      ],
+      "params_echo": {
+        "leagueId": "10",
+        "seasonType": "Regular Season",
+        "seasonYear": "2026"
+      },
+      "first_row": {
+        "PLAYERID": 1642289,
+        "PLAYERNAME": "Kamilla Cardoso",
+        "FGA": 400,
+        "FGM": 219,
+        "AVGSHOTQUALITY": 0.521,
+        "AVGDEFENSIVEHANDHEIGHT": 52.205,
+        "AVGSHOOTERSPEED": 6,
+        "AVGROTATIONDEGREES": 54.578,
+        "AVGDEFENDERPRESSURESCORE": 0.876
+      },
+      "error": null
+    },
+    {
+      "league": "wnba",
+      "label": "minimumFga0",
+      "status": 200,
+      "bytes": 106924,
+      "shot_count": 75,
+      "top_keys": [
+        "params",
+        "shots"
+      ],
+      "params_echo": {
+        "leagueId": "10",
+        "seasonType": "Regular Season",
+        "seasonYear": "2026"
+      },
+      "first_row": {
+        "PLAYERID": 1642289,
+        "PLAYERNAME": "Kamilla Cardoso",
+        "FGA": 400,
+        "FGM": 219,
+        "AVGSHOTQUALITY": 0.521,
+        "AVGDEFENSIVEHANDHEIGHT": 52.205,
+        "AVGSHOOTERSPEED": 6,
+        "AVGROTATIONDEGREES": 54.578,
+        "AVGDEFENDERPRESSURESCORE": 0.876
+      },
+      "error": null
+    },
+    {
+      "league": "wnba",
+      "label": "minFga0",
+      "status": 200,
+      "bytes": 106924,
+      "shot_count": 75,
+      "top_keys": [
+        "params",
+        "shots"
+      ],
+      "params_echo": {
+        "leagueId": "10",
+        "seasonType": "Regular Season",
+        "seasonYear": "2026"
+      },
+      "first_row": {
+        "PLAYERID": 1642289,
+        "PLAYERNAME": "Kamilla Cardoso",
+        "FGA": 400,
+        "FGM": 219,
+        "AVGSHOTQUALITY": 0.521,
+        "AVGDEFENSIVEHANDHEIGHT": 52.205,
+        "AVGSHOOTERSPEED": 6,
+        "AVGROTATIONDEGREES": 54.578,
+        "AVGDEFENDERPRESSURESCORE": 0.876
+      },
+      "error": null
+    }
+  ]
+}
