@@ -1,0 +1,64 @@
+name: Compare stats.nba.com Hawk-Eye host
+
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/probe_stats_nba_host_unqualified.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-all-players-2025-26}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Compare NBA and G League stats hosts
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,hashlib,time
+          H={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/137.0 Safari/537.36','Origin':'https://www.nba.com','Referer':'https://www.nba.com/','Accept':'application/json,text/plain,*/*','x-nba-stats-origin':'stats','x-nba-stats-token':'true'}
+          hosts=['https://stats.nba.com/stats/','https://stats.gleague.nba.com/stats/']
+          players=[('LeBron','2544'),('PJWashington','1629023'),('KevinLove','201567'),('Tosan','1641787')]
+          variants=[('base',{}),('PlayerID',None),('TeamID',None)]
+          out=[]
+          for host in hosts:
+            # all rows
+            for label,extra in [('all',{}),('limit',{'Limit':'1000'}),('qualified_false',{'Qualified':'false'}),('minfgm0',{'MinFGM':'0'})]:
+              p={'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season',**extra}
+              try:
+                r=requests.get(host+'shotqualityleaders',params=p,headers=H,timeout=35,allow_redirects=False);rec={'host':host,'label':label,'status':r.status_code,'bytes':len(r.content),'sha256':hashlib.sha256(r.content).hexdigest(),'location':r.headers.get('location')}
+                if r.status_code==200:
+                  j=r.json();shots=j.get('shots',[]) if isinstance(j,dict) else [];rec['count']=len(shots);rec['params']=j.get('params');rec['ids']=[str(x.get('PLAYERID')) for x in shots];
+                else:rec['prefix']=r.text[:500]
+              except Exception as e:rec={'host':host,'label':label,'error':repr(e)}
+              out.append(rec)
+            for name,pid in players:
+              p={'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season','PlayerID':pid}
+              try:
+                r=requests.get(host+'shotqualityleaders',params=p,headers=H,timeout=35,allow_redirects=False);rec={'host':host,'label':'player','player':name,'pid':pid,'status':r.status_code,'bytes':len(r.content),'sha256':hashlib.sha256(r.content).hexdigest(),'location':r.headers.get('location')}
+                if r.status_code==200:
+                  j=r.json();shots=j.get('shots',[]) if isinstance(j,dict) else [];rec['count']=len(shots);rec['params']=j.get('params');rec['rows']=shots
+                else:rec['prefix']=r.text[:500]
+              except Exception as e:rec={'host':host,'label':'player','player':name,'pid':pid,'error':repr(e)}
+              out.append(rec)
+          d=pathlib.Path('outputs/stats_nba_host_hawkeye_probe');d.mkdir(parents=True,exist_ok=True)
+          (d/'report.json').write_text(json.dumps(out,indent=2,ensure_ascii=False),encoding='utf-8')
+          summary=[{k:v for k,v in x.items() if k not in ('rows','ids')} for x in out]
+          (d/'summary.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps(summary,indent=2,ensure_ascii=False))
+          PY
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/stats_nba_host_hawkeye_probe || true
+          git diff --cached --quiet && exit 0
+          git commit -m 'Preserve stats.nba.com Hawk-Eye host comparison'
+          for i in 1 2 3 4 5; do git pull --rebase origin analysis/hawkeye-all-players-2025-26 && git push origin HEAD:analysis/hawkeye-all-players-2025-26 && exit 0; sleep $((i*2)); done
+          exit 1
