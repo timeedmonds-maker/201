@@ -1,0 +1,92 @@
+name: Package full-schema 2025-26 Hawk-Eye season data
+
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/package_hawkeye_season_full_schema.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-all-players-2025-26}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Acquire, preserve and QA complete exposed schema
+        run: |
+          python - <<'PY'
+          import requests,json,csv,pathlib,hashlib,datetime,statistics
+          BASE='https://stats.gleague.nba.com/stats/'
+          H={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/137.0 Safari/537.36','Origin':'https://www.nba.com','Referer':'https://www.nba.com/','Accept':'application/json,text/plain,*/*','x-nba-stats-origin':'stats','x-nba-stats-token':'true'}
+          s=requests.Session();s.headers.update(H)
+          season={'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season'}
+          r=s.get(BASE+'shotqualityleaders',params=season,timeout=60);r.raise_for_status();j=r.json();shots=j.get('shots',[])
+          lr=s.get(BASE+'leaguegamelog',params={**season,'PlayerOrTeam':'P','Counter':'0','Sorter':'DATE','Direction':'DESC','DateFrom':'','DateTo':''},timeout=60);lr.raise_for_status();lj=lr.json()
+          rs=lj.get('resultSets') or lj.get('resultSet');rs=rs[0] if isinstance(rs,list) else rs; hh=rs['headers'];ix={k:i for i,k in enumerate(hh)}
+          universe={}
+          for row in rs['rowSet']:
+            pid=str(row[ix['PLAYER_ID']]);u=universe.setdefault(pid,{'PLAYERID':int(pid),'PLAYERNAME':row[ix['PLAYER_NAME']],'LEAGUE_FGA':0,'GAMES':0,'TEAMS':set()})
+            u['GAMES']+=1;u['LEAGUE_FGA']+=int(row[ix['FGA']] or 0)
+            if row[ix['TEAM_ABBREVIATION']]:u['TEAMS'].add(str(row[ix['TEAM_ABBREVIATION']]))
+          metric={str(x['PLAYERID']):x for x in shots}
+          # preserve exact full exposed endpoint schema
+          fields=[];seen=set()
+          for x in shots:
+            for k in x:
+              if k not in seen:seen.add(k);fields.append(k)
+          out=pathlib.Path('outputs/hawkeye_2025_26_season_full_schema');out.mkdir(parents=True,exist_ok=True)
+          (out/'shotqualityleaders_raw.json').write_bytes(r.content)
+          with (out/'qualified_125_full_schema.csv').open('w',newline='',encoding='utf-8') as f:
+            w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(shots)
+          # requested core metrics across the complete player universe, explicitly null if NBA does not expose a row
+          core=[]
+          for pid,u in sorted(universe.items(),key=lambda kv:(-kv[1]['LEAGUE_FGA'],kv[1]['PLAYERNAME'])):
+            x=metric.get(pid)
+            core.append({
+              'season':'2025-26','season_type':'Regular Season','player_id':pid,'player_name':u['PLAYERNAME'],'teams':'|'.join(sorted(u['TEAMS'])),'games':u['GAMES'],'fga':u['LEAGUE_FGA'],
+              'avg_defensive_hand_height':x.get('AVGDEFENSIVEHANDHEIGHT') if x else None,
+              'avg_shooter_speed':x.get('AVGSHOOTERSPEED') if x else None,
+              'avg_rotation_degrees':x.get('AVGROTATIONDEGREES') if x else None,
+              'avg_defender_pressure_score':x.get('AVGDEFENDERPRESSURESCORE') if x else None,
+              'defensive_hand_height_rank':x.get('AVGDEFENSIVEHANDHEIGHT_RANK') if x else None,
+              'shooter_speed_rank':x.get('AVGSHOOTERSPEED_RANK') if x else None,
+              'rotation_degrees_rank':x.get('AVGROTATIONDEGREES_RANK') if x else None,
+              'defender_pressure_score_rank':x.get('AVGDEFENDERPRESSURESCORE_RANK') if x else None,
+              'official_row_exposed':bool(x),'coverage_status':'official_qualified_leader_row' if x else 'official_endpoint_withholds_unqualified_player',
+            })
+          cfields=list(core[0])
+          with (out/'all_582_requested_metrics_coverage.csv').open('w',newline='',encoding='utf-8') as f:
+            w=csv.DictWriter(f,fieldnames=cfields);w.writeheader();w.writerows(core)
+          rot=[x.get('AVGROTATIONDEGREES') for x in shots]
+          rranks=[x.get('AVGROTATIONDEGREES_RANK') for x in shots]
+          summary={
+            'season':'2025-26','season_type':'Regular Season','retrieved_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
+            'official_source':r.url,'official_raw_sha256':hashlib.sha256(r.content).hexdigest(),'leaguegamelog_sha256':hashlib.sha256(lr.content).hexdigest(),
+            'universe_players':len(universe),'official_leader_rows':len(shots),'withheld_unqualified_players':len(universe)-len(shots),'full_schema_field_count':len(fields),'full_schema_fields':fields,
+            'requested_metrics':['AVGDEFENSIVEHANDHEIGHT','AVGSHOOTERSPEED','AVGROTATIONDEGREES','AVGDEFENDERPRESSURESCORE'],
+            'requested_metric_nulls_in_exposed_rows':{m:sum(x.get(m) is None for x in shots) for m in ['AVGDEFENSIVEHANDHEIGHT','AVGSHOOTERSPEED','AVGROTATIONDEGREES','AVGDEFENDERPRESSURESCORE']},
+            'rotation_distinct_values':sorted(set(rot),key=lambda x:(x is None,x)),'rotation_nonzero_count':sum((x or 0)!=0 for x in rot),'rotation_rank_distinct_values':sorted(set(rranks),key=lambda x:(x is None,x)),
+          }
+          (out/'summary.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False),encoding='utf-8')
+          (out/'README.md').write_text('# 2025-26 NBA Hawk-Eye season package\n\nOfficial NBA/G League `shotqualityleaders` full-schema preservation plus complete 582-player regular-season FGA universe. The endpoint exposes 125 qualified player rows and withholds the other 457; withheld fields are left null, not imputed. Rotation is preserved exactly as returned.\n',encoding='utf-8')
+          print(json.dumps(summary,indent=2))
+          PY
+      - name: Commit package
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hawkeye_2025_26_season_full_schema
+          git diff --cached --quiet && exit 0
+          git commit -m 'Package full-schema 2025-26 Hawk-Eye season data'
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin analysis/hawkeye-all-players-2025-26 && git push origin HEAD:analysis/hawkeye-all-players-2025-26 && exit 0
+            sleep $((i*2))
+          done
+          exit 1
