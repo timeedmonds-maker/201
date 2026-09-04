@@ -1,0 +1,260 @@
+[
+  {
+    "url": "https://api-hub-dev.nba.com/api/stats/shot-difficulty",
+    "extra": {},
+    "status": 461,
+    "bytes": 4762,
+    "ct": "text/html; charset=utf-8",
+    "location": null,
+    "sha256": "8e8c8b3684cfab5041893fa3b91ff811922ece8d0fe7839eaa88c05ef00583d4",
+    "headers": {
+      "x-envoy-upstream-service-time": "0"
+    },
+    "prefix": "<!DOCTYPE html>\n                <html lang=\"en\">\n                <head>\n                    <meta charset=\"UTF-8\">\n                    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n                    <title>Content Unavailable</title>\n                    <link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\n                </head>\n                <body>\n                    <div class=\"header\">\n                        <svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <g"
+  },
+  {
+    "url": "https://api-hub-dev.nba.com/api/stats/shot-difficulty",
+    "extra": {
+      "PlayerID": "1629023"
+    },
+    "status": 461,
+    "bytes": 4762,
+    "ct": "text/html; charset=utf-8",
+    "location": null,
+    "sha256": "8e8c8b3684cfab5041893fa3b91ff811922ece8d0fe7839eaa88c05ef00583d4",
+    "headers": {
+      "x-envoy-upstream-service-time": "1"
+    },
+    "prefix": "<!DOCTYPE html>\n                <html lang=\"en\">\n                <head>\n                    <meta charset=\"UTF-8\">\n                    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n                    <title>Content Unavailable</title>\n                    <link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\n                </head>\n                <body>\n                    <div class=\"header\">\n                        <svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <g"
+  },
+  {
+    "url": "https://api-hub-dev.nba.com/api/stats/shot-difficulty",
+    "extra": {
+      "PlayerID": "201567"
+    },
+    "status": 461,
+    "bytes": 4762,
+    "ct": "text/html; charset=utf-8",
+    "location": null,
+    "sha256": "8e8c8b3684cfab5041893fa3b91ff811922ece8d0fe7839eaa88c05ef00583d4",
+    "headers": {
+      "x-envoy-upstream-service-time": "1"
+    },
+    "prefix": "<!DOCTYPE html>\n                <html lang=\"en\">\n                <head>\n                    <meta charset=\"UTF-8\">\n                    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n                    <title>Content Unavailable</title>\n                    <link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\n                </head>\n                <body>\n                    <div class=\"header\">\n                        <svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <g"
+  },
+  {
+    "url": "https://api-hub-dev.nba.com/api/stats/shotqualityleaders",
+    "extra": {},
+    "status": 461,
+    "bytes": 4762,
+    "ct": "text/html; charset=utf-8",
+    "location": null,
+    "sha256": "8e8c8b3684cfab5041893fa3b91ff811922ece8d0fe7839eaa88c05ef00583d4",
+    "headers": {
+      "x-envoy-upstream-service-time": "0"
+    },
+    "prefix": "<!DOCTYPE html>\n                <html lang=\"en\">\n                <head>\n                    <meta charset=\"UTF-8\">\n                    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n                    <title>Content Unavailable</title>\n                    <link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\n                </head>\n                <body>\n                    <div class=\"header\">\n                        <svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <g"
+  },
+  {
+    "url": "https://api-hub-dev.nba.com/api/stats/shotqualityleaders",
+    "extra": {
+      "PlayerID": "1629023"
+    },
+    "status": 461,
+    "bytes": 4762,
+    "ct": "text/html; charset=utf-8",
+    "location": null,
+    "sha256": "8e8c8b3684cfab5041893fa3b91ff811922ece8d0fe7839eaa88c05ef00583d4",
+    "headers": {
+      "x-envoy-upstream-service-time": "0"
+    },
+    "prefix": "<!DOCTYPE html>\n                <html lang=\"en\">\n                <head>\n                    <meta charset=\"UTF-8\">\n                    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n                    <title>Content Unavailable</title>\n                    <link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\n                </head>\n                <body>\n                    <div class=\"header\">\n                        <svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <g"
+  },
+  {
+    "url": "https://api-hub-dev.nba.com/api/stats/shotqualityleaders",
+    "extra": {
+      "PlayerID": "201567"
+    },
+    "status": 461,
+    "bytes": 4762,
+    "ct": "text/html; charset=utf-8",
+    "location": null,
+    "sha256": "8e8c8b3684cfab5041893fa3b91ff811922ece8d0fe7839eaa88c05ef00583d4",
+    "headers": {
+      "x-envoy-upstream-service-time": "0"
+    },
+    "prefix": "<!DOCTYPE html>\n                <html lang=\"en\">\n                <head>\n                    <meta charset=\"UTF-8\">\n                    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n                    <title>Content Unavailable</title>\n                    <link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\n                </head>\n                <body>\n                    <div class=\"header\">\n                        <svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <g"
+  },
+  {
+    "url": "https://api-hub-dev.nba.com/stats/shotqualityleaders",
+    "extra": {},
+    "status": 461,
+    "bytes": 4762,
+    "ct": "text/html; charset=utf-8",
+    "location": null,
+    "sha256": "8e8c8b3684cfab5041893fa3b91ff811922ece8d0fe7839eaa88c05ef00583d4",
+    "headers": {
+      "x-envoy-upstream-service-time": "1"
+    },
+    "prefix": "<!DOCTYPE html>\n                <html lang=\"en\">\n                <head>\n                    <meta charset=\"UTF-8\">\n                    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n                    <title>Content Unavailable</title>\n                    <link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\n                </head>\n                <body>\n                    <div class=\"header\">\n                        <svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <g"
+  },
+  {
+    "url": "https://api-hub-dev.nba.com/stats/shotqualityleaders",
+    "extra": {
+      "PlayerID": "1629023"
+    },
+    "status": 461,
+    "bytes": 4762,
+    "ct": "text/html; charset=utf-8",
+    "location": null,
+    "sha256": "8e8c8b3684cfab5041893fa3b91ff811922ece8d0fe7839eaa88c05ef00583d4",
+    "headers": {
+      "x-envoy-upstream-service-time": "1"
+    },
+    "prefix": "<!DOCTYPE html>\n                <html lang=\"en\">\n                <head>\n                    <meta charset=\"UTF-8\">\n                    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n                    <title>Content Unavailable</title>\n                    <link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\n                </head>\n                <body>\n                    <div class=\"header\">\n                        <svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <g"
+  },
+  {
+    "url": "https://api-hub-dev.nba.com/stats/shotqualityleaders",
+    "extra": {
+      "PlayerID": "201567"
+    },
+    "status": 461,
+    "bytes": 4762,
+    "ct": "text/html; charset=utf-8",
+    "location": null,
+    "sha256": "8e8c8b3684cfab5041893fa3b91ff811922ece8d0fe7839eaa88c05ef00583d4",
+    "headers": {
+      "x-envoy-upstream-service-time": "0"
+    },
+    "prefix": "<!DOCTYPE html>\n                <html lang=\"en\">\n                <head>\n                    <meta charset=\"UTF-8\">\n                    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n                    <title>Content Unavailable</title>\n                    <link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\n                </head>\n                <body>\n                    <div class=\"header\">\n                        <svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <g"
+  },
+  {
+    "url": "https://api-hub-dev.nba.com/stats/api/shotqualityleaders",
+    "extra": {},
+    "status": 461,
+    "bytes": 4762,
+    "ct": "text/html; charset=utf-8",
+    "location": null,
+    "sha256": "8e8c8b3684cfab5041893fa3b91ff811922ece8d0fe7839eaa88c05ef00583d4",
+    "headers": {
+      "x-envoy-upstream-service-time": "0"
+    },
+    "prefix": "<!DOCTYPE html>\n                <html lang=\"en\">\n                <head>\n                    <meta charset=\"UTF-8\">\n                    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n                    <title>Content Unavailable</title>\n                    <link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\n                </head>\n                <body>\n                    <div class=\"header\">\n                        <svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <g"
+  },
+  {
+    "url": "https://api-hub-dev.nba.com/stats/api/shotqualityleaders",
+    "extra": {
+      "PlayerID": "1629023"
+    },
+    "status": 461,
+    "bytes": 4762,
+    "ct": "text/html; charset=utf-8",
+    "location": null,
+    "sha256": "8e8c8b3684cfab5041893fa3b91ff811922ece8d0fe7839eaa88c05ef00583d4",
+    "headers": {
+      "x-envoy-upstream-service-time": "0"
+    },
+    "prefix": "<!DOCTYPE html>\n                <html lang=\"en\">\n                <head>\n                    <meta charset=\"UTF-8\">\n                    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n                    <title>Content Unavailable</title>\n                    <link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\n                </head>\n                <body>\n                    <div class=\"header\">\n                        <svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <g"
+  },
+  {
+    "url": "https://api-hub-dev.nba.com/stats/api/shotqualityleaders",
+    "extra": {
+      "PlayerID": "201567"
+    },
+    "status": 461,
+    "bytes": 4762,
+    "ct": "text/html; charset=utf-8",
+    "location": null,
+    "sha256": "8e8c8b3684cfab5041893fa3b91ff811922ece8d0fe7839eaa88c05ef00583d4",
+    "headers": {
+      "x-envoy-upstream-service-time": "0"
+    },
+    "prefix": "<!DOCTYPE html>\n                <html lang=\"en\">\n                <head>\n                    <meta charset=\"UTF-8\">\n                    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n                    <title>Content Unavailable</title>\n                    <link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\n                </head>\n                <body>\n                    <div class=\"header\">\n                        <svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <g"
+  },
+  {
+    "url": "https://api-hub-dev.nba.com/stats/api/stats/shotqualityleaders",
+    "extra": {},
+    "status": 461,
+    "bytes": 4762,
+    "ct": "text/html; charset=utf-8",
+    "location": null,
+    "sha256": "8e8c8b3684cfab5041893fa3b91ff811922ece8d0fe7839eaa88c05ef00583d4",
+    "headers": {
+      "x-envoy-upstream-service-time": "0"
+    },
+    "prefix": "<!DOCTYPE html>\n                <html lang=\"en\">\n                <head>\n                    <meta charset=\"UTF-8\">\n                    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n                    <title>Content Unavailable</title>\n                    <link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\n                </head>\n                <body>\n                    <div class=\"header\">\n                        <svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <g"
+  },
+  {
+    "url": "https://api-hub-dev.nba.com/stats/api/stats/shotqualityleaders",
+    "extra": {
+      "PlayerID": "1629023"
+    },
+    "status": 461,
+    "bytes": 4762,
+    "ct": "text/html; charset=utf-8",
+    "location": null,
+    "sha256": "8e8c8b3684cfab5041893fa3b91ff811922ece8d0fe7839eaa88c05ef00583d4",
+    "headers": {
+      "x-envoy-upstream-service-time": "0"
+    },
+    "prefix": "<!DOCTYPE html>\n                <html lang=\"en\">\n                <head>\n                    <meta charset=\"UTF-8\">\n                    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n                    <title>Content Unavailable</title>\n                    <link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\n                </head>\n                <body>\n                    <div class=\"header\">\n                        <svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <g"
+  },
+  {
+    "url": "https://api-hub-dev.nba.com/stats/api/stats/shotqualityleaders",
+    "extra": {
+      "PlayerID": "201567"
+    },
+    "status": 461,
+    "bytes": 4762,
+    "ct": "text/html; charset=utf-8",
+    "location": null,
+    "sha256": "8e8c8b3684cfab5041893fa3b91ff811922ece8d0fe7839eaa88c05ef00583d4",
+    "headers": {
+      "x-envoy-upstream-service-time": "0"
+    },
+    "prefix": "<!DOCTYPE html>\n                <html lang=\"en\">\n                <head>\n                    <meta charset=\"UTF-8\">\n                    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n                    <title>Content Unavailable</title>\n                    <link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\n                </head>\n                <body>\n                    <div class=\"header\">\n                        <svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <g"
+  },
+  {
+    "url": "https://api-hub-dev.nba.com/inside-the-game/api/stats/shot-difficulty",
+    "extra": {},
+    "status": 461,
+    "bytes": 4762,
+    "ct": "text/html; charset=utf-8",
+    "location": null,
+    "sha256": "8e8c8b3684cfab5041893fa3b91ff811922ece8d0fe7839eaa88c05ef00583d4",
+    "headers": {
+      "x-envoy-upstream-service-time": "0"
+    },
+    "prefix": "<!DOCTYPE html>\n                <html lang=\"en\">\n                <head>\n                    <meta charset=\"UTF-8\">\n                    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n                    <title>Content Unavailable</title>\n                    <link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\n                </head>\n                <body>\n                    <div class=\"header\">\n                        <svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <g"
+  },
+  {
+    "url": "https://api-hub-dev.nba.com/inside-the-game/api/stats/shot-difficulty",
+    "extra": {
+      "PlayerID": "1629023"
+    },
+    "status": 461,
+    "bytes": 4762,
+    "ct": "text/html; charset=utf-8",
+    "location": null,
+    "sha256": "8e8c8b3684cfab5041893fa3b91ff811922ece8d0fe7839eaa88c05ef00583d4",
+    "headers": {
+      "x-envoy-upstream-service-time": "0"
+    },
+    "prefix": "<!DOCTYPE html>\n                <html lang=\"en\">\n                <head>\n                    <meta charset=\"UTF-8\">\n                    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n                    <title>Content Unavailable</title>\n                    <link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\n                </head>\n                <body>\n                    <div class=\"header\">\n                        <svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <g"
+  },
+  {
+    "url": "https://api-hub-dev.nba.com/inside-the-game/api/stats/shot-difficulty",
+    "extra": {
+      "PlayerID": "201567"
+    },
+    "status": 461,
+    "bytes": 4762,
+    "ct": "text/html; charset=utf-8",
+    "location": null,
+    "sha256": "8e8c8b3684cfab5041893fa3b91ff811922ece8d0fe7839eaa88c05ef00583d4",
+    "headers": {
+      "x-envoy-upstream-service-time": "0"
+    },
+    "prefix": "<!DOCTYPE html>\n                <html lang=\"en\">\n                <head>\n                    <meta charset=\"UTF-8\">\n                    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n                    <title>Content Unavailable</title>\n                    <link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\n                </head>\n                <body>\n                    <div class=\"header\">\n                        <svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <g"
+  }
+]
