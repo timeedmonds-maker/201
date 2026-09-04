@@ -1,0 +1,104 @@
+name: Probe Hawk-Eye routes for unqualified players
+
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/probe_hawkeye_unqualified_player_routes.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-all-players-2025-26}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Probe official routes and qualification controls
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,hashlib,time,itertools
+          BASE='https://stats.gleague.nba.com/stats/'
+          H={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/137.0 Safari/537.36','Origin':'https://www.nba.com','Referer':'https://www.nba.com/','Accept':'application/json,text/plain,*/*','x-nba-stats-origin':'stats','x-nba-stats-token':'true'}
+          s=requests.Session();s.headers.update(H)
+          season={'LeagueID':'00','Season':'2025-26','SeasonType':'Regular Season'}
+          controls={'qualified':'2544','unqualified':'201567'} # LeBron / Kevin Love
+          resources=[
+            'shotqualityleaders','shotqualitylogs','shotqualitylog','shotqualityplayerlog','shotqualityplayerlogs',
+            'shotqualitygamelog','shotqualityplayergamelog','shotqualityplayergame','shotqualitygame','shotqualitygamestats',
+            'shotqualitygameleaders','shotqualitystats','shotqualityplayerstats','shotqualitymetrics','shotqualitytracking',
+            'shotqualitydetails','shotqualitydetail','shotqualitytopperformersseason','shotqualitytopperformerstimeframe',
+            'shotqualityleaderstimeframe','shotqualityonmake','shotquality2pt','shotquality3pt'
+          ]
+          qual_params=['MinFGA','MinimumFGA','MinimumAttempts','MinAttempts','MinimumShots','MinShots','MinShotAttempts','MinimumShotAttempts','QualifyingFGA','FGAThreshold','MinGames','MinimumGames','MinimumGamesPlayed','MinMinutes','MinimumMinutes','MinPossessions','MinimumPossessions','PerMode','PageSize','Limit']
+          out=[]
+          def metric_paths(j):
+            hits=[]
+            def walk(v,p=''):
+              if isinstance(v,dict):
+                for k,z in v.items():
+                  lk=k.lower()
+                  if any(x in lk for x in ('defensivehandheight','shooterspeed','defenderpressurescore','pressurescore')):
+                    hits.append({'path':p+'/'+k,'value':z if not isinstance(z,(dict,list)) else type(z).__name__})
+                  if isinstance(z,(dict,list)):walk(z,p+'/'+k)
+              elif isinstance(v,list):
+                for i,z in enumerate(v[:10]):
+                  if isinstance(z,(dict,list)):walk(z,f'{p}/{i}')
+            walk(j);return hits
+          def arrs(j):
+            a=[]
+            def walk(v,p=''):
+              if isinstance(v,list) and v and isinstance(v[0],dict):a.append({'path':p,'count':len(v),'keys':list(v[0])})
+              if isinstance(v,dict):
+                for k,z in v.items():
+                  if isinstance(z,(dict,list)):walk(z,p+'/'+k)
+            walk(j);return a[:20]
+          def hit(resource,params,label):
+            rec={'label':label,'resource':resource,'params':params}
+            try:
+              r=s.get(BASE+resource,params=params,timeout=15,allow_redirects=False)
+              rec.update(status=r.status_code,bytes=len(r.content),location=r.headers.get('location'),ct=r.headers.get('content-type'),sha256=hashlib.sha256(r.content).hexdigest())
+              if r.status_code==200 and r.content:
+                try:
+                  j=r.json();rec['top_keys']=list(j)[:50] if isinstance(j,dict) else None;rec['metric_hits']=metric_paths(j);rec['arrays']=arrs(j)
+                  if len(r.content)<50000:rec['json']=j
+                except Exception as e:rec['json_error']=repr(e);rec['prefix']=r.text[:1000]
+              else:rec['prefix']=r.text[:500]
+            except Exception as e:rec['error']=repr(e)
+            out.append(rec)
+            if rec.get('metric_hits') or rec.get('status')==200:print(label,resource,rec.get('status'),rec.get('bytes'),'metrics',len(rec.get('metric_hits',[])),rec.get('arrays'),flush=True)
+            time.sleep(.02)
+          # Basic season/player resource probes for qualified and unqualified controls.
+          for name,pid in controls.items():
+            for r in resources:
+              hit(r,{**season,'PlayerID':pid},f'{name}:season-player')
+          # Qualification bypass candidates on shotqualityleaders for unqualified control.
+          for q in qual_params:
+            vals=['0'] if q not in ('PerMode','PageSize','Limit') else (['Totals','PerGame','Per100Possessions'] if q=='PerMode' else ['1000'])
+            for val in vals:
+              hit('shotqualityleaders',{**season,'PlayerID':controls['unqualified'],q:val},f'unqualified:qual:{q}={val}')
+          # Broad unfiltered attempts to see whether pagination/limit controls expand beyond 125.
+          for q,val in [('PageSize','1000'),('Limit','1000'),('Offset','0'),('Page','1'),('Start','0'),('Count','1000'),('MaxRows','1000'),('Top','1000')]:
+            hit('shotqualityleaders',{**season,q:val},f'unfiltered:{q}={val}')
+          # Try typical low-volume/qualification flags.
+          for q,val in [('Qualified','0'),('Qualified','false'),('QualifiersOnly','false'),('IncludeUnqualified','true'),('AllPlayers','true'),('All','true'),('Scope','All'),('PlayerScope','All')]:
+            hit('shotqualityleaders',{**season,q:val},f'unfiltered:{q}={val}')
+          d=pathlib.Path('outputs/hawkeye_unqualified_route_probe');d.mkdir(parents=True,exist_ok=True)
+          interesting=[x for x in out if x.get('metric_hits') or (x.get('status')==200 and x.get('bytes',0)>2)]
+          (d/'report.json').write_text(json.dumps(out,indent=2,ensure_ascii=False),encoding='utf-8')
+          (d/'interesting.json').write_text(json.dumps(interesting,indent=2,ensure_ascii=False),encoding='utf-8')
+          print('total',len(out),'interesting',len(interesting))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/hawkeye_unqualified_route_probe
+          git commit -m 'Preserve unqualified-player Hawk-Eye route probe' || exit 0
+          git pull --rebase origin analysis/hawkeye-all-players-2025-26
+          git push origin HEAD:analysis/hawkeye-all-players-2025-26
