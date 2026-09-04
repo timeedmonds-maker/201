@@ -1,0 +1,35 @@
+# Basketball Documentation
+
+> Unlock the power of basketball data with Sportradar's comprehensive developer resources. Dive into player stats, game insights, and more at developer.sportradar.com/basketball/reference/overview. Elevate your NBA, WNBA, NCAA, and global basketball applications with our trusted APIs and expert tools.
+
+Append .md to any documentation page URL to get its markdown version.
+
+Each section below links to its own llms.txt, which indexes every page in that section. Category links narrow to a single category.
+
+## Guides
+
+- [Guides index](https://developer.sportradar.com/basketball/docs/llms.txt): full section index
+- [NBA Integration Guide](https://developer.sportradar.com/basketball/docs/nba-integration-guide/llms.txt)
+- [WNBA Integration Guide](https://developer.sportradar.com/basketball/docs/wnba-integration-guide/llms.txt)
+- [Unrivaled Integration Guide](https://developer.sportradar.com/basketball/docs/unrivaled-integration-guide/llms.txt)
+- [NCAAMB Integration Guide](https://developer.sportradar.com/basketball/docs/ncaamb-integration-guide/llms.txt)
+- [NCAAWB Integration Guide](https://developer.sportradar.com/basketball/docs/ncaawb-integration-guide/llms.txt)
+- [Additional Material](https://developer.sportradar.com/basketball/docs/additional-material/llms.txt)
+- [G League Integration Guide](https://developer.sportradar.com/basketball/docs/g-league-integration-guide/llms.txt)
+
+## API Reference
+
+- [API Reference index](https://developer.sportradar.com/basketball/reference/llms.txt): full section index
+- [Intro](https://developer.sportradar.com/basketball/reference/intro/llms.txt)
+- [NBA](https://developer.sportradar.com/basketball/reference/nba/llms.txt)
+- [WNBA](https://developer.sportradar.com/basketball/reference/wnba/llms.txt)
+- [NCAA Men's Basketball](https://developer.sportradar.com/basketball/reference/ncaa-mens-basketball/llms.txt)
+- [NCAA Women's Basketball](https://developer.sportradar.com/basketball/reference/ncaa-womens-basketball/llms.txt)
+- [NBA G League](https://developer.sportradar.com/basketball/reference/nba-g-league/llms.txt)
+- [Global Basketball](https://developer.sportradar.com/basketball/reference/global-basketball/llms.txt)
+- [Synergy Basketball API](https://developer.sportradar.com/basketball/reference/synergy-basketball-api/llms.txt)
+- [Unrivaled](https://developer.sportradar.com/basketball/reference/unrivaled/llms.txt)
+
+## Pages
+
+- [Pages index](https://developer.sportradar.com/basketball/page/llms.txt): full section index

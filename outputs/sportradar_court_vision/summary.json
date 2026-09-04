@@ -1,0 +1,24 @@
+{
+  "downloads": [
+    {
+      "url": "https://api-docs.sportradar.us/nba/NBA_v8_schema.zip",
+      "status": 200,
+      "bytes": 36601,
+      "ct": "application/zip",
+      "final_url": "https://api-docs.sportradar.us/nba/NBA_v8_schema.zip",
+      "sha256": "dc4912ede48c871df19018e7851afacf6f38b62188072a2b00018bb148bbbdf5"
+    },
+    {
+      "url": "https://developer.sportradar.com/basketball/llms.txt",
+      "status": 200,
+      "bytes": 2517,
+      "ct": "text/plain; charset=utf-8",
+      "final_url": "https://developer.sportradar.com/basketball/llms.txt",
+      "sha256": "631177f457fafa9d968754f0e7831dcf6d7ade57dfe1847611a6687cce418a81"
+    }
+  ],
+  "schema_file_count": 56,
+  "schema_hit_files": 26,
+  "llms_hits": 0,
+  "likely_links": []
+}
