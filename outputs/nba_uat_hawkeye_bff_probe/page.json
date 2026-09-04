@@ -1,0 +1,27 @@
+{
+  "url": "https://cdn-uat.nba.com/inside-the-game/player/shot-difficulty",
+  "status": 200,
+  "bytes": 236424,
+  "final_url": "https://cdn-uat.nba.com/inside-the-game/player/shot-difficulty",
+  "scripts": [
+    "https://cdn.nba.com/user-consent/index-gam.min.js",
+    "https://cdn-uat.nba.com/theme-loader.js",
+    "https://cdn-uat.nba.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
+    "https://cdn-uat.nba.com/_next/static/chunks/webpack-65936fb6025ad1a8.js",
+    "https://cdn-uat.nba.com/_next/static/chunks/framework-ad7abf312d5d61d4.js",
+    "https://cdn-uat.nba.com/_next/static/chunks/main-196c53f13b153e43.js",
+    "https://cdn-uat.nba.com/_next/static/chunks/pages/_app-33c5ea616251e4c3.js",
+    "https://cdn-uat.nba.com/_next/static/chunks/68866-2b57036c0cd48a32.js",
+    "https://cdn-uat.nba.com/_next/static/chunks/32044-235a90ba85d9594b.js",
+    "https://cdn-uat.nba.com/_next/static/chunks/92590-1dfe5f3068903af4.js",
+    "https://cdn-uat.nba.com/_next/static/chunks/21293-c1cf0e1083718a12.js",
+    "https://cdn-uat.nba.com/_next/static/chunks/18138-f88acd807ddb1cdd.js",
+    "https://cdn-uat.nba.com/_next/static/chunks/62458-17b32fc400e14c63.js",
+    "https://cdn-uat.nba.com/_next/static/chunks/3245-01f19ec519c167ff.js",
+    "https://cdn-uat.nba.com/_next/static/chunks/pages/inside-the-game/player/shot-difficulty-9534483b5df44d6a.js",
+    "https://cdn-uat.nba.com/_next/static/QhEgltpBK0iBCTD0sBSaZ/_buildManifest.js",
+    "https://cdn-uat.nba.com/_next/static/QhEgltpBK0iBCTD0sBSaZ/_ssgManifest.js",
+    "https://securepubads.g.doubleclick.net/tag/js/gpt.js",
+    "https://tags.nba.com/nba-web/prod/utag.js"
+  ]
+}

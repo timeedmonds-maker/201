@@ -1,0 +1,72 @@
+[
+  {
+    "url": "https://cdn-uat.nba.com/api/stats/shot-difficulty",
+    "status": 404,
+    "bytes": 4574,
+    "location": null,
+    "ct": "text/html; charset=utf-8",
+    "sha256": "b23cc394e6b967806c70a774256014397aa8df52f9787de70af4733a33993eed",
+    "prefix": "<!DOCTYPE html>\r\n                <html lang=\"en\">\r\n                <head>\r\n                \t<meta charset=\"UTF-8\">\r\n                \t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n                \t<title>Content Unavailable</title>\r\n                \t<link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\r\n                </head>\r\n                <body>\r\n                        <h1>origin-www-uat.nba.com</h1>\r\n                        <h1>/api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season</h1>\r\n                        <h1>404</h1\r\n                \t<div class=\"header\">\r\n                \t\t<svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\r\n                \t\t\t<g fill=\"none\" fill-rule=\"evenodd\">\r\n                \t\t\t\t<path\r\n                \t\t\t\t\td=\"m20.09 29.196h-3.35v-28.466h5.184l3.468 23.482c-.518-5.581-1.196-14.592-1.196-19.336v-4.146h3.349v28.466h-4.745l-3.19-22.806c.28 5.103.47"
+  },
+  {
+    "url": "https://cdn-uat.nba.com/stats/api/stats/shot-difficulty",
+    "status": 404,
+    "bytes": 4580,
+    "location": null,
+    "ct": "text/html; charset=utf-8",
+    "sha256": "9908f5b9f87a850ddd498d611e5a3894818216944e06a35a9add7dce4f21a546",
+    "prefix": "<!DOCTYPE html>\r\n                <html lang=\"en\">\r\n                <head>\r\n                \t<meta charset=\"UTF-8\">\r\n                \t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n                \t<title>Content Unavailable</title>\r\n                \t<link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\r\n                </head>\r\n                <body>\r\n                        <h1>origin-www-uat.nba.com</h1>\r\n                        <h1>/stats/api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season</h1>\r\n                        <h1>404</h1\r\n                \t<div class=\"header\">\r\n                \t\t<svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\r\n                \t\t\t<g fill=\"none\" fill-rule=\"evenodd\">\r\n                \t\t\t\t<path\r\n                \t\t\t\t\td=\"m20.09 29.196h-3.35v-28.466h5.184l3.468 23.482c-.518-5.581-1.196-14.592-1.196-19.336v-4.146h3.349v28.466h-4.745l-3.19-22.806c.28 5."
+  },
+  {
+    "url": "https://cdn-uat.nba.com/api/inside-the-game/shot-difficulty",
+    "status": 404,
+    "bytes": 4584,
+    "location": null,
+    "ct": "text/html; charset=utf-8",
+    "sha256": "aff046c2116ce6b15ed88fdc77a8eaa5754e7a40fb870fecbd25def1074e08e5",
+    "prefix": "<!DOCTYPE html>\r\n                <html lang=\"en\">\r\n                <head>\r\n                \t<meta charset=\"UTF-8\">\r\n                \t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n                \t<title>Content Unavailable</title>\r\n                \t<link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\r\n                </head>\r\n                <body>\r\n                        <h1>origin-www-uat.nba.com</h1>\r\n                        <h1>/api/inside-the-game/shot-difficulty?season=2025-26&seasonType=Regular+Season</h1>\r\n                        <h1>404</h1\r\n                \t<div class=\"header\">\r\n                \t\t<svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\r\n                \t\t\t<g fill=\"none\" fill-rule=\"evenodd\">\r\n                \t\t\t\t<path\r\n                \t\t\t\t\td=\"m20.09 29.196h-3.35v-28.466h5.184l3.468 23.482c-.518-5.581-1.196-14.592-1.196-19.336v-4.146h3.349v28.466h-4.745l-3.19-22.806c.2"
+  },
+  {
+    "url": "https://cdn-uat.nba.com/api/shot-difficulty",
+    "status": 404,
+    "bytes": 4568,
+    "location": null,
+    "ct": "text/html; charset=utf-8",
+    "sha256": "ba09af5f9f99aeaa3d3b7f04c7623245b7b419470a2a08621a73f2f74955ef4a",
+    "prefix": "<!DOCTYPE html>\r\n                <html lang=\"en\">\r\n                <head>\r\n                \t<meta charset=\"UTF-8\">\r\n                \t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n                \t<title>Content Unavailable</title>\r\n                \t<link href=\"https://fonts.googleapis.com/css2?family=Roboto&display=swap\" rel=\"stylesheet\">\r\n                </head>\r\n                <body>\r\n                        <h1>origin-www-uat.nba.com</h1>\r\n                        <h1>/api/shot-difficulty?season=2025-26&seasonType=Regular+Season</h1>\r\n                        <h1>404</h1\r\n                \t<div class=\"header\">\r\n                \t\t<svg height=\"60\" viewBox=\"0 0 51 30\" width=\"102\" xmlns=\"http://www.w3.org/2000/svg\">\r\n                \t\t\t<g fill=\"none\" fill-rule=\"evenodd\">\r\n                \t\t\t\t<path\r\n                \t\t\t\t\td=\"m20.09 29.196h-3.35v-28.466h5.184l3.468 23.482c-.518-5.581-1.196-14.592-1.196-19.336v-4.146h3.349v28.466h-4.745l-3.19-22.806c.28 5.103.479 11.2"
+  },
+  {
+    "url": "https://uat.nba.com/api/stats/shot-difficulty",
+    "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'uat.nba.com\\', port=443): Max retries exceeded with url: /api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season (Caused by NameResolutionError(\"HTTPSConnection(host=\\'uat.nba.com\\', port=443): Failed to resolve \\'uat.nba.com\\' ([Errno -2] Name or service not known)\"))'))"
+  },
+  {
+    "url": "https://www-uat.nba.com/api/stats/shot-difficulty",
+    "status": 302,
+    "bytes": 0,
+    "location": "https://corp-dev.nba.com/wp-content/login/?site=www-uat.nba.com/api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season&season=2025-26&seasonType=Regular+Season",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "url": "https://stage.nba.com/api/stats/shot-difficulty",
+    "error": "SSLError(MaxRetryError('HTTPSConnectionPool(host=\\'stage.nba.com\\', port=443): Max retries exceeded with url: /api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for \\'stage.nba.com\\'. (_ssl.c:1010)\")))'))"
+  },
+  {
+    "url": "https://staging.nba.com/api/stats/shot-difficulty",
+    "error": "ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\\'staging.nba.com\\', port=443): Max retries exceeded with url: /api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season (Caused by NameResolutionError(\"HTTPSConnection(host=\\'staging.nba.com\\', port=443): Failed to resolve \\'staging.nba.com\\' ([Errno -5] No address associated with hostname)\"))'))"
+  },
+  {
+    "url": "https://cdn.nba.com/api/stats/shot-difficulty",
+    "status": 403,
+    "bytes": 263,
+    "location": null,
+    "ct": "application/xml",
+    "sha256": "cde6d1643a6137365f0552d9e76ec5409298af90c3a20fefeae444bce38f6ae4",
+    "prefix": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>JSDG8QEYTAAQ9H6N</RequestId><HostId>iXJR3MIyRZBxLoeHvaqPKgEKbSkZBgDVG7hyQ3Yy4eFvUI87LGkwU3tcJdC1CjFXPvAComa6JKBEosAwNdeCl8293DwbD+JZ</HostId></Error>"
+  },
+  {
+    "url": "https://api.nba.net/api/stats/shot-difficulty",
+    "error": "SSLError(MaxRetryError('HTTPSConnectionPool(host=\\'api.nba.net\\', port=443): Max retries exceeded with url: /api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for \\'api.nba.net\\'. (_ssl.c:1010)\")))'))"
+  }
+]
