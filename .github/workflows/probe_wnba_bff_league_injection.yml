@@ -1,0 +1,60 @@
+name: Probe WNBA BFF league parameter injection
+
+on:
+  push:
+    branches: [analysis/hawkeye-all-players-2025-26]
+    paths: ['.github/workflows/probe_wnba_bff_league_injection.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: analysis/hawkeye-all-players-2025-26}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip -q install requests
+      - name: Test safe query-value injection variants
+        run: |
+          python - <<'PY'
+          import requests,json,pathlib,hashlib,datetime
+          s=requests.Session();s.headers.update({'User-Agent':'Mozilla/5.0','Accept':'application/json,text/plain,*/*','Referer':'https://www.wnba.com/stats/inside-the-game/shot-difficulty'})
+          u='https://www.wnba.com/api/stats/shot-difficulty'
+          vals=[
+            ('control',{'season':'2025-26','seasonType':'Regular Season'}),
+            ('season_amp_LeagueID',{'season':'2025-26&LeagueID=00','seasonType':'Regular Season'}),
+            ('season_amp_leagueId',{'season':'2025-26&leagueId=00','seasonType':'Regular Season'}),
+            ('season_amp_encoded',{'season':'2025-26%26LeagueID%3D00','seasonType':'Regular Season'}),
+            ('stype_amp_LeagueID',{'season':'2025-26','seasonType':'Regular Season&LeagueID=00'}),
+            ('stype_amp_leagueId',{'season':'2025-26','seasonType':'Regular Season&leagueId=00'}),
+            ('season_qmark',{'season':'2025-26?LeagueID=00','seasonType':'Regular Season'}),
+            ('season_hash',{'season':'2025-26#LeagueID=00','seasonType':'Regular Season'}),
+            ('season_semicolon',{'season':'2025-26;LeagueID=00','seasonType':'Regular Season'}),
+            ('season_double',{'season':'2025-26&LeagueID=00&Season=2025-26','seasonType':'Regular Season'}),
+          ]
+          out=[]
+          for label,p in vals:
+            rec={'label':label,'params':p}
+            try:
+              r=s.get(u,params=p,timeout=30);rec.update(status=r.status_code,bytes=len(r.content),url=r.url,sha256=hashlib.sha256(r.content).hexdigest(),ct=r.headers.get('content-type'))
+              if r.status_code==200:
+                j=r.json();shots=j.get('shots',[]);rec['params_echo']=j.get('params');rec['count']=len(shots);rec['first_ids']=[x.get('PLAYERID') for x in shots[:5]];rec['first_players']=[x.get('PLAYERNAME') for x in shots[:5]]
+              else:rec['prefix']=r.text[:1000]
+            except Exception as e:rec['error']=repr(e)
+            out.append(rec)
+          d=pathlib.Path('outputs/wnba_bff_league_injection');d.mkdir(parents=True,exist_ok=True)
+          (d/'report.json').write_text(json.dumps(out,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps(out,indent=2,ensure_ascii=False))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add outputs/wnba_bff_league_injection
+          git diff --cached --quiet && exit 0
+          git commit -m 'Probe WNBA BFF league parameter injection'
+          for i in 1 2 3 4 5; do git pull --rebase origin analysis/hawkeye-all-players-2025-26 && git push origin HEAD:analysis/hawkeye-all-players-2025-26 && exit 0; sleep $((i*2)); done
+          exit 1
