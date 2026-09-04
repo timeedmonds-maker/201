@@ -1,0 +1,1165 @@
+[
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_hs__HihKA",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_hs__HihKA",
+    "params": {
+      "LeagueID": "00",
+      "SeasonYear": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?LeagueID=00&SeasonYear=2025-26&SeasonType=Regular+Season",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_hs__HihKA",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?leagueId=00&seasonYear=2025-26&seasonType=Regular+Season",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_hs__HihKA",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "201567"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=201567",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_hs__HihKA",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "2544"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=2544",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_hs__HihKA",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season",
+      "playerId": "201567"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?leagueId=00&seasonYear=2025-26&seasonType=Regular+Season&playerId=201567",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_hs__HihKA",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "GameID": "0022500001"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&GameID=0022500001",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_hs__HihKA",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_hs__HihKA",
+    "params": {
+      "LeagueID": "00",
+      "SeasonYear": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_hs__HihKA",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_hs__HihKA",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "201567"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_hs__HihKA",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "2544"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_hs__HihKA",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season",
+      "playerId": "201567"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_hs__HihKA",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "GameID": "0022500001"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_playerCol__so_Sr",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_playerCol__so_Sr",
+    "params": {
+      "LeagueID": "00",
+      "SeasonYear": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?LeagueID=00&SeasonYear=2025-26&SeasonType=Regular+Season",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_playerCol__so_Sr",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?leagueId=00&seasonYear=2025-26&seasonType=Regular+Season",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_playerCol__so_Sr",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "201567"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=201567",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_playerCol__so_Sr",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "2544"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=2544",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_playerCol__so_Sr",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season",
+      "playerId": "201567"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?leagueId=00&seasonYear=2025-26&seasonType=Regular+Season&playerId=201567",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_playerCol__so_Sr",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "GameID": "0022500001"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&GameID=0022500001",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_playerCol__so_Sr",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_playerCol__so_Sr",
+    "params": {
+      "LeagueID": "00",
+      "SeasonYear": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_playerCol__so_Sr",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_playerCol__so_Sr",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "201567"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_playerCol__so_Sr",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "2544"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_playerCol__so_Sr",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season",
+      "playerId": "201567"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_playerCol__so_Sr",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "GameID": "0022500001"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_rank__ZILNa",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_rank__ZILNa",
+    "params": {
+      "LeagueID": "00",
+      "SeasonYear": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?LeagueID=00&SeasonYear=2025-26&SeasonType=Regular+Season",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_rank__ZILNa",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?leagueId=00&seasonYear=2025-26&seasonType=Regular+Season",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_rank__ZILNa",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "201567"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=201567",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_rank__ZILNa",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "2544"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=2544",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_rank__ZILNa",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season",
+      "playerId": "201567"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?leagueId=00&seasonYear=2025-26&seasonType=Regular+Season&playerId=201567",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_rank__ZILNa",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "GameID": "0022500001"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&GameID=0022500001",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_rank__ZILNa",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_rank__ZILNa",
+    "params": {
+      "LeagueID": "00",
+      "SeasonYear": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_rank__ZILNa",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_rank__ZILNa",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "201567"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_rank__ZILNa",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "2544"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_rank__ZILNa",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season",
+      "playerId": "201567"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_rank__ZILNa",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "GameID": "0022500001"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_ta__ovUnT",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_ta__ovUnT",
+    "params": {
+      "LeagueID": "00",
+      "SeasonYear": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?LeagueID=00&SeasonYear=2025-26&SeasonType=Regular+Season",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_ta__ovUnT",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?leagueId=00&seasonYear=2025-26&seasonType=Regular+Season",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_ta__ovUnT",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "201567"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=201567",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_ta__ovUnT",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "2544"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&PlayerID=2544",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_ta__ovUnT",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season",
+      "playerId": "201567"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?leagueId=00&seasonYear=2025-26&seasonType=Regular+Season&playerId=201567",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "ShotQuality_ta__ovUnT",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "GameID": "0022500001"
+    },
+    "status": 302,
+    "bytes": 0,
+    "location": "https://stats.gleague.nba.com/error/?LeagueID=00&Season=2025-26&SeasonType=Regular+Season&GameID=0022500001",
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_ta__ovUnT",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_ta__ovUnT",
+    "params": {
+      "LeagueID": "00",
+      "SeasonYear": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_ta__ovUnT",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_ta__ovUnT",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "201567"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_ta__ovUnT",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "2544"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_ta__ovUnT",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season",
+      "playerId": "201567"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "ShotQuality_ta__ovUnT",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "GameID": "0022500001"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "shotqualityleaders",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "prefix": "{\"params\":{\"leagueId\":\"00\",\"seasonType\":\"Regular Season\",\"seasonYear\":\"2025-26\"},\"shots\":[{\"PLAYERID\":201942,\"FIRSTNAME\":\"DeMar\",\"LASTNAME\":\"DeRozan\",\"PLAYERNAME\":\"DeMar DeRozan\",\"TEAMID\":1610612758,\"TEAMCITY\":\"Sacramento\",\"TEAMNAME\":\"Kings\",\"TEAMABBREVIATION\":\"SAC\",\"AVGSHOTQUALITY\":0.438,\"AVGMADESHOTQUALITY\":0.475,\"AVGMISSEDSHOTQUALITY\":0.401,\"MINSHOTQUALITYONMAKE\":0.167,\"AVGSHOTQUALITY2PT\":0.454,\"AVGMADESHOTQUALITY2PT\":0.488,\"AVGMISSEDSHOTQUALITY2PT\":0.415,\"AVGSHOTQUALITY3PT\":0.351,\"AVGMADESHO"
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "shotqualityleaders",
+    "params": {
+      "LeagueID": "00",
+      "SeasonYear": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "status": 500,
+    "bytes": 0,
+    "location": null,
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "shotqualityleaders",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season"
+    },
+    "status": 500,
+    "bytes": 0,
+    "location": null,
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "shotqualityleaders",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "201567"
+    },
+    "status": 200,
+    "bytes": 92,
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "dfeef8a59bda8a3037671ff420c27b21f628b5015f776d5d1c1f2c0600045101",
+    "json": {
+      "params": {
+        "leagueId": "00",
+        "seasonType": "Regular Season",
+        "seasonYear": "2025-26"
+      },
+      "shots": []
+    }
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "shotqualityleaders",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "2544"
+    },
+    "status": 200,
+    "bytes": 1366,
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "c32e6da80da3104c3c5ed6da2999857646d7b14a23a0e9165946252ea8a8fc69",
+    "json": {
+      "params": {
+        "leagueId": "00",
+        "seasonType": "Regular Season",
+        "seasonYear": "2025-26"
+      },
+      "shots": [
+        {
+          "PLAYERID": 2544,
+          "FIRSTNAME": "LeBron",
+          "LASTNAME": "James",
+          "PLAYERNAME": "LeBron James",
+          "JERSEYNUM": null,
+          "POSITION": null,
+          "TEAMID": 1610612747,
+          "TEAMCITY": "Los Angeles",
+          "TEAMNAME": "Lakers",
+          "TEAMABBREVIATION": "LAL",
+          "AVGSHOTQUALITY": 0.512,
+          "AVGMADESHOTQUALITY": 0.608,
+          "AVGMISSEDSHOTQUALITY": 0.406,
+          "MINSHOTQUALITYONMAKE": 0.016,
+          "AVGSHOTQUALITY2PT": 0.572,
+          "AVGMADESHOTQUALITY2PT": 0.658,
+          "AVGMISSEDSHOTQUALITY2PT": 0.445,
+          "AVGSHOTQUALITY3PT": 0.342,
+          "AVGMADESHOTQUALITY3PT": 0.345,
+          "AVGMISSEDSHOTQUALITY3PT": 0.34,
+          "FGPCT": 0.515,
+          "FGPCTABOVEEXPECTED": 0.003,
+          "FG3PCT": 0.317,
+          "FG3PCTABOVEEXPECTED": -0.025,
+          "AVGDEFENSIVEHANDHEIGHT": 85.269,
+          "AVGDEFENDERBALLDISTANCE": 47.7,
+          "AVGSHOOTERSPEED": 6.882,
+          "AVGROTATIONDEGREES": 0.0,
+          "AVGDEFENDERPRESSURESCORE": 0.829,
+          "AVGSHOTQUALITY_RANK": 25,
+          "AVGMADESHOTQUALITY_RANK": 19,
+          "AVGMISSEDSHOTQUALITY_RANK": 51,
+          "MINSHOTQUALITYONMAKE_RANK": 6,
+          "AVGSHOTQUALITY2PT_RANK": 28,
+          "AVGMADESHOTQUALITY2PT_RANK": 25,
+          "AVGMISSEDSHOTQUALITY2PT_RANK": 47,
+          "AVGSHOTQUALITY3PT_RANK": 116,
+          "AVGMADESHOTQUALITY3PT_RANK": 113,
+          "AVGMISSEDSHOTQUALITY3PT_RANK": 112,
+          "FGPCT_RANK": 27,
+          "FGPCTABOVEEXPECTED_RANK": 86,
+          "FG3PCT_RANK": 104,
+          "FG3PCTABOVEEXPECTED_RANK": 86,
+          "AVGDEFENSIVEHANDHEIGHT_RANK": 80,
+          "AVGDEFENDERBALLDISTANCE_RANK": 2,
+          "AVGSHOOTERSPEED_RANK": 7,
+          "AVGROTATIONDEGREES_RANK": 1,
+          "AVGDEFENDERPRESSURESCORE_RANK": 53
+        }
+      ]
+    }
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "shotqualityleaders",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season",
+      "playerId": "201567"
+    },
+    "status": 500,
+    "bytes": 0,
+    "location": null,
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "shotqualityleaders",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "GameID": "0022500001"
+    },
+    "status": 200,
+    "bytes": 174916,
+    "location": null,
+    "ct": "application/json; charset=utf-8",
+    "sha256": "5322a80cc634a2eaa53abbfd1b1387a02beacd860b113736a9e44afa4cf57372",
+    "prefix": "{\"params\":{\"leagueId\":\"00\",\"seasonType\":\"Regular Season\",\"seasonYear\":\"2025-26\"},\"shots\":[{\"PLAYERID\":201942,\"FIRSTNAME\":\"DeMar\",\"LASTNAME\":\"DeRozan\",\"PLAYERNAME\":\"DeMar DeRozan\",\"TEAMID\":1610612758,\"TEAMCITY\":\"Sacramento\",\"TEAMNAME\":\"Kings\",\"TEAMABBREVIATION\":\"SAC\",\"AVGSHOTQUALITY\":0.438,\"AVGMADESHOTQUALITY\":0.475,\"AVGMISSEDSHOTQUALITY\":0.401,\"MINSHOTQUALITYONMAKE\":0.167,\"AVGSHOTQUALITY2PT\":0.454,\"AVGMADESHOTQUALITY2PT\":0.488,\"AVGMISSEDSHOTQUALITY2PT\":0.415,\"AVGSHOTQUALITY3PT\":0.351,\"AVGMADESHO"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "shotqualityleaders",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "shotqualityleaders",
+    "params": {
+      "LeagueID": "00",
+      "SeasonYear": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "shotqualityleaders",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "shotqualityleaders",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "201567"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "shotqualityleaders",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "2544"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "shotqualityleaders",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season",
+      "playerId": "201567"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "shotqualityleaders",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "GameID": "0022500001"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "shotqualityvideologs",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "status": 500,
+    "bytes": 0,
+    "location": null,
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "shotqualityvideologs",
+    "params": {
+      "LeagueID": "00",
+      "SeasonYear": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "status": 500,
+    "bytes": 0,
+    "location": null,
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "shotqualityvideologs",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season"
+    },
+    "status": 500,
+    "bytes": 0,
+    "location": null,
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "shotqualityvideologs",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "201567"
+    },
+    "status": 500,
+    "bytes": 0,
+    "location": null,
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "shotqualityvideologs",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "2544"
+    },
+    "status": 500,
+    "bytes": 0,
+    "location": null,
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "shotqualityvideologs",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season",
+      "playerId": "201567"
+    },
+    "status": 500,
+    "bytes": 0,
+    "location": null,
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.gleague.nba.com/stats/",
+    "resource": "shotqualityvideologs",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "GameID": "0022500001"
+    },
+    "status": 500,
+    "bytes": 0,
+    "location": null,
+    "ct": null,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prefix": ""
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "shotqualityvideologs",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "shotqualityvideologs",
+    "params": {
+      "LeagueID": "00",
+      "SeasonYear": "2025-26",
+      "SeasonType": "Regular Season"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "shotqualityvideologs",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "shotqualityvideologs",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "201567"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "shotqualityvideologs",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "PlayerID": "2544"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "shotqualityvideologs",
+    "params": {
+      "leagueId": "00",
+      "seasonYear": "2025-26",
+      "seasonType": "Regular Season",
+      "playerId": "201567"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  },
+  {
+    "base": "https://stats.nba.com/stats/",
+    "resource": "shotqualityvideologs",
+    "params": {
+      "LeagueID": "00",
+      "Season": "2025-26",
+      "SeasonType": "Regular Season",
+      "GameID": "0022500001"
+    },
+    "error": "ReadTimeout(ReadTimeoutError(\"HTTPSConnectionPool(host='stats.nba.com', port=443): Read timed out. (read timeout=15)\"))"
+  }
+]

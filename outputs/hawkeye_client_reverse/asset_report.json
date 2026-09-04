@@ -1,0 +1,289 @@
+[
+  {
+    "url": "https://assets.adobedtm.com/launch-EN69bdae0fe88d424a8122f2159541a612.min.js",
+    "status": 200,
+    "bytes": 176838,
+    "ct": "application/x-javascript",
+    "sha256": "19cd83a010a72a4c1dac80a6867561cfc8ac256c656b1f4f13373b6ddd95f69a"
+  },
+  {
+    "url": "https://cdn.nba.com/user-consent/index-gam.min.js",
+    "status": 200,
+    "bytes": 18292,
+    "ct": "text/javascript",
+    "sha256": "fb0a2b763addefd3d629dd4adf897ce3ba007f6d96d5711b3ea1c959b255f4c7"
+  },
+  {
+    "url": "https://cdn.nba.com/user-consent/index.min.js",
+    "status": 200,
+    "bytes": 18292,
+    "ct": "text/javascript",
+    "sha256": "fb0a2b763addefd3d629dd4adf897ce3ba007f6d96d5711b3ea1c959b255f4c7"
+  },
+  {
+    "url": "https://securepubads.g.doubleclick.net/tag/js/gpt.js",
+    "status": 200,
+    "bytes": 126494,
+    "ct": "text/javascript; charset=UTF-8",
+    "sha256": "adcb8c73bdb98d1f21273ce345ad81f0e8bc336797fc19f394a53d9c2e7af6bd"
+  },
+  {
+    "url": "https://stats.wnba.com/adobe-launch.js",
+    "status": 200,
+    "bytes": 2494,
+    "ct": "application/javascript",
+    "sha256": "daca795d9c02133cccbb5a43c8cf1a5db8c2de5bf820ecf8298228d85db32f21"
+  },
+  {
+    "url": "https://stats.wnba.com/js/data/ptsd/stats_ptsd.js",
+    "status": 200,
+    "bytes": 58075,
+    "ct": "application/x-javascript",
+    "sha256": "f991f51980aeb5040bf1f0bb0b55f21358d2f2780bed9bfd7860f8be3da3448a"
+  },
+  {
+    "url": "https://stats.wnba.com/scripts/theme.min.js?rev=67e61fdafb8088cab717ea2bf5fe8f76",
+    "status": 200,
+    "bytes": 401747,
+    "ct": "application/javascript",
+    "sha256": "48b31cb59b01ddba7c85fd1baf2b7bd74980e05e61dedf4573d61a8d39e67980"
+  },
+  {
+    "url": "https://stats.wnba.com/scripts/vendor.min.js",
+    "status": 200,
+    "bytes": 1259591,
+    "ct": "application/javascript",
+    "sha256": "a2f09272e895ca50517e9b5d4d2ea260d9d3f34ace9aa5f35173413e0fdabb72"
+  },
+  {
+    "url": "https://tags.nba.com/nba-web/prod/utag.js",
+    "status": 200,
+    "bytes": 174490,
+    "ct": "application/javascript",
+    "sha256": "898b6b97ff55e1e1799d89bfcb8976258a16f060217e78b3ff378aa7ecdb52d7"
+  },
+  {
+    "url": "https://www.nba.com/_next/static/4V8xkN7kTM7jBu03RBIXc/_buildManifest.js",
+    "status": 200,
+    "bytes": 85784,
+    "ct": "application/javascript; charset=UTF-8",
+    "sha256": "5b3e0067031a88bc0772e4a09c2c3e1bb8a812f337bfa91ebc76043fd4f42963"
+  },
+  {
+    "url": "https://www.nba.com/_next/static/4V8xkN7kTM7jBu03RBIXc/_ssgManifest.js",
+    "status": 200,
+    "bytes": 77,
+    "ct": "application/javascript; charset=UTF-8",
+    "sha256": "6f5b4aa00d2f8d6aed9935b471806bf7acef464d0c1d390260e5fe27f800c67e"
+  },
+  {
+    "url": "https://www.nba.com/_next/static/chunks/13875-454a28b96af0c977.js",
+    "status": 200,
+    "bytes": 9820,
+    "ct": "application/javascript; charset=UTF-8",
+    "sha256": "7be678d5fcd290cc6c77b878de132e9e8c12efc4ae46e3896ec63eabae7572d3"
+  },
+  {
+    "url": "https://www.nba.com/_next/static/chunks/15964-836461f8faac1d2a.js",
+    "status": 200,
+    "bytes": 30407,
+    "ct": "application/javascript; charset=UTF-8",
+    "sha256": "ddbaf72ca074affb08087a2944b083ce7bf391d0abbd63fd5595006b0b7d22f7"
+  },
+  {
+    "url": "https://www.nba.com/_next/static/chunks/31863-360bbe6a5787568f.js",
+    "status": 200,
+    "bytes": 12735,
+    "ct": "application/javascript; charset=UTF-8",
+    "sha256": "8ec0825fd24b3b441f6cbabf1972bb9f37006a11b9326f3accc0026024c8f05c"
+  },
+  {
+    "url": "https://www.nba.com/_next/static/chunks/32044-099e1d31a77e2211.js",
+    "status": 200,
+    "bytes": 213358,
+    "ct": "application/javascript; charset=UTF-8",
+    "sha256": "065c1695d234c16d3fd34d2f26b057a7c1e859ccd399e8fd62589de88c6b3126"
+  },
+  {
+    "url": "https://www.nba.com/_next/static/chunks/3245-01f19ec519c167ff.js",
+    "status": 200,
+    "bytes": 16694,
+    "ct": "application/javascript; charset=UTF-8",
+    "sha256": "36a9344523ab139c5d393a8f4a8ee03b6dab921a838355742db13a601e5c756f"
+  },
+  {
+    "url": "https://www.nba.com/_next/static/chunks/63986-f8dcd63b18225967.js",
+    "status": 200,
+    "bytes": 42646,
+    "ct": "application/javascript; charset=UTF-8",
+    "sha256": "92d3438c67ee3efe476d528ad5c7bd8650bb3844fdadcadf1be91d9d56e5c183"
+  },
+  {
+    "url": "https://www.nba.com/_next/static/chunks/68866-2b57036c0cd48a32.js",
+    "status": 200,
+    "bytes": 32194,
+    "ct": "application/javascript; charset=UTF-8",
+    "sha256": "29337451cca79d945154507a792a8824ee5a746035a4e44cead3ce4563387466"
+  },
+  {
+    "url": "https://www.nba.com/_next/static/chunks/92590-1dfe5f3068903af4.js",
+    "status": 200,
+    "bytes": 8547,
+    "ct": "application/javascript; charset=UTF-8",
+    "sha256": "e7ed856f5efa87816e4e077ac7dadc33dbf8bf083f41cac92daa02de9441f7f3"
+  },
+  {
+    "url": "https://www.nba.com/_next/static/chunks/framework-ad7abf312d5d61d4.js",
+    "status": 200,
+    "bytes": 140992,
+    "ct": "application/javascript; charset=UTF-8",
+    "sha256": "b6dd0a6aa73ef831f02b5dc5acca428abf8ee9ad6b8feca211d4defe2b07e79b"
+  },
+  {
+    "url": "https://www.nba.com/_next/static/chunks/main-196c53f13b153e43.js",
+    "status": 200,
+    "bytes": 121519,
+    "ct": "application/javascript; charset=UTF-8",
+    "sha256": "5f2d12db433d14cd3b87ae7de76a0ee102d7c4c645aafd02125f90ce18567c70"
+  },
+  {
+    "url": "https://www.nba.com/_next/static/chunks/pages/_app-17641b50b12c156d.js",
+    "status": 200,
+    "bytes": 1430758,
+    "ct": "application/javascript; charset=UTF-8",
+    "sha256": "b8610c6c340f1e0a7af6ab028534a65b16636e3a6b1805ed48fa73ad1d77ee33"
+  },
+  {
+    "url": "https://www.nba.com/_next/static/chunks/pages/stats-ba7d21f8058bad7a.js",
+    "status": 200,
+    "bytes": 313,
+    "ct": "application/javascript; charset=UTF-8",
+    "sha256": "a317fc8437a1de5d0bbab95bbd04c484aac6eb2b28fc277edd3f26068f6b4794"
+  },
+  {
+    "url": "https://www.nba.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
+    "status": 200,
+    "bytes": 112594,
+    "ct": "application/javascript; charset=UTF-8",
+    "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683"
+  },
+  {
+    "url": "https://www.nba.com/_next/static/chunks/webpack-b21b30b4d5eb111b.js",
+    "status": 200,
+    "bytes": 11889,
+    "ct": "application/javascript; charset=UTF-8",
+    "sha256": "9040543072aeca37e3e05e1d78c161c27212474f194735cadd9842d42540ae2f"
+  },
+  {
+    "url": "https://www.nba.com/cxbKJOtCV/n7v5cJQa/A/XEYObmaODiiEmOitEp/OwoJHgE/WWQ/bcmp3BCEB",
+    "status": 200,
+    "bytes": 578116,
+    "ct": "application/javascript",
+    "sha256": "04bae822f55c27f59961801e88386dc115d1fd165191f011eb525d720861a29d"
+  },
+  {
+    "url": "https://www.nba.com/cxbKJOtCV/n7v5cJQa/A/XLYObmaODiiE/c0MRHgE/FyR/qNQduan0Y?v=06864412-4513-b0f2-e5ff-043bbb1017c6",
+    "status": 200,
+    "bytes": 507958,
+    "ct": "application/javascript",
+    "sha256": "5984d1c5d853e8ac4d15e1fab4e19b9c671d00c4d035f014aab4c15332e2c001"
+  },
+  {
+    "url": "https://www.nba.com/theme-loader.js",
+    "status": 200,
+    "bytes": 361,
+    "ct": "application/javascript; charset=UTF-8",
+    "sha256": "f04c56a4103bcdf34eec5299aa6e838cdd4a9df36ba7bdc6606214935fb24e7a"
+  },
+  {
+    "url": "https://www.wnba.com/Lvw6ZG/Xz/oH/9rdw/LDz9Nh74vmJIA/Smw1bzEb/LA1aAQ/eQNnT/Ed7UhQZ?v=f15841e0-69f6-3c8d-5dc5-aa54e2c2172f",
+    "status": 200,
+    "bytes": 507958,
+    "ct": "application/javascript",
+    "sha256": "5984d1c5d853e8ac4d15e1fab4e19b9c671d00c4d035f014aab4c15332e2c001"
+  },
+  {
+    "url": "https://www.wnba.com/Lvw6ZG/Xz/oH/9rdw/LDz9Nh74vmJIA/Ytw1bzEbNYb1EO/IDZSAQ/VlAxK/XUALEMB",
+    "status": 200,
+    "bytes": 578116,
+    "ct": "application/javascript",
+    "sha256": "04bae822f55c27f59961801e88386dc115d1fd165191f011eb525d720861a29d"
+  },
+  {
+    "url": "https://www.wnba.com/_next/static/4_6g5XQe5hGVuoMnmFXJm/_buildManifest.js",
+    "status": 200,
+    "bytes": 18228,
+    "ct": "text/javascript",
+    "sha256": "be33e09137a8ddf1587ba8cf006ed4e2faa85ca599a143fa4d9fe7ab16ac9926"
+  },
+  {
+    "url": "https://www.wnba.com/_next/static/4_6g5XQe5hGVuoMnmFXJm/_ssgManifest.js",
+    "status": 200,
+    "bytes": 91,
+    "ct": "text/javascript",
+    "sha256": "ddeea69d5116852145775870dab4d86b4e909e7a02c03465efaa67d5b0f744be"
+  },
+  {
+    "url": "https://www.wnba.com/_next/static/chunks/5675-34dec35de85b2a2f.js",
+    "status": 200,
+    "bytes": 9552,
+    "ct": "text/javascript",
+    "sha256": "f4bd36f1450c8c741ca70ce929ccc65826c8878e0c722b85eec853cf956a9e9c"
+  },
+  {
+    "url": "https://www.wnba.com/_next/static/chunks/e28bfcc5-3aca0feaffbda3ac.js",
+    "status": 200,
+    "bytes": 651976,
+    "ct": "text/javascript",
+    "sha256": "ed4597b95c60faec944a2936f43f1b4d364c2fe2616ba09ad3af9e1e081aa4fe"
+  },
+  {
+    "url": "https://www.wnba.com/_next/static/chunks/framework-b0ec748c7a4c483a.js",
+    "status": 200,
+    "bytes": 140040,
+    "ct": "text/javascript",
+    "sha256": "f64e22c653d617519d1a432f82ff7441395b57e84e19a82179e8ae1c8000506c"
+  },
+  {
+    "url": "https://www.wnba.com/_next/static/chunks/main-a0c9a6bd28bf8556.js",
+    "status": 200,
+    "bytes": 116849,
+    "ct": "text/javascript",
+    "sha256": "e42b1f6cb50d519a08f58f2ce3cfbdb86a6f7325d23523092eebfae54ff19d97"
+  },
+  {
+    "url": "https://www.wnba.com/_next/static/chunks/pages/_app-a02772bdeee21ecb.js",
+    "status": 200,
+    "bytes": 3743322,
+    "ct": "text/javascript",
+    "sha256": "0104af32ce73b3f62cf4b9693d56fd18d974ad82f609bb3f20d42a32d225aa39"
+  },
+  {
+    "url": "https://www.wnba.com/_next/static/chunks/pages/index-9b453d4058543486.js",
+    "status": 200,
+    "bytes": 21101,
+    "ct": "text/javascript",
+    "sha256": "ac52d8c777f0f35cec5191e3137832a4d5aa14b115cccaa894d3368014262de4"
+  },
+  {
+    "url": "https://www.wnba.com/_next/static/chunks/polyfills-42372ed130431b0a.js",
+    "status": 200,
+    "bytes": 112594,
+    "ct": "text/javascript",
+    "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683"
+  },
+  {
+    "url": "https://www.wnba.com/_next/static/chunks/webpack-6f7b1042af2a14b6.js",
+    "status": 200,
+    "bytes": 1708,
+    "ct": "text/javascript",
+    "sha256": "6b7af247d694db3e0081d4b14194c41585f6c740c6c8f6d23e368084ec797879"
+  },
+  {
+    "url": "https://www.wnba.com/include/wnba-nav-footer.js",
+    "status": 200,
+    "bytes": 1562577,
+    "ct": "text/javascript",
+    "sha256": "c71f9842065b6dbc2581c269cbb320ea43a3dad267b9dcd1fadda0e0858c3f55"
+  }
+]

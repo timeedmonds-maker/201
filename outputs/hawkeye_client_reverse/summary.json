@@ -1,0 +1,85 @@
+{
+  "retrieved_at_utc": "2026-09-04T10:11:05.509591+00:00",
+  "pages": [
+    {
+      "url": "https://www.wnba.com/",
+      "status": 200,
+      "bytes": 257696,
+      "final": "https://www.wnba.com/"
+    },
+    {
+      "url": "https://www.wnba.com/stats",
+      "status": 200,
+      "bytes": 130924,
+      "final": "https://stats.wnba.com"
+    },
+    {
+      "url": "https://www.nba.com/stats",
+      "status": 200,
+      "bytes": 431112,
+      "final": "https://www.nba.com/stats"
+    },
+    {
+      "url": "https://www.nba.com/stats/inside-the-game/shot-difficulty",
+      "status": 404,
+      "bytes": 4652,
+      "final": "https://www.nba.com/stats/inside-the-game/shot-difficulty"
+    }
+  ],
+  "asset_count": 41,
+  "context_hits": 8,
+  "shotquality_literals": [
+    "ShotQuality_hs__HihKA",
+    "ShotQuality_playerCol__so_Sr",
+    "ShotQuality_rank__ZILNa",
+    "ShotQuality_ta__ovUnT",
+    "shotqualityleaders",
+    "shotqualityvideologs"
+  ],
+  "probe_count": 84,
+  "probe_200_nonempty": [
+    [
+      "https://stats.gleague.nba.com/stats/",
+      "shotqualityleaders",
+      {
+        "LeagueID": "00",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season"
+      },
+      174916
+    ],
+    [
+      "https://stats.gleague.nba.com/stats/",
+      "shotqualityleaders",
+      {
+        "LeagueID": "00",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season",
+        "PlayerID": "201567"
+      },
+      92
+    ],
+    [
+      "https://stats.gleague.nba.com/stats/",
+      "shotqualityleaders",
+      {
+        "LeagueID": "00",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season",
+        "PlayerID": "2544"
+      },
+      1366
+    ],
+    [
+      "https://stats.gleague.nba.com/stats/",
+      "shotqualityleaders",
+      {
+        "LeagueID": "00",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season",
+        "GameID": "0022500001"
+      },
+      174916
+    ]
+  ]
+}
