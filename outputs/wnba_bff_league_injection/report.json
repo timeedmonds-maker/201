@@ -1,0 +1,227 @@
+[
+  {
+    "label": "control",
+    "params": {
+      "season": "2025-26",
+      "seasonType": "Regular Season"
+    },
+    "status": 200,
+    "bytes": 86790,
+    "url": "https://www.wnba.com/api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season",
+    "sha256": "e2eaf495abb3695580fa44aa2d4546cef97b35aa0cc99f0d0a6aed67989deaac",
+    "ct": "application/json; charset=utf-8",
+    "params_echo": {
+      "leagueId": "10",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025"
+    },
+    "count": 61,
+    "first_ids": [
+      1631022,
+      202250,
+      1642291,
+      1642792,
+      203398
+    ],
+    "first_players": [
+      "Shakira Austin",
+      "Tina Charles",
+      "Angel Reese",
+      "Kiki Iriafen",
+      "Brittney Griner"
+    ]
+  },
+  {
+    "label": "season_amp_LeagueID",
+    "params": {
+      "season": "2025-26&LeagueID=00",
+      "seasonType": "Regular Season"
+    },
+    "status": 200,
+    "bytes": 86790,
+    "url": "https://www.wnba.com/api/stats/shot-difficulty?season=2025-26%26LeagueID%3D00&seasonType=Regular+Season",
+    "sha256": "e2eaf495abb3695580fa44aa2d4546cef97b35aa0cc99f0d0a6aed67989deaac",
+    "ct": "application/json; charset=utf-8",
+    "params_echo": {
+      "leagueId": "10",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025"
+    },
+    "count": 61,
+    "first_ids": [
+      1631022,
+      202250,
+      1642291,
+      1642792,
+      203398
+    ],
+    "first_players": [
+      "Shakira Austin",
+      "Tina Charles",
+      "Angel Reese",
+      "Kiki Iriafen",
+      "Brittney Griner"
+    ]
+  },
+  {
+    "label": "season_amp_leagueId",
+    "params": {
+      "season": "2025-26&leagueId=00",
+      "seasonType": "Regular Season"
+    },
+    "status": 200,
+    "bytes": 86790,
+    "url": "https://www.wnba.com/api/stats/shot-difficulty?season=2025-26%26leagueId%3D00&seasonType=Regular+Season",
+    "sha256": "e2eaf495abb3695580fa44aa2d4546cef97b35aa0cc99f0d0a6aed67989deaac",
+    "ct": "application/json; charset=utf-8",
+    "params_echo": {
+      "leagueId": "10",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025"
+    },
+    "count": 61,
+    "first_ids": [
+      1631022,
+      202250,
+      1642291,
+      1642792,
+      203398
+    ],
+    "first_players": [
+      "Shakira Austin",
+      "Tina Charles",
+      "Angel Reese",
+      "Kiki Iriafen",
+      "Brittney Griner"
+    ]
+  },
+  {
+    "label": "season_amp_encoded",
+    "params": {
+      "season": "2025-26%26LeagueID%3D00",
+      "seasonType": "Regular Season"
+    },
+    "status": 500,
+    "bytes": 78,
+    "url": "https://www.wnba.com/api/stats/shot-difficulty?season=2025-26%2526LeagueID%253D00&seasonType=Regular+Season",
+    "sha256": "0fcab6054cc8303bb46b829e1762d7f117bb4aa1e45d2246a36464b2f6b8599f",
+    "ct": "application/json; charset=utf-8",
+    "prefix": "{\"error\":\"Error: 400 Bad Request: {\\\"season\\\":[\\\"Parameter must be valid\\\"]}\"}"
+  },
+  {
+    "label": "stype_amp_LeagueID",
+    "params": {
+      "season": "2025-26",
+      "seasonType": "Regular Season&LeagueID=00"
+    },
+    "status": 500,
+    "bytes": 82,
+    "url": "https://www.wnba.com/api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season%26LeagueID%3D00",
+    "sha256": "a683e1cee8882d3688cbceb790950344e722bc51db759f0e42451ea2f944892a",
+    "ct": "application/json; charset=utf-8",
+    "prefix": "{\"error\":\"Error: 400 Bad Request: {\\\"seasonType\\\":[\\\"Parameter must be valid\\\"]}\"}"
+  },
+  {
+    "label": "stype_amp_leagueId",
+    "params": {
+      "season": "2025-26",
+      "seasonType": "Regular Season&leagueId=00"
+    },
+    "status": 500,
+    "bytes": 82,
+    "url": "https://www.wnba.com/api/stats/shot-difficulty?season=2025-26&seasonType=Regular+Season%26leagueId%3D00",
+    "sha256": "a683e1cee8882d3688cbceb790950344e722bc51db759f0e42451ea2f944892a",
+    "ct": "application/json; charset=utf-8",
+    "prefix": "{\"error\":\"Error: 400 Bad Request: {\\\"seasonType\\\":[\\\"Parameter must be valid\\\"]}\"}"
+  },
+  {
+    "label": "season_qmark",
+    "params": {
+      "season": "2025-26?LeagueID=00",
+      "seasonType": "Regular Season"
+    },
+    "status": 500,
+    "bytes": 78,
+    "url": "https://www.wnba.com/api/stats/shot-difficulty?season=2025-26%3FLeagueID%3D00&seasonType=Regular+Season",
+    "sha256": "0fcab6054cc8303bb46b829e1762d7f117bb4aa1e45d2246a36464b2f6b8599f",
+    "ct": "application/json; charset=utf-8",
+    "prefix": "{\"error\":\"Error: 400 Bad Request: {\\\"season\\\":[\\\"Parameter must be valid\\\"]}\"}"
+  },
+  {
+    "label": "season_hash",
+    "params": {
+      "season": "2025-26#LeagueID=00",
+      "seasonType": "Regular Season"
+    },
+    "status": 200,
+    "bytes": 86790,
+    "url": "https://www.wnba.com/api/stats/shot-difficulty?season=2025-26%23LeagueID%3D00&seasonType=Regular+Season",
+    "sha256": "e2eaf495abb3695580fa44aa2d4546cef97b35aa0cc99f0d0a6aed67989deaac",
+    "ct": "application/json; charset=utf-8",
+    "params_echo": {
+      "leagueId": "10",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025"
+    },
+    "count": 61,
+    "first_ids": [
+      1631022,
+      202250,
+      1642291,
+      1642792,
+      203398
+    ],
+    "first_players": [
+      "Shakira Austin",
+      "Tina Charles",
+      "Angel Reese",
+      "Kiki Iriafen",
+      "Brittney Griner"
+    ]
+  },
+  {
+    "label": "season_semicolon",
+    "params": {
+      "season": "2025-26;LeagueID=00",
+      "seasonType": "Regular Season"
+    },
+    "status": 500,
+    "bytes": 78,
+    "url": "https://www.wnba.com/api/stats/shot-difficulty?season=2025-26%3BLeagueID%3D00&seasonType=Regular+Season",
+    "sha256": "0fcab6054cc8303bb46b829e1762d7f117bb4aa1e45d2246a36464b2f6b8599f",
+    "ct": "application/json; charset=utf-8",
+    "prefix": "{\"error\":\"Error: 400 Bad Request: {\\\"season\\\":[\\\"Parameter must be valid\\\"]}\"}"
+  },
+  {
+    "label": "season_double",
+    "params": {
+      "season": "2025-26&LeagueID=00&Season=2025-26",
+      "seasonType": "Regular Season"
+    },
+    "status": 200,
+    "bytes": 86790,
+    "url": "https://www.wnba.com/api/stats/shot-difficulty?season=2025-26%26LeagueID%3D00%26Season%3D2025-26&seasonType=Regular+Season",
+    "sha256": "e2eaf495abb3695580fa44aa2d4546cef97b35aa0cc99f0d0a6aed67989deaac",
+    "ct": "application/json; charset=utf-8",
+    "params_echo": {
+      "leagueId": "10",
+      "seasonType": "Regular Season",
+      "seasonYear": "2025"
+    },
+    "count": 61,
+    "first_ids": [
+      1631022,
+      202250,
+      1642291,
+      1642792,
+      203398
+    ],
+    "first_players": [
+      "Shakira Austin",
+      "Tina Charles",
+      "Angel Reese",
+      "Kiki Iriafen",
+      "Brittney Griner"
+    ]
+  }
+]
