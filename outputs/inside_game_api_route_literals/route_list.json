@@ -1,0 +1,25 @@
+{
+  "wnba": [
+    "/api/stats/shot-difficulty?season=",
+    "/api/stats/shot-quality-shooting?gameDate=",
+    "/api/stats/shot-quality?season=",
+    "/api/stats/timeframe?season=",
+    "SHOTQUALITY2PT",
+    "SHOTQUALITY3PT",
+    "SHOTQUALITYONMAKE",
+    "shotqualityleaders",
+    "shotqualitytopperformersseason"
+  ],
+  "nba": [
+    "SHOTQUALITY2PT",
+    "SHOTQUALITY3PT",
+    "SHOTQUALITYONMAKE",
+    "ShotQuality_hs__HihKA",
+    "ShotQuality_playerCol__so_Sr",
+    "ShotQuality_rank__ZILNa",
+    "ShotQuality_ta__ovUnT",
+    "shotQualityLogs",
+    "shotqualityleaders",
+    "shotqualityshotlog"
+  ]
+}
